@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-retrieval-request@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "rootScopeId",
+    "query",
+    "scopeIds",
+    "releaseId",
+    "asOf",
+    "limit",
+    "mode",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-retrieval-request@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "query": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "scopeIds": {
+      "type": "array",
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "releaseId": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/id" }
+      ]
+    },
+    "asOf": { "type": "string", "format": "date-time" },
+    "limit": { "type": "integer", "minimum": 1, "maximum": 50 },
+    "mode": { "const": "shadow" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

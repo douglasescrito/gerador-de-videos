@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/provider-registry@1",
+  "type": "object",
+  "required": ["schema", "checkedAt", "providers"],
+  "properties": {
+    "schema": { "const": "mkt-videos/provider-registry@1" },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "providers": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "operations",
+          "auth",
+          "authContract",
+          "reconcile",
+          "stability",
+          "status",
+          "deliveryDependencyAllowed",
+          "evidence",
+          "checkedAt",
+          "ttlSeconds",
+          "health"
+        ],
+        "properties": {
+          "status": { "enum": ["supported", "pending", "blocked", "deprecated"] },
+          "deliveryDependencyAllowed": { "type": "boolean" },
+          "checkedAt": { "type": "string", "format": "date-time" },
+          "ttlSeconds": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    }
+  }
+}

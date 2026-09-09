@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/production-request-lifecycle-event@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "requestId", "rootScopeId", "kind", "actor", "at", "reason", "productionId"],
+  "properties": {
+    "schema": { "const": "mkt-videos/production-request-lifecycle-event@1" },
+    "requestId": { "type": "string", "pattern": "^preq_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "kind": { "enum": ["accepted", "rejected", "cancelled", "production-linked", "completed"] },
+    "actor": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "at": { "type": "string", "format": "date-time" },
+    "reason": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 2000 }, { "type": "null" }] },
+    "productionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "production-linked" } }, "required": ["kind"] },
+      "then": { "properties": { "productionId": { "$ref": "#/$defs/id" } } },
+      "else": { "properties": { "productionId": { "type": "null" } } }
+    },
+    {
+      "if": { "properties": { "kind": { "enum": ["rejected", "cancelled"] } }, "required": ["kind"] },
+      "then": { "properties": { "reason": { "type": "string", "minLength": 1, "maxLength": 2000 } } }
+    }
+  ],
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" }
+  }
+}

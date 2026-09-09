@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/effective-rights@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "authority",
+    "evaluatedAt",
+    "target",
+    "rightsHead",
+    "permissions",
+    "allAllowed",
+    "decisionHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/effective-rights@1"
+    },
+    "authority": {
+      "const": "knowledge-store-head-only"
+    },
+    "evaluatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "rootScopeId",
+        "id",
+        "revision",
+        "contentHash",
+        "status"
+      ],
+      "properties": {
+        "rootScopeId": {
+          "$ref": "#/$defs/id"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "status": {
+          "enum": [
+            "active",
+            "candidate",
+            "superseded",
+            "revoked",
+            "quarantined"
+          ]
+        }
+      }
+    },
+    "rightsHead": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "id",
+            "revision",
+            "contentHash",
+            "status",
+            "targetMatches"
+          ],
+          "properties": {
+            "id": {
+              "$ref": "#/$defs/id"
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 1
+            },
+            "contentHash": {
+              "$ref": "#/$defs/hash"
+            },
+            "status": {
+              "enum": [
+                "active",
+                "candidate",
+                "superseded",
+                "revoked",
+                "quarantined"
+              ]
+            },
+            "targetMatches": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory",
+        "localAnalysis",
+        "textualIndexing",
+        "embedding",
+        "training",
+        "providerInput",
+        "publication",
+        "reuse"
+      ],
+      "properties": {
+        "inventory": { "$ref": "#/$defs/result" },
+        "localAnalysis": { "$ref": "#/$defs/result" },
+        "textualIndexing": { "$ref": "#/$defs/result" },
+        "embedding": { "$ref": "#/$defs/result" },
+        "training": { "$ref": "#/$defs/result" },
+        "providerInput": { "$ref": "#/$defs/result" },
+        "publication": { "$ref": "#/$defs/result" },
+        "reuse": { "$ref": "#/$defs/result" }
+      }
+    },
+    "allAllowed": {
+      "type": "boolean"
+    },
+    "decisionHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "allowed", "reason"],
+      "properties": {
+        "state": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "allowed": {
+          "type": "boolean"
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        }
+      }
+    }
+  }
+}

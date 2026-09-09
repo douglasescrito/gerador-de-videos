@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-design-invisivel-60s",
+  "label": "Manifesto de Marca (60s) · O Design Invisível (Minimalismo & Dieter Rams)",
+  "description": "Manifesto conceitual de design industrial em 16:9: superfícies de alumínio anodizado fosco, linhas de corte milimétricas, eliminação de todo elemento supérfluo e harmonia ergonômica absoluta.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-minimal-design@1",
+  "collection": "manifesto-design-invisivel-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia minimalista de design",
+    "sound design tátil sutil de mecanismos puros",
+    "Flow Music minimalista sofisticado",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. A seamless, pristine matte white studio space. A single solid monolithic block of bead-blasted natural aluminum sits bathed in soft, diffused Nordic morning light. 85mm prime lens. Non-verbal sound design: profound peaceful room tone, subtle airy breath. No speech or dialogue. On-screen text: O SILÊNCIO DA FORMA.",
+      "duration": 10,
+      "onScreenText": "O SILÊNCIO DA FORMA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. Extreme macro tracking shot across an unbroken chamfered edge. A human finger glides slowly across the cool, satin metal surface with effortless tactile smoothness. Non-verbal sound design: soft whisper of skin gliding over satin bead-blasted aluminum. No speech or dialogue. On-screen text: MENOS, MAS MELHOR.",
+      "duration": 10,
+      "onScreenText": "MENOS, MAS MELHOR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. A single tactile dial rotates with ultra-smooth damped rotational resistance. Microscopic index markings align with zero backlash under a crisp razor-thin slit of white light. Non-verbal sound design: damped, satisfying, buttery mechanical rotary detent clicks. No speech or dialogue. On-screen text: FUNÇÃO PURA.",
+      "duration": 10,
+      "onScreenText": "FUNÇÃO PURA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. Exploded isometric view in ultra slow motion: complex interior components seamlessly collapse into a unified, ultra-thin monolithic unibody enclosure with zero visible screws or gaps. Non-verbal sound design: soft magnetic snap and low harmonic sine wave chord. No speech or dialogue. On-screen text: A COMPLEXIDADE INVISÍVEL.",
+      "duration": 10,
+      "onScreenText": "A COMPLEXIDADE INVISÍVEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. An architect sits in a sun-drenched minimalist concrete living room, interacting with the device effortlessly without looking down, completely immersed in music and thought. Non-verbal sound design: warm ambient cello tones and gentle piano chords. No speech or dialogue. On-screen text: A SERVIÇO DA VIDA.",
+      "duration": 10,
+      "onScreenText": "A SERVIÇO DA VIDA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Pure minimalist industrial design manifesto cinematography in 16:9. Hero brand lockup: the finished iconic object sits in perfect geometric harmony on a raw oak plinth. Pure, timeless, uncluttered typography appears center frame. Non-verbal sound design: pure acoustic chime decaying into complete silence. No speech or dialogue. On-screen text: O DESIGN INVISÍVEL.",
+      "duration": 10,
+      "onScreenText": "O DESIGN INVISÍVEL",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "O bom design não grita por atenção. Ele resolve, simplifica e sai do caminho. Quando um objeto atinge a sua forma perfeita, você deixa de ver a ferramenta e passa a viver apenas a experiência.",
+      "voice": "voz masculina brasileira madura, aveludada, culta, calma, elegante e pausada, estilo manifesto de design escandinavo / Dieter Rams",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "O bom design não grita por atenção."
+        },
+        {
+          "id": "cena-2",
+          "text": "Ele elimina o excesso para revelar a essência."
+        },
+        {
+          "id": "cena-3",
+          "text": "Cada detalhe existe para servir a uma função clara."
+        },
+        {
+          "id": "cena-4",
+          "text": "A verdadeira sofisticação é tornar a complexidade invisível."
+        },
+        {
+          "id": "cena-5",
+          "text": "Objetos que respeitam o seu tempo e o seu espaço."
+        },
+        {
+          "id": "cena-6",
+          "text": "O design invisível. Criado para permanecer."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Refined neoclassical minimalist score with felt piano, subtle violin textures, warm ambient synthesizers and pristine spatial production.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

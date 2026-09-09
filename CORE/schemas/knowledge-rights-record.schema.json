@@ -1,0 +1,138 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/rights-record@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "targetRef",
+    "permissions",
+    "basis",
+    "validFrom",
+    "expiresAt",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/rights-record@1"
+    },
+    "targetRef": {
+      "$ref": "mkt-videos/knowledge-reference@1"
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory",
+        "localAnalysis",
+        "textualIndexing",
+        "embedding",
+        "training",
+        "providerInput",
+        "publication",
+        "reuse"
+      ],
+      "properties": {
+        "inventory": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "localAnalysis": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "textualIndexing": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "embedding": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "training": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "providerInput": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "publication": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        },
+        "reuse": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "revoked",
+            "expired"
+          ]
+        }
+      }
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date-time"
+        }
+      ]
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "evento-black-friday-contagem-15s",
+  "label": "Varejo & Eventos Vertical (15s) · Black Friday & Contagem Regressiva",
+  "description": "Comercial vertical 9:16 para varejo com estética dark de alto contraste, luzes douradas e neon vermelho, contagem regressiva e descontos de até 70%.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "retail-black-friday@1",
+  "collection": "evento-black-friday-contagem-15s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 15,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de alarme promocional e corte de preços",
+    "Flow Music trap cinematográfico pesado",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 retail cinematography. Dark obsidian studio with sleek chrome geometric pedestals. Heavy 3D matte black typography explodes with golden sparks: 'BLACK FRIDAY'. Non-verbal sound design: deep sub-bass drop and metallic impact. No speech or dialogue. On-screen text: A MAIOR BLACK FRIDAY.",
+      "duration": 5,
+      "onScreenText": "A MAIOR BLACK FRIDAY",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 retail cinematography. Massive neon red digital numbers flash in rapid succession: '70% OFF'. Products floating in cinematic slow motion catching golden rim light. Non-verbal sound design: urgent riser and price cut slice sound. No speech or dialogue. On-screen text: ATÉ 70% DE DESCONTO.",
+      "duration": 5,
+      "onScreenText": "ATÉ 70% DE DESCONTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 retail call to action. Glowing digital clock ticking down seconds. Giant pulsing CTA button: 'Entre na lista VIP'. Non-verbal sound design: cash register chime and energetic bass hit. No speech or dialogue. On-screen text: ENTRE NA LISTA VIP.",
+      "duration": 5,
+      "onScreenText": "ENTRE NA LISTA VIP",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A maior Black Friday do ano está chegando com até setenta por cento de desconto. Entre agora na lista VIP e receba as ofertas antes de todo mundo.",
+      "voice": "voz masculina brasileira marcante, enérgica, rápida e persuasiva",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "A maior Black Friday do ano está chegando com força total." },
+        { "id": "cena-2", "text": "Descontos reais de até setenta por cento nos itens mais desejados." },
+        { "id": "cena-3", "text": "Cadastre-se na lista VIP e receba as ofertas antecipadas agora." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Heavy cinematic electronic trap beat with aggressive brass hits, rolling 808 sub bass and fast hi-hats",
+      "duration": 15,
+      "volume": 0.23,
+      "fadeOut": 0
+    }
+  }
+}

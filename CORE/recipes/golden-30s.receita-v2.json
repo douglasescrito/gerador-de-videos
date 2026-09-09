@@ -1,0 +1,44 @@
+{
+  "schema": "gerador-de-videos/receita@2",
+  "mode": "studio",
+  "kind": "peca",
+  "identity": {
+    "id": "golden-30s",
+    "revision": 1,
+    "name": "Golden provider-free de 30 segundos"
+  },
+  "scope": {
+    "rootScopeId": "client:fixtures",
+    "projectScopeId": "project:recipe-v2"
+  },
+  "format": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": { "numerator": 24, "denominator": 1 }
+    }
+  },
+  "program": {
+    "durationPolicy": "fixed-frames",
+    "durationFrames": 720,
+    "shots": [
+      { "id": "abertura", "durationFrames": 240 },
+      { "id": "desenvolvimento", "durationFrames": 240 },
+      { "id": "fechamento", "durationFrames": 240 }
+    ]
+  },
+  "videoGeneration": {
+    "module": "omni-video@1",
+    "task": "text-to-video",
+    "shots": [
+      { "shotId": "abertura", "prompt": "Movimento abstrato azul em composição cinematográfica, sem pessoas, sem texto e sem referências." },
+      { "shotId": "desenvolvimento", "prompt": "Formas geométricas ganham ritmo e profundidade em movimento contínuo, sem pessoas, sem texto e sem referências." },
+      { "shotId": "fechamento", "prompt": "A composição converge para um quadro limpo e estável, sem pessoas, sem texto e sem referências." }
+    ]
+  },
+  "assembly": {
+    "module": "ffmpeg-assembly@1",
+    "mode": "concat",
+    "transition": "cut@1"
+  }
+}

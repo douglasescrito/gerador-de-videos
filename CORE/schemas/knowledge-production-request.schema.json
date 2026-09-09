@@ -1,0 +1,136 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/production-request@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "requestId",
+    "rootScopeId",
+    "scopeId",
+    "actor",
+    "origin",
+    "requestedAt",
+    "projectId",
+    "campaignId",
+    "deliverable",
+    "objective",
+    "audience",
+    "channel",
+    "format",
+    "deadline",
+    "recipeRef",
+    "directorReleaseRef",
+    "creativeEnvelopeRef",
+    "desiredCapabilities",
+    "requiredCapabilities",
+    "priority",
+    "cadencePolicy",
+    "idempotencyKey",
+    "rightsEvidenceRefs",
+    "authorizationRef",
+    "governance"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/production-request@1" },
+    "requestId": { "type": "string", "pattern": "^preq_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "scopeId": { "$ref": "#/$defs/id" },
+    "actor": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "origin": { "enum": ["human", "agent", "schedule"] },
+    "requestedAt": { "type": "string", "format": "date-time" },
+    "projectId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "campaignId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "deliverable": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "objective": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "audience": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 500 }, { "type": "null" }] },
+    "channel": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 200 }, { "type": "null" }] },
+    "format": { "anyOf": [{ "type": "string", "minLength": 1, "maxLength": 200 }, { "type": "null" }] },
+    "deadline": { "anyOf": [{ "type": "string", "format": "date-time" }, { "type": "null" }] },
+    "recipeRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["templateId", "templateRevision", "templateHash"],
+          "properties": {
+            "templateId": { "$ref": "#/$defs/id" },
+            "templateRevision": { "type": "integer", "minimum": 1 },
+            "templateHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "directorReleaseRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["directorId", "releaseId", "releaseHash"],
+          "properties": {
+            "directorId": { "$ref": "#/$defs/id" },
+            "releaseId": { "$ref": "#/$defs/id" },
+            "releaseHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "creativeEnvelopeRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["directorId", "releaseId", "envelopeHash"],
+          "properties": {
+            "directorId": { "$ref": "#/$defs/id" },
+            "releaseId": { "$ref": "#/$defs/id" },
+            "envelopeHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "desiredCapabilities": {
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "requiredCapabilities": {
+      "type": "array",
+      "maxItems": 64,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "priority": { "enum": ["low", "normal", "high", "urgent"] },
+    "cadencePolicy": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "scheduleRef"],
+          "properties": {
+            "mode": { "enum": ["ad-hoc", "scheduled", "recurring"] },
+            "scheduleRef": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "idempotencyKey": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "rightsEvidenceRefs": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "authorizationRef": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "governance": { "$ref": "mkt-videos/knowledge-record-envelope@1" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

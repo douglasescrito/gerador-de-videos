@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "turismo-48h-roteiro-experiencia-60s",
+  "label": "Turismo & Viagem Widescreen (60s) · 48 Horas no Destino Perfeito",
+  "description": "Mini-guia em 16:9 widescreen: sobrevoo por falésias tropicais ao amanhecer, cafés charmosos de centro histórico, trilhas escondidas e pôr do sol inesquecível.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "travel-cinematic-guide@1",
+  "collection": "turismo-48h-roteiro-experiencia-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato widescreen 16:9",
+    "sound design tátil de gaivotas e ondas do mar",
+    "Flow Music indie pop de viagem e aventura",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Breathtaking 16:9 widescreen travel drone cinematography. Golden sunrise over turquoise coastal cliffs with emerald waters and lush palm groves. Smooth sweeping camera move along the coastline. Non-verbal sound design: ocean waves and soaring ocean breeze. No speech or dialogue. On-screen text: 48 HORAS NO PARAÍSO.",
+      "duration": 15,
+      "onScreenText": "48 HORAS NO PARAÍSO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cinematic 16:9 widescreen travel cinematography. Strolling through cobblestone alleys of a historic colonial village lined with colorful bougainvillea flowers, outdoor artisan coffee shop serving fresh pastries. Non-verbal sound design: distant church bell and bicycle bell chime. No speech or dialogue. On-screen text: CULTURA E SABORES LOCAIS.",
+      "duration": 15,
+      "onScreenText": "CULTURA E SABORES LOCAIS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cinematic 16:9 widescreen travel cinematography. Lush tropical rainforest trail leading to a hidden crystal-clear waterfall where sun rays filter through giant ferns. Traveler dipping hands into pristine cool water. Non-verbal sound design: rushing waterfall cascade and birdsong. No speech or dialogue. On-screen text: NATUREZA INTOCADA.",
+      "duration": 15,
+      "onScreenText": "NATUREZA INTOCADA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cinematic 16:9 widescreen travel cinematography. Silhouette of friends toasting at a beach bonfire as the sun melts into a fiery orange and violet sea. Tourism board card: 'Descubra este destino. Monte seu roteiro'. Non-verbal sound design: crackling campfire and warm acoustic swell. No speech or dialogue. On-screen text: SEU PRÓXIMO DESTINO.",
+      "duration": 15,
+      "onScreenText": "SEU PRÓXIMO DESTINO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "E se o seu próximo fim de semana fosse inesquecível? Em apenas quarenta e oito horas, você pode acordar de frente para o mar, caminhar por vilas cheias de história e se reconectar com a natureza pura. Deixe a rotina para trás. O seu próximo destino está esperando por você. Planeje sua viagem.",
+      "voice": "voz jovem brasileira inspiradora, aventureira, calorosa e vibrante",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "E se o seu próximo fim de semana fosse em um lugar totalmente inesquecível?" },
+        { "id": "cena-2", "text": "Caminhe por vilas históricas acolhedoras e saboreie o melhor da culinária local." },
+        { "id": "cena-3", "text": "Trilhas secretas e cachoeiras de águas cristalinas no coração da natureza." },
+        { "id": "cena-4", "text": "Faça as malas e viva essa experiência única. Seu próximo destino espera por você." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Uplifting cinematic indie folk travel music with joyful acoustic strumming, upbeat stomp clap percussion and airy whistled melody",
+      "duration": 60,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/retrieval-trace@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "traceId",
+    "rootScopeId",
+    "requestHash",
+    "asOf",
+    "mode",
+    "rankerVersion",
+    "indexFingerprint",
+    "filters",
+    "candidateCount",
+    "eligibleCount",
+    "returnedCount",
+    "hits",
+    "exclusions",
+    "conflicts",
+    "rationale",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/retrieval-trace@1" },
+    "traceId": { "type": "string", "pattern": "^rt_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "requestHash": { "$ref": "#/$defs/hash" },
+    "asOf": { "type": "string", "format": "date-time" },
+    "mode": { "const": "shadow" },
+    "rankerVersion": { "const": "lexical-ranker@1" },
+    "indexFingerprint": { "$ref": "#/$defs/hash" },
+    "filters": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["scopeIds", "textualIndexing", "releaseId"],
+      "properties": {
+        "scopeIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "textualIndexing": { "const": "allowed" },
+        "releaseId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        }
+      }
+    },
+    "candidateCount": { "type": "integer", "minimum": 0 },
+    "eligibleCount": { "type": "integer", "minimum": 0 },
+    "returnedCount": { "type": "integer", "minimum": 0 },
+    "hits": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/hit" }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/exclusion" }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    },
+    "rationale": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "hit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "itemId",
+        "revision",
+        "scopeId",
+        "recordType",
+        "schemaId",
+        "contentHash",
+        "lexicalRank",
+        "lexicalScore",
+        "components",
+        "reason"
+      ],
+      "properties": {
+        "itemId": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "scopeId": { "$ref": "#/$defs/id" },
+        "recordType": { "enum": ["entity", "relation", "assertion", "evidence", "rights", "decision"] },
+        "schemaId": { "type": "string", "pattern": "^mkt-videos/[A-Za-z0-9._/-]+@[1-9][0-9]*$" },
+        "contentHash": { "$ref": "#/$defs/hash" },
+        "lexicalRank": { "type": "integer", "minimum": 1 },
+        "lexicalScore": { "type": "number", "minimum": 0 },
+        "components": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["authority", "specificity", "evidenceStrength", "recency"],
+          "properties": {
+            "authority": { "type": "integer", "minimum": 0 },
+            "specificity": { "type": "integer", "minimum": 0 },
+            "evidenceStrength": { "type": "integer", "minimum": 0 },
+            "recency": { "type": "number", "minimum": 0, "maximum": 1 }
+          }
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 2048 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["itemId", "revision", "reason"],
+      "properties": {
+        "itemId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        },
+        "revision": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 200 }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "comparator", "itemIds", "decisionKey", "winnerItemId", "reason"],
+      "properties": {
+        "status": { "enum": ["resolved-override", "unresolved-conflict"] },
+        "comparator": { "type": "string", "pattern": "^[a-z][a-z0-9._/-]{0,99}$" },
+        "itemIds": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "decisionKey": { "type": "string", "minLength": 1, "maxLength": 1024 },
+        "winnerItemId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 2048 }
+      }
+    }
+  }
+}

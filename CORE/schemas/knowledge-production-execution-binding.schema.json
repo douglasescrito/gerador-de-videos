@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/production-execution-binding@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "contextBindingHash", "planFingerprint", "executionId", "state", "retryPolicy", "inputAuthority", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/production-execution-binding@1" },
+    "contextBindingHash": { "$ref": "#/$defs/hash" },
+    "planFingerprint": { "$ref": "#/$defs/hash" },
+    "executionId": { "$ref": "#/$defs/id" },
+    "state": { "enum": ["planned", "executing", "completed", "failed", "cancelled"] },
+    "retryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["maxAttempts", "policy"],
+      "properties": {
+        "maxAttempts": { "type": "integer", "minimum": 1 },
+        "policy": { "enum": ["fixed", "exponential"] }
+      }
+    },
+    "inputAuthority": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode"],
+          "properties": { "mode": { "const": "ad-hoc" } }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "productionId", "inputs"],
+          "properties": {
+            "mode": { "const": "production" },
+            "productionId": { "$ref": "#/$defs/id" },
+            "inputs": {
+              "type": "array",
+              "minItems": 1,
+              "maxItems": 64,
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": ["sha256", "bytes", "mimeType", "role", "operation"],
+                "properties": {
+                  "sha256": { "$ref": "#/$defs/hash" },
+                  "bytes": { "type": "integer", "minimum": 1 },
+                  "mimeType": { "type": "string", "minLength": 1 },
+                  "role": { "enum": ["first-frame", "reference-image", "reference-video"] },
+                  "operation": { "enum": ["generate-image", "generate-video"] }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

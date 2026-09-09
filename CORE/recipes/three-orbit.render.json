@@ -1,0 +1,10 @@
+{
+  "id": "three-orbit",
+  "preset": "orbit",
+  "quality": "preview",
+  "durationSeconds": 6,
+  "accent": "#a4baff",
+  "bloom": 0.3,
+  "particles": true,
+  "seed": 73
+}

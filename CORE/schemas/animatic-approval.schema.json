@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/animatic-approval@1",
+  "type": "object",
+  "required": ["schema", "author", "justification", "approvedAt", "animaticFile", "receiptFile", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/animatic-approval@1" },
+    "author": { "type": "string", "minLength": 1 },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

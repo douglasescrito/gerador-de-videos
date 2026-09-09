@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/renderer-contract@1",
+  "type": "object",
+  "required": ["schema", "id", "name", "version", "license", "determinismClass", "capabilities", "inputKinds", "outputKinds", "sandbox", "status", "providerFree", "network", "cookies", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/renderer-contract@1" },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "version": { "type": "string" },
+    "license": { "type": "string" },
+    "determinismClass": { "enum": ["bit-exact", "frame-exact", "perceptual-stable", "non-deterministic"] },
+    "capabilities": { "type": "array", "items": { "type": "string" } },
+    "inputKinds": { "type": "array", "items": { "type": "string" } },
+    "outputKinds": { "type": "array", "items": { "type": "string" } },
+    "sandbox": { "$ref": "mkt-videos/renderer-sandbox@1" },
+    "status": { "enum": ["candidate", "tested", "rejected", "selected"] },
+    "providerFree": { "const": true },
+    "network": { "const": "blocked" },
+    "cookies": { "const": "blocked" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

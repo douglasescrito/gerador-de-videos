@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "evento-save-the-date-festival-30s",
+  "label": "Eventos & Teasers Vertical (30s) · Save The Date de Festival",
+  "description": "Teaser vertical 9:16 de alta energia: lasers pulsantes, multidão em êxtase, tipografia cinética com datas oficiais e abertura de lotes de ingressos.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "festival-hyperkinetic@1",
+  "collection": "evento-save-the-date-festival-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de multidão e sub-bass drop",
+    "Flow Music EDM festival explosivo",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 high-voltage festival teaser cinematography. Massive open-air concert stage at night with thousands of cheering silhouettes under blinding laser beams, pyrotechnics and swirling holographic visuals. Non-verbal sound design: crowd roar and deep sub-bass riser. No speech or dialogue. On-screen text: ESTÁ CHEGANDO.",
+      "duration": 7,
+      "onScreenText": "ESTÁ CHEGANDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 festival teaser cinematography. Bold kinetic typography bursting onto screen with neon flare: '15 E 16 DE NOVEMBRO'. Confetti cannons exploding into neon night sky. Non-verbal sound design: explosive pyrotechnic boom and crowd cheer. No speech or dialogue. On-screen text: 15 E 16 DE NOVEMBRO.",
+      "duration": 8,
+      "onScreenText": "15 E 16 DE NOVEMBRO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 festival teaser cinematography. Rapid montage of international artists, glowing wristbands in the crowd and festival energy in pure slow motion. Non-verbal sound design: massive electronic synth drop. No speech or dialogue. On-screen text: O MAIOR FESTIVAL DO ANO.",
+      "duration": 9,
+      "onScreenText": "O MAIOR FESTIVAL DO ANO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 festival outro card. Giant pulsing ticket icon with countdown timer: 'PRÉ-VENDA EXCLUSIVA'. Non-verbal sound design: crisp laser blast and heavy sub thump. No speech or dialogue. On-screen text: CADASTRE-SE NA PRÉ-VENDA.",
+      "duration": 6,
+      "onScreenText": "CADASTRE-SE NA PRÉ-VENDA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A contagem regressiva começou. Dois dias de pura música, arte e experiências inesquecíveis. O maior festival do ano está de volta. A pré-venda abre em breve. Cadastre-se agora e garanta o primeiro lote com valor promocional.",
+      "voice": "voz masculina brasileira eletrizante, jovem, enérgica e empolgante, estilo locutor de festival",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "A contagem regressiva começou para a maior experiência do ano." },
+        { "id": "cena-2", "text": "Dois dias inesquecíveis com grandes nomes da música no mesmo palco." },
+        { "id": "cena-3", "text": "Uma energia que você nunca viveu antes." },
+        { "id": "cena-4", "text": "Cadastre-se na pré-venda e garanta o primeiro lote promocional." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Huge explosive electronic dance music anthem with massive synth leads, thunderous four-on-the-floor kick drums and euphoric festival energy",
+      "duration": 30,
+      "volume": 0.23,
+      "fadeOut": 0
+    }
+  }
+}

@@ -1,0 +1,764 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/domain-pack@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "status",
+    "title",
+    "summary",
+    "scope",
+    "authors",
+    "reviewers",
+    "packLicense",
+    "sources",
+    "definitions",
+    "principles",
+    "exceptions",
+    "antiPatterns",
+    "abstractExamples",
+    "counterExamples",
+    "coverageTags",
+    "requiredCoverage",
+    "dependencies",
+    "reviewedAt",
+    "changelog"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/domain-pack@1"
+    },
+    "id": {
+      "$ref": "#/$defs/slug"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "title": {
+      "$ref": "#/$defs/shortText"
+    },
+    "summary": {
+      "$ref": "#/$defs/longText"
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "domains",
+        "appliesTo",
+        "excludes"
+      ],
+      "properties": {
+        "domains": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "appliesTo": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        },
+        "excludes": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        }
+      }
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/contributor"
+      }
+    },
+    "reviewers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/contributor"
+      }
+    },
+    "packLicense": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "identifier",
+        "termsUri",
+        "termsContentHash",
+        "notice"
+      ],
+      "properties": {
+        "type": {
+          "const": "custom"
+        },
+        "identifier": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "termsUri": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://[^\\s<>]+$",
+              "maxLength": 1000
+            },
+            {
+              "type": "string",
+              "const": "urn:mkt-videos:governance:domain-pack-terms"
+            }
+          ]
+        },
+        "termsContentHash": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          ]
+        },
+        "notice": {
+          "$ref": "#/$defs/longText"
+        }
+      }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/source"
+      }
+    },
+    "definitions": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/definition"
+      }
+    },
+    "principles": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/principle"
+      }
+    },
+    "exceptions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/exception"
+      }
+    },
+    "antiPatterns": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/antiPattern"
+      }
+    },
+    "abstractExamples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/example"
+      }
+    },
+    "counterExamples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/example"
+      }
+    },
+    "coverageTags": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/coverage"
+      }
+    },
+    "requiredCoverage": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/slug"
+      }
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/dependency"
+      }
+    },
+    "reviewedAt": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "format": "date"
+        }
+      ]
+    },
+    "changelog": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/change"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "properties": {
+        "reviewers": {
+          "type": "array",
+          "maxItems": 0
+        },
+        "reviewedAt": {
+          "type": "null"
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,95}$"
+    },
+    "localId": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._-]{0,127}$"
+    },
+    "shortText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "longText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    },
+    "textList": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/shortText"
+      }
+    },
+    "sourceIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/localId"
+      }
+    },
+    "optionalSourceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/localId"
+      }
+    },
+    "principleIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/localId"
+      }
+    },
+    "contributor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "name": {
+          "$ref": "#/$defs/shortText"
+        }
+      }
+    },
+    "sourceTerms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "licenseId",
+        "termsUri",
+        "notes"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "known",
+            "public-domain",
+            "unknown",
+            "not-applicable"
+          ]
+        },
+        "licenseId": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160
+            }
+          ]
+        },
+        "termsUri": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://[^\\s<>]+$",
+              "maxLength": 1000
+            }
+          ]
+        },
+        "notes": {
+          "$ref": "#/$defs/longText"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "uri",
+        "publisher",
+        "accessedAt",
+        "sourceKind",
+        "usageMode",
+        "sourceTerms"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "title": {
+          "$ref": "#/$defs/shortText"
+        },
+        "uri": {
+          "oneOf": [
+            {
+              "type": "string",
+              "format": "uri",
+              "pattern": "^https://[^\\s<>]+$",
+              "maxLength": 1000
+            },
+            {
+              "type": "string",
+              "pattern": "^urn:mkt-videos:governance:[a-z][a-z0-9._-]{0,127}$"
+            }
+          ]
+        },
+        "publisher": {
+          "$ref": "#/$defs/shortText"
+        },
+        "accessedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "sourceKind": {
+          "enum": [
+            "external-standard",
+            "external-draft-specification",
+            "external-guidance",
+            "bibliography",
+            "external-law",
+            "external-regulation",
+            "self-regulatory-code",
+            "internal-policy"
+          ]
+        },
+        "usageMode": {
+          "enum": [
+            "citation-only",
+            "paraphrase-only",
+            "factual-extraction-only",
+            "normative-policy"
+          ]
+        },
+        "version": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 160
+        },
+        "sourceContentHash": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          ]
+        },
+        "publishedAt": {
+          "type": "string",
+          "format": "date"
+        },
+        "sourceTerms": {
+          "$ref": "#/$defs/sourceTerms"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "required": [
+              "sourceKind"
+            ],
+            "properties": {
+              "sourceKind": {
+                "const": "internal-policy"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "sourceContentHash"
+            ],
+            "properties": {
+              "sourceContentHash": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "sourceContentHash": {
+                "type": "null"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "definition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "term",
+        "definition",
+        "basis",
+        "sourceIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "term": {
+          "$ref": "#/$defs/shortText"
+        },
+        "definition": {
+          "$ref": "#/$defs/longText"
+        },
+        "basis": {
+          "enum": [
+            "source-grounded",
+            "editorial-synthesis",
+            "internal-policy"
+          ]
+        },
+        "sourceIds": {
+          "$ref": "#/$defs/optionalSourceIds"
+        }
+      }
+    },
+    "principleTest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "scenario",
+        "expected"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "scenario": {
+          "$ref": "#/$defs/longText"
+        },
+        "expected": {
+          "$ref": "#/$defs/longText"
+        }
+      }
+    },
+    "principle": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "definition",
+        "intent",
+        "sourceIds",
+        "basis",
+        "modality",
+        "applicability",
+        "limits",
+        "risks",
+        "successSignals",
+        "tests"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "title": {
+          "$ref": "#/$defs/shortText"
+        },
+        "definition": {
+          "$ref": "#/$defs/longText"
+        },
+        "intent": {
+          "$ref": "#/$defs/longText"
+        },
+        "sourceIds": {
+          "$ref": "#/$defs/optionalSourceIds"
+        },
+        "basis": {
+          "enum": [
+            "source-grounded",
+            "editorial-synthesis",
+            "internal-policy"
+          ]
+        },
+        "modality": {
+          "enum": [
+            "fact",
+            "capability",
+            "hard-constraint",
+            "preference",
+            "heuristic",
+            "observation",
+            "hypothesis",
+            "anti-pattern"
+          ]
+        },
+        "applicability": {
+          "$ref": "#/$defs/textList"
+        },
+        "limits": {
+          "$ref": "#/$defs/textList"
+        },
+        "risks": {
+          "$ref": "#/$defs/textList"
+        },
+        "successSignals": {
+          "$ref": "#/$defs/textList"
+        },
+        "tests": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/principleTest"
+          }
+        }
+      }
+    },
+    "exception": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "principleIds",
+        "condition",
+        "response",
+        "sourceIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "principleIds": {
+          "$ref": "#/$defs/principleIds"
+        },
+        "condition": {
+          "$ref": "#/$defs/longText"
+        },
+        "response": {
+          "$ref": "#/$defs/longText"
+        },
+        "sourceIds": {
+          "$ref": "#/$defs/sourceIds"
+        }
+      }
+    },
+    "antiPattern": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "description",
+        "principleIds",
+        "risks",
+        "mitigations",
+        "sourceIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "title": {
+          "$ref": "#/$defs/shortText"
+        },
+        "description": {
+          "$ref": "#/$defs/longText"
+        },
+        "principleIds": {
+          "$ref": "#/$defs/principleIds"
+        },
+        "risks": {
+          "$ref": "#/$defs/textList"
+        },
+        "mitigations": {
+          "$ref": "#/$defs/textList"
+        },
+        "sourceIds": {
+          "$ref": "#/$defs/sourceIds"
+        }
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "title",
+        "description",
+        "principleIds",
+        "analysis",
+        "sourceIds"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "title": {
+          "$ref": "#/$defs/shortText"
+        },
+        "description": {
+          "$ref": "#/$defs/longText"
+        },
+        "principleIds": {
+          "$ref": "#/$defs/principleIds"
+        },
+        "analysis": {
+          "$ref": "#/$defs/longText"
+        },
+        "sourceIds": {
+          "$ref": "#/$defs/sourceIds"
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "tag",
+        "principleIds"
+      ],
+      "properties": {
+        "tag": {
+          "$ref": "#/$defs/slug"
+        },
+        "principleIds": {
+          "$ref": "#/$defs/principleIds"
+        }
+      }
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "contentHash"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "date",
+        "changes"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "changes": {
+          "$ref": "#/$defs/textList"
+        }
+      }
+    }
+  }
+}

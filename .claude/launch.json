@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "acervo",
+      "port": 5599,
+      "url": "http://127.0.0.1:5599/gerador"
+    },
+    {
+      "name": "acervo-subir",
+      "runtimeExecutable": "node",
+      "runtimeArgs": ["CORE/app/editor/server.mjs"],
+      "port": 5599,
+      "autoPort": false
+    }
+  ]
+}

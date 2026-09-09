@@ -1,0 +1,67 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "gastro-prato-do-dia-artesanal-15s",
+  "label": "Gastronomia Vertical (15s) · Prato do Dia & Sensorial Culinário",
+  "description": "Comercial vertical 9:16 de alta apetite appeal: queijo gratinado borbulhando, cortes perfeitos de ervas frescas e empratamento fumegante de massa artesanal com trufas.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "culinary-sensory@1",
+  "collection": "gastro-prato-do-dia-artesanal-15s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 15,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de frigideira e molho borbulhando",
+    "Flow Music acoustic jazz acolhedor",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Sensory culinary 9:16 vertical cinematography. Slow motion close-up of a bronze pan over roaring flame: rich velvety truffle butter sauce emulsifying vigorously with fresh homemade tagliatelle pasta. Steam rising dramatically under warm tungsten kitchen lighting. Non-verbal sound design: sizzle of hot pan and bubbling sauce. No speech or dialogue. On-screen text: FEITO NA HORA.",
+      "duration": 5,
+      "onScreenText": "FEITO NA HORA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Sensory culinary 9:16 vertical cinematography. Macro shot of aged Parmigiano Reggiano being grated in slow motion, falling like delicate golden snow over the hot dish with fresh basil leaves. Non-verbal sound design: crisp grater scrape and soft landing of cheese flakes. No speech or dialogue. On-screen text: INGREDIENTES NOBRES.",
+      "duration": 5,
+      "onScreenText": "INGREDIENTES NOBRES",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Sensory culinary 9:16 vertical cinematography. Perfect finished plate presented on a rustic dark slate table alongside a glass of deep ruby red wine. Restaurant logo and call to action: 'Reserve sua mesa para o jantar'. Non-verbal sound design: wine glass clink and warm acoustic guitar resolution. No speech or dialogue. On-screen text: RESERVE SUA MESA.",
+      "duration": 5,
+      "onScreenText": "RESERVE SUA MESA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Massa fresca preparada diariamente, molho aveludado e queijo nobre ralado na hora. O seu jantar de hoje merece essa experiência. Reserve sua mesa agora.",
+      "voice": "voz masculina brasileira quente, envolvente, sofisticada e apetitosa",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Massa fresca preparada diariamente com molho aveludado artesanal." },
+        { "id": "cena-2", "text": "Ingredientes selecionados e queijo nobre ralado na hora." },
+        { "id": "cena-3", "text": "O seu jantar merece essa experiência gastronômica. Reserve sua mesa." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Warm acoustic jazz guitar and upright bass with soft brushed drums and cozy bistro ambiance",
+      "duration": 15,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

@@ -1,0 +1,276 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/reference-technique-candidate@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "providerFree",
+    "persisted",
+    "sourceTarget",
+    "rightsDecision",
+    "analysis",
+    "techniqueCard",
+    "lint",
+    "candidateHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/reference-technique-candidate@1"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "persisted": {
+      "const": false
+    },
+    "sourceTarget": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "kind",
+        "rootScopeId",
+        "id",
+        "revision",
+        "recordType",
+        "contentHash"
+      ],
+      "properties": {
+        "schema": {
+          "const": "mkt-videos/knowledge-reference@1"
+        },
+        "kind": {
+          "const": "item"
+        },
+        "rootScopeId": {
+          "$ref": "#/$defs/id"
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recordType": {
+          "const": "entity"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "rightsDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "authority",
+        "evaluatedAt",
+        "decisionHash",
+        "localAnalysis"
+      ],
+      "properties": {
+        "authority": {
+          "const": "knowledge-store-head-only"
+        },
+        "evaluatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "decisionHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "localAnalysis": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["state", "allowed", "reason"],
+          "properties": {
+            "state": {
+              "const": "allowed"
+            },
+            "allowed": {
+              "const": true
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            }
+          }
+        }
+      }
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["segmentCount", "segments"],
+      "properties": {
+        "segmentCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        },
+        "segments": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 4096,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "id",
+              "startMs",
+              "endMs",
+              "observations"
+            ],
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^segment-[0-9]{4}$"
+              },
+              "startMs": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "endMs": {
+                "type": "integer",
+                "minimum": 1
+              },
+              "observations": {
+                "type": "array",
+                "minItems": 1,
+                "maxItems": 64,
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": ["domain", "statement"],
+                  "properties": {
+                    "domain": {
+                      "enum": [
+                        "timing",
+                        "motion",
+                        "composition",
+                        "camera",
+                        "transition",
+                        "typography",
+                        "lighting",
+                        "color-system",
+                        "editing",
+                        "audio-visual-sync",
+                        "rendering",
+                        "other-technical"
+                      ]
+                    },
+                    "statement": {
+                      "$ref": "#/$defs/text"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "techniqueCard": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "abstraction",
+        "title",
+        "principle",
+        "mechanism",
+        "applicability",
+        "constraints",
+        "failureModes"
+      ],
+      "properties": {
+        "abstraction": {
+          "const": "transferable-mechanism"
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "principle": {
+          "$ref": "#/$defs/text"
+        },
+        "mechanism": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 4000
+        },
+        "applicability": {
+          "$ref": "#/$defs/textList"
+        },
+        "constraints": {
+          "$ref": "#/$defs/textList"
+        },
+        "failureModes": {
+          "$ref": "#/$defs/textList"
+        }
+      }
+    },
+    "lint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy",
+        "protectedTermsCount",
+        "protectedTermsHash",
+        "checkedTextCount"
+      ],
+      "properties": {
+        "policy": {
+          "const": "anti-imitation-transferable-technique@1"
+        },
+        "protectedTermsCount": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 256
+        },
+        "protectedTermsHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "checkedTextCount": {
+          "type": "integer",
+          "minimum": 7,
+          "maximum": 262342
+        }
+      }
+    },
+    "candidateHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "textList": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 32,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/text"
+      }
+    }
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-sustentabilidade-raiz-60s",
+  "label": "Manifesto de Marca (60s) · Não Herdamos a Terra (Sustentabilidade Raiz)",
+  "description": "Manifesto de marca ambiental e de legado em 16:9: mãos plantando mudas nativas em solo fértil, energia eólica e solar em simbiose com agricultura regenerativa, oceanos limpos e compromisso com as próximas gerações.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-earth@1",
+  "collection": "manifesto-sustentabilidade-raiz-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia ecológica premium",
+    "sound design natural de terra, vento e água",
+    "Flow Music épico inspirador",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Low-angle shot of a pair of hands gently pressing rich, moist, dark soil around the green roots of a young native tree sapling. Morning dew sparkles on fresh leaves under golden sunrise backlighting. 35mm cinema lens. Non-verbal sound design: soft damp earth compression and peaceful morning birdsong. No speech or dialogue. On-screen text: O PONTO DE PARTIDA.",
+      "duration": 10,
+      "onScreenText": "O PONTO DE PARTIDA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Sweeping cinematic drone shot over vast rolling green hills where modern slender white wind turbines rotate gracefully above agroforestry orchards and grazing animals. Blue sky with white fluffy clouds. Non-verbal sound design: deep rhythmic whoosh of wind turbine blades and rustling grasslands. No speech or dialogue. On-screen text: ENERGIA EM HARMONIA.",
+      "duration": 10,
+      "onScreenText": "ENERGIA EM HARMONIA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Clean circular design: recycled ocean plastic polymers being transformed into sleek, high-performance architectural building materials under focused laboratory lighting. Clean, modern, purposeful aesthetics. Non-verbal sound design: subtle high-tech mechanical hum and clean tactile click. No speech or dialogue. On-screen text: ECONOMIA CIRCULAR REAL.",
+      "duration": 10,
+      "onScreenText": "ECONOMIA CIRCULAR REAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. A mother and young child walk hand-in-hand along a pristine coastline where crystal-clear turquoise waves lap gently onto golden sand under an expansive evening sky. Authentic human emotion. Non-verbal sound design: soothing ocean surf wash and gentle child's laughter. No speech or dialogue. On-screen text: O VERDADEIRO LEGADO.",
+      "duration": 10,
+      "onScreenText": "O VERDADEIRO LEGADO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Fast-paced uplifting montage: solar panels on urban rooftops, reforested mountain ridges flourishing with green, clean rivers flowing through modern cities, diverse teams working together with optimism. Non-verbal sound design: soaring orchestral strings and driving percussive heartbeat. No speech or dialogue. On-screen text: UMA ESCOLHA DIÁRIA.",
+      "duration": 10,
+      "onScreenText": "UMA ESCOLHA DIÁRIA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Hero brand lockup: the planet Earth glowing peacefully in soft sunlight against deep space, transitioning into a bold, minimalist brand emblem and manifesto typography. Pure emotional elevation. Non-verbal sound design: grand orchestral resolution resolving into quiet natural wind tone. No speech or dialogue. On-screen text: NÃO HERDAMOS A TERRA.",
+      "duration": 10,
+      "onScreenText": "NÃO HERDAMOS A TERRA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Nós não herdamos a Terra de nossos antepassados. Nós a pegamos emprestada de nossos filhos. Sustentabilidade não é uma meta no relatório. É a nossa única forma de continuar existindo.",
+      "voice": "voz feminina brasileira madura, calorosa, profunda, firme, inspiradora e emocionante, tom de manifesto de liderança global e responsabilidade",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Cada semente plantada hoje é uma promessa para o amanhã."
+        },
+        {
+          "id": "cena-2",
+          "text": "O progresso não precisa custar o futuro do planeta."
+        },
+        {
+          "id": "cena-3",
+          "text": "Transformamos desperdício em inovação de ponta."
+        },
+        {
+          "id": "cena-4",
+          "text": "Porque o que deixamos para trás é o nosso verdadeiro valor."
+        },
+        {
+          "id": "cena-5",
+          "text": "A sustentabilidade não é discurso. É ação permanente."
+        },
+        {
+          "id": "cena-6",
+          "text": "Não herdamos a Terra. Cuidamos daquilo que pertence ao futuro."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Deeply emotional and uplifting orchestral score with warm acoustic guitar, expansive cello section, soaring brass, French horns and a triumphant crescendo.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

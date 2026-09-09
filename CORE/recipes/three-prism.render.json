@@ -1,0 +1,9 @@
+{
+  "id": "three-prism",
+  "preset": "prism",
+  "quality": "preview",
+  "durationSeconds": 6,
+  "accent": "#d5bd9e",
+  "bloom": 0.2,
+  "particles": false
+}

@@ -1,0 +1,79 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "b2b-pitch-investidor-60s",
+  "label": "Modelo B2B: apresentação de negócio",
+  "description": "Estrutura de quatro cenas e 60 segundos para preencher com roteiro, evidências e direção visual próprios. Não contém produção pronta. Consulte o modelo narrado de seis cenas para configurar e validar o fluxo.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "executive-pitch@1",
+  "collection": "b2b-pitch-investidor-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Google Vids na conta do usuário",
+    "Whisper local por palavra",
+    "Omni text-to-video sem voz",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "COLE AQUI a direção visual de problema verificável. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 12
+    },
+    {
+      "id": "cena-2",
+      "prompt": "COLE AQUI a direção visual de solução. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 15
+    },
+    {
+      "id": "cena-3",
+      "prompt": "COLE AQUI a direção visual de evidências verificáveis. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 18
+    },
+    {
+      "id": "cena-4",
+      "prompt": "COLE AQUI a direção visual de convite. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 15
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "google-vids",
+      "text": "COLE AQUI a narração de problema verificável. COLE AQUI a narração de solução. COLE AQUI a narração de evidências verificáveis. COLE AQUI a narração de convite.",
+      "voice": "Jett",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": true,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "COLE AQUI a narração de problema verificável."
+        },
+        {
+          "id": "cena-2",
+          "text": "COLE AQUI a narração de solução."
+        },
+        {
+          "id": "cena-3",
+          "text": "COLE AQUI a narração de evidências verificáveis."
+        },
+        {
+          "id": "cena-4",
+          "text": "COLE AQUI a narração de convite."
+        }
+      ],
+      "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID",
+      "fallbackPolicy": "manual-after-preflight-failure"
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "COLE AQUI a direção musical instrumental da sua produção, sem vozes.",
+      "duration": 60,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

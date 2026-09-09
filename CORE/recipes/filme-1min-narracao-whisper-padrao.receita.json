@@ -1,0 +1,119 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "filme-1min-narracao-whisper-padrao",
+  "label": "Filme 1 min · narração Whisper · padrão",
+  "description": "Modelo de seis cenas em 60 segundos, com roteiro próprio, narração Google Vids, alinhamento Whisper, visuais e trilha explícitos. Substitua todos os textos de demonstração antes de executar.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "filme-1min-narracao-whisper",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "narração",
+    "Whisper por palavra",
+    "Flow Music",
+    "mix/master",
+    "montagem unida",
+    "direção visual Omni",
+    "tipografia nativa Omni (sem overlay)"
+  ],
+  "scenes": [
+    {
+      "id": "abertura",
+      "prompt": "Janela de narração bloco-1 (0–10s). Gancho visual forte e imediato para apresentar o assunto. O elemento visual principal já existe no primeiro frame, evolui com causa clara e não contém texto incidental. Ritmo baixo, corte limpo.",
+      "duration": 10
+    },
+    {
+      "id": "contexto",
+      "prompt": "Janela de narração bloco-2 (10–20s). Mostre o contexto ou a dor com uma ação visual legível. Preserve a gramática visual do plano anterior e faça a transformação responder à fala. Ritmo crescente, sem legendas pós-renderizadas.",
+      "duration": 10
+    },
+    {
+      "id": "problema",
+      "prompt": "Janela de narração bloco-3 (20–30s). Dê forma ao problema ou à tensão principal. Use movimento com consequência visível, sem partículas decorativas e sem inventar marcas ou textos.",
+      "duration": 10
+    },
+    {
+      "id": "solucao",
+      "prompt": "Janela de narração bloco-4 (30–40s). Revele a solução, produto ou ideia central em uma ação visual clara. O Omni deve gerar todo elemento visual dentro do clipe; não usar overlay, drawtext ou card em pós.",
+      "duration": 10
+    },
+    {
+      "id": "prova",
+      "prompt": "Janela de narração bloco-5 (40–50s). Mostre prova, benefício ou mudança de estado relacionada palavra a palavra à locução. Mantenha continuidade de cor, matéria, câmera e escala.",
+      "duration": 10
+    },
+    {
+      "id": "fecho",
+      "prompt": "Janela de narração bloco-6 (50–60s). Fecho memorável e estável com a mensagem final. Se houver logo, use somente referência oficial dentro do Omni. Termine em hold limpo, sem fade-out automático e sem texto incidental.",
+      "duration": 10
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "google-vids",
+      "text": "COLE AQUI O ROTEIRO FINAL DE 60 SEGUNDOS ANTES DE EXECUTAR.",
+      "voice": "Jett",
+      "readingDirection": "Português brasileiro, voz calorosa, clara e confiante. Leia somente o roteiro, sem acrescentar palavras.",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": true,
+      "blocks": [
+        {
+          "id": "bloco-1",
+          "text": "COLE O TEXTO DO BLOCO 1 (aprox. 10s)."
+        },
+        {
+          "id": "bloco-2",
+          "text": "COLE O TEXTO DO BLOCO 2 (aprox. 10s)."
+        },
+        {
+          "id": "bloco-3",
+          "text": "COLE O TEXTO DO BLOCO 3 (aprox. 10s)."
+        },
+        {
+          "id": "bloco-4",
+          "text": "COLE O TEXTO DO BLOCO 4 (aprox. 10s)."
+        },
+        {
+          "id": "bloco-5",
+          "text": "COLE O TEXTO DO BLOCO 5 (aprox. 10s)."
+        },
+        {
+          "id": "bloco-6",
+          "text": "COLE O TEXTO DO BLOCO 6 (aprox. 10s)."
+        }
+      ],
+      "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID",
+      "fallbackPolicy": "manual-after-preflight-failure"
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Trilha instrumental original, elegante e progressiva, com espaço para a voz, sem voz humana, sem fade-out e com encerramento limpo.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "omniResubmit": "evidence-guided-human",
+    "automaticRetry": false,
+    "acceptedAttemptPolicy": "whisper-pass-and-human-review"
+  },
+  "qa": {
+    "structural": true,
+    "expectedDuration": 60
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

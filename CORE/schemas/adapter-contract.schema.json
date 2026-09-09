@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/adapter-contract@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "providerId", "kind", "operations", "authMode", "authContract", "paidOperations", "reconcileOperations", "resultKinds", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/adapter-contract@1" },
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+    "providerId": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+    "kind": { "type": "string", "minLength": 1 },
+    "operations": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "authMode": { "type": "string", "minLength": 1 },
+    "authContract": { "type": "string", "minLength": 1 },
+    "paidOperations": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "reconcileOperations": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+    "resultKinds": { "type": "array", "minItems": 1, "uniqueItems": true, "items": { "type": "string" } },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

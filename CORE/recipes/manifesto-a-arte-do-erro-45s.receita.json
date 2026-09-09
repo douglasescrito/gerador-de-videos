@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-a-arte-do-erro-45s",
+  "label": "Manifesto de Marca (45s) · A Cicatriz Dourada (Kintsugi & Resiliência)",
+  "description": "Manifesto filosófico sobre superação e resiliência em 16:9: cerâmica antiga quebrada sendo reconstruída pacientemente com laca natural de urushi e pó de ouro puro 24k, transformando a fratura na parte mais bela da obra.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-kintsugi@1",
+  "collection": "manifesto-a-arte-do-erro-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia conceitual de kintsugi",
+    "sound design tátil de cerâmica e ouro",
+    "Flow Music oriental neoclássico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Philosophical craft brand manifesto cinematography in 16:9. A shattered dark tenmoku tea bowl lies in clean broken ceramic shards on a dark tatami mat under a focused soft beam of morning light. High contrast, 35mm film texture. Non-verbal sound design: delicate porcelain fracture sound decaying into quiet morning stillness. No speech or dialogue. On-screen text: A FRATURA INEVITÁVEL.",
+      "duration": 9,
+      "onScreenText": "A FRATURA INEVITÁVEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Philosophical craft brand manifesto cinematography in 16:9. Macro shot of a master's hands carefully aligning the ceramic fragments, joining them with a fine line of natural dark urushi tree resin. Extreme patience and steady precision. Non-verbal sound design: soft tactile ceramic contact click and steady breathing. No speech or dialogue. On-screen text: A RECONSTRUÇÃO PACIENTE.",
+      "duration": 9,
+      "onScreenText": "A RECONSTRUÇÃO PACIENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Philosophical craft brand manifesto cinematography in 16:9. Macro shot of a fine bamboo brush dusting brilliant 24-karat pure gold powder along the still-tacky resin seam. The fracture line instantly catches light and ignites with brilliant golden luminescence. Non-verbal sound design: delicate dry whisper of brush dusting gold powder, gentle warm sine swell. No speech or dialogue. On-screen text: O VALOR DA CICATRIZ.",
+      "duration": 9,
+      "onScreenText": "O VALOR DA CICATRIZ",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Philosophical craft brand manifesto cinematography in 16:9. The fully restored kintsugi bowl is held in both hands, illuminated by a warm golden sunbeam. The glowing gold veins tell a story of resilience that makes the object infinitely more beautiful than when it was unbroken. Non-verbal sound design: warm emotive cello melody and resonant singing bowl chime. No speech or dialogue. On-screen text: MAIS FORTE QUE ANTES.",
+      "duration": 9,
+      "onScreenText": "MAIS FORTE QUE ANTES",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Philosophical craft brand manifesto cinematography in 16:9. Hero brand lockup: glowing golden calligraphy and crisp modern typography emerge against a dark textured stone background. Pure emotional and aesthetic elevation. Non-verbal sound design: acoustic grand piano chord resolving into serene silence. No speech or dialogue. On-screen text: A BELEZA DA SUPERAÇÃO.",
+      "duration": 9,
+      "onScreenText": "A BELEZA DA SUPERAÇÃO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "As quedas e as fraturas não diminuem o seu valor. Quando você reconstrói com coragem e verdade, suas cicatrizes deixam de ser marcas de dor e se tornam a sua maior fonte de luz.",
+      "voice": "voz feminina brasileira madura, calorosa, serena, profunda, poética e acolhedora, tom de sabedoria ancestral e resiliência",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "A vida quebra aquilo que parecia inquebrável."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas a resposta não é esconder a queda."
+        },
+        {
+          "id": "cena-3",
+          "text": "É unir cada pedaço com o ouro da experiência."
+        },
+        {
+          "id": "cena-4",
+          "text": "O que foi reconstruído se torna infinitamente mais forte."
+        },
+        {
+          "id": "cena-5",
+          "text": "A beleza da superação. Honre a sua história."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Intimate East-meets-West neoclassical score with delicate koto, emotional solo cello, warm felt piano and a serene, uplifting resolution.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

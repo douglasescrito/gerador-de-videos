@@ -1,0 +1,12 @@
+{
+  "schema": "mkt-videos/plugin-manifest@1",
+  "id": "studio-brief-normalizer",
+  "name": "Normalizador de Brief Studio",
+  "version": "1.0.0",
+  "wasm": "plugin.wasm",
+  "wasmSha256": "6214f72620154754e2668b900796912c31afd7ded12b7d5e50b6bbae4276ecde",
+  "capabilities": [
+    "metadata:read",
+    "studio:prompt-transform"
+  ]
+}

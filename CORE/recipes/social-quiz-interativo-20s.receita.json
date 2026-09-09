@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "social-quiz-interativo-20s",
+  "label": "Redes Sociais Vertical (20s) · Quiz Interativo com Contagem",
+  "description": "Formato vertical 9:16 interativo com pergunta provocativa, contagem regressiva de 3 segundos com efeito sonoro de relógio e revelação da resposta correta.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "motion-quiz-dynamic@1",
+  "collection": "social-quiz-interativo-20s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 20,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de relógio e vitória",
+    "Flow Music synthwave ágil",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 quiz interface animation. Bold glowing neon question mark hovering over options A, B and C. Vibrant purple and cyan gradient background with kinetic particles. Non-verbal sound design: intriguing game-show chime. No speech or dialogue. On-screen text: VOCÊ SABE A RESPOSTA?",
+      "duration": 5,
+      "onScreenText": "VOCÊ SABE A RESPOSTA?",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 countdown screen. Giant luminous 3D numerals '3... 2... 1...' ticking down with intense radial pulsing light. Non-verbal sound design: loud rhythmic clock ticks and rising tension drone. No speech or dialogue. On-screen text: 3... 2... 1...",
+      "duration": 6,
+      "onScreenText": "3... 2... 1...",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 answer reveal screen. Option B flashes with bright golden sparks and expanding confetti particles. Non-verbal sound design: celebratory victory trumpet and sparkle burst. No speech or dialogue. On-screen text: RESPOSTA CORRETA!",
+      "duration": 5,
+      "onScreenText": "RESPOSTA CORRETA!",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 outro screen. Comment icon bouncing playfully with typography: 'Comente quantas acertou'. Non-verbal sound design: soft bubble pop. No speech or dialogue. On-screen text: COMENTE SEU RESULTADO.",
+      "duration": 4,
+      "onScreenText": "COMENTE SEU RESULTADO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Teste seus conhecimentos em 3 segundos. Qual é a opção correta? 3, 2, 1... Se você escolheu a opção B, acertou em cheio! Comente aqui se você acertou.",
+      "voice": "voz jovem brasileira, tom de apresentador de quiz, empolgado e carismático",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Teste seus conhecimentos agora. Qual é a opção correta?" },
+        { "id": "cena-2", "text": "Três, dois, um..." },
+        { "id": "cena-3", "text": "Se você escolheu a opção B, você acertou!" },
+        { "id": "cena-4", "text": "Comente aqui embaixo se você acertou de primeira." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Playful fast-paced electronic game soundtrack with catchy synth arpeggios and punchy drum beats",
+      "duration": 20,
+      "volume": 0.2,
+      "fadeOut": 0
+    }
+  }
+}

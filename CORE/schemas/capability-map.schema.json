@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/capability-map@1",
+  "type": "object",
+  "required": ["schema", "checkedAt", "capabilities", "summary"],
+  "properties": {
+    "schema": { "const": "mkt-videos/capability-map@1" },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "capabilities": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "operations",
+          "auth",
+          "authContract",
+          "reconcile",
+          "stability",
+          "status",
+          "deliveryDependencyAllowed",
+          "evidence",
+          "checkedAt",
+          "ttlSeconds"
+        ],
+        "properties": {
+          "status": { "enum": ["supported", "pending", "blocked", "deprecated"] },
+          "deliveryDependencyAllowed": { "type": "boolean" },
+          "checkedAt": { "type": "string", "format": "date-time" },
+          "ttlSeconds": { "type": ["integer", "null"], "minimum": 0 }
+        }
+      }
+    },
+    "summary": {
+      "type": "object",
+      "required": ["supported", "pending", "blocked", "deprecated"],
+      "properties": {
+        "supported": { "type": "integer", "minimum": 0 },
+        "pending": { "type": "integer", "minimum": 0 },
+        "blocked": { "type": "integer", "minimum": 0 },
+        "deprecated": { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

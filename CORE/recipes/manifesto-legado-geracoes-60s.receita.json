@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-legado-geracoes-60s",
+  "label": "Manifesto de Marca (60s) · Construído para Durar (Legado & Eternidade)",
+  "description": "Manifesto sobre longevidade e solidez em 16:9: pontes de pedra milenares suportando enchentes, relógios mecânicos perpétuos, carvalhos centenários e a recusa da obsolescência programada.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-legacy@1",
+  "collection": "manifesto-legado-geracoes-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia documental épica de legado",
+    "sound design atemporal e robusto",
+    "Flow Music épico solene",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. Extreme wide shot of a massive ancient Roman stone arch aqueduct standing unyielding across a misty green valley at dawn. Centuries of weather have only enhanced the majestic texture of the interlocking stones. 24mm cinema lens. Non-verbal sound design: distant thunder, deep wind howling through stone arches. No speech or dialogue. On-screen text: O TESTE DO TEMPO.",
+      "duration": 10,
+      "onScreenText": "O TESTE DO TEMPO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. Macro shot of an ancient 300-year-old oak tree trunk. A hand rests against the deep, rugged bark as morning sunbeams filter through a cathedral-like canopy of leaves. Non-verbal sound design: gentle rustle of leaves, deep low-frequency forest drone. No speech or dialogue. On-screen text: RAÍZES PROFUNDAS.",
+      "duration": 10,
+      "onScreenText": "RAÍZES PROFUNDAS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. A master artisan hand-stamps a solid bronze hallmark into a heavy forged steel chassis under the warm glow of an oil lamp. The impression is permanent, crisp and deep. Non-verbal sound design: solid bronze punch hammer strike and resonant steel ring. No speech or dialogue. On-screen text: FEITO PARA PERMANECER.",
+      "duration": 10,
+      "onScreenText": "FEITO PARA PERMANECER",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. A father hands down a beautifully aged, flawlessly functional mechanical heirloom chronometer to his adult son. Soft natural sidelight illuminates the gentle patina on the case. Authentic emotional resonance. Non-verbal sound design: steady rhythmic mechanical tick, warm cello melody. No speech or dialogue. On-screen text: DE GERAÇÃO EM GERAÇÃO.",
+      "duration": 10,
+      "onScreenText": "DE GERAÇÃO EM GERAÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. Dynamic cinematic sequence: monumental architecture resisting massive snowstorms and ocean waves without a crack. Unyielding structural integrity under raw elemental forces. Non-verbal sound design: soaring brass horns, crashing waves, building percussive power. No speech or dialogue. On-screen text: A FORÇA DA SOLIDEZ.",
+      "duration": 10,
+      "onScreenText": "A FORÇA DA SOLIDEZ",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Timeless legacy brand manifesto cinematography in 16:9. Hero brand lockup: monumental chiseled stone 3D typography illuminated by the timeless golden rays of a setting sun against an infinite horizon of mountains and sky. Grand, permanent and serene. Non-verbal sound design: majestic orchestral resolution decaying into infinite silence. No speech or dialogue. On-screen text: CONSTRUÍDO PARA DURAR.",
+      "duration": 10,
+      "onScreenText": "CONSTRUÍDO PARA DURAR",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Numa época que celebra o descartável, nossa escolha é a permanência. Não construímos para o próximo trimestre. Construímos para que os seus netos olhem para trás com orgulho.",
+      "voice": "voz masculina brasileira madura, grave, solene, respeitosa, aristocrática e firme, tom de legado centenário",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "O tempo é o único juiz que nunca erra."
+        },
+        {
+          "id": "cena-2",
+          "text": "Ele derruba o que é frágil e consagra o que é verdadeiro."
+        },
+        {
+          "id": "cena-3",
+          "text": "Recusamos o descartável para construir o eterno."
+        },
+        {
+          "id": "cena-4",
+          "text": "Objetos e ideias que atravessam gerações com dignidade."
+        },
+        {
+          "id": "cena-5",
+          "text": "Porque o valor de uma vida se mede pelo legado que ela deixa."
+        },
+        {
+          "id": "cena-6",
+          "text": "Construído para durar. Ontem, hoje e sempre."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Solemn and majestic classical-orchestral score with grand brass chords, sweeping full string orchestra, deep tympani and a towering timeless finale.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

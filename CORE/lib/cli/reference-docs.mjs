@@ -1,0 +1,81 @@
+// Metadados estáticos compartilhados; cada invocação recebe seu próprio objeto.
+export function createCliReferenceDocs() {
+  return {
+    model: "gemini-omni-flash-preview",
+    status: "preview",
+    authentication: { mode: "cookie-only", default: "windows-credential-manager", alternatives: ["har-cookie-import"], transport: "playwright-headless", apiKeysAccepted: false },
+    videoGeneration: "https://ai.google.dev/gemini-api/docs/omni",
+    imageGeneration: "https://ai.google.dev/gemini-api/docs/image-generation",
+    imageModel: "gemini-3.1-flash-image",
+    narrationProvider: "google-vids",
+    musicBackends: {
+      "flow-music": { model: "flow-music-web", output: "wav + provider original", duration: "5-120s requested", auth: "cookie-session" },
+    },
+    modes: {
+      raw: "literal prompt, one Omni call, original MP4",
+      studio: "explicit prompt composition, audio, assembly, delivery profiles and QA",
+    },
+    interactions: "https://ai.google.dev/gemini-api/docs/interactions-overview",
+    limitations: {
+      statefulEditing: "interactionId refine is blocked; edit by uploading the prior MP4 through the cookie session",
+      videoExtension: "not supported",
+      videoInterpolation: "not supported",
+      voiceEditing: "not supported",
+      recognizablePeople: "some recognizable people may be blocked",
+      uploadedVideoEditing: "region dependent",
+      language: "English is fully supported; other languages have not been evaluated",
+      inputBlocked: "terminal provider rejection; do not retry automatically",
+      transientHttpStatuses: [408, 429, "5xx"],
+      automaticGenerationRetries: "disabled in the cookie-only adapter; an external OMNI_UPSTREAM_URL keeps its own policy",
+      intermediateImage: "supported, but it does not guarantee that Gemini Omni video safety filters will accept the result",
+    },
+    prompting: {
+      photoAnimation: {
+        source: "https://ai.google.dev/gemini-api/docs/omni",
+        defaultImageFlag: "--image uses reference_to_video by default; reference images guide generated content and are not guaranteed to remain literal frames",
+        firstFrameFlag: "--first-frame forces image_to_video without rewriting the user prompt",
+        firstFrameTag: "<FIRST_FRAME>",
+        explicitBinding: "[# Sources <FIRST_FRAME>@Image1]",
+        timecodes: ["[0-3s]", "[3-6s]", "[6-10s]"],
+        multipleLiteralPhotos: "not guaranteed in one generation; validate a single first-frame pilot before planning multiple parts",
+        language: "English is fully supported; other languages have not been evaluated",
+        windowsMultiline: "use --prompt-file for multiline prompts through npm on Windows; an inline multiline value can lose the remaining text and trailing options before the CLI starts",
+      },
+      recognizableAdultReference: {
+        learnedFrom: "technical guidance; private production reference omitted",
+        goal: "aproximar realismo sem acionar bloqueio em referência humana reconhecível",
+        saferFraming: [
+          "use the reference image only as loose character inspiration",
+          "fictional adult male presenter",
+          "not an exact likeness",
+          "premium cinematic 3D",
+          "documentary-broadcast style",
+          "realistic educational studio animation",
+          "high-end commercial render",
+          "soft-realism animated video",
+        ],
+        blockedOrRiskyFraming: [
+          "live-action",
+          "realistic avatar",
+          "newsroom realism",
+          "humanized 3D",
+          "exact person or identity match",
+          "preserve identity",
+          "photorealistic real person",
+        ],
+        ptBrAudioHint: "Forçar 'Brazilian Portuguese from Brazil, neutral Brazilian accent, Brazilian cadence, not European Portuguese'; o idioma ainda depende do modelo e pode exigir variações.",
+        template: "Create a 10-second [premium cinematic 3D|documentary-broadcast|soft-realism] video using the reference image only as loose character inspiration for a fictional adult presenter, not an exact likeness. [Describe broad traits]. He presents [scene]. Brazilian Portuguese from Brazil, neutral Brazilian accent, Brazilian cadence, not European Portuguese. [Camera cuts]. No subtitles, no lower thirds, no logos, no watermark.",
+      },
+      batch: {
+        recommendedParallel: 3,
+        behavior: "each job writes its own MP4/receipt when accepted; blocked jobs are recorded in summary.json without stopping the batch",
+        researchProfile: {
+          id: "react-audiovisual@1",
+          style: "react-audiovisual@1",
+          behavior: "preserve all original clips and receipts, then assemble a joined clean-cut stream-copy preview only when every job succeeds",
+          command: "npm run video -- batch --jobs jobs.json --research-profile react-audiovisual@1 --parallel 3 --out-dir outputs/<pesquisa>",
+        },
+      },
+    },
+  };
+}

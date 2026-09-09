@@ -1,0 +1,229 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-feedback-interpretation-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "promotionPerformed",
+    "active",
+    "rootScopeId",
+    "eventCount",
+    "entries",
+    "aggregateHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-feedback-interpretation-action-result@1"
+    },
+    "action": {
+      "enum": [
+        "create-feedback-interpretation-candidate",
+        "list-feedback-interpretation-candidates",
+        "replay-feedback-interpretation-candidates"
+      ]
+    },
+    "status": {
+      "enum": [
+        "candidate-created",
+        "listed",
+        "replayed"
+      ]
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "type": "boolean"
+    },
+    "changed": {
+      "type": "boolean"
+    },
+    "humanConfirmed": {
+      "type": "boolean"
+    },
+    "promotionPerformed": {
+      "const": false
+    },
+    "active": {
+      "const": false
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "eventCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    "aggregateHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "create-feedback-interpretation-candidate"
+          }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "candidate-created" },
+          "readOnly": { "const": false },
+          "changed": { "const": true },
+          "humanConfirmed": { "const": true }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "list-feedback-interpretation-candidates"
+          }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "listed" },
+          "readOnly": { "const": true },
+          "changed": { "const": false },
+          "humanConfirmed": { "const": false }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": {
+            "const": "replay-feedback-interpretation-candidates"
+          }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "replayed" },
+          "readOnly": { "const": true },
+          "changed": { "const": false },
+          "humanConfirmed": { "const": false }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sourceFeedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventId",
+        "sequence",
+        "subjectId",
+        "feedbackHash",
+        "originalTextSha256",
+        "eventHash"
+      ],
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subjectId": {
+          "type": "string",
+          "pattern": "^kfe_[a-f0-9]{32}$"
+        },
+        "feedbackHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "originalTextSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "eventHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "eventId",
+        "eventActor",
+        "scopeGrantId",
+        "subjectId",
+        "candidateHash",
+        "interpretationTextSha256",
+        "eventHash",
+        "sourceFeedback",
+        "candidate"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "eventId": {
+          "type": "string",
+          "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+        },
+        "eventActor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "scopeGrantId": {
+          "type": "string",
+          "pattern": "^sg_[a-f0-9]{32}$"
+        },
+        "subjectId": {
+          "type": "string",
+          "pattern": "^kfic_[a-f0-9]{32}$"
+        },
+        "candidateHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "interpretationTextSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "eventHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "sourceFeedback": {
+          "$ref": "#/$defs/sourceFeedback"
+        },
+        "candidate": {
+          "$ref": "mkt-videos/feedback-interpretation-candidate@1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,206 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/cohort-rights-attestation@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "providerFree",
+    "manifest",
+    "owner",
+    "includedEntryIds",
+    "excludedEntryIds",
+    "permissions",
+    "basis",
+    "validFrom",
+    "expiresAt",
+    "policyId",
+    "policyHash",
+    "approvedAt",
+    "approvedBy",
+    "humanConfirmed",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/cohort-rights-attestation@1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^kca_[a-f0-9]{32}$"
+    },
+    "status": {
+      "const": "attested"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "contentHash",
+        "rootScopeId",
+        "scopeId",
+        "entryCount"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^kcm_[a-f0-9]{32}$"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "rootScopeId": {
+          "$ref": "#/$defs/id"
+        },
+        "scopeId": {
+          "$ref": "#/$defs/id"
+        },
+        "entryCount": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4096
+        }
+      }
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "enum": [
+            "global",
+            "domain",
+            "organization",
+            "client",
+            "brand",
+            "person",
+            "project",
+            "production",
+            "deliverable",
+            "campaign",
+            "system"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "includedEntryIds": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4096,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^kce_[a-f0-9]{32}$"
+      }
+    },
+    "excludedEntryIds": {
+      "type": "array",
+      "maxItems": 4096,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^kce_[a-f0-9]{32}$"
+      }
+    },
+    "permissions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory",
+        "localAnalysis",
+        "textualIndexing",
+        "embedding",
+        "training",
+        "providerInput",
+        "publication",
+        "reuse"
+      ],
+      "properties": {
+        "inventory": {
+          "$ref": "#/$defs/decisionState"
+        },
+        "localAnalysis": {
+          "$ref": "#/$defs/decisionState"
+        },
+        "textualIndexing": {
+          "$ref": "#/$defs/decisionState"
+        },
+        "embedding": {
+          "const": "denied"
+        },
+        "training": {
+          "const": "denied"
+        },
+        "providerInput": {
+          "const": "denied"
+        },
+        "publication": {
+          "$ref": "#/$defs/decisionState"
+        },
+        "reuse": {
+          "$ref": "#/$defs/decisionState"
+        }
+      }
+    },
+    "basis": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "validFrom": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "format": "date-time" }
+      ]
+    },
+    "policyId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "policyHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "approvedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "approvedBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "humanConfirmed": {
+      "const": true
+    },
+    "contentHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "decisionState": {
+      "enum": ["allowed", "denied", "unknown"]
+    }
+  }
+}

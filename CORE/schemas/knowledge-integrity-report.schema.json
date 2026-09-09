@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-integrity-report@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "reportOnly",
+    "repairPerformed",
+    "global",
+    "scoped",
+    "linkedArtifacts"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-integrity-report@1" },
+    "action": { "const": "integrity" },
+    "status": { "enum": ["pass", "warning", "fail"] },
+    "providerFree": { "const": true },
+    "readOnly": { "const": true },
+    "reportOnly": { "const": true },
+    "repairPerformed": { "const": false },
+    "global": { "$ref": "mkt-videos/knowledge-store-integrity@1" },
+    "scoped": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "mkt-videos/knowledge-integrity@1" }
+      ]
+    },
+    "linkedArtifacts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "reason"],
+      "properties": {
+        "status": { "const": "not_applicable" },
+        "reason": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

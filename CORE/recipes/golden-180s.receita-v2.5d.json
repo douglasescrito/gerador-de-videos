@@ -1,0 +1,517 @@
+{
+  "schema": "gerador-de-videos/receita@2",
+  "vertical": "2.5D",
+  "mode": "studio",
+  "kind": "filme",
+  "identity": {
+    "id": "golden-180s-filme",
+    "revision": 1,
+    "name": "Golden 180 s de filme"
+  },
+  "scope": {
+    "rootScopeId": "client:golden",
+    "projectScopeId": "recipe-v2-5d-film"
+  },
+  "format": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "numerator": 24,
+        "denominator": 1
+      }
+    }
+  },
+  "program": {
+    "durationPolicy": "fixed-frames",
+    "durationFrames": 4320,
+    "shots": [
+      {
+        "id": "scene-01",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-02",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-03",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-04",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-05",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-06",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-07",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-08",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-09",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-10",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-11",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-12",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-13",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-14",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-15",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-16",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-17",
+        "durationFrames": 240
+      },
+      {
+        "id": "scene-18",
+        "durationFrames": 240
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "apresentador-oficial",
+      "mediaKind": "image",
+      "role": "person-reference",
+      "source": {
+        "kind": "workspace",
+        "locator": "PESSOAS/apresentador.png"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/png",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "html-grafico",
+      "mediaKind": "document",
+      "role": "graphics-document",
+      "source": {
+        "kind": "workspace",
+        "locator": "assets-locais/grafico.html"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "text/html",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "logo-oficial",
+      "mediaKind": "image",
+      "role": "logo",
+      "source": {
+        "kind": "workspace",
+        "locator": "assets-locais/logo.png"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/png",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "cast": {
+    "people": []
+  },
+  "videoGeneration": {
+    "module": "omni-video@1",
+    "shots": [
+      {
+        "shotId": "scene-01",
+        "task": "text-to-video",
+        "prompt": "Cena motion 1 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-02",
+        "task": "text-to-video",
+        "prompt": "Cena motion 2 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-03",
+        "task": "text-to-video",
+        "prompt": "Cena motion 3 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-04",
+        "task": "text-to-video",
+        "prompt": "Cena motion 4 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-05",
+        "task": "text-to-video",
+        "prompt": "Cena motion 5 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-06",
+        "task": "text-to-video",
+        "prompt": "Cena motion 6 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-07",
+        "task": "text-to-video",
+        "prompt": "Cena motion 7 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-08",
+        "task": "text-to-video",
+        "prompt": "Cena motion 8 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-09",
+        "task": "text-to-video",
+        "prompt": "Cena motion 9 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-10",
+        "task": "text-to-video",
+        "prompt": "Cena motion 10 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-11",
+        "task": "text-to-video",
+        "prompt": "Cena motion 11 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-12",
+        "task": "text-to-video",
+        "prompt": "Cena motion 12 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-13",
+        "task": "text-to-video",
+        "prompt": "Cena motion 13 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-14",
+        "task": "text-to-video",
+        "prompt": "Cena motion 14 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-15",
+        "task": "text-to-video",
+        "prompt": "Cena motion 15 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-16",
+        "task": "text-to-video",
+        "prompt": "Cena motion 16 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-17",
+        "task": "text-to-video",
+        "prompt": "Cena motion 17 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "scene-18",
+        "task": "text-to-video",
+        "prompt": "Cena motion 18 sem pessoas nem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      }
+    ]
+  },
+  "narration": {
+    "module": "google-vids-narration@1",
+    "speakerMode": "one-voice",
+    "voice": "Persuasiva",
+    "documentUrl": "https://docs.google.com/videos/d/SUBSTITUA-PELO-SEU-DOCUMENTO",
+    "blocks": [
+      {
+        "id": "fala-1",
+        "text": "Substitua este texto pelo roteiro aprovado da sua produção.",
+        "speakerId": "narrador"
+      }
+    ],
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "alignment": {
+    "module": "whisper-alignment@1",
+    "backend": "faster-whisper",
+    "language": "pt",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "music": {
+    "module": "flow-music@1",
+    "intent": "Trilha institucional leve, sem vocal e com pulso continuo.",
+    "fit": "clean-cut",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "sfx": {
+    "module": "local-sfx@1",
+    "cues": []
+  },
+  "captions": {
+    "module": "word-captions@1",
+    "mode": "word",
+    "source": "whisper",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "mix": {
+    "module": "ffmpeg-mix@1",
+    "voiceGainDb": 0,
+    "musicGainDb": -18,
+    "sfxGainDb": -9,
+    "ending": "clean-cut"
+  },
+  "assembly": {
+    "module": "ffmpeg-assembly@1",
+    "mode": "concat",
+    "transition": "cut@1"
+  },
+  "transitions": {
+    "module": "ffmpeg-transitions@1",
+    "edges": [
+      {
+        "fromShotId": "scene-01",
+        "toShotId": "scene-02",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-02",
+        "toShotId": "scene-03",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-03",
+        "toShotId": "scene-04",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-04",
+        "toShotId": "scene-05",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-05",
+        "toShotId": "scene-06",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-06",
+        "toShotId": "scene-07",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-07",
+        "toShotId": "scene-08",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-08",
+        "toShotId": "scene-09",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-09",
+        "toShotId": "scene-10",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-10",
+        "toShotId": "scene-11",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-11",
+        "toShotId": "scene-12",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-12",
+        "toShotId": "scene-13",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-13",
+        "toShotId": "scene-14",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-14",
+        "toShotId": "scene-15",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-15",
+        "toShotId": "scene-16",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-16",
+        "toShotId": "scene-17",
+        "transition": "cut@1",
+        "durationFrames": 0
+      },
+      {
+        "fromShotId": "scene-17",
+        "toShotId": "scene-18",
+        "transition": "cut@1",
+        "durationFrames": 0
+      }
+    ]
+  },
+  "graphics": {
+    "module": "scene-graphics@1",
+    "scenes": [
+      {
+        "shotId": "scene-01",
+        "renderer": "html-canvas@1",
+        "text": "FILME COMPLETO",
+        "documentAssetId": "html-grafico"
+      }
+    ]
+  },
+  "postProduction": {
+    "module": "ffmpeg-post@1",
+    "operations": [
+      {
+        "id": "cor-master",
+        "operation": "color-normalize@1",
+        "assetId": null,
+        "durationFrames": null
+      }
+    ]
+  },
+  "qa": {
+    "module": "master-qa@1",
+    "policy": "strict@1",
+    "technical": true,
+    "semantic": false,
+    "assertions": [
+      "video-stream",
+      "audio-stream",
+      "duration",
+      "caption-binding",
+      "no-unplanned-frame",
+      "clean-cut"
+    ]
+  },
+  "delivery": {
+    "module": "delivery@1",
+    "target": "local-output@1",
+    "overwrite": false,
+    "externalDecision": null
+  },
+  "variants": {
+    "module": "format-variants@1",
+    "items": []
+  },
+  "executionPolicy": {
+    "module": "segmented-execution@1",
+    "segmentation": "explicit-shots",
+    "maxClipFrames": 240,
+    "failurePolicy": "fail-fast",
+    "partialSuccess": "deny",
+    "maxChildren": 1
+  },
+  "batch": null
+}

@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/motion-ir@1",
+  "type": "object",
+  "required": ["schema", "version", "timeBase", "frameRate", "frameRange", "assets", "tracks", "markers", "metadata", "sourceProvenance", "determinism", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/motion-ir@1" },
+    "version": { "const": 1 },
+    "timeBase": { "type": "object" },
+    "frameRate": { "type": "object" },
+    "frameRange": { "type": "object" },
+    "assets": { "type": "array" },
+    "tracks": { "type": "array" },
+    "markers": { "type": "array" },
+    "metadata": { "type": "object" },
+    "sourceProvenance": { "type": ["object", "null"] },
+    "determinism": { "type": "object", "required": ["class", "seed"], "properties": { "class": { "enum": ["bit-exact", "frame-exact", "perceptual-stable", "non-deterministic"] }, "seed": { "type": "string" } }, "additionalProperties": false },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

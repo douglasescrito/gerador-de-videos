@@ -1,0 +1,144 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/feedback-promotion-decision@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "decisionId",
+    "rootScopeId",
+    "candidateSubjectId",
+    "candidateEventId",
+    "candidateHash",
+    "candidateEventHash",
+    "queueSnapshot",
+    "action",
+    "scopeDecision",
+    "reason",
+    "reviewedBy",
+    "decidedAt",
+    "humanConfirmed",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/feedback-promotion-decision@1"
+    },
+    "decisionId": {
+      "type": "string",
+      "pattern": "^fpd_[a-f0-9]{32}$"
+    },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "candidateSubjectId": {
+      "type": "string",
+      "pattern": "^kfic_[a-f0-9]{32}$"
+    },
+    "candidateEventId": {
+      "type": "string",
+      "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+    },
+    "candidateHash": { "$ref": "#/$defs/hash" },
+    "candidateEventHash": { "$ref": "#/$defs/hash" },
+    "queueSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["asOf", "scopeId", "limit", "hash"],
+      "properties": {
+        "asOf": { "type": "string", "format": "date-time" },
+        "scopeId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        },
+        "limit": { "type": "integer", "minimum": 1, "maximum": 100 },
+        "hash": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "action": {
+      "enum": [
+        "promote",
+        "reject",
+        "defer",
+        "request-evidence",
+        "apply-once"
+      ]
+    },
+    "supersedesDecisionId": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^fpd_[a-f0-9]{32}$" }
+      ]
+    },
+    "oneShot": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["planFingerprint", "productionId", "expiresAt"],
+          "properties": {
+            "planFingerprint": { "$ref": "#/$defs/hash" },
+            "productionId": { "$ref": "#/$defs/id" },
+            "expiresAt": { "type": "string", "format": "date-time" }
+          }
+        }
+      ]
+    },
+    "scopeDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "scopeId"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "piece",
+            "project",
+            "client",
+            "personal",
+            "global-proposal"
+          ]
+        },
+        "scopeId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384
+    },
+    "reviewedBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "decidedAt": { "type": "string", "format": "date-time" },
+    "humanConfirmed": { "const": true },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "action": { "const": "apply-once" } },
+        "required": ["action"]
+      },
+      "then": {
+        "required": ["oneShot"],
+        "properties": {
+          "oneShot": { "type": "object" }
+        }
+      },
+      "else": {}
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-coragem-inovacao-45s",
+  "label": "Manifesto de Marca (45s) · O Salto no Desconhecido (Inovação & Coragem)",
+  "description": "Manifesto conceitual de liderança em 16:9: um penhasco ao amanhecer, um atleta de wingsuit saltando no mar de nuvens douradas, protótipos de alta tecnologia em túnel de vento e superação de limites.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-courage@1",
+  "collection": "manifesto-coragem-inovacao-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia aérea de alta altitude",
+    "sound design de vento alpino e respiração",
+    "Flow Music épico inspirador crescente",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Extreme wide shot of a solitary figure standing on the razor-sharp edge of a colossal alpine cliff towering above a boundless sea of golden morning clouds at dawn. 24mm cinema lens. Non-verbal sound design: sparse whistling high-altitude wind and steady, calm human breathing. No speech or dialogue. On-screen text: A FRONTEIRA DO CONFORTO.",
+      "duration": 9,
+      "onScreenText": "A FRONTEIRA DO CONFORTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Close-up on the eyes narrowing with total focus and resolve. Without hesitation, the wingsuit pilot leaps forward into the open sky, accelerating into a breathtaking freefall dive. Non-verbal sound design: sudden explosive wind roar and deep sub-bass drop. No speech or dialogue. On-screen text: O SALTO DECISIVO.",
+      "duration": 9,
+      "onScreenText": "O SALTO DECISIVO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Cross-cut to a high-tech experimental laboratory: an ultra-aerodynamic carbon-fiber hydrofoil prototype glides smoothly through water spray at 60 knots under directional strobe lighting. Non-verbal sound design: high-speed hydrofoil slicing water whoosh and rising synth ostinato. No speech or dialogue. On-screen text: TRANSFORMAR O IMPOSSÍVEL.",
+      "duration": 9,
+      "onScreenText": "TRANSFORMAR O IMPOSSÍVEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Sweeping aerial tracking shot: the pilot weaves through mountain ridges with pure grace and surgical trajectory, emerging into blinding golden sunlight. Non-verbal sound design: soaring French horns and driving cinematic drums. No speech or dialogue. On-screen text: O DOMÍNIO DO ESPAÇO.",
+      "duration": 9,
+      "onScreenText": "O DOMÍNIO DO ESPAÇO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Epic inspirational brand manifesto cinematography in 16:9. Hero brand lockup: a clean, bold minimalist brand statement emerges in center frame over a triumphant wide panorama of mountain peaks bathed in golden sunset glow. Non-verbal sound design: grand orchestral climax resolving into crisp silence. No speech or dialogue. On-screen text: A CORAGEM DE REINVENTAR.",
+      "duration": 9,
+      "onScreenText": "A CORAGEM DE REINVENTAR",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Quem espera certezas absolutas nunca descobre novos horizontes. O progresso pertence àqueles que olham para o abismo e enxergam a oportunidade de voar.",
+      "voice": "voz masculina brasileira madura, firme, inspiradora, dinâmica e confiante, estilo manifesto global de inovação",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "A zona de conforto nunca construiu nada de extraordinário."
+        },
+        {
+          "id": "cena-2",
+          "text": "Inovar exige dar o primeiro passo antes que o caminho esteja pronto."
+        },
+        {
+          "id": "cena-3",
+          "text": "Testar, falhar, ajustar e superar todas as probabilidades."
+        },
+        {
+          "id": "cena-4",
+          "text": "O futuro não se prevê; ele se conquista com atitude."
+        },
+        {
+          "id": "cena-5",
+          "text": "Tenha a coragem de reinventar o seu próprio limite."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Inspiring epic orchestral track with soaring brass horns, driving rhythmic strings, massive hybrid drums and an uplifting cinematic climax.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

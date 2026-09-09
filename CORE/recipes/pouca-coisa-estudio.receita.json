@@ -1,0 +1,17 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "pouca-coisa-estudio",
+  "label": "Peça studio simples",
+  "description": "Uma peça de direção artística em modo studio, para testes de estética.",
+  "kind": "peca",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "estudio-simples",
+  "parts": [
+    {
+      "name": "parte-001",
+      "prompt": "Crie um clipe único mostrando a essência do produto com luz cinematográfica, profundidade e cor marcante, em composição equilibrada."
+    }
+  ],
+  "parallel": 3
+}

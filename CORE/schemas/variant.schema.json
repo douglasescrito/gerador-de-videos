@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/variant@1",
+  "type": "object",
+  "required": ["schema", "format", "timelineFingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/variant@1" },
+    "format": { "enum": ["16:9", "9:16", "1:1"] },
+    "timelineFingerprint": { "type": "string", "minLength": 1 }
+  }
+}

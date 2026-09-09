@@ -1,0 +1,141 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "filme-1min-google-vids-omni-sync",
+  "label": "Filme 1 min · Google Vids + Omni sincronizado",
+  "description": "Receita Studio motivacional sem marca: Google Vids gera a narração contínua, Whisper mede cada palavra e o Omni recebe janelas verificadas para criar tipografia cinética e efeitos sonoros sem sintetizar voz. O fechamento preserva cerca de seis segundos após a última palavra, eleva o áudio Omni e termina com dip lento para preto.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "motivacional-google-vids-omni-sync",
+  "targetDurationSeconds": 70,
+  "resources": [
+    "Google Vids TTS cookie-only",
+    "Whisper por palavra",
+    "Omni sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros sincronizados",
+    "Flow Music",
+    "montagem e mix Studio",
+    "ending omni-flow-slow-dip-black@1"
+  ],
+  "scenes": [
+    {
+      "id": "bloco-1",
+      "prompt": "Abertura motivacional abstrata com força imediata, composição cinematográfica limpa e movimento progressivo. O primeiro passo surge como transformação visual concreta. Sem pessoas falando e sem texto incidental.",
+      "duration": 10,
+      "onScreenText": "O PRÓXIMO PASSO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "bloco-2",
+      "prompt": "Pequenos avanços se acumulam em uma estrutura luminosa coerente. Ritmo crescente, transições causais e detalhes sonoros não verbais acompanhando cada mudança.",
+      "duration": 10,
+      "onScreenText": "CADA TENTATIVA ENSINA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "bloco-3",
+      "prompt": "Decisões silenciosas transformam linhas dispersas em um caminho claro. Design editorial sofisticado, profundidade controlada e animação tipográfica integrada à matéria visual.",
+      "duration": 10,
+      "onScreenText": "O FUTURO NASCE AGORA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "bloco-4",
+      "prompt": "A câmera desacelera enquanto o espaço se reorganiza e revela uma nova direção. Movimento preciso, respiração visual e efeitos sonoros discretos marcando a mudança.",
+      "duration": 10,
+      "onScreenText": "AJUSTE A DIREÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "bloco-5",
+      "prompt": "Elementos diferentes encontram seu próprio ritmo sem competição. A composição comunica consistência, presença e energia preservada, com tipografia cinética de alto contraste.",
+      "duration": 10,
+      "onScreenText": "RESPEITE O SEU RITMO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "bloco-6",
+      "prompt": "Fecho memorável: todo o sistema visual converge para um ponto de movimento contínuo. O quadro resolve com força e prepara uma continuação visual limpa, sem voz gerada pelo Omni.",
+      "duration": 10,
+      "onScreenText": "CONTINUE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "outro-flow-omni",
+      "prompt": "Cauda visual exclusiva do fechamento, sem narração: continue organicamente o último quadro com composição final estável e monumental. Preserve espaço negativo, mantenha O PRÓXIMO PASSO perfeitamente legível, produza somente efeitos sonoros não verbais e sustente material suficiente para um dip lento a preto. Sem nova fala, diálogo, canto ou música do Omni.",
+      "duration": 10,
+      "onScreenText": "O PRÓXIMO PASSO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "google-vids",
+      "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID/edit",
+      "newScene": true,
+      "fallbackProvider": "omni",
+      "fallbackPolicy": "manual-after-preflight-failure",
+      "text": "Existe um momento em que continuar parece difícil. É justamente nesse instante que uma escolha simples pode mudar tudo. Você não precisa enxergar o caminho inteiro. Precisa apenas reconhecer o próximo passo e ter coragem para começar. Cada tentativa ensina. Cada pausa reorganiza. Cada pequeno avanço prova que você ainda está construindo algo importante. O futuro não nasce pronto. Ele surge das decisões silenciosas que tomamos quando ninguém está olhando. Respire fundo, ajuste a direção e siga com presença. Não compare o seu começo com o resultado de outra pessoa. Respeite o seu ritmo, preserve a sua energia e mantenha viva a razão que trouxe você até aqui. Hoje pode parecer apenas mais um dia, mas também pode ser o ponto exato em que sua história ganha um novo movimento. Continue. O próximo passo já está esperando por você.",
+      "voice": "Nyla",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": true,
+      "blocks": [
+        { "id": "bloco-1", "text": "Existe um momento em que continuar parece difícil. É justamente nesse instante que uma escolha simples pode mudar tudo. Você não precisa enxergar o caminho inteiro. Precisa apenas reconhecer o próximo passo e ter coragem para começar." },
+        { "id": "bloco-2", "text": "Cada tentativa ensina. Cada pausa reorganiza. Cada pequeno avanço prova que você ainda está construindo algo importante." },
+        { "id": "bloco-3", "text": "O futuro não nasce pronto. Ele surge das decisões silenciosas que tomamos quando ninguém está olhando." },
+        { "id": "bloco-4", "text": "Respire fundo, ajuste a direção e siga com presença. Não compare o seu começo com o resultado de outra pessoa." },
+        { "id": "bloco-5", "text": "Respeite o seu ritmo, preserve a sua energia e mantenha viva a razão que trouxe você até aqui." },
+        { "id": "bloco-6", "text": "Hoje pode parecer apenas mais um dia, mas também pode ser o ponto exato em que sua história ganha um novo movimento. Continue. O próximo passo já está esperando por você." }
+      ]
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Trilha instrumental motivacional elegante e progressiva, sem voz humana, com espaço para a narração. Preserve uma continuação musical original após a última palavra, crie um pequeno auge com os efeitos do Omni e resolva lentamente no dip final para preto.",
+    "musicDurationSeconds": 70,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "omniResubmit": "evidence-guided-human",
+    "automaticRetry": false,
+    "acceptedAttemptPolicy": "whisper-pass-and-human-review"
+  },
+  "ending": {
+    "preset": "omni-flow-slow-dip-black@1",
+    "durationPolicy": "narration-end-plus-tail",
+    "tailAfterNarrationSeconds": 6,
+    "dipToBlackSeconds": 3,
+    "audioFadeOutSeconds": 3,
+    "omniBaseGainDb": 5,
+    "omniTailGainDb": 3.5,
+    "omniTailRiseSeconds": 0.52,
+    "flowContinuation": "provider-original",
+    "visualContinuation": "last-omni-original",
+    "sourceTailSceneId": "outro-flow-omni",
+    "insufficientRemainderPolicy": "fail",
+    "fadeColor": "#000000"
+  },
+  "qa": {
+    "structural": true,
+    "expectedDuration": 68
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

@@ -1,0 +1,1763 @@
+{
+  "schema": "gerador-de-videos/parameter-catalog@1",
+  "recipeSchema": "gerador-de-videos/receita@2",
+  "generatedFrom": [
+    "gerador-de-videos/receita@2",
+    "gerador-de-videos/receita@2/vertical-2.5B",
+    "gerador-de-videos/receita@2/vertical-2.5C",
+    "gerador-de-videos/receita@2/vertical-2.5D",
+    "gerador-de-videos/recipe-registries@1"
+  ],
+  "parameters": [
+    {
+      "pointer": "/alignment/backend",
+      "type": null,
+      "enum": [
+        "openai-whisper",
+        "faster-whisper",
+        "whisper-cpp"
+      ],
+      "consumer": "whisper-alignment",
+      "trace": "resolutionTrace@1",
+      "assertion": "alignment-contract@1",
+      "receipt": "whisper-alignment-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/alignment/language",
+      "type": "string",
+      "constant": "pt",
+      "consumer": "whisper-alignment",
+      "trace": "resolutionTrace@1",
+      "assertion": "alignment-contract@1",
+      "receipt": "whisper-alignment-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/alignment/module",
+      "type": "string",
+      "constant": "whisper-alignment@1",
+      "consumer": "whisper-alignment",
+      "trace": "resolutionTrace@1",
+      "assertion": "alignment-contract@1",
+      "receipt": "whisper-alignment-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/alignment/timing/status",
+      "type": "string",
+      "constant": "planned-not-measured",
+      "consumer": "whisper-alignment",
+      "trace": "resolutionTrace@1",
+      "assertion": "alignment-contract@1",
+      "receipt": "whisper-alignment-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assembly/mode",
+      "type": "string",
+      "constant": "concat",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "assembly-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assembly/module",
+      "type": "string",
+      "constant": "ffmpeg-assembly@1",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "assembly-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assembly/transition",
+      "type": "string",
+      "constant": "cut@1",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "assembly-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/authorization/bindingHash",
+      "type": "string",
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/authorization/mode",
+      "type": null,
+      "enum": [
+        "scope-grant",
+        "production-authorization",
+        "direct-confirmation"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/bytes",
+      "type": "integer",
+      "minimum": 1,
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/id",
+      "type": "string",
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/mediaKind",
+      "type": null,
+      "enum": [
+        "image",
+        "video",
+        "audio"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/mimeType",
+      "type": "string",
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/rights/providerInput",
+      "type": null,
+      "enum": [
+        "allowed",
+        "denied",
+        "unknown"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/rights/reuse",
+      "type": null,
+      "enum": [
+        "allowed",
+        "denied",
+        "unknown"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/role",
+      "type": null,
+      "enum": [
+        "first-frame",
+        "reference-image",
+        "reference-video",
+        "person-reference",
+        "sfx"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/sha256",
+      "type": "string",
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/source/kind",
+      "type": null,
+      "enum": [
+        "knowledge-core",
+        "workspace"
+      ],
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/assets/*/source/locator",
+      "type": "string",
+      "consumer": "runtime-input-guard",
+      "trace": "resolutionTrace@1",
+      "assertion": "assets-contract@1",
+      "receipt": "runtime-input-guard-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/batch/module",
+      "type": "string",
+      "constant": "explicit-batch@1",
+      "consumer": "batch-child-planner",
+      "trace": "resolutionTrace@1",
+      "assertion": "batch-contract@1",
+      "receipt": "batch-child-planner-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/batch/rows/*/id",
+      "type": "string",
+      "consumer": "batch-child-planner",
+      "trace": "resolutionTrace@1",
+      "assertion": "batch-contract@1",
+      "receipt": "batch-child-planner-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/batch/rows/*/name",
+      "type": "string",
+      "consumer": "batch-child-planner",
+      "trace": "resolutionTrace@1",
+      "assertion": "batch-contract@1",
+      "receipt": "batch-child-planner-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/batch/rows/*/promptOverrides/*/prompt",
+      "type": "string",
+      "consumer": "batch-child-planner",
+      "trace": "resolutionTrace@1",
+      "assertion": "batch-contract@1",
+      "receipt": "batch-child-planner-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/batch/rows/*/promptOverrides/*/shotId",
+      "type": "string",
+      "consumer": "batch-child-planner",
+      "trace": "resolutionTrace@1",
+      "assertion": "batch-contract@1",
+      "receipt": "batch-child-planner-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/captions/mode",
+      "type": null,
+      "enum": [
+        "none",
+        "word"
+      ],
+      "consumer": "word-captions",
+      "trace": "resolutionTrace@1",
+      "assertion": "captions-contract@1",
+      "receipt": "word-captions-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/captions/module",
+      "type": "string",
+      "constant": "word-captions@1",
+      "consumer": "word-captions",
+      "trace": "resolutionTrace@1",
+      "assertion": "captions-contract@1",
+      "receipt": "word-captions-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/captions/source",
+      "type": "string",
+      "constant": "whisper",
+      "consumer": "word-captions",
+      "trace": "resolutionTrace@1",
+      "assertion": "captions-contract@1",
+      "receipt": "word-captions-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/captions/timing/status",
+      "type": "string",
+      "constant": "planned-not-measured",
+      "consumer": "word-captions",
+      "trace": "resolutionTrace@1",
+      "assertion": "captions-contract@1",
+      "receipt": "word-captions-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/cast/people/*/assetId",
+      "type": "string",
+      "consumer": "scene-reference-binding",
+      "trace": "resolutionTrace@1",
+      "assertion": "cast-contract@1",
+      "receipt": "scene-reference-binding-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/cast/people/*/id",
+      "type": "string",
+      "consumer": "scene-reference-binding",
+      "trace": "resolutionTrace@1",
+      "assertion": "cast-contract@1",
+      "receipt": "scene-reference-binding-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/cast/people/*/role",
+      "type": null,
+      "enum": [
+        "person-reference",
+        "character-reference"
+      ],
+      "consumer": "scene-reference-binding",
+      "trace": "resolutionTrace@1",
+      "assertion": "cast-contract@1",
+      "receipt": "scene-reference-binding-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/context/brief",
+      "type": "object",
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "context-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/context/creativeDirection",
+      "type": "object",
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "context-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/context/knowledgeContextBinding",
+      "type": "object",
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "context-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/context/styleComposition",
+      "type": "object",
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "context-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/delivery/externalDecision/bindingHash",
+      "type": "string",
+      "consumer": "delivery",
+      "trace": "resolutionTrace@1",
+      "assertion": "delivery-contract@1",
+      "receipt": "delivery-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/delivery/externalDecision/confirmation",
+      "type": "string",
+      "constant": "confirm-drive-write",
+      "consumer": "delivery",
+      "trace": "resolutionTrace@1",
+      "assertion": "delivery-contract@1",
+      "receipt": "delivery-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/delivery/module",
+      "type": "string",
+      "constant": "delivery@1",
+      "consumer": "delivery",
+      "trace": "resolutionTrace@1",
+      "assertion": "delivery-contract@1",
+      "receipt": "delivery-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/delivery/overwrite",
+      "type": "boolean",
+      "constant": false,
+      "consumer": "delivery",
+      "trace": "resolutionTrace@1",
+      "assertion": "delivery-contract@1",
+      "receipt": "delivery-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/delivery/target",
+      "type": null,
+      "enum": [
+        "local-output@1",
+        "drive-daily@1"
+      ],
+      "consumer": "delivery",
+      "trace": "resolutionTrace@1",
+      "assertion": "delivery-contract@1",
+      "receipt": "delivery-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/failurePolicy",
+      "type": null,
+      "enum": [
+        "fail-fast",
+        "continue"
+      ],
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/maxChildren",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 100,
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/maxClipFrames",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 864000,
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/module",
+      "type": "string",
+      "constant": "segmented-execution@1",
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/partialSuccess",
+      "type": null,
+      "enum": [
+        "deny",
+        "allow"
+      ],
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/executionPolicy/segmentation",
+      "type": "string",
+      "constant": "explicit-shots",
+      "consumer": "execution-kernel",
+      "trace": "resolutionTrace@1",
+      "assertion": "executionPolicy-contract@1",
+      "receipt": "execution-kernel-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/format/master/fps/denominator",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 1001,
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "format-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/format/master/fps/numerator",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 120000,
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "format-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/format/master/height",
+      "type": "integer",
+      "minimum": 16,
+      "maximum": 8192,
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "format-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/format/master/width",
+      "type": "integer",
+      "minimum": 16,
+      "maximum": 8192,
+      "consumer": "film-compiler",
+      "trace": "resolutionTrace@1",
+      "assertion": "format-contract@1",
+      "receipt": "film-compiler-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/graphics/module",
+      "type": "string",
+      "constant": "scene-graphics@1",
+      "consumer": "motion-graphics",
+      "trace": "resolutionTrace@1",
+      "assertion": "graphics-contract@1",
+      "receipt": "motion-graphics-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/graphics/scenes/*/documentAssetId",
+      "type": "string",
+      "consumer": "motion-graphics",
+      "trace": "resolutionTrace@1",
+      "assertion": "graphics-contract@1",
+      "receipt": "motion-graphics-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/graphics/scenes/*/renderer",
+      "type": null,
+      "enum": [
+        "none@1",
+        "local-gc@1",
+        "html-canvas@1"
+      ],
+      "consumer": "motion-graphics",
+      "trace": "resolutionTrace@1",
+      "assertion": "graphics-contract@1",
+      "receipt": "motion-graphics-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/graphics/scenes/*/shotId",
+      "type": "string",
+      "consumer": "motion-graphics",
+      "trace": "resolutionTrace@1",
+      "assertion": "graphics-contract@1",
+      "receipt": "motion-graphics-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/graphics/scenes/*/text",
+      "type": [
+        "string",
+        "null"
+      ],
+      "consumer": "motion-graphics",
+      "trace": "resolutionTrace@1",
+      "assertion": "graphics-contract@1",
+      "receipt": "motion-graphics-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/identity/id",
+      "type": "string",
+      "consumer": "knowledge-core-identity",
+      "trace": "resolutionTrace@1",
+      "assertion": "identity-contract@1",
+      "receipt": "knowledge-core-identity-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/identity/name",
+      "type": "string",
+      "consumer": "knowledge-core-identity",
+      "trace": "resolutionTrace@1",
+      "assertion": "identity-contract@1",
+      "receipt": "knowledge-core-identity-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/identity/request",
+      "type": "string",
+      "consumer": "knowledge-core-identity",
+      "trace": "resolutionTrace@1",
+      "assertion": "identity-contract@1",
+      "receipt": "knowledge-core-identity-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/identity/revision",
+      "type": "integer",
+      "minimum": 1,
+      "consumer": "knowledge-core-identity",
+      "trace": "resolutionTrace@1",
+      "assertion": "identity-contract@1",
+      "receipt": "knowledge-core-identity-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/kind",
+      "type": "string",
+      "constant": "peca",
+      "consumer": "recipe-envelope",
+      "trace": "resolutionTrace@1",
+      "assertion": "kind-contract@1",
+      "receipt": "recipe-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/ending",
+      "type": "string",
+      "constant": "clean-cut",
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/module",
+      "type": "string",
+      "constant": "ffmpeg-mix@1",
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/musicGainDb",
+      "type": "number",
+      "minimum": -96,
+      "maximum": 12,
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/sceneAudioGainDb",
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": -96,
+      "maximum": 12,
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/sfxGainDb",
+      "type": "number",
+      "minimum": -96,
+      "maximum": 12,
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mix/voiceGainDb",
+      "type": "number",
+      "minimum": -96,
+      "maximum": 12,
+      "consumer": "master-audio-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "mix-contract@1",
+      "receipt": "master-audio-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/mode",
+      "type": "string",
+      "constant": "studio",
+      "consumer": "recipe-envelope",
+      "trace": "resolutionTrace@1",
+      "assertion": "mode-contract@1",
+      "receipt": "recipe-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/music/fit",
+      "type": "string",
+      "constant": "clean-cut",
+      "consumer": "flow-music",
+      "trace": "resolutionTrace@1",
+      "assertion": "music-contract@1",
+      "receipt": "flow-music-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/music/intent",
+      "type": "string",
+      "consumer": "flow-music",
+      "trace": "resolutionTrace@1",
+      "assertion": "music-contract@1",
+      "receipt": "flow-music-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/music/module",
+      "type": "string",
+      "constant": "flow-music@1",
+      "consumer": "flow-music",
+      "trace": "resolutionTrace@1",
+      "assertion": "music-contract@1",
+      "receipt": "flow-music-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/music/timing/status",
+      "type": "string",
+      "constant": "planned-not-measured",
+      "consumer": "flow-music",
+      "trace": "resolutionTrace@1",
+      "assertion": "music-contract@1",
+      "receipt": "flow-music-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/blocks/*/id",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/blocks/*/speakerId",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/blocks/*/text",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/documentUrl",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/module",
+      "type": "string",
+      "constant": "google-vids-narration@1",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/speakerMode",
+      "type": null,
+      "enum": [
+        "one-voice",
+        "multi-voice"
+      ],
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/speakers/*/id",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/speakers/*/voice",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/timing/status",
+      "type": "string",
+      "constant": "planned-not-measured",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/narration/voice",
+      "type": "string",
+      "consumer": "google-vids",
+      "trace": "resolutionTrace@1",
+      "assertion": "narration-contract@1",
+      "receipt": "google-vids-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/postProduction/module",
+      "type": "string",
+      "constant": "ffmpeg-post@1",
+      "consumer": "post-production",
+      "trace": "resolutionTrace@1",
+      "assertion": "postProduction-contract@1",
+      "receipt": "post-production-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/postProduction/operations/*/assetId",
+      "type": "string",
+      "consumer": "post-production",
+      "trace": "resolutionTrace@1",
+      "assertion": "postProduction-contract@1",
+      "receipt": "post-production-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/postProduction/operations/*/durationFrames",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "maximum": 864000,
+      "consumer": "post-production",
+      "trace": "resolutionTrace@1",
+      "assertion": "postProduction-contract@1",
+      "receipt": "post-production-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/postProduction/operations/*/id",
+      "type": "string",
+      "consumer": "post-production",
+      "trace": "resolutionTrace@1",
+      "assertion": "postProduction-contract@1",
+      "receipt": "post-production-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/postProduction/operations/*/operation",
+      "type": null,
+      "enum": [
+        "color-normalize@1",
+        "logo-overlay@1",
+        "ending-hold@1"
+      ],
+      "consumer": "post-production",
+      "trace": "resolutionTrace@1",
+      "assertion": "postProduction-contract@1",
+      "receipt": "post-production-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/program/durationFrames",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8640000,
+      "consumer": "timeline-lock",
+      "trace": "resolutionTrace@1",
+      "assertion": "program-contract@1",
+      "receipt": "timeline-lock-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/program/durationPolicy",
+      "type": "string",
+      "constant": "fixed-frames",
+      "consumer": "timeline-lock",
+      "trace": "resolutionTrace@1",
+      "assertion": "program-contract@1",
+      "receipt": "timeline-lock-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/program/shots/*/durationFrames",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 864000,
+      "consumer": "timeline-lock",
+      "trace": "resolutionTrace@1",
+      "assertion": "program-contract@1",
+      "receipt": "timeline-lock-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/program/shots/*/id",
+      "type": "string",
+      "consumer": "timeline-lock",
+      "trace": "resolutionTrace@1",
+      "assertion": "program-contract@1",
+      "receipt": "timeline-lock-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/qa/assertions/*",
+      "type": null,
+      "enum": [
+        "video-stream",
+        "audio-stream",
+        "duration",
+        "caption-binding",
+        "no-unplanned-frame",
+        "clean-cut"
+      ],
+      "consumer": "qa",
+      "trace": "resolutionTrace@1",
+      "assertion": "qa-contract@1",
+      "receipt": "qa-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/qa/module",
+      "type": "string",
+      "constant": "master-qa@1",
+      "consumer": "qa",
+      "trace": "resolutionTrace@1",
+      "assertion": "qa-contract@1",
+      "receipt": "qa-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/qa/policy",
+      "type": "string",
+      "constant": "strict@1",
+      "consumer": "qa",
+      "trace": "resolutionTrace@1",
+      "assertion": "qa-contract@1",
+      "receipt": "qa-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/qa/semantic",
+      "type": "boolean",
+      "consumer": "qa",
+      "trace": "resolutionTrace@1",
+      "assertion": "qa-contract@1",
+      "receipt": "qa-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/qa/technical",
+      "type": "boolean",
+      "constant": true,
+      "consumer": "qa",
+      "trace": "resolutionTrace@1",
+      "assertion": "qa-contract@1",
+      "receipt": "qa-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/reuse/policy",
+      "type": null,
+      "enum": [
+        "off",
+        "prefer-approved",
+        "require-approved"
+      ],
+      "consumer": "approved-reuse",
+      "trace": "resolutionTrace@1",
+      "assertion": "reuse-contract@1",
+      "receipt": "approved-reuse-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/schema",
+      "type": "string",
+      "constant": "gerador-de-videos/receita@2",
+      "consumer": "recipe-envelope",
+      "trace": "resolutionTrace@1",
+      "assertion": "schema-contract@1",
+      "receipt": "recipe-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/scope/projectScopeId",
+      "type": "string",
+      "consumer": "knowledge-core-scope",
+      "trace": "resolutionTrace@1",
+      "assertion": "scope-contract@1",
+      "receipt": "knowledge-core-scope-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/scope/rootScopeId",
+      "type": "string",
+      "consumer": "knowledge-core-scope",
+      "trace": "resolutionTrace@1",
+      "assertion": "scope-contract@1",
+      "receipt": "knowledge-core-scope-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/sfx/cues/*/assetId",
+      "type": "string",
+      "consumer": "local-sfx",
+      "trace": "resolutionTrace@1",
+      "assertion": "sfx-contract@1",
+      "receipt": "local-sfx-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/sfx/cues/*/atFrame",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 8640000,
+      "consumer": "local-sfx",
+      "trace": "resolutionTrace@1",
+      "assertion": "sfx-contract@1",
+      "receipt": "local-sfx-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/sfx/cues/*/gainDb",
+      "type": "number",
+      "minimum": -96,
+      "maximum": 12,
+      "consumer": "local-sfx",
+      "trace": "resolutionTrace@1",
+      "assertion": "sfx-contract@1",
+      "receipt": "local-sfx-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/sfx/cues/*/id",
+      "type": "string",
+      "consumer": "local-sfx",
+      "trace": "resolutionTrace@1",
+      "assertion": "sfx-contract@1",
+      "receipt": "local-sfx-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/sfx/module",
+      "type": "string",
+      "constant": "local-sfx@1",
+      "consumer": "local-sfx",
+      "trace": "resolutionTrace@1",
+      "assertion": "sfx-contract@1",
+      "receipt": "local-sfx-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/transitions/edges/*/durationFrames",
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 864000,
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "transitions-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/transitions/edges/*/fromShotId",
+      "type": "string",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "transitions-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/transitions/edges/*/toShotId",
+      "type": "string",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "transitions-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/transitions/edges/*/transition",
+      "type": null,
+      "enum": [
+        "cut@1",
+        "fade@1",
+        "dissolve@1",
+        "wipe-left@1",
+        "wipe-right@1",
+        "slide-left@1",
+        "slide-right@1"
+      ],
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "transitions-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/transitions/module",
+      "type": "string",
+      "constant": "ffmpeg-transitions@1",
+      "consumer": "film-assembly",
+      "trace": "resolutionTrace@1",
+      "assertion": "transitions-contract@1",
+      "receipt": "film-assembly-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/variants/items/*/approved",
+      "type": "boolean",
+      "consumer": "variant",
+      "trace": "resolutionTrace@1",
+      "assertion": "variants-contract@1",
+      "receipt": "variant-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/variants/items/*/format",
+      "type": null,
+      "enum": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ],
+      "consumer": "variant",
+      "trace": "resolutionTrace@1",
+      "assertion": "variants-contract@1",
+      "receipt": "variant-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/variants/items/*/strategy",
+      "type": null,
+      "enum": [
+        "fit-pad",
+        "center-crop"
+      ],
+      "consumer": "variant",
+      "trace": "resolutionTrace@1",
+      "assertion": "variants-contract@1",
+      "receipt": "variant-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/variants/module",
+      "type": "string",
+      "constant": "format-variants@1",
+      "consumer": "variant",
+      "trace": "resolutionTrace@1",
+      "assertion": "variants-contract@1",
+      "receipt": "variant-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/vertical",
+      "type": "string",
+      "constant": "2.5B",
+      "consumer": "recipe-envelope",
+      "trace": "resolutionTrace@1",
+      "assertion": "vertical-contract@1",
+      "receipt": "recipe-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/module",
+      "type": "string",
+      "constant": "omni-video@1",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/shots/*/castIds/*",
+      "type": "string",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/shots/*/inputAssetIds/*",
+      "type": "string",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/shots/*/prompt",
+      "type": "string",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/shots/*/shotId",
+      "type": "string",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/shots/*/task",
+      "type": null,
+      "enum": [
+        "text-to-video",
+        "image-to-video",
+        "reference-to-video",
+        "edit-video",
+        "end-frame"
+      ],
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    },
+    {
+      "pointer": "/videoGeneration/task",
+      "type": "string",
+      "constant": "text-to-video",
+      "consumer": "omni-video",
+      "trace": "resolutionTrace@1",
+      "assertion": "videoGeneration-contract@1",
+      "receipt": "omni-video-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A"
+      ]
+    },
+    {
+      "pointer": "/workflow/humanReview",
+      "type": "boolean",
+      "consumer": "recipe-envelope",
+      "trace": "resolutionTrace@1",
+      "assertion": "workflow-contract@1",
+      "receipt": "recipe-receipt-or-plan-assertion@1",
+      "verticals": [
+        "2.5A",
+        "2.5B",
+        "2.5C",
+        "2.5D"
+      ]
+    }
+  ]
+}

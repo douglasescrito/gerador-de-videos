@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/adapter-conformance@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "adapterId", "providerId", "operation", "providerFree", "invocationFingerprint", "checks", "passed", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/adapter-conformance@1" },
+    "adapterId": { "type": "string" },
+    "providerId": { "type": "string" },
+    "operation": { "type": "string" },
+    "providerFree": { "const": true },
+    "invocationFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "checks": { "type": "array", "items": { "type": "object" } },
+    "passed": { "type": "boolean" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

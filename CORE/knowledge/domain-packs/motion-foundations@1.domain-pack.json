@@ -1,0 +1,739 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "motion-foundations",
+  "version": 1,
+  "status": "candidate",
+  "title": "Fundamentos de motion design",
+  "summary": "Vocabulário técnico neutro para organizar espaço, tempo, movimento e percepção sem prescrever uma estética, um criador ou uma ferramenta.",
+  "scope": {
+    "domains": [
+      "motion-design",
+      "visual-language"
+    ],
+    "appliesTo": [
+      "Planejamento e revisão de motion graphics em modo Studio.",
+      "Composição determinística e direção de clipes gerados.",
+      "Discussão técnica de legibilidade, continuidade e sincronismo."
+    ],
+    "excludes": [
+      "Imitação de criadores, obras ou estilos reconhecíveis.",
+      "Garantia de desempenho comercial.",
+      "Correção automática, regeneração ou consumo autônomo de cota."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno deste projeto. Licenças e termos das fontes permanecem independentes; este aviso não relicencia material de terceiros."
+  },
+  "sources": [
+    {
+      "id": "w3c-web-animations-2023",
+      "title": "Web Animations Level 1",
+      "uri": "https://www.w3.org/TR/2023/WD-web-animations-1-20230605/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "version": "Working Draft 5 June 2023",
+      "publishedAt": "2023-06-05",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Usada somente para conceitos factuais de tempo, progresso, keyframes e composição de efeitos. O pack não reproduz algoritmos, exemplos ou texto normativo."
+      }
+    },
+    {
+      "id": "w3c-css-easing-2",
+      "title": "CSS Easing Functions Level 2",
+      "uri": "https://www.w3.org/TR/css-easing-2/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Base factual para progressão temporal e curvas de easing; valores criativos e exemplos deste pack são originais."
+      }
+    },
+    {
+      "id": "w3c-wcag-22",
+      "title": "Web Content Accessibility Guidelines 2.2",
+      "uri": "https://www.w3.org/TR/WCAG22/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "paraphrase-only",
+      "version": "W3C Recommendation",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Referência de acessibilidade para contraste, animação acionada por interação e risco de flashes. Aplicação a MP4 ou broadcast deve ser avaliada no perfil de entrega, sem alegação automática de conformidade WCAG."
+      }
+    },
+    {
+      "id": "ebu-r95",
+      "title": "EBU R 95: Safe areas for 16:9 television production",
+      "uri": "https://tech.ebu.ch/docs/r/r095.pdf",
+      "publisher": "European Broadcasting Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "EBU-Terms-of-Use",
+        "termsUri": "https://www.ebu.ch/cms/live/live/en/sites/ebu/terms-of-use.html",
+        "notes": "Fonte protegida. Uso restrito à constatação de que safe areas são um requisito de entrega específico; percentuais, diagramas e texto não são reutilizados."
+      }
+    },
+    {
+      "id": "acm-traditional-animation-1987",
+      "title": "Principles of traditional animation applied to 3D computer animation",
+      "uri": "https://doi.org/10.1145/37401.37407",
+      "publisher": "Association for Computing Machinery",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "bibliography",
+      "usageMode": "citation-only",
+      "version": "SIGGRAPH 1987 paper",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "ACM-Copyright-Policy",
+        "termsUri": "https://www.acm.org/publications/policies/copyright-policy",
+        "notes": "Referência bibliográfica para a existência de princípios clássicos de animação. Não há citação textual, reprodução de figuras nem transformação do artigo em fórmula estética."
+      }
+    },
+    {
+      "id": "film-art-13",
+      "title": "Film Art: An Introduction",
+      "uri": "https://www.mheducation.com/highered/product/Film-Art-An-Introduction-Bordwell.html",
+      "publisher": "McGraw Hill",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "bibliography",
+      "usageMode": "citation-only",
+      "version": "13th edition",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Referência bibliográfica para composição de plano, cinematografia, montagem, continuidade, ritmo e relações audiovisuais. Nenhum trecho, imagem, exemplo de filme ou estrutura do livro é reutilizado."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-staging",
+      "term": "Staging",
+      "definition": "Organização deliberada de atenção, posição, profundidade e tempo para tornar clara a ação ou ideia principal de um plano.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "acm-traditional-animation-1987"
+      ]
+    },
+    {
+      "id": "def-easing",
+      "term": "Easing",
+      "definition": "Função que transforma o progresso temporal linear em outra progressão, alterando a percepção de aceleração, desaceleração e ênfase sem mudar necessariamente a duração total.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "w3c-css-easing-2",
+        "w3c-web-animations-2023"
+      ]
+    },
+    {
+      "id": "def-safe-area",
+      "term": "Safe area",
+      "definition": "Região operacional definida por um perfil de entrega para reduzir o risco de elementos essenciais serem ocultados, cortados ou sobrepostos por interface e exibição.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "ebu-r95"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-spatial-hierarchy",
+      "title": "Hierarquia espacial serve à intenção",
+      "definition": "Composição, contraste, balanço, escala e espaço negativo devem estabelecer uma ordem de leitura compatível com a intenção do plano.",
+      "intent": "Fazer o espectador localizar primeiro o elemento principal e compreender relações secundárias sem depender de ornamentação.",
+      "sourceIds": [
+        "w3c-wcag-22"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Planos com texto, produto, personagem, dados ou múltiplas camadas.",
+        "Keyframes usados como contrato visual antes da animação."
+      ],
+      "limits": [
+        "Ambiguidade pode ser intencional em obra expressiva.",
+        "Contraste perceptivo depende do dispositivo, ambiente e perfil de entrega."
+      ],
+      "risks": [
+        "Muitos focos equivalentes diluem a mensagem.",
+        "Escala sem contexto pode parecer erro de continuidade."
+      ],
+      "successSignals": [
+        "O foco primário é identificável no frame estático.",
+        "A ordem de leitura permanece estável nos momentos decisivos."
+      ],
+      "tests": [
+        {
+          "id": "t-primary-focus",
+          "scenario": "Remover o movimento e observar três frames representativos do plano.",
+          "expected": "Cada frame mantém foco principal identificável e elementos secundários não competem sem intenção declarada."
+        }
+      ]
+    },
+    {
+      "id": "p-readable-type-color",
+      "title": "Texto e cor permanecem funcionais durante o movimento",
+      "definition": "Tipografia em movimento deve preservar tempo de leitura, contraste, integridade das formas e posição segura conforme o canal, usando cor como informação redundante quando necessário.",
+      "intent": "Evitar que movimento, recorte, compressão ou interface destruam conteúdo essencial.",
+      "sourceIds": [
+        "w3c-wcag-22",
+        "ebu-r95"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Títulos, legendas, preço, CTA, disclaimers e dados.",
+        "Entregas com múltiplas proporções ou sobreposição de UI."
+      ],
+      "limits": [
+        "Safe area não é universal; deve vir do perfil vigente do canal.",
+        "WCAG é referência web e não prova conformidade de todo arquivo audiovisual."
+      ],
+      "risks": [
+        "Texto essencial fora da área segura pode desaparecer.",
+        "Cor usada como único sinal pode excluir parte da audiência."
+      ],
+      "successSignals": [
+        "Conteúdo essencial permanece legível em escala de visualização alvo.",
+        "Nenhum significado crítico depende apenas de cor ou de um frame muito breve."
+      ],
+      "tests": [
+        {
+          "id": "t-text-window",
+          "scenario": "Verificar os intervalos completos em que cada texto essencial está visível no aspect ratio de entrega.",
+          "expected": "O texto permanece íntegro, dentro da safe area declarada e por tempo compatível com sua extensão."
+        }
+      ]
+    },
+    {
+      "id": "p-temporal-shaping",
+      "title": "Timing, spacing, easing e holds expressam função",
+      "definition": "Duração, distribuição espacial entre amostras, curva de progresso e pausas devem ser escolhidas em conjunto para comunicar peso, precisão, urgência ou contemplação.",
+      "intent": "Transformar uma mudança de estado em movimento legível e motivado.",
+      "sourceIds": [
+        "w3c-web-animations-2023",
+        "w3c-css-easing-2",
+        "acm-traditional-animation-1987"
+      ],
+      "basis": "source-grounded",
+      "modality": "heuristic",
+      "applicability": [
+        "Animação de propriedades, câmera, transições e entrada ou saída de elementos.",
+        "Sincronização com fala, música ou eventos narrativos."
+      ],
+      "limits": [
+        "Não existe uma curva universalmente natural.",
+        "Holds longos ou movimentos lineares podem ser escolhas corretas quando motivados."
+      ],
+      "risks": [
+        "Easing decorativo pode conflitar com a intenção.",
+        "Aceleração excessiva reduz legibilidade e cria ruído."
+      ],
+      "successSignals": [
+        "A velocidade percebida é compatível com a função do elemento.",
+        "Pausas coincidem com momentos de compreensão ou ênfase."
+      ],
+      "tests": [
+        {
+          "id": "t-motion-function",
+          "scenario": "Descrever em uma frase a função de cada movimento relevante e comparar com sua curva e duração.",
+          "expected": "Cada curva, spacing e hold possui justificativa funcional; movimentos sem função são removíveis sem perda."
+        }
+      ]
+    },
+    {
+      "id": "p-preparation-and-settle",
+      "title": "Preparação, ultrapassagem e continuidade devem ser proporcionais",
+      "definition": "Antecipação prepara a leitura; overshoot indica energia ou elasticidade; follow-through e overlap distribuem a parada entre partes relacionadas.",
+      "intent": "Tornar mudanças de ação compreensíveis e coerentes com material, massa e tom.",
+      "sourceIds": [
+        "acm-traditional-animation-1987"
+      ],
+      "basis": "source-grounded",
+      "modality": "heuristic",
+      "applicability": [
+        "Personagens, objetos articulados, logos, interfaces e câmera.",
+        "Movimentos que precisam comunicar impulso ou dissipação."
+      ],
+      "limits": [
+        "Movimento mecânico, solene ou preciso pode exigir pouca ou nenhuma ultrapassagem.",
+        "Logo e identidade podem proibir deformação ou elasticidade."
+      ],
+      "risks": [
+        "Aplicação automática produz movimento infantilizado ou inconsistente.",
+        "Excesso de overlap obscurece a ação principal."
+      ],
+      "successSignals": [
+        "A ação principal é percebida antes dos movimentos secundários.",
+        "O assentamento preserva forma, identidade e materialidade declaradas."
+      ],
+      "tests": [
+        {
+          "id": "t-settle-proportion",
+          "scenario": "Comparar o movimento principal, sua preparação e seu assentamento com as restrições do elemento.",
+          "expected": "Componentes secundários reforçam a ação sem atrasar a leitura nem violar integridade de marca."
+        }
+      ]
+    },
+    {
+      "id": "p-path-and-staging",
+      "title": "Trajetória, arcos, câmera e staging compartilham a atenção",
+      "definition": "Caminhos de elementos e câmera devem preservar geografia, evitar colisões sem intenção e conduzir o olhar por uma sequência espacial compreensível.",
+      "intent": "Organizar deslocamento como linguagem e não como efeito isolado.",
+      "sourceIds": [
+        "acm-traditional-animation-1987",
+        "film-art-13"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Planos com câmera virtual, objetos móveis ou revelações.",
+        "Transições que reutilizam direção ou forma."
+      ],
+      "limits": [
+        "Trajetórias quebradas podem comunicar choque, erro ou artificialidade.",
+        "Nem todo movimento precisa seguir arco."
+      ],
+      "risks": [
+        "Câmera e objeto competindo pela atenção tornam o plano ilegível.",
+        "Mudança de eixo não motivada quebra orientação."
+      ],
+      "successSignals": [
+        "O espectador consegue apontar origem, destino e foco do movimento.",
+        "A câmera revela informação sem esconder a ação principal."
+      ],
+      "tests": [
+        {
+          "id": "t-trajectory-map",
+          "scenario": "Sobrepor trajetórias simplificadas do foco, elementos secundários e câmera.",
+          "expected": "As trajetórias formam uma ordem de atenção coerente e colisões relevantes são intencionais."
+        }
+      ]
+    },
+    {
+      "id": "p-depth-parallax",
+      "title": "Profundidade e parallax exigem modelo espacial coerente",
+      "definition": "Diferenças de escala, oclusão, foco e velocidade relativa devem concordar o suficiente para sustentar a profundidade pretendida.",
+      "intent": "Criar separação espacial sem introduzir contradições visuais gratuitas.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Câmera multiplano, colagem, ambientes 2.5D e composição de camadas.",
+        "Revelações em que foreground, midground e background têm funções distintas."
+      ],
+      "limits": [
+        "Colagem e abstração podem usar perspectiva deliberadamente inconsistente.",
+        "Parallax mínimo pode ser preferível para conforto e legibilidade."
+      ],
+      "risks": [
+        "Velocidades incompatíveis fazem camadas parecerem soltas.",
+        "Oclusão inesperada encobre informação essencial."
+      ],
+      "successSignals": [
+        "Camadas mantêm relação espacial estável durante o plano.",
+        "A profundidade reforça foco e não depende de movimento excessivo."
+      ],
+      "tests": [
+        {
+          "id": "t-layer-coherence",
+          "scenario": "Inspecionar início, meio e fim de uma câmera multiplano.",
+          "expected": "Ordem de oclusão, escala e velocidade relativa permanecem coerentes com o modelo espacial declarado."
+        }
+      ]
+    },
+    {
+      "id": "p-continuity-transition",
+      "title": "Continuidade decide o que a transição preserva",
+      "definition": "Cortes e transições devem declarar se preservam ação, direção, forma, cor, posição, tempo ou ideia; match cut é um caso de continuidade baseada em correspondência perceptiva.",
+      "intent": "Fazer a passagem entre planos carregar significado ou economia, não apenas decoração.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "source-grounded",
+      "modality": "heuristic",
+      "applicability": [
+        "Sequências, montagens, variantes de aspect ratio e mudanças de cena.",
+        "Transições geradas ou compostas localmente."
+      ],
+      "limits": [
+        "Descontinuidade pode ser recurso narrativo deliberado.",
+        "Correspondência formal não substitui continuidade factual em documentário."
+      ],
+      "risks": [
+        "Transição complexa mascara uma relação narrativa fraca.",
+        "Match cut aproximado pode parecer erro de posição."
+      ],
+      "successSignals": [
+        "É possível nomear a relação preservada ou rompida.",
+        "A transição não cria ambiguidade involuntária sobre tempo, espaço ou identidade."
+      ],
+      "tests": [
+        {
+          "id": "t-transition-contract",
+          "scenario": "Para cada transição, registrar o atributo preservado e o atributo que pode mudar.",
+          "expected": "O resultado observado respeita o contrato ou a ruptura está explicitamente motivada."
+        }
+      ]
+    },
+    {
+      "id": "p-rhythm-sync",
+      "title": "Ritmo audiovisual organiza eventos, não apenas batidas",
+      "definition": "Ritmo resulta de densidade, duração, repetição, silêncio e mudança; sincronismo pode alinhar eventos com fala, música ou ação, mas também usar contraponto intencional.",
+      "intent": "Coordenar percepção visual e sonora sem transformar toda edição em marcação mecânica de beat.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "source-grounded",
+      "modality": "heuristic",
+      "applicability": [
+        "Montagem musical, kinetic type, fala com gráficos e efeitos pontuais.",
+        "Sequências que alternam densidade ou pausa."
+      ],
+      "limits": [
+        "Sincronia perfeita pode reduzir naturalidade.",
+        "Ausência de música não implica ausência de ritmo."
+      ],
+      "risks": [
+        "Marcar cada batida torna a peça previsível.",
+        "Eventos visuais concorrentes com palavras essenciais reduzem compreensão."
+      ],
+      "successSignals": [
+        "Eventos importantes têm relação temporal observável com a intenção sonora.",
+        "Pausas e contrapontos são percebidos como escolha, não como atraso."
+      ],
+      "tests": [
+        {
+          "id": "t-av-event-map",
+          "scenario": "Mapear eventos visuais e sonoros principais numa mesma timeline.",
+          "expected": "Alinhamentos e desvios relevantes têm função declarada e não ocultam fala ou texto essencial."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-deliberate-disorientation",
+      "principleIds": [
+        "p-path-and-staging",
+        "p-continuity-transition"
+      ],
+      "condition": "A obra precisa produzir desorientação como efeito narrativo explicitamente aprovado.",
+      "response": "Registrar a intenção, preservar requisitos de segurança e acessibilidade e limitar a ruptura ao trecho necessário.",
+      "sourceIds": [
+        "w3c-wcag-22"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-style-by-default",
+      "title": "Princípio convertido em fórmula estética",
+      "description": "Aplicar sempre o mesmo easing, overshoot, parallax ou transição sem relação com intenção, material ou canal.",
+      "principleIds": [
+        "p-temporal-shaping",
+        "p-preparation-and-settle",
+        "p-depth-parallax",
+        "p-continuity-transition"
+      ],
+      "risks": [
+        "Uniformização de peças distintas.",
+        "Movimento incompatível com marca, narrativa ou acessibilidade."
+      ],
+      "mitigations": [
+        "Exigir função declarada para decisões relevantes.",
+        "Permitir movimento linear, corte seco ou ausência de movimento quando adequados."
+      ],
+      "sourceIds": [
+        "w3c-css-easing-2",
+        "acm-traditional-animation-1987"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-product-reveal",
+      "title": "Revelação com foco preservado",
+      "description": "Um elemento entra por trajetória curta, desacelera antes do hold e deixa espaço negativo para uma mensagem essencial dentro da safe area do canal.",
+      "principleIds": [
+        "p-spatial-hierarchy",
+        "p-temporal-shaping",
+        "p-path-and-staging",
+        "p-readable-type-color"
+      ],
+      "analysis": "O exemplo combina técnica e intenção sem prescrever aparência. Trajetória, hold e espaço são verificáveis; valores concretos dependem do plano e do perfil de entrega.",
+      "sourceIds": [
+        "w3c-css-easing-2",
+        "ebu-r95",
+        "film-art-13"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-competing-motion",
+      "title": "Movimento concorrente sem hierarquia",
+      "description": "Título, fundo, câmera e elemento principal aceleram em direções distintas durante a única janela de leitura.",
+      "principleIds": [
+        "p-spatial-hierarchy",
+        "p-readable-type-color",
+        "p-rhythm-sync"
+      ],
+      "analysis": "O movimento não é inválido por ser intenso; falha porque a peça não declara foco nem oferece tempo alternativo para a mensagem essencial.",
+      "sourceIds": [
+        "w3c-wcag-22",
+        "film-art-13"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "composition",
+      "principleIds": [
+        "p-spatial-hierarchy"
+      ]
+    },
+    {
+      "tag": "visual-hierarchy",
+      "principleIds": [
+        "p-spatial-hierarchy"
+      ]
+    },
+    {
+      "tag": "contrast",
+      "principleIds": [
+        "p-spatial-hierarchy",
+        "p-readable-type-color"
+      ]
+    },
+    {
+      "tag": "balance",
+      "principleIds": [
+        "p-spatial-hierarchy"
+      ]
+    },
+    {
+      "tag": "scale",
+      "principleIds": [
+        "p-spatial-hierarchy",
+        "p-depth-parallax"
+      ]
+    },
+    {
+      "tag": "negative-space",
+      "principleIds": [
+        "p-spatial-hierarchy"
+      ]
+    },
+    {
+      "tag": "motion-typography",
+      "principleIds": [
+        "p-readable-type-color"
+      ]
+    },
+    {
+      "tag": "color",
+      "principleIds": [
+        "p-readable-type-color"
+      ]
+    },
+    {
+      "tag": "staging",
+      "principleIds": [
+        "p-path-and-staging"
+      ]
+    },
+    {
+      "tag": "timing",
+      "principleIds": [
+        "p-temporal-shaping"
+      ]
+    },
+    {
+      "tag": "spacing",
+      "principleIds": [
+        "p-temporal-shaping"
+      ]
+    },
+    {
+      "tag": "easing",
+      "principleIds": [
+        "p-temporal-shaping"
+      ]
+    },
+    {
+      "tag": "anticipation",
+      "principleIds": [
+        "p-preparation-and-settle"
+      ]
+    },
+    {
+      "tag": "overshoot",
+      "principleIds": [
+        "p-preparation-and-settle"
+      ]
+    },
+    {
+      "tag": "follow-through",
+      "principleIds": [
+        "p-preparation-and-settle"
+      ]
+    },
+    {
+      "tag": "overlap",
+      "principleIds": [
+        "p-preparation-and-settle"
+      ]
+    },
+    {
+      "tag": "holds",
+      "principleIds": [
+        "p-temporal-shaping"
+      ]
+    },
+    {
+      "tag": "arcs",
+      "principleIds": [
+        "p-path-and-staging"
+      ]
+    },
+    {
+      "tag": "trajectory",
+      "principleIds": [
+        "p-path-and-staging"
+      ]
+    },
+    {
+      "tag": "camera",
+      "principleIds": [
+        "p-path-and-staging"
+      ]
+    },
+    {
+      "tag": "depth",
+      "principleIds": [
+        "p-depth-parallax"
+      ]
+    },
+    {
+      "tag": "parallax",
+      "principleIds": [
+        "p-depth-parallax"
+      ]
+    },
+    {
+      "tag": "continuity",
+      "principleIds": [
+        "p-continuity-transition"
+      ]
+    },
+    {
+      "tag": "match-cut",
+      "principleIds": [
+        "p-continuity-transition"
+      ]
+    },
+    {
+      "tag": "transitions",
+      "principleIds": [
+        "p-continuity-transition"
+      ]
+    },
+    {
+      "tag": "rhythm",
+      "principleIds": [
+        "p-rhythm-sync"
+      ]
+    },
+    {
+      "tag": "audiovisual-synchronization",
+      "principleIds": [
+        "p-rhythm-sync"
+      ]
+    },
+    {
+      "tag": "readability",
+      "principleIds": [
+        "p-readable-type-color"
+      ]
+    },
+    {
+      "tag": "safe-areas",
+      "principleIds": [
+        "p-readable-type-color"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "composition",
+    "visual-hierarchy",
+    "contrast",
+    "balance",
+    "scale",
+    "negative-space",
+    "motion-typography",
+    "color",
+    "staging",
+    "timing",
+    "spacing",
+    "easing",
+    "anticipation",
+    "overshoot",
+    "follow-through",
+    "overlap",
+    "holds",
+    "arcs",
+    "trajectory",
+    "camera",
+    "depth",
+    "parallax",
+    "continuity",
+    "match-cut",
+    "transitions",
+    "rhythm",
+    "audiovisual-synchronization",
+    "readability",
+    "safe-areas"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com cobertura fundacional, testes abstratos e fontes com termos separados da licença do pack.",
+        "Princípios formulados de modo neutro, não imitativo e sem valores estéticos universais."
+      ]
+    }
+  ]
+}

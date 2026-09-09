@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "saude-pausa-respiracao-guiada-45s",
+  "label": "Mindfulness & Bem-Estar Vertical (45s) · Respiração Guiada 4x4",
+  "description": "Vídeo vertical 9:16 relaxante com geometria viva em expansão e contração guiada no ritmo de 4 segundos para diminuir o cortisol e desacelerar a mente.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "mindfulness-ambient@1",
+  "collection": "saude-pausa-respiracao-guiada-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de ondas de água e ar puro",
+    "Flow Music meditação ambient serena",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 meditative cinematography. Soft pastel gradient background of dawn pink and deep sky blue. A translucent luminous sphere expands slowly and rhythmically like a deep breath. Non-verbal sound design: soft ambient wind chime and gentle ocean wave swell. No speech or dialogue. On-screen text: INSPIRE... 1, 2, 3, 4.",
+      "duration": 12,
+      "onScreenText": "INSPIRE... 1, 2, 3, 4",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 meditative cinematography. The luminous sphere holds its shape, gently pulsating with iridescent golden light ripples. Soft floating dust particles in tranquil suspension. Non-verbal sound design: deep serene singing bowl tone. No speech or dialogue. On-screen text: SEGURE O AR... 1, 2, 3, 4.",
+      "duration": 11,
+      "onScreenText": "SEGURE O AR... 1, 2, 3, 4",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 meditative cinematography. The sphere gently contracts, releasing a cascade of soothing glowing mist down the screen. Non-verbal sound design: peaceful warm exhale breeze. No speech or dialogue. On-screen text: EXPIRE SUAVEMENTE... 1, 2, 3, 4.",
+      "duration": 12,
+      "onScreenText": "EXPIRE SUAVEMENTE... 1, 2, 3, 4",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 meditative outro. Minimalist lotus blossom silhouette blooming gently with warm twilight glow. Typography: 'Sua mente em paz'. Non-verbal sound design: crystalline bell resolve. No speech or dialogue. On-screen text: RECOMECE COM CLAREZA.",
+      "duration": 10,
+      "onScreenText": "RECOMECE COM CLAREZA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Pare um instante. Desacelere os pensamentos. Puxe o ar bem devagar... segure... agora solte todo o peso do dia. Sinta a calma voltar para o seu corpo. Você está no controle.",
+      "voice": "voz feminina brasileira suave, compassada, meditativa e reconfortante",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Pare um instante e puxe o ar profundamente pelo nariz." },
+        { "id": "cena-2", "text": "Mantenha o ar nos pulmões por alguns segundos em silêncio." },
+        { "id": "cena-3", "text": "Agora solte todo o ar pela boca e liberte a tensão acumulada." },
+        { "id": "cena-4", "text": "Sinta a clareza retornar. Uma ótima jornada para você." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Ultra-peaceful meditative ambient soundscape with Tibetan singing bowls, warm drone and gentle rain textures",
+      "duration": 45,
+      "volume": 0.2,
+      "fadeOut": 0
+    }
+  }
+}

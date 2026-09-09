@@ -1,0 +1,13 @@
+{
+  "id": "motor-local",
+  "title": "IDEIAS EM MOVIMENTO",
+  "subtitle": "Motor local integrado ao Studio",
+  "cta": "CRIAR",
+  "width": 640,
+  "height": 360,
+  "fps": 24,
+  "durationSeconds": 2,
+  "aspect": "16:9",
+  "background": "#09111f",
+  "accent": "#67e8f9"
+}

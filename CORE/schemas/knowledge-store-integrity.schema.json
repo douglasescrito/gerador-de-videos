@@ -1,0 +1,112 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-store-integrity@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "storeSchema",
+    "dbFile",
+    "exists",
+    "initialized",
+    "ok",
+    "userVersion",
+    "sqlite",
+    "foreignKeys",
+    "migrations",
+    "appendOnlyTriggers",
+    "ledgerSummary",
+    "grantEvidence",
+    "classificationFloor",
+    "issues"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-store-integrity@1" },
+    "storeSchema": { "const": "mkt-videos/knowledge-store@1" },
+    "dbFile": { "type": "string", "minLength": 1 },
+    "exists": { "type": "boolean" },
+    "initialized": { "type": "boolean" },
+    "ok": { "type": "boolean" },
+    "userVersion": { "type": "integer", "minimum": 0 },
+    "sqlite": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "foreignKeys": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["ok", "violationCount", "tables"],
+      "properties": {
+        "ok": { "type": "boolean" },
+        "violationCount": { "type": "integer", "minimum": 0 },
+        "tables": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "migrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "id", "hash", "appliedAt", "valid"],
+        "properties": {
+          "version": { "type": "integer", "minimum": 1 },
+          "id": { "type": "string", "minLength": 1 },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "appliedAt": {
+            "oneOf": [
+              { "type": "null" },
+              { "type": "string", "format": "date-time" }
+            ]
+          },
+          "valid": { "type": "boolean" }
+        }
+      }
+    },
+    "appendOnlyTriggers": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["expected", "missing"],
+      "properties": {
+        "expected": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "missing": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "ledgerSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rootCount", "eventCount", "headsAggregateHash"],
+      "properties": {
+        "rootCount": { "type": "integer", "minimum": 0 },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "headsAggregateHash": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          ]
+        }
+      }
+    },
+    "grantEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalEventCount", "legacyEventCount"],
+      "properties": {
+        "canonicalEventCount": { "type": "integer", "minimum": 0 },
+        "legacyEventCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "classificationFloor": {
+      "enum": ["internal", "confidential", "restricted"]
+    },
+    "issues": { "type": "array" }
+  }
+}

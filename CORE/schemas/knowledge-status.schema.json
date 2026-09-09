@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-status@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "storeSchema",
+    "dbFile",
+    "exists",
+    "initialized",
+    "userVersion",
+    "migrations",
+    "ledgerHeads",
+    "ledgerSummary",
+    "grantEvidence",
+    "issues"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-status@1" },
+    "storeSchema": { "const": "mkt-videos/knowledge-store@1" },
+    "dbFile": { "type": "string", "minLength": 1 },
+    "exists": { "type": "boolean" },
+    "initialized": { "type": "boolean" },
+    "userVersion": { "type": "integer", "minimum": 0 },
+    "migrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "id", "hash", "appliedAt", "valid"],
+        "properties": {
+          "version": { "type": "integer", "minimum": 1 },
+          "id": { "type": "string", "minLength": 1 },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "appliedAt": {
+            "oneOf": [
+              { "type": "null" },
+              { "type": "string", "format": "date-time" }
+            ]
+          },
+          "valid": { "type": "boolean" }
+        }
+      }
+    },
+    "ledgerHeads": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rootScopeHash",
+          "eventCount",
+          "lastSequence",
+          "headHash"
+        ],
+        "properties": {
+          "rootScopeHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "eventCount": { "type": "integer", "minimum": 1 },
+          "lastSequence": { "type": "integer", "minimum": 1 },
+          "headHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "ledgerSummary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rootCount", "eventCount", "headsAggregateHash"],
+      "properties": {
+        "rootCount": { "type": "integer", "minimum": 0 },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "headsAggregateHash": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          ]
+        }
+      }
+    },
+    "grantEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["canonicalEventCount", "legacyEventCount"],
+      "properties": {
+        "canonicalEventCount": { "type": "integer", "minimum": 0 },
+        "legacyEventCount": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "issues": { "type": "array" }
+  }
+}

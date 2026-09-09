@@ -1,0 +1,176 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-feedback-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "rootScopeId",
+    "eventCount",
+    "entries",
+    "aggregateHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-feedback-action-result@1"
+    },
+    "action": {
+      "enum": [
+        "capture-feedback",
+        "list-feedback",
+        "replay-feedback"
+      ]
+    },
+    "status": {
+      "enum": [
+        "captured",
+        "listed",
+        "replayed"
+      ]
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "type": "boolean"
+    },
+    "changed": {
+      "type": "boolean"
+    },
+    "humanConfirmed": {
+      "type": "boolean"
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "eventCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "entries": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/entry"
+      }
+    },
+    "aggregateHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "action": { "const": "capture-feedback" }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "captured" },
+          "readOnly": { "const": false },
+          "changed": { "const": true },
+          "humanConfirmed": { "const": true }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": { "const": "list-feedback" }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "listed" },
+          "readOnly": { "const": true },
+          "changed": { "const": false },
+          "humanConfirmed": { "const": false }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "action": { "const": "replay-feedback" }
+        },
+        "required": ["action"]
+      },
+      "then": {
+        "properties": {
+          "status": { "const": "replayed" },
+          "readOnly": { "const": true },
+          "changed": { "const": false },
+          "humanConfirmed": { "const": false }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sequence",
+        "eventId",
+        "eventActor",
+        "scopeGrantId",
+        "subjectId",
+        "feedbackHash",
+        "originalTextSha256",
+        "eventHash",
+        "feedback"
+      ],
+      "properties": {
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "eventId": {
+          "type": "string",
+          "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+        },
+        "eventActor": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "scopeGrantId": {
+          "type": "string",
+          "pattern": "^sg_[a-f0-9]{32}$"
+        },
+        "subjectId": {
+          "type": "string",
+          "pattern": "^kfe_[a-f0-9]{32}$"
+        },
+        "feedbackHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "originalTextSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "eventHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "feedback": {
+          "$ref": "mkt-videos/feedback-event@1"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-resiliencia-urbana-45s",
+  "label": "Manifesto de Marca (45s) · A Flor no Asfalto (Resiliência & Renascimento)",
+  "description": "Manifesto poético e poderoso em 16:9: uma flor dente-de-leão dourada brotando através de uma fenda no asfalto bruto de uma grande cidade, chuva lavando a poeira e pessoas caminhando com dignidade.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-resilience@1",
+  "collection": "manifesto-resiliencia-urbana-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia documental poética",
+    "sound design de chuva urbana e asfalto",
+    "Flow Music épico acústico emocionante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Poetic brand manifesto cinematography in 16:9. Extreme macro shot of a rough dark asphalt road surface. In a narrow, weathered crack, a resilient green sprout forces its way upward into the light. 100mm macro lens, dramatic low angle. Non-verbal sound design: distant muffled city thunder, gentle wind gust. No speech or dialogue. On-screen text: A FORÇA INVISÍVEL.",
+      "duration": 9,
+      "onScreenText": "A FORÇA INVISÍVEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Poetic brand manifesto cinematography in 16:9. Slow motion 120fps shot: rain begins to fall on the hot street pavement, with cool water droplets washing away dust and glistening on the opening golden petals of a wild dandelion flower. Non-verbal sound design: crisp rain drops hitting asphalt, steam sizzle. No speech or dialogue. On-screen text: A VIDA ENCONTRA UM MEIO.",
+      "duration": 9,
+      "onScreenText": "A VIDA ENCONTRA UM MEIO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Poetic brand manifesto cinematography in 16:9. Pedestrian POV: a diverse cross-section of working people walking steadfast through wet city crosswalks with umbrellas, faces illuminated by warm window displays with resolve and unity. High emotional truth. Non-verbal sound design: rhythmic footsteps on wet stone, distant subway rumble. No speech or dialogue. On-screen text: A CORAGEM DO COTIDIANO.",
+      "duration": 9,
+      "onScreenText": "A CORAGEM DO COTIDIANO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Poetic brand manifesto cinematography in 16:9. A child stoops down and smiles, gently blowing the white fluffy seed-head of the dandelion. Hundreds of tiny parachutes float gracefully into golden sunbeams breaking through storm clouds. Non-verbal sound design: soft breath whisper and soaring emotional solo cello. No speech or dialogue. On-screen text: MULTIPLICAR A ESPERANÇA.",
+      "duration": 9,
+      "onScreenText": "MULTIPLICAR A ESPERANÇA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Poetic brand manifesto cinematography in 16:9. Hero brand lockup: a clean, radiant brand mark and typography appear over a majestic golden-hour skyline of the revitalized city after the rain, with a full rainbow arching across the sky. Non-verbal sound design: triumphant orchestral crescendo resolving into peaceful birdsong. No speech or dialogue. On-screen text: A FLOR NO ASFALTO.",
+      "duration": 9,
+      "onScreenText": "A FLOR NO ASFALTO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Não importa o quanto o concreto tente sufocar a terra. A vida sempre encontra uma fresta para brotar. A verdadeira resiliência não é a ausência de tempestades; é a decisão inabalável de florescer.",
+      "voice": "voz feminina brasileira madura, calorosa, emotiva, inspiradora, firme e poética, estilo manifesto lírico de superação",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Mesmo no chão mais duro, a vida nunca desiste."
+        },
+        {
+          "id": "cena-2",
+          "text": "A chuva que parecia castigo se transforma em alimento."
+        },
+        {
+          "id": "cena-3",
+          "text": "A beleza de quem acorda todos os dias para reconstruir."
+        },
+        {
+          "id": "cena-4",
+          "text": "Um único gesto de esperança é capaz de semear o futuro."
+        },
+        {
+          "id": "cena-5",
+          "text": "A flor no asfalto. Floresça onde você estiver."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Deeply emotional and lyrical score with solo cello, gentle felt piano, acoustic guitar, building strings and an inspiring, triumphant resolution.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

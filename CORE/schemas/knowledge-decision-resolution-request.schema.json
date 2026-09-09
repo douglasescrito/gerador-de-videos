@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-decision-resolution-request@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rootScopeId", "decisionId", "asOf", "options", "requestFingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-decision-resolution-request@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "decisionId": { "$ref": "#/$defs/id" },
+    "asOf": { "type": "string", "format": "date-time" },
+    "options": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 256,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "admissibility", "preference", "viability"],
+        "properties": {
+          "id": { "$ref": "#/$defs/id" },
+          "admissibility": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "reasons"],
+            "properties": {
+              "status": { "enum": ["allowed", "blocked"] },
+              "reasons": { "type": "array", "maxItems": 16, "items": { "type": "string", "minLength": 1, "maxLength": 2000 } }
+            }
+          },
+          "preference": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["authority", "scopeDepth", "supersedes", "revision", "evidenceStrength", "conflictSet", "valueHash"],
+            "properties": {
+              "authority": { "enum": ["explicit-request", "project-decision", "client-preference", "personal-preference", "genre-foundation", "heuristic", "model-suggestion"] },
+              "scopeDepth": { "type": "integer", "minimum": 0, "maximum": 1000 },
+              "supersedes": { "type": "boolean" },
+              "revision": { "type": "integer", "minimum": 1 },
+              "evidenceStrength": { "type": "integer", "minimum": 0 },
+              "conflictSet": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/id" }] },
+              "valueHash": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/fingerprint" }] }
+            }
+          },
+          "viability": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["status", "reasons"],
+            "properties": {
+              "status": { "enum": ["available", "unavailable"] },
+              "reasons": { "type": "array", "maxItems": 16, "items": { "type": "string", "minLength": 1, "maxLength": 2000 } }
+            }
+          }
+        }
+      }
+    },
+    "requestFingerprint": { "$ref": "#/$defs/fingerprint" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "schema": "mkt-videos/retrieval-golden-briefs@1",
+  "version": 1,
+  "providerFree": true,
+  "cases": [
+    {
+      "id": "lexical-style-direction",
+      "brief": "cinematic luz",
+      "expectedProperties": ["fts5", "release-filter", "rights-filter"]
+    },
+    {
+      "id": "scope-specific-override",
+      "brief": "luz",
+      "expectedProperties": ["typed-conflict", "scope-specificity", "no-planner-influence"]
+    }
+  ]
+}

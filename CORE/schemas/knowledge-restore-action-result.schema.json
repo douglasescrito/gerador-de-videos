@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-restore-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "changed",
+    "file",
+    "manifestHash",
+    "database",
+    "assets",
+    "scopeAttestationVerified",
+    "reportOnlyAssets",
+    "repairPerformed"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-restore-action-result@1" },
+    "action": { "const": "restore" },
+    "status": { "enum": ["restored", "restored-asymmetric"] },
+    "providerFree": { "const": true },
+    "changed": { "const": true },
+    "file": { "type": "string", "minLength": 1 },
+    "manifestHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "database": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["userVersion", "bytes", "sha256", "integritySha256"],
+      "properties": {
+        "userVersion": { "type": "integer", "minimum": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "integritySha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "missing", "divergent", "unsafe"],
+      "properties": {
+        "status": { "enum": ["not-declared", "match", "asymmetric"] },
+        "missing": { "type": "integer", "minimum": 0 },
+        "divergent": { "type": "integer", "minimum": 0 },
+        "unsafe": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "scopeAttestationVerified": { "type": "boolean" },
+    "reportOnlyAssets": { "const": true },
+    "repairPerformed": { "const": false }
+  }
+}

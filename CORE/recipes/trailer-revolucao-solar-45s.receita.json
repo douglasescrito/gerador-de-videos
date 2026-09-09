@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-revolucao-solar-45s",
+  "label": "Trailer Cinematográfico (45s) · Revolução Solar (Solarpunk & Distopia)",
+  "description": "Trailer de ficção científica solarpunk em 16:9: megacidades verticais cobertas por biomas suspensos, tempestades de areia dourada cobrindo painéis solares gigantescos e aeronaves planadoras ao entardecer.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "solarpunk-cinema@1",
+  "collection": "trailer-revolucao-solar-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia solarpunk",
+    "sound design de vento solar e energia",
+    "Flow Music épico orquestral moderno",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Solarpunk sci-fi trailer cinematography in 16:9. Extreme wide shot of a colossal terracotta and white vertical megacity rising from a desert basin. Spiraling botanical gardens and cascading green sky-forests hang between immense solar-harvesting glass arches under a radiant golden sun. 35mm cinema lens, rich warm amber lighting. Non-verbal sound design: expansive desert wind roar and deep harmonic energy hum. No speech or dialogue. On-screen text: QUANDO O SOL SE TORNOU A ÚNICA LEI.",
+      "duration": 9,
+      "onScreenText": "QUANDO O SOL SE TORNOU A ÚNICA LEI",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Solarpunk sci-fi trailer cinematography in 16:9. Macro shot of bio-photovoltaic leaves unfurling in slow motion, absorbing sunlight with glowing cyan micro-capillaries. Micro dust particles drift through golden atmospheric rays. Non-verbal sound design: organic vegetal rustle and gentle high-tech electrical activation pulse. No speech or dialogue. On-screen text: A VIDA RECONQUISTOU O CONCRETO.",
+      "duration": 9,
+      "onScreenText": "A VIDA RECONQUISTOU O CONCRETO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Solarpunk sci-fi trailer cinematography in 16:9. Fast-paced aerial tracking shot of ultra-light solar glider aircraft diving through massive mirror-collector canyons. A violent golden sandstorm rolls over the horizon, swallowing the outer agricultural towers. Non-verbal sound design: wind howling through glider wings, heavy percussive rising drum. No speech or dialogue. On-screen text: UMA TEMPESTADE SEM PRECEDENTES.",
+      "duration": 9,
+      "onScreenText": "UMA TEMPESTADE SEM PRECEDENTES",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Solarpunk sci-fi trailer cinematography in 16:9. Low-angle hero shot inside a towering bio-dome. Engineers and citizens look up as the city's central energy spire pulses with blinding emerald light, shielding the metropolis from solar radiation. Volumetric god rays. Non-verbal sound design: massive cinematic energy release BRAAM and uplifting vocal choir swell. No speech or dialogue. On-screen text: RESISTÊNCIA & ESPERANÇA.",
+      "duration": 9,
+      "onScreenText": "RESISTÊNCIA & ESPERANÇA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Solarpunk sci-fi trailer cinematography in 16:9. Hero title reveal: sculpted radiant bronze and moss-covered 3D typography illuminated by a blinding solar eclipse flare against the vertical skyline. Slow camera pan up. Non-verbal sound design: grand orchestral climax resolving into a pure warm brass chord. No speech or dialogue. On-screen text: REVOLUÇÃO SOLAR.",
+      "duration": 9,
+      "onScreenText": "REVOLUÇÃO SOLAR",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Eles disseram que a terra estava condenada. Mas nós aprendemos a colher a própria luz. O futuro não pertence às máquinas. Pertence àqueles que ousam cultivar o amanhã.",
+      "voice": "voz feminina brasileira madura, inspiradora, firme, calorosa e épica, estilo cinema utópico de ficção científica",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Eles disseram que o planeta havia chegado ao fim."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas entre as ruínas, nós aprendemos a colher a luz."
+        },
+        {
+          "id": "cena-3",
+          "text": "Quando a grande tempestade solar se aproxima."
+        },
+        {
+          "id": "cena-4",
+          "text": "Apenas a união entre homem e natureza pode resistir."
+        },
+        {
+          "id": "cena-5",
+          "text": "Revolução Solar. O nascimento de um novo mundo."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Triumphant solarpunk orchestral score with warm brass, soaring French horns, organic ethnic percussion, bright mallet synthesizers and a massive uplifting climax.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

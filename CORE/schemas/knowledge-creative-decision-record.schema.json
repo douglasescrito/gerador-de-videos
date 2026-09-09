@@ -1,0 +1,97 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/creative-decision-record@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "question",
+    "options",
+    "selectedOptionId",
+    "rationale",
+    "contextRefs",
+    "evidenceRefs",
+    "confidence",
+    "impact",
+    "humanConfirmed",
+    "approvedBy",
+    "decidedAt"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/creative-decision-record@1"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "options": {
+      "type": "array",
+      "minItems": 2,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "label"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 500
+          }
+        }
+      }
+    },
+    "selectedOptionId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "rationale": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    },
+    "contextRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "impact": {
+      "type": "object"
+    },
+    "humanConfirmed": {
+      "const": true
+    },
+    "approvedBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "decidedAt": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "three-gallery-premium",
+  "preset": "gallery",
+  "quality": "preview",
+  "durationSeconds": 6,
+  "background": "#070d20",
+  "accent": "#91bdff",
+  "bloom": 0.35,
+  "particles": false,
+  "seed": 73
+}

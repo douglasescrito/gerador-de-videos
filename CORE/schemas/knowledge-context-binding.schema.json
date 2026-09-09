@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-context-binding@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rootScopeId", "releaseId", "releaseHash", "requestHash", "contextId", "contextHash", "retrievalTraceId", "rankerVersion", "briefHash", "authority", "plannerInfluence", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-context-binding@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "releaseId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "releaseHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "requestHash": { "$ref": "#/$defs/hash" },
+    "contextId": { "type": "string", "pattern": "^kc_[a-f0-9]{32}$" },
+    "contextHash": { "$ref": "#/$defs/hash" },
+    "retrievalTraceId": { "type": "string", "pattern": "^rt_[a-f0-9]{32}$" },
+    "rankerVersion": { "const": "lexical-ranker@1" },
+    "briefHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "authority": { "const": "none" },
+    "plannerInfluence": { "const": "none" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

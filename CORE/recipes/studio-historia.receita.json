@@ -1,0 +1,52 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "kind": "filme",
+  "aspect": "16:9",
+  "task": "text_to_video",
+  "style": null,
+  "assembly": {
+    "fps": 24
+  },
+  "workflow": {
+    "authorizationMode": "production-once",
+    "humanReview": false,
+    "completionMode": "complete",
+    "automaticRetry": true,
+    "maxAttempts": 2,
+    "automaticCorrections": true
+  },
+  "qa": {
+    "structural": true
+  },
+  "audio": {
+    "music": false
+  },
+  "targetDurationSeconds": 30,
+  "id": "studio-historia",
+  "label": "Uma pequena história",
+  "collection": "studio-historia",
+  "description": "Ponto de partida historia para edição no Gerador.",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "duration": 10,
+      "prompt": "Uma folha de papel em branco sobre uma mesa iluminada pelo sol. Um lápis se aproxima. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-2",
+      "duration": 10,
+      "prompt": "O lápis desenha uma cidade imaginária no papel; as linhas ganham movimento em animação 2D. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-3",
+      "duration": 10,
+      "prompt": "A cidade desenhada se completa, com uma praça central e árvores em movimento. Encerramento em corte seco. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    }
+  ]
+}

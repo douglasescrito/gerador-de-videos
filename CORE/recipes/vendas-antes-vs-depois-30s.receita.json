@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "vendas-antes-vs-depois-30s",
+  "label": "Vendas Diretas Vertical (30s) · Antes vs. Depois / Transformação",
+  "description": "Comercial de conversão com divisão em tela e contraste entre a dor/frustração inicial e o alívio/sucesso pós-aplicação da solução.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "direct-response-contrast@1",
+  "collection": "vendas-antes-vs-depois-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de transição e clareza",
+    "Flow Music pop moderno motivador",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 cinematography. Desaturated cool moody lighting showing a cluttered, stressful desk with crumpled papers and an overwhelmed person staring at a slow screen. Non-verbal sound design: muffled low hum and frustrated sigh ambiance. No speech or dialogue. On-screen text: ANTES: LENTO E CANSATIVO.",
+      "duration": 7,
+      "onScreenText": "ANTES: LENTO E CANSATIVO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 cinematography. A dynamic laser wipe cuts across the frame from bottom to top, transforming the atmosphere with warm vibrant sunlight and clean modern aesthetics. Non-verbal sound design: crisp high-speed swoosh and energy release. No speech or dialogue. On-screen text: A VIRADA DE CHAVE.",
+      "duration": 7,
+      "onScreenText": "A VIRADA DE CHAVE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 cinematography. Bright modern organized desk setup with glowing streamlined productivity dashboard on laptop, coffee steaming, smiling confident professional working with ease. Non-verbal sound design: gentle melodic bell chime. No speech or dialogue. On-screen text: DEPOIS: RÁPIDO E AUTOMATIZADO.",
+      "duration": 10,
+      "onScreenText": "DEPOIS: RÁPIDO E AUTOMATIZADO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 direct response outro. Bold minimalist card: 'Experimente por 7 dias sem compromisso'. Glowing swipe up arrow. Non-verbal sound design: smooth click and ascending tone. No speech or dialogue. On-screen text: COMECE AGORA.",
+      "duration": 6,
+      "onScreenText": "COMECE AGORA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Você ainda perde horas tentando resolver tudo no modo manual? Chega de estresse. Com o nosso método, você automatiza a rotina e ganha liberdade no mesmo dia. Experimente sem riscos.",
+      "voice": "voz feminina brasileira acolhedora, confiante e persuasiva, tom de recomendação pessoal",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Você ainda perde horas tentando resolver tudo no modo manual?" },
+        { "id": "cena-2", "text": "Existe um jeito muito mais inteligente e rápido." },
+        { "id": "cena-3", "text": "Automatize seu fluxo e tenha resultados imediatos." },
+        { "id": "cena-4", "text": "Toque no link e teste hoje mesmo sem compromisso." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Uplifting modern acoustic-electronic fusion with energetic acoustic guitar, airy synth pads and upbeat drums",
+      "duration": 30,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

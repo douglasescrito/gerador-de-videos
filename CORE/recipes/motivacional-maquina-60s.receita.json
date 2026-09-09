@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-maquina-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · A Máquina da Consistência",
+  "description": "Filme motivacional em que ações repetidas ativam módulos de uma máquina abstrata, convertendo disciplina silenciosa em um sistema visual de energia, ritmo e resultado.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-maquina-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 1 of 6: A single circular module rotates one quarter turn and stops. The motion repeats with identical timing, each cycle producing a small amber spark. The exact on-screen phrase is supplied separately as: REPITA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "REPITA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 2 of 6: A second module connects, but the timing misaligns. The system visibly compensates by changing spacing, gear ratio and motion curve until both elements synchronize. The exact on-screen phrase is supplied separately as: AJUSTE. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "AJUSTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 3 of 6: More modules join, each cycle becoming smoother and more efficient. Previous friction points transform into guides, bearings and clean rhythmic connectors. The exact on-screen phrase is supplied separately as: REPITA MELHOR. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "REPITA MELHOR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 4 of 6: The camera tracks sideways through an expanding machine where dozens of components now move in coordinated sequences, transferring energy without interruption. The exact on-screen phrase is supplied separately as: O RITMO VIRA SISTEMA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "O RITMO VIRA SISTEMA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 5 of 6: Energy from the machine flows into a large abstract output structure that rises steadily. The connection between repeated cycles and visible result is explicit. The exact on-screen phrase is supplied separately as: O SISTEMA VIRA RESULTADO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "O SISTEMA VIRA RESULTADO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: dark slate, brushed ivory, industrial amber and a restrained turquoise accent. Narrative beat 6 of 6: The machine slows into a calm idle rather than stopping. One module performs another simple cycle, suggesting continuity beyond the film. The exact on-screen phrase is supplied separately as: FAÇA DE NOVO AMANHÃ. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "FAÇA DE NOVO AMANHÃ",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Resultados consistentes raramente dependem de um momento extraordinário. Eles nascem de movimentos simples que você consegue repetir. Repetição sem atenção vira rotina vazia. Observe, ajuste e encontre uma forma um pouco melhor de executar o próximo ciclo. Quando você repete melhor, o esforço começa a produzir mais. Pequenas melhorias removem atrito e aumentam a eficiência. Com o tempo, o ritmo deixa de depender de motivação. Ele se transforma em sistema, e o sistema passa a carregar parte do trabalho. É assim que o invisível vira resultado. Não por uma explosão de esforço, mas por muitas decisões alinhadas durante tempo suficiente. Faça hoje. Aprenda hoje. E amanhã, faça de novo com um pouco mais de clareza.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Resultados consistentes raramente dependem de um momento extraordinário. Eles nascem de movimentos simples que você consegue repetir."
+        },
+        {
+          "id": "cena-2",
+          "text": "Repetição sem atenção vira rotina vazia. Observe, ajuste e encontre uma forma um pouco melhor de executar o próximo ciclo."
+        },
+        {
+          "id": "cena-3",
+          "text": "Quando você repete melhor, o esforço começa a produzir mais. Pequenas melhorias removem atrito e aumentam a eficiência."
+        },
+        {
+          "id": "cena-4",
+          "text": "Com o tempo, o ritmo deixa de depender de motivação. Ele se transforma em sistema, e o sistema passa a carregar parte do trabalho."
+        },
+        {
+          "id": "cena-5",
+          "text": "É assim que o invisível vira resultado. Não por uma explosão de esforço, mas por muitas decisões alinhadas durante tempo suficiente."
+        },
+        {
+          "id": "cena-6",
+          "text": "Faça hoje. Aprenda hoje. E amanhã, faça de novo com um pouco mais de clareza."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Mechanical cinematic groove with muted piano, low frame percussion and precise repeating pulses. Add orchestral width as components synchronize, resolving into a steady ongoing cadence rather than a triumphant stop.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

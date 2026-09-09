@@ -1,0 +1,48 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "filme-1min",
+  "label": "Filme 1 minuto",
+  "description": "Composição completa de 60s em 6 atos de 10s. Ideal para comercial vertical com trilha Flow.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": null,
+  "collection": "filme-1min",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Ato Abertura (10s): Gancho visual forte, título limpo, problema do cliente em 1 frase. [ENERGY: LOW] [SFX: WHOOSH]",
+      "duration": 10
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Ato Dor (10s): Processos antigos e fricção. Ritmo acelerando. [ENERGY: RISING] [SFX: GLITCH]",
+      "duration": 10
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Ato Solução (10s): Produto no centro, luz quente, revelação clara. [ENERGY: CLIMAX] [SFX: BOOM]",
+      "duration": 10
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Ato Prova (10s): Métricas e benefícios em tipografia cinética. [ENERGY: RISING] [SFX: GLASS]",
+      "duration": 10
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Ato Confiança (10s): Estética premium, selo de qualidade, acabamento. [ENERGY: RISING] [SFX: WHOOSH]",
+      "duration": 10
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Ato CTA (10s): Marca + botão + chamada final. Corte limpo sem fade. [ENERGY: CLIMAX] [SFX: BOOM]",
+      "duration": 10
+    }
+  ],
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

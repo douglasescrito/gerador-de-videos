@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/renderer-bake-off@1",
+  "type": "object",
+  "required": ["schema", "candidates", "corpus", "decision", "promotionPerformed", "providerFree", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/renderer-bake-off@1" },
+    "candidates": { "type": "array" },
+    "corpus": { "type": "array" },
+    "decision": { "enum": ["pending", "human-approved", "rejected"] },
+    "promotionPerformed": { "const": false },
+    "providerFree": { "const": true },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

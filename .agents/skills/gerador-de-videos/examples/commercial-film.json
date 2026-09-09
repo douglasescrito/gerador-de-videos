@@ -1,0 +1,22 @@
+{
+  "name": "exemplo-comercial-neutro",
+  "aspect": "16:9",
+  "style": "aquarela-2d@1",
+  "imageModel": "gemini-3-pro-image",
+  "imageSize": "2K",
+  "scenes": [
+    {
+      "id": "abertura",
+      "prompt": "Formas geométricas translúcidas sobre uma superfície clara, sem logos ou textos.",
+      "motionPrompt": "A câmera avança suavemente; luz e sombras revelam a profundidade. Sem vozes ou música."
+    },
+    {
+      "id": "encerramento",
+      "prompt": "As formas geométricas se organizam em uma composição equilibrada, sem logos ou textos.",
+      "motionPrompt": "Movimentos suaves desaceleram até um repouso preciso. Sem vozes ou música."
+    }
+  ],
+  "assembly": { "transition": "cut", "transitionDuration": 0.041666666666666664, "fps": 24 },
+  "qa": { "semantic": false },
+  "budget": { "image": 2, "tts": 0, "music": 0, "omni": 2, "semanticQa": 0 }
+}

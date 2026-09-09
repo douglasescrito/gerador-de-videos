@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-release-activation@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "rootScopeId",
+    "sequence",
+    "mode",
+    "releaseId",
+    "releaseHash",
+    "previousActivationId",
+    "previousActiveReleaseId",
+    "reason",
+    "eligibilityHash",
+    "createdAt",
+    "createdBy",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-release-activation@1"
+    },
+    "id": {
+      "$ref": "#/$defs/id"
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "mode": {
+      "enum": ["activate", "rollback"]
+    },
+    "releaseId": {
+      "$ref": "#/$defs/id"
+    },
+    "releaseHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "previousActivationId": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/id" }
+      ]
+    },
+    "previousActiveReleaseId": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/id" }
+      ]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "eligibilityHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "hash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

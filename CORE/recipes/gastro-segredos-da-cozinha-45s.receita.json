@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "gastro-segredos-da-cozinha-45s",
+  "label": "Gastronomia & Tradição Widescreen (45s) · Bastidores & Segredos do Chef",
+  "description": "Vídeo widescreen 16:9 documental exibindo a rotina matinal da cozinha profissional, seleção de ingredientes orgânicos locais e o amor pelo preparo artesanal.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "culinary-documentary@1",
+  "collection": "gastro-segredos-da-cozinha-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato widescreen 16:9",
+    "sound design tátil de faca na tábua e fogo",
+    "Flow Music violão acústico cinematográfico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cinematic 16:9 widescreen culinary documentary. Early morning light flooding a professional open kitchen. A master chef inspecting vibrant fresh organic vegetables with morning dew drops. Non-verbal sound design: crisp knife slice on wooden cutting board. No speech or dialogue. On-screen text: A ESCOLHA DO INGREDIENTE.",
+      "duration": 11,
+      "onScreenText": "A ESCOLHA DO INGREDIENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cinematic 16:9 widescreen culinary documentary. Sourdough bread dough being hand-kneaded with rhythmic mastery on a flour-dusted marble counter, followed by firewood being stoked inside a brick oven. Non-verbal sound design: soft thud of dough on marble and wood crackle. No speech or dialogue. On-screen text: O TEMPO DA FERMENTAÇÃO.",
+      "duration": 11,
+      "onScreenText": "O TEMPO DA FERMENTAÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cinematic 16:9 widescreen culinary documentary. Slow motion pan over a table filled with steaming signature dishes, glowing candlelight and happy diners clinking glasses. Non-verbal sound design: joyous restaurant murmur and wine toast. No speech or dialogue. On-screen text: AFETO EM CADA DETALHE.",
+      "duration": 12,
+      "onScreenText": "AFETO EM CADA DETALHE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cinematic 16:9 widescreen culinary documentary. Chef gently wiping the plate rim with precision and pride, ending on restaurant signature brand card. Non-verbal sound design: warm melodic cello swell. No speech or dialogue. On-screen text: VIVA ESSA HISTÓRIA.",
+      "duration": 11,
+      "onScreenText": "VIVA ESSA HISTÓRIA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Cozinhar é respeitar o tempo das coisas. Cada ingrediente chega fresco dos produtores locais antes do amanhecer. O fogo a lenha, o silêncio da fermentação e o cuidado em cada corte. O resultado não é apenas comida: é afeto compartilhado na mesa. Venha viver essa experiência.",
+      "voice": "voz masculina brasileira acolhedora, intimista, madura e autêntica",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Cozinhar é respeitar o tempo da terra e a pureza dos ingredientes locais." },
+        { "id": "cena-2", "text": "O calor do forno a lenha e a paciência da fermentação natural diária." },
+        { "id": "cena-3", "text": "Quando servimos, não entregamos apenas comida: entregamos afeto e memória." },
+        { "id": "cena-4", "text": "Seja muito bem-vindo ao nosso restaurante. A casa é sua." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Intimate cinematic acoustic guitar with warm cello melodies and organic ambient studio warmth",
+      "duration": 45,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

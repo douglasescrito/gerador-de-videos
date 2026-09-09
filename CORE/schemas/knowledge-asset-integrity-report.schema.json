@@ -1,0 +1,169 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-asset-integrity-report@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "providerFree",
+    "readOnly",
+    "reportOnly",
+    "repairPerformed",
+    "counts",
+    "roots",
+    "results",
+    "aggregateHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-asset-integrity-report@1"
+    },
+    "status": {
+      "enum": [
+        "match",
+        "asymmetric"
+      ]
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "reportOnly": {
+      "const": true
+    },
+    "repairPerformed": {
+      "const": false
+    },
+    "counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "total",
+        "resolved",
+        "missing",
+        "revoked",
+        "quarantined",
+        "extra"
+      ],
+      "properties": {
+        "total": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "resolved": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "revoked": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "quarantined": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "extra": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "roots": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "rootKind",
+          "linkedCount",
+          "presentLinkedCount",
+          "scannedFileCount",
+          "extraCount"
+        ],
+        "properties": {
+          "rootKind": {
+            "enum": [
+              "outputs",
+              "PESSOAS",
+              "test"
+            ]
+          },
+          "linkedCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "presentLinkedCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "scannedFileCount": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "extraCount": {
+            "type": "integer",
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "linkId",
+          "rootKind",
+          "status",
+          "reason"
+        ],
+        "properties": {
+          "linkId": {
+            "type": "string",
+            "pattern": "^kal_[a-f0-9]{16,64}$"
+          },
+          "rootKind": {
+            "enum": [
+              "outputs",
+              "PESSOAS",
+              "test"
+            ]
+          },
+          "status": {
+            "enum": [
+              "resolved",
+              "missing",
+              "revoked",
+              "quarantined"
+            ]
+          },
+          "reason": {
+            "enum": [
+              "hash-match",
+              "asset-not-found",
+              "hash-mismatch",
+              "size-mismatch",
+              "rights-denied",
+              "rights-unknown",
+              "rights-revoked",
+              "rights-expired",
+              "asset-quarantined"
+            ]
+          }
+        }
+      }
+    },
+    "aggregateHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

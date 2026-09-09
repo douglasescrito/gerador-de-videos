@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/studio-brief@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "briefId", "userBrief", "objective", "requiredText", "restrictions", "accessibility", "references", "preferences", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/studio-brief@1" },
+    "briefId": { "$ref": "#/$defs/id" },
+    "userBrief": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "objective": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "audience": { "type": ["string", "null"], "maxLength": 4096 },
+    "message": { "type": ["string", "null"], "maxLength": 4096 },
+    "genre": { "type": ["string", "null"], "maxLength": 4096 },
+    "channel": { "type": ["string", "null"], "maxLength": 4096 },
+    "format": { "type": ["string", "null"], "maxLength": 4096 },
+    "durationSeconds": { "type": ["number", "null"], "exclusiveMinimum": 0 },
+    "clientId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "brandId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "projectId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "requiredText": { "type": "array", "items": { "type": "string" }, "maxItems": 128 },
+    "restrictions": { "type": "array", "items": { "type": "string" }, "maxItems": 128 },
+    "cta": { "type": ["string", "null"], "maxLength": 4096 },
+    "language": { "type": "string", "minLength": 1, "maxLength": 64 },
+    "accessibility": { "type": "array", "items": { "type": "string" }, "maxItems": 128 },
+    "references": { "type": "array", "items": { "type": "string" }, "maxItems": 128 },
+    "preferences": { "type": "array", "items": { "type": "string" }, "maxItems": 128 },
+    "budget": { "type": ["object", "null"] },
+    "deadline": { "type": ["string", "null"], "maxLength": 128 },
+    "intent": { "type": ["string", "null"], "maxLength": 4096 },
+    "knowledgeContextHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

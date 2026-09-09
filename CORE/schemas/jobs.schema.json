@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/jobs@1",
+  "title": "MKT Videos Jobs Report",
+  "type": "object",
+  "required": ["schema", "generatedAt", "root", "scope", "counts", "total", "unreadable", "jobs"],
+  "properties": {
+    "schema": { "const": "mkt-videos/jobs@1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "root": { "type": "string" },
+    "scope": { "const": "studio-film-states" },
+    "counts": { "type": "object", "additionalProperties": { "type": "integer", "minimum": 0 } },
+    "total": { "type": "integer", "minimum": 0 },
+    "unreadable": { "type": "array" },
+    "jobs": { "type": "array", "items": { "type": "object", "required": ["id", "stateFile", "status", "retentionProtected", "nextAction"] } }
+  },
+  "additionalProperties": false
+}

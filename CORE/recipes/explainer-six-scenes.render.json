@@ -1,0 +1,69 @@
+{
+  "id": "explainer-six-scenes",
+  "title": "FLUXO DE EXEMPLO",
+  "subtitle": "Demonstração técnica silenciosa",
+  "cta": "CONTINUAR",
+  "width": 960,
+  "height": 540,
+  "fps": 24,
+  "durationSeconds": 12,
+  "aspect": "16:9",
+  "motionStyle": "adp-explainer@1",
+  "wordMotion": [
+    {
+      "word": "Olá",
+      "start": 0,
+      "end": 0.4
+    },
+    {
+      "word": "Primeiro",
+      "start": 1,
+      "end": 1.4
+    },
+    {
+      "word": "confira",
+      "start": 2,
+      "end": 2.4
+    },
+    {
+      "word": "Agora",
+      "start": 3,
+      "end": 3.4
+    },
+    {
+      "word": "combine",
+      "start": 4,
+      "end": 4.4
+    },
+    {
+      "word": "Item",
+      "start": 5,
+      "end": 5.4
+    },
+    {
+      "word": "pronto",
+      "start": 6,
+      "end": 6.4
+    },
+    {
+      "word": "Mas",
+      "start": 7,
+      "end": 7.4
+    },
+    {
+      "word": "atenção",
+      "start": 8,
+      "end": 8.4
+    },
+    {
+      "word": "Para",
+      "start": 9,
+      "end": 9.4
+    },
+    {
+      "word": "acompanhar",
+      "start": 10,
+      "end": 10.4
+    }
+  ]
+}

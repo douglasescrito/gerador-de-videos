@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "tech-saas-demo-em-30s",
+  "label": "Tecnologia & SaaS Widescreen (30s) · Demo Rápida de Produto",
+  "description": "Vídeo demonstrativo em 16:9 widescreen: interface moderna em dark mode, automação de tarefas com 1 clique e gráficos de produtividade subindo em tempo real.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "saas-ui-motion@1",
+  "collection": "tech-saas-demo-em-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato widescreen 16:9",
+    "sound design tátil de clique de mouse e confirmação digital",
+    "Flow Music synthwave moderno dinâmico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cinematic 16:9 widescreen SaaS product motion. Ultra-clean dark mode dashboard UI floating on an isometric 3D glass plane. A cursor smoothly glides and clicks the glowing blue 'Auto-Sync' button. Non-verbal sound design: crisp mechanical mouse click and swift data spark. No speech or dialogue. On-screen text: AUTOMATIZE EM 1 CLIQUE.",
+      "duration": 7,
+      "onScreenText": "AUTOMATIZE EM 1 CLIQUE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cinematic 16:9 widescreen SaaS product motion. Instant workflow transformation: chaotic spreadsheets transform smoothly into clean Kanban cards and glowing real-time analytics graphs. Non-verbal sound design: satisfying fast card shuffle and affirmative digital chime. No speech or dialogue. On-screen text: FLUXO 10X MAIS RÁPIDO.",
+      "duration": 8,
+      "onScreenText": "FLUXO 10X MAIS RÁPIDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cinematic 16:9 widescreen SaaS product motion. Team collaboration icons connecting around a shared central project board, showing 100% completed progress bar in radiant emerald green. Non-verbal sound design: task completion chime and energy hum. No speech or dialogue. On-screen text: EQUIPE SINCRONIZADA.",
+      "duration": 9,
+      "onScreenText": "EQUIPE SINCRONIZADA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cinematic 16:9 widescreen SaaS outro screen. Sleek software logo with bold typography: 'Teste grátis por 14 dias sem cartão de crédito'. Non-verbal sound design: solid tech punch chord. No speech or dialogue. On-screen text: COMECE SEU TESTE GRÁTIS.",
+      "duration": 6,
+      "onScreenText": "COMECE SEU TESTE GRÁTIS",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Chega de planilhas confusas e tarefas manuais. Com nossa plataforma, você organiza sua equipe, automatiza processos e economiza horas toda semana. Crie sua conta grátis agora mesmo.",
+      "voice": "voz masculina brasileira jovem, dinâmica, confiante e direta, estilo tech founder",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Chega de perder horas preciosas em tarefas manuais repetitivas." },
+        { "id": "cena-2", "text": "Nossa plataforma automatiza seu fluxo de trabalho em apenas um clique." },
+        { "id": "cena-3", "text": "Mantenha sua equipe sincronizada e acompanhe resultados em tempo real." },
+        { "id": "cena-4", "text": "Crie sua conta gratuita agora e comece a economizar tempo hoje." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Crisp modern electronic synthwave with driving subtle beat, melodic arpeggios and high-tech optimism",
+      "duration": 30,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

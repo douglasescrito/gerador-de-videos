@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "saude-micro-treino-postura-30s",
+  "label": "Saúde & Fitness Vertical (30s) · Micro-Treino de Alívio Postural",
+  "description": "Vídeo vertical 9:16 com instruções passo a passo para corrigir a postura e aliviar dores nas costas e pescoço causadas por longas horas sentado.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "fitness-clean-wellness@1",
+  "collection": "saude-micro-treino-postura-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de relaxamento muscular e respiração",
+    "Flow Music batida lo-fi relaxante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 wellness cinematography. Modern bright studio. A person sitting at a desk rubbing their neck in discomfort. Kinetic red highlight on the spine showing tension points. Non-verbal sound design: subtle low tension hum. No speech or dialogue. On-screen text: DOR NA COLUNA?",
+      "duration": 7,
+      "onScreenText": "DOR NA COLUNA?",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 wellness cinematography. The person sits upright, rolls shoulders backward and interlocks hands behind the back, opening the chest with emerald green alignment lines glowing smoothly. Non-verbal sound design: deep relaxing exhale whoosh. No speech or dialogue. On-screen text: PASSO 1: ABRA O PEITO.",
+      "duration": 8,
+      "onScreenText": "PASSO 1: ABRA O PEITO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 wellness cinematography. Gentle slow neck rotation with a tranquil, relaxed facial expression. Sunlight streaming into the clean minimalist room. Non-verbal sound design: soft crystalline chime. No speech or dialogue. On-screen text: PASSO 2: ALIVIE O PESCOÇO.",
+      "duration": 9,
+      "onScreenText": "PASSO 2: ALIVIE O PESCOÇO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 wellness outro card. Minimal typography: 'Repita 3 vezes ao dia. Salve para sua rotina'. Animated bookmark icon. Non-verbal sound design: gentle bell tap. No speech or dialogue. On-screen text: SALVE PARA FAZER DEPOIS.",
+      "duration": 6,
+      "onScreenText": "SALVE PARA FAZER DEPOIS",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Sentiu tensão nas costas hoje? Pare tudo por 30 segundos. Gire os ombros para trás, abra o peitoral e respire fundo. Agora solte suavemente o pescoço de cada lado. Sentiu o alívio? Salve para fazer todo dia.",
+      "voice": "voz feminina brasileira calma, instrutiva, clara e acolhedora",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Sentiu tensão nas costas hoje? Faça essa pausa de trinta segundos." },
+        { "id": "cena-2", "text": "Gire os ombros para trás, abra o peitoral e puxe o ar com calma." },
+        { "id": "cena-3", "text": "Incline suavemente o pescoço e sinta os músculos relaxarem." },
+        { "id": "cena-4", "text": "Muito melhor, né? Salve para repetir na sua rotina de trabalho." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Relaxing lo-fi chill hop beat with mellow electric piano, warm sub bass and soothing vinyl texture",
+      "duration": 30,
+      "volume": 0.2,
+      "fadeOut": 0
+    }
+  }
+}

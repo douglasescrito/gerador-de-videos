@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-import-batch@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "rootScopeId",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "inputCount",
+    "candidateCount",
+    "duplicateCount",
+    "conflictCount",
+    "candidates",
+    "duplicates",
+    "conflicts",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-import-batch@1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^kib_[a-f0-9]{32}$"
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "changed": {
+      "const": false
+    },
+    "inputCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "candidateCount": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "duplicateCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "conflictCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "candidates": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-import-candidate@1"
+      }
+    },
+    "duplicates": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "candidateId",
+          "contentHash",
+          "count"
+        ],
+        "properties": {
+          "candidateId": {
+            "type": "string",
+            "pattern": "^kic_[a-f0-9]{32}$"
+          },
+          "contentHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "count": {
+            "type": "integer",
+            "minimum": 2
+          }
+        }
+      }
+    },
+    "conflicts": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "type",
+          "keyHash",
+          "candidateIds",
+          "contentHashes"
+        ],
+        "properties": {
+          "type": {
+            "enum": [
+              "same-source-divergent-content",
+              "owner-scope-conflict"
+            ]
+          },
+          "keyHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "candidateIds": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^kic_[a-f0-9]{32}$"
+            }
+          },
+          "contentHashes": {
+            "type": "array",
+            "minItems": 2,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        }
+      }
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

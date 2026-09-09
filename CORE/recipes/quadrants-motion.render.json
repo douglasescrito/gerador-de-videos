@@ -1,0 +1,12 @@
+{
+  "id": "quadrants-motion",
+  "title": "INTERFACES EM MOVIMENTO",
+  "subtitle": "Componentes de demonstração",
+  "cta": "CONTINUAR",
+  "width": 1080,
+  "height": 1080,
+  "fps": 24,
+  "durationSeconds": 14.5,
+  "aspect": "1:1",
+  "motionStyle": "focus-motion-zak@1"
+}

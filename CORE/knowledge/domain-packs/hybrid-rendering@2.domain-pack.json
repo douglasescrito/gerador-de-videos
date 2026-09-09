@@ -1,0 +1,670 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "hybrid-rendering",
+  "version": 2,
+  "status": "candidate",
+  "title": "Renderização híbrida",
+  "summary": "Fundamentos para escolher geração, render determinístico ou combinação, preservando alpha, tipografia exata, timeline, cor, assets, ambiente, licenças e provenance.",
+  "scope": {
+    "domains": [
+      "hybrid-rendering",
+      "html-motion",
+      "compositing"
+    ],
+    "appliesTo": [
+      "Planejamento e execução Studio que combinam Omni, HTML, Canvas, mídia local e ferramentas de pós.",
+      "Tipografia exata, UI, data visualization, alpha, composição, frame rate e color management.",
+      "Builds locais determinísticos, provider-free, e receipts de composição."
+    ],
+    "excludes": [
+      "Renderer HTML ou composição no modo raw.",
+      "Rede, cookies, segredos, downloads implícitos ou filesystem não declarado durante render.",
+      "Fallback silencioso, retry automático ou mudança de renderer sem nova aprovação."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno. Licenças de software, documentação, fontes, codecs, assets e especificações permanecem independentes e devem ser verificadas por artefato e build."
+  },
+  "sources": [
+    {
+      "id": "studio-governance-hybrid",
+      "title": "MKT Videos workspace hybrid rendering governance",
+      "uri": "urn:mkt-videos:governance:agents-md",
+      "publisher": "MKT Videos",
+      "accessedAt": "2026-09-09T00:00:00Z",
+      "sourceKind": "internal-policy",
+      "usageMode": "normative-policy",
+      "version": "Family distribution workspace policy 2026-09-09",
+      "sourceContentHash": "ea179bfff41c24e294c8b9fdda2624c3ad5d2ac9ff09000530340f061ee13c42",
+      "sourceTerms": {
+        "status": "not-applicable",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Contrato local para Studio-only, ambiente pinado, rede e filesystem bloqueados, runtime guard, recibos, raw incompatível com render HTML e ausência de fallback silencioso."
+      }
+    },
+    {
+      "id": "w3c-compositing-1",
+      "title": "Compositing and Blending Level 1",
+      "uri": "https://www.w3.org/TR/compositing-1/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Base factual para ordem de composição, alpha, isolamento e blend. Nenhum algoritmo, tabela ou texto normativo é reproduzido."
+      }
+    },
+    {
+      "id": "w3c-css-font-loading-3",
+      "title": "CSS Font Loading Module Level 3",
+      "uri": "https://www.w3.org/TR/2023/WD-css-font-loading-3-20230406/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "version": "Working Draft 6 April 2023",
+      "publishedAt": "2023-04-06",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Especificação em evolução usada para carregamento e estado de fontes. O pack não assume disponibilidade ou licença de uma fonte específica."
+      }
+    },
+    {
+      "id": "w3c-css-color-4",
+      "title": "CSS Color Module Level 4",
+      "uri": "https://www.w3.org/TR/css-color-4/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Usada para distinguir espaços, conversões e representação de cor no renderer web. Status e implementação devem ser pinados; valores de marca vêm do BrandKit."
+      }
+    },
+    {
+      "id": "playwright-browsers",
+      "title": "Playwright browsers",
+      "uri": "https://playwright.dev/docs/browsers",
+      "publisher": "Microsoft",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Apache-2.0",
+        "termsUri": "https://github.com/microsoft/playwright/blob/main/LICENSE",
+        "notes": "Base para pinning da versão do browser e seus binários. Nenhum código ou comando de exemplo é copiado."
+      }
+    },
+    {
+      "id": "playwright-network",
+      "title": "Playwright network",
+      "uri": "https://playwright.dev/docs/network",
+      "publisher": "Microsoft",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Apache-2.0",
+        "termsUri": "https://github.com/microsoft/playwright/blob/main/LICENSE",
+        "notes": "Usada para capacidade de interceptar, bloquear ou simular tráfego no ambiente de render. Nenhum snippet é reutilizado."
+      }
+    },
+    {
+      "id": "ffmpeg-filters",
+      "title": "FFmpeg Filters Documentation",
+      "uri": "https://ffmpeg.org/ffmpeg-filters.html",
+      "publisher": "FFmpeg Project",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": "https://ffmpeg.org/legal.html",
+        "notes": "A licença do software e a permissão de reutilizar documentação não são presumidas equivalentes. Fonte usada somente para apontar capabilities de composição, alpha, frame rate e cor; sem copiar comandos ou texto."
+      }
+    },
+    {
+      "id": "otio-docs",
+      "title": "OpenTimelineIO Documentation",
+      "uri": "https://opentimelineio.readthedocs.io/en/latest/index.html",
+      "publisher": "Academy Software Foundation",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "version": "Documentation current at access date",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Apache-2.0",
+        "termsUri": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/main/LICENSE.txt",
+        "notes": "Base para timeline editorial, clips, tracks, transitions, markers e mídia referenciada externamente; nenhuma implementação é copiada."
+      }
+    },
+    {
+      "id": "c2pa-spec-24",
+      "title": "C2PA Technical Specification 2.4",
+      "uri": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "paraphrase-only",
+      "version": "2.4",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "CC-BY-4.0",
+        "termsUri": "https://creativecommons.org/licenses/by/4.0/",
+        "notes": "Base para ingredients, actions, derivation, composition and validation. Provenance é tratada como história de origem e integridade, não prova de verdade."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-deterministic-render",
+      "term": "Render determinístico",
+      "definition": "Render cuja saída pode ser reproduzida bit a bit ou por equivalência declarada a partir de inputs, código, dependências, ambiente e parâmetros pinados, sem dependência externa não registrada.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "studio-governance-hybrid",
+        "playwright-browsers"
+      ]
+    },
+    {
+      "id": "def-hybrid-composition",
+      "term": "Composição híbrida",
+      "definition": "Timeline que combina artefatos de origem gerativa e determinística em etapas separadas, preservando originais, transformações, direitos e receipts.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "studio-governance-hybrid",
+        "w3c-compositing-1",
+        "c2pa-spec-24"
+      ]
+    },
+    {
+      "id": "def-alpha",
+      "term": "Alpha",
+      "definition": "Informação de cobertura ou transparência usada para combinar uma camada com o resultado acumulado; seu significado depende de representação, premultiplicação e pipeline.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "w3c-compositing-1"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-renderer-routing",
+      "title": "A natureza do requisito escolhe o renderer",
+      "definition": "Geração atende material orgânico ou aberto à variação; render determinístico atende texto, logo, UI, dados e geometria exatos; composição híbrida combina os dois quando as fronteiras são explícitas.",
+      "intent": "Evitar pedir precisão impossível ao gerador ou sacrificar expressividade onde variação é aceitável.",
+      "sourceIds": [],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Compilação de film-spec e seleção de adapter por shot ou camada.",
+        "Peças com background gerado e overlays exatos."
+      ],
+      "limits": [
+        "A classificação depende do requisito, capability e direitos vigentes.",
+        "Render determinístico não garante qualidade estética por si só."
+      ],
+      "risks": [
+        "Geração de texto ou UI cria erros de conteúdo.",
+        "Usar HTML para tudo pode aumentar custo e rigidez sem benefício."
+      ],
+      "successSignals": [
+        "Cada camada possui renderer e razão documentados.",
+        "Fronteiras entre geração e composição aparecem no execution-plan."
+      ],
+      "tests": [
+        {
+          "id": "t-requirement-routing",
+          "scenario": "Classificar requisitos de um shot em exatos, variáveis e composicionais.",
+          "expected": "Elementos exatos não dependem de fidelidade gerativa; qualquer exceção exige aprovação explícita."
+        }
+      ]
+    },
+    {
+      "id": "p-exact-graphics",
+      "title": "Tipografia exata, UI e data visualization são locais e determinísticas",
+      "definition": "Texto, números, labels, controles e gráficos governados devem ser construídos com conteúdo validado, fontes autorizadas e layout reproduzível.",
+      "intent": "Preservar significado, ortografia, hierarquia, marca e verificabilidade.",
+      "sourceIds": [
+        "w3c-css-font-loading-3"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Kinetic type, end cards, dashboards, tabelas, charts, preços e disclaimers.",
+        "Overlays em clips gerados."
+      ],
+      "limits": [
+        "Fonte precisa de licença e arquivo resolvido; nome CSS não basta.",
+        "Dados corretos ainda podem ser apresentados de forma enganosa."
+      ],
+      "risks": [
+        "Fallback de fonte altera quebra, métrica e identidade.",
+        "Animação de gráfico sugere valores intermediários inexistentes."
+      ],
+      "successSignals": [
+        "Textos e dados no render correspondem aos inputs hasheados.",
+        "Fontes carregadas e métricas fazem parte do receipt."
+      ],
+      "tests": [
+        {
+          "id": "t-font-data-resolution",
+          "scenario": "Remover acesso à rede e renderizar com os assets declarados.",
+          "expected": "Todas as fontes e fontes de dados resolvem localmente; fallback ou dado ausente falha fechado."
+        }
+      ]
+    },
+    {
+      "id": "p-alpha-compositing",
+      "title": "Alpha e composição precisam de contrato explícito",
+      "definition": "Ordem de camadas, representação de alpha, premultiplicação, blend, isolamento e fundo devem ser compatíveis entre produtor, arquivo intermediário e compositor.",
+      "intent": "Evitar halos, bordas, cores contaminadas e resultados dependentes de interpretação implícita.",
+      "sourceIds": [
+        "w3c-compositing-1",
+        "ffmpeg-filters"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Overlays, mattes, logos, personagens recortados e transições.",
+        "Troca entre browser render e ferramentas de mídia."
+      ],
+      "limits": [
+        "Nem todo codec ou container preserva alpha.",
+        "Blend no browser e no compositor pode divergir por cor e precisão."
+      ],
+      "risks": [
+        "Alpha interpretado de forma diferente cria franja.",
+        "Ordem de composição muda contraste e cor."
+      ],
+      "successSignals": [
+        "Intermediários declaram alpha e formato compatível.",
+        "Frames de teste sobre fundos distintos não exibem halo inesperado."
+      ],
+      "tests": [
+        {
+          "id": "t-alpha-roundtrip",
+          "scenario": "Compor o mesmo intermediário sobre fundos claro, escuro e colorido no pipeline real.",
+          "expected": "Bordas e opacidade permanecem consistentes; divergência bloqueia a entrega híbrida."
+        }
+      ]
+    },
+    {
+      "id": "p-timeline-frame-rate",
+      "title": "Timeline e frame rate são racionais e imutáveis por plano",
+      "definition": "Taxa, timebase, ranges, trims, duração e políticas de arredondamento devem ser declaradas antes do render e preservadas entre clips, tracks e composição.",
+      "intent": "Impedir drift, frame duplicado, lacuna e dessincronização.",
+      "sourceIds": [
+        "otio-docs",
+        "ffmpeg-filters"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Conform, render frame a frame, concatenação, captions e sincronismo.",
+        "Combinação de assets com frame rates ou durações distintos."
+      ],
+      "limits": [
+        "Conversão pode ser necessária, mas deve ser etapa explícita.",
+        "Duração em segundos decimais pode não cair em fronteira exata de frame."
+      ],
+      "risks": [
+        "Arredondamento diferente em adapters acumula drift.",
+        "Retiming silencioso altera movimento e áudio."
+      ],
+      "successSignals": [
+        "Execution-plan contém rate racional e ranges resolvidos.",
+        "Contagem de frames, duração e cues coincidem após composição."
+      ],
+      "tests": [
+        {
+          "id": "t-frame-accounting",
+          "scenario": "Calcular frames esperados por segmento e comparar com intermediários e master.",
+          "expected": "Diferenças são zero ou correspondem a conversão explícita e registrada."
+        }
+      ]
+    },
+    {
+      "id": "p-color-management",
+      "title": "Cor precisa de espaço, transferência e conversão declarados",
+      "definition": "Inputs, renderer, intermediários, compositor e entrega devem compartilhar ou converter explicitamente primárias, função de transferência, range e precisão relevantes.",
+      "intent": "Preservar aparência e dados de cor através do pipeline híbrido.",
+      "sourceIds": [
+        "w3c-css-color-4",
+        "ffmpeg-filters"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Composição browser e vídeo, assets de origens distintas, SDR ou HDR.",
+        "Cores de marca e overlays sobre material gerado."
+      ],
+      "limits": [
+        "Suporte real varia por browser, codec, GPU, player e display.",
+        "Correspondência perceptual perfeita não é inferida de metadata."
+      ],
+      "risks": [
+        "Conversão implícita muda contraste, saturação ou cor de marca.",
+        "Metadata incorreta faz o player aplicar transformação errada."
+      ],
+      "successSignals": [
+        "Cada etapa registra interpretação de cor e conversão.",
+        "Patches e assets de controle permanecem dentro de tolerância definida."
+      ],
+      "tests": [
+        {
+          "id": "t-color-roundtrip",
+          "scenario": "Renderizar patches de controle e uma cor governada pelo caminho completo.",
+          "expected": "Valores e aparência ficam dentro da tolerância do perfil; divergência não é corrigida silenciosamente."
+        }
+      ]
+    },
+    {
+      "id": "p-hermetic-environment",
+      "title": "Cache e ambiente só contam quando são herméticos",
+      "definition": "Código, dependências, browser, fontes, assets, locale, timezone, GPU policy, seeds e variáveis relevantes devem ser pinados; rede e filesystem não declarado ficam bloqueados.",
+      "intent": "Transformar render local em artefato reproduzível, auditável e sem exfiltração.",
+      "sourceIds": [
+        "studio-governance-hybrid"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "HTML, CSS, Canvas e browser automation para frames ou vídeo.",
+        "CI provider-free, cache de intermediários e rollback."
+      ],
+      "limits": [
+        "GPU e rasterização podem exigir equivalência visual em vez de hash bit a bit.",
+        "Pinning não corrige nondeterminismo do código."
+      ],
+      "risks": [
+        "Download implícito muda saída e vaza contexto.",
+        "Cache sem chave completa reutiliza artefato incompatível."
+      ],
+      "successSignals": [
+        "Build offline produz a mesma classe de resultado declarada.",
+        "Cache key inclui todos os inputs sem segredos."
+      ],
+      "tests": [
+        {
+          "id": "t-offline-replay",
+          "scenario": "Repetir o render em ambiente limpo, sem rede, usando manifest e cache governados.",
+          "expected": "Saída atende ao determinismClass declarado e nenhuma dependência implícita é acessada."
+        }
+      ]
+    },
+    {
+      "id": "p-assets-licenses-provenance",
+      "title": "Todo asset e ferramenta traz licença e provenance independentes",
+      "definition": "Fontes, imagens, áudio, código, dependências, codecs e modelos devem declarar origem, versão, termos, direitos, transformação e relação com o artefato final.",
+      "intent": "Impedir que capacidade técnica seja confundida com permissão de uso.",
+      "sourceIds": [
+        "studio-governance-hybrid"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Todo input e componente de build híbrido.",
+        "Export, archive, reuse e publicação."
+      ],
+      "limits": [
+        "Provenance não prova verdade nem resolve patente, marca ou consentimento.",
+        "Licença de software não relicencia documentação, asset ou output."
+      ],
+      "risks": [
+        "Build opcional muda obrigações de licença.",
+        "Asset sem direitos entra no cache e contamina variantes."
+      ],
+      "successSignals": [
+        "SBOM ou manifest identifica build e dependências relevantes.",
+        "Receipt liga ingredients e actions sem incorporar segredo."
+      ],
+      "tests": [
+        {
+          "id": "t-license-boundary",
+          "scenario": "Auditar um master e remontar a árvore de ingredients, ferramentas e termos.",
+          "expected": "Nenhum componente relevante possui origem ou direito presumido; desconhecido bloqueia uso."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-visual-equivalence",
+      "principleIds": [
+        "p-hermetic-environment"
+      ],
+      "condition": "Rasterização legítima de plataformas pinadas não permite igualdade bit a bit, mas a produção precisa suportar mais de um executor aprovado.",
+      "response": "Declarar determinismClass de equivalência visual, tolerâncias, regiões ignoradas e evidência de comparação; não chamar o resultado de bit-exact.",
+      "sourceIds": [
+        "playwright-browsers",
+        "studio-governance-hybrid"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-browser-as-hidden-provider",
+      "title": "Browser local como provedor oculto",
+      "description": "Página de render busca fonte, script, imagem, analytics ou dado pela rede durante execução sem declarar dependência, direito ou receipt.",
+      "principleIds": [
+        "p-exact-graphics",
+        "p-hermetic-environment",
+        "p-assets-licenses-provenance"
+      ],
+      "risks": [
+        "Saída irreproduzível, vazamento e mudança silenciosa.",
+        "Dependência ou asset sem direito entra na entrega."
+      ],
+      "mitigations": [
+        "Bloquear rede por padrão e empacotar assets autorizados.",
+        "Falhar fechado quando recurso declarado não está disponível."
+      ],
+      "sourceIds": [
+        "playwright-network",
+        "studio-governance-hybrid",
+        "c2pa-spec-24"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-generated-background-exact-overlay",
+      "title": "Background gerado com overlay exato",
+      "description": "Um clip gerado autorizado fornece textura e movimento; HTML local renderiza logo, preço e gráfico com fontes pinadas; alpha e cor são compostos numa timeline de frame rate declarado.",
+      "principleIds": [
+        "p-renderer-routing",
+        "p-exact-graphics",
+        "p-alpha-compositing",
+        "p-timeline-frame-rate",
+        "p-color-management",
+        "p-assets-licenses-provenance"
+      ],
+      "analysis": "O exemplo separa variação aceitável de informação exata. Originais permanecem intactos e cada etapa produz receipt e provenance.",
+      "sourceIds": [
+        "studio-governance-hybrid",
+        "w3c-compositing-1",
+        "otio-docs",
+        "c2pa-spec-24"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-screenshot-dashboard",
+      "title": "Dashboard gerado como imagem plausível",
+      "description": "Um gerador cria números e labels visualmente convincentes para representar dados que deveriam ser exatos e rastreáveis.",
+      "principleIds": [
+        "p-renderer-routing",
+        "p-exact-graphics",
+        "p-assets-licenses-provenance"
+      ],
+      "analysis": "Plausibilidade visual não preserva conteúdo. Dados e tipografia pertencem ao renderer determinístico; geração pode fornecer apenas camadas que aceitem variação.",
+      "sourceIds": [
+        "studio-governance-hybrid"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "generative-rendering",
+      "principleIds": [
+        "p-renderer-routing"
+      ]
+    },
+    {
+      "tag": "deterministic-rendering",
+      "principleIds": [
+        "p-renderer-routing",
+        "p-hermetic-environment"
+      ]
+    },
+    {
+      "tag": "hybrid-combination",
+      "principleIds": [
+        "p-renderer-routing",
+        "p-alpha-compositing"
+      ]
+    },
+    {
+      "tag": "alpha",
+      "principleIds": [
+        "p-alpha-compositing"
+      ]
+    },
+    {
+      "tag": "compositing",
+      "principleIds": [
+        "p-alpha-compositing"
+      ]
+    },
+    {
+      "tag": "exact-typography",
+      "principleIds": [
+        "p-exact-graphics"
+      ]
+    },
+    {
+      "tag": "ui",
+      "principleIds": [
+        "p-exact-graphics"
+      ]
+    },
+    {
+      "tag": "data-visualization",
+      "principleIds": [
+        "p-exact-graphics"
+      ]
+    },
+    {
+      "tag": "assets",
+      "principleIds": [
+        "p-exact-graphics",
+        "p-assets-licenses-provenance"
+      ]
+    },
+    {
+      "tag": "frame-rate",
+      "principleIds": [
+        "p-timeline-frame-rate"
+      ]
+    },
+    {
+      "tag": "color-management",
+      "principleIds": [
+        "p-color-management"
+      ]
+    },
+    {
+      "tag": "cache",
+      "principleIds": [
+        "p-hermetic-environment"
+      ]
+    },
+    {
+      "tag": "determinism",
+      "principleIds": [
+        "p-hermetic-environment"
+      ]
+    },
+    {
+      "tag": "environment",
+      "principleIds": [
+        "p-hermetic-environment"
+      ]
+    },
+    {
+      "tag": "licenses",
+      "principleIds": [
+        "p-assets-licenses-provenance"
+      ]
+    },
+    {
+      "tag": "provenance",
+      "principleIds": [
+        "p-assets-licenses-provenance"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "generative-rendering",
+    "deterministic-rendering",
+    "hybrid-combination",
+    "alpha",
+    "compositing",
+    "exact-typography",
+    "ui",
+    "data-visualization",
+    "assets",
+    "frame-rate",
+    "color-management",
+    "cache",
+    "determinism",
+    "environment",
+    "licenses",
+    "provenance"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com routing de renderer, gráficos exatos, alpha, timeline, cor, ambiente hermético e provenance.",
+        "Licença de software foi separada de documentação, assets, codecs e outputs."
+      ]
+    },
+    {
+      "version": 2,
+      "date": "2026-09-09",
+      "changes": [
+        "Nova versão candidata para distribuição familiar: vínculo com a política sanitizada do workspace. Conteúdo técnico e termos preservados; nenhuma ativação ou promoção."
+      ]
+    }
+  ]
+}

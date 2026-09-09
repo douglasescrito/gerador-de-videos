@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/execution-authorization@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "planFingerprint",
+    "approvalFingerprint",
+    "nodeId",
+    "nodeFingerprint",
+    "provider",
+    "operation",
+    "capabilitySnapshotHash",
+    "capabilityExpiresAt",
+    "rightsDecisionHash",
+    "rightsHeadSequence",
+    "estimatedCostOrQuota",
+    "hardLimit",
+    "authenticationMode",
+    "explicitConfirmation",
+    "issuedAt",
+    "expiresAt",
+    "nonce",
+    "authorizationHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/execution-authorization@1" },
+    "version": { "const": 1 },
+    "planFingerprint": { "$ref": "#/$defs/hash" },
+    "approvalFingerprint": { "$ref": "#/$defs/hash" },
+    "nodeId": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "nodeFingerprint": { "$ref": "#/$defs/hash" },
+    "provider": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "operation": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "capabilitySnapshotHash": { "$ref": "#/$defs/hash" },
+    "capabilityExpiresAt": { "type": "string", "format": "date-time" },
+    "rightsDecisionHash": { "$ref": "#/$defs/hash" },
+    "rightsHeadSequence": { "type": "integer", "minimum": 0 },
+    "estimatedCostOrQuota": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "amount", "provider", "operation"],
+      "properties": {
+        "unit": { "const": "session-quota-call" },
+        "amount": { "type": "integer", "minimum": 1 },
+        "provider": { "type": "string", "minLength": 1 },
+        "operation": { "type": "string", "minLength": 1 }
+      }
+    },
+    "hardLimit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["unit", "budgetKey", "amount"],
+      "properties": {
+        "unit": { "const": "session-quota-call" },
+        "budgetKey": { "type": "string", "minLength": 1 },
+        "amount": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "authenticationMode": { "type": "string", "minLength": 1 },
+    "explicitConfirmation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["confirmed", "source", "actor", "approvalFingerprint"],
+      "properties": {
+        "confirmed": { "const": true },
+        "source": { "enum": ["cli", "app"] },
+        "actor": { "type": "string", "minLength": 1 },
+        "approvalFingerprint": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "nonce": { "type": "string", "minLength": 1, "maxLength": 128 },
+    "authorizationHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

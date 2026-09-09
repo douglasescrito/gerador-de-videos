@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/reference-evidence-index@1",
+  "type": "object",
+  "required": ["schema", "generatedAt", "root", "fingerprint", "policy", "videoCount", "videos"],
+  "properties": {
+    "schema": { "const": "mkt-videos/reference-evidence-index@1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "root": { "type": "string", "minLength": 1 },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "policy": {
+      "type": "object",
+      "required": ["defaultClassification", "defaultUsage", "providerInput", "framesInspected", "filesMoved", "filesCopied", "providerCalls"]
+    },
+    "videoCount": { "type": "integer", "minimum": 0 },
+    "videos": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["path", "relativePath", "sha256", "classification", "usage", "providerInputPolicy"],
+        "properties": {
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "classification": { "const": "inspiration-evidence" },
+          "usage": { "const": "local-study-only" },
+          "providerInputPolicy": { "const": "explicit-authorization-required" }
+        }
+      }
+    }
+  }
+}

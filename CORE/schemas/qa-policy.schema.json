@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/qa-policy@1",
+  "type": "object",
+  "required": ["schema", "id", "version", "rules", "ocrUnavailable", "autoRefine", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/qa-policy@1" },
+    "id": { "type": "string" },
+    "version": { "type": "integer" },
+    "rules": { "type": "object", "additionalProperties": { "enum": ["block", "warn", "ignore"] } },
+    "ocrUnavailable": { "enum": ["block", "warn", "ignore"] },
+    "autoRefine": { "const": false },
+    "hash": { "type": "string" }
+  }
+}

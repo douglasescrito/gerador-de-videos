@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/execution-governance@1",
+  "type": "object",
+  "required": [
+    "schema",
+    "planner",
+    "promptComposition",
+    "runtimeReferencePolicy",
+    "topology",
+    "paidCalls",
+    "paidCallCeiling",
+    "budget",
+    "capabilities",
+    "capabilitySnapshotHash",
+    "approval",
+    "executorCompatibility",
+    "blockers",
+    "readyForPaidExecution",
+    "eta"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/execution-governance@1" },
+    "planner": { "const": "canonical" },
+    "style": { "type": ["object", "null"] },
+    "promptComposition": { "type": "array", "items": { "type": "object" } },
+    "runtimeReferencePolicy": { "type": "object" },
+    "topology": { "type": "object" },
+    "paidCalls": { "type": "array", "items": { "type": "object" } },
+    "paidCallCeiling": { "type": "integer", "minimum": 0 },
+    "budget": { "type": "object" },
+    "capabilities": { "type": "array", "items": { "type": "object" } },
+    "capabilitySnapshotHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "approval": {
+      "type": "object",
+      "required": ["fingerprint", "required", "fingerprintFlag"],
+      "properties": {
+        "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "required": { "type": "boolean" }
+      }
+    },
+    "executorCompatibility": { "type": "object" },
+    "blockers": { "type": "array", "items": { "type": "object", "required": ["code", "message"] } },
+    "readyForPaidExecution": { "type": "boolean" },
+    "eta": { "type": "object" }
+  }
+}

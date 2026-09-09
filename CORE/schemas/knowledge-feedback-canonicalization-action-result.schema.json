@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-feedback-canonicalization-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "rootScopeId",
+    "decisionId",
+    "candidateSubjectId",
+    "ruleItem",
+    "evidenceItem"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-feedback-canonicalization-action-result@1" },
+    "action": { "const": "canonicalize-feedback-interpretation" },
+    "status": { "enum": ["canonicalized", "already-canonicalized"] },
+    "providerFree": { "const": true },
+    "readOnly": { "const": false },
+    "changed": { "type": "boolean" },
+    "humanConfirmed": { "const": true },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "decisionId": { "type": "string", "pattern": "^fpd_[a-f0-9]{32}$" },
+    "candidateSubjectId": { "type": "string", "pattern": "^kfic_[a-f0-9]{32}$" },
+    "ruleItem": { "$ref": "mkt-videos/knowledge-item@1" },
+    "evidenceItem": { "$ref": "mkt-videos/knowledge-item@1" }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "canonicalized" } },
+        "required": ["status"]
+      },
+      "then": { "properties": { "changed": { "const": true } } }
+    },
+    {
+      "if": {
+        "properties": { "status": { "const": "already-canonicalized" } },
+        "required": ["status"]
+      },
+      "then": { "properties": { "changed": { "const": false } } }
+    }
+  ],
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    }
+  }
+}

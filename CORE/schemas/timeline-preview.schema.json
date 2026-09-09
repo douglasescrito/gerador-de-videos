@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/timeline-preview@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "providerFree", "effect", "sourceSchema", "sourceFingerprint", "fps", "frameRange", "durationSeconds", "tracks", "markers", "assetCount", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/timeline-preview@1" },
+    "providerFree": { "const": true },
+    "effect": { "const": "none" },
+    "sourceSchema": { "type": "string" },
+    "sourceFingerprint": { "type": ["string", "null"] },
+    "fps": { "type": "object" },
+    "frameRange": { "type": "object" },
+    "durationSeconds": { "type": ["number", "null"] },
+    "tracks": { "type": "array", "items": { "type": "object" } },
+    "markers": { "type": "array", "items": { "type": "object" } },
+    "assetCount": { "type": "integer", "minimum": 0 },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

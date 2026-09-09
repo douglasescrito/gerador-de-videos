@@ -1,0 +1,58 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-scope@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "rootScopeId",
+    "parentScopeId",
+    "kind",
+    "name",
+    "status",
+    "attributes",
+    "createdAt",
+    "createdBy",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-scope@1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "parentScopeId": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        }
+      ]
+    },
+    "kind": {
+      "enum": [
+        "global",
+        "domain",
+        "client",
+        "brand",
+        "person",
+        "project",
+        "production",
+        "deliverable",
+        "campaign"
+      ]
+    },
+    "name": { "type": "string", "minLength": 1, "maxLength": 240 },
+    "status": { "enum": ["active", "inactive"] },
+    "attributes": { "type": "object" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

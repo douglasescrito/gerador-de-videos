@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/studio-decision-artifacts@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rootScopeId", "contextHash", "resolverRequestFingerprint", "resolutionFingerprint", "decisions", "humanConfirmed", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/studio-decision-artifacts@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "contextHash": { "$ref": "#/$defs/hash" },
+    "resolverRequestFingerprint": { "$ref": "#/$defs/hash" },
+    "resolutionFingerprint": { "$ref": "#/$defs/hash" },
+    "decisions": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["itemId", "revision", "contentHash", "selectedOptionId", "approvedBy", "decidedAt"],
+        "properties": {
+          "itemId": { "$ref": "#/$defs/id" },
+          "revision": { "type": "integer", "minimum": 1 },
+          "contentHash": { "$ref": "#/$defs/hash" },
+          "selectedOptionId": { "$ref": "#/$defs/id" },
+          "approvedBy": { "$ref": "#/$defs/id" },
+          "decidedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "humanConfirmed": { "const": true },
+    "fingerprint": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

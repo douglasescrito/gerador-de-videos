@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-o-ultimo-farol-30s",
+  "label": "Trailer Cinematográfico (30s) · O Último Farol (Terror Cósmico & Mistério Psicológico)",
+  "description": "Trailer de suspense psicológico e horror cósmico em 16:9: um farol isolado em um rochedo negro no Atlântico Norte sob tempestade colossal, luz rotatória revelando sombras titânicas nas ondas e paranoia crescente.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "cosmic-horror-cinema@1",
+  "collection": "trailer-o-ultimo-farol-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia de horror cósmico 35mm",
+    "sound design de tempestade, buzina de neblina e ranger metálico",
+    "Flow Music suspense aterrorizante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. Extreme wide shot of a solitary weathered granite lighthouse perched on a jagged black rock cliff in the furious North Atlantic. Violent crashing waves explode in white foam against the base under a pitch-black boiling sky. High-contrast 35mm grain. Non-verbal sound design: deafening ocean surf crash and a lonely, mournful foghorn blast echoing into the void. No speech or dialogue. On-screen text: ISOLAMENTO TOTAL.",
+      "duration": 5,
+      "onScreenText": "ISOLAMENTO TOTAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. Close-up on the giant Fresnel glass lens rotating slowly in its mercury bath. The intense beam of blinding white light cuts through dense sea fog, casting eerie rotating spiral shadows across the curved interior stone walls. Non-verbal sound design: rhythmic mechanical drone of gears, whistling ocean gale. No speech or dialogue. On-screen text: A LUZ NÃO PODE APAGAR.",
+      "duration": 5,
+      "onScreenText": "A LUZ NÃO PODE APAGAR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. The sweeping beam of light suddenly hits an enormous, cyclopean silhouette rising from the dark ocean waves a mile out, disappearing the instant the beam passes. Handheld camera shudder, heavy tension. Non-verbal sound design: deep abyssal organic roar beneath the waves, sudden heart-beat sub-bass spike. No speech or dialogue. On-screen text: ALGO RESPONDEU DA ÁGUA.",
+      "duration": 5,
+      "onScreenText": "ALGO RESPONDEU DA ÁGUA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. Rapid claustrophobic cuts: spiral iron staircase spinning in dizzying perspective, lighthouse keeper's trembling hands scratching ancient sigils into wooden tables, glass windows cracking under external pressure. Non-verbal sound design: screaming violins, screeching metal, frantic breathing. No speech or dialogue. On-screen text: A RAZÃO ESTÁ SE PERDENDO.",
+      "duration": 5,
+      "onScreenText": "A RAZÃO ESTÁ SE PERDENDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. The massive Fresnel lens shatters in slow motion from an invisible titanic shockwave as green luminescence floods the entire lantern room. Non-verbal sound design: catastrophic glass shattering impact and deafening low-end BRAAM. No speech or dialogue. On-screen text: A ESCURIDÃO ENTROU.",
+      "duration": 5,
+      "onScreenText": "A ESCURIDÃO ENTROU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Cosmic psychological horror trailer cinematography in 16:9. Hero title reveal: weathered corroded brass and sea-salted stone 3D typography emerging from dark swirling oceanic mist. Slow camera push-in. Non-verbal sound design: abrupt total silence broken only by one final distant foghorn note. No speech or dialogue. On-screen text: O ÚLTIMO FAROL.",
+      "duration": 5,
+      "onScreenText": "O ÚLTIMO FAROL",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "O farol não foi construído para guiar os navios. Ele foi construído para avisar quando aquilo que dorme no fundo do mar decidir subir.",
+      "voice": "voz masculina brasileira madura, trêmula, grave, rouca, aterrorizada e obsessiva, estilo cinema de horror psicológico lovecraftiano",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Trinta milhas longe de qualquer terra firme."
+        },
+        {
+          "id": "cena-2",
+          "text": "A única regra era nunca deixar a lâmpada apagar."
+        },
+        {
+          "id": "cena-3",
+          "text": "Mas quando a luz tocou as águas profundas..."
+        },
+        {
+          "id": "cena-4",
+          "text": "Algo colossal despertou na escuridão."
+        },
+        {
+          "id": "cena-5",
+          "text": "E agora, não há para onde correr."
+        },
+        {
+          "id": "cena-6",
+          "text": "O Último Farol. Você terá coragem de olhar?"
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Terrifying atmospheric horror score with discordant string clusters, low bowed sub-bass drones, shrieking waterphone textures and bone-shattering trailer hits.",
+    "musicDurationSeconds": 30,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

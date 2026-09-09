@@ -1,0 +1,192 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/reference-cohort-manifest@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "providerFree",
+    "rootScopeId",
+    "scopeId",
+    "owner",
+    "rootAlias",
+    "sourceInventoryFingerprint",
+    "claimedProvenance",
+    "inventoryPolicy",
+    "entries",
+    "entryCount",
+    "generatedAt",
+    "generatedBy",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/reference-cohort-manifest@1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^kcm_[a-f0-9]{32}$"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "scopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "enum": [
+            "global",
+            "domain",
+            "organization",
+            "client",
+            "brand",
+            "person",
+            "project",
+            "production",
+            "deliverable",
+            "campaign",
+            "system"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "rootAlias": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+    },
+    "sourceInventoryFingerprint": {
+      "$ref": "#/$defs/hash"
+    },
+    "claimedProvenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "status"],
+      "properties": {
+        "class": {
+          "enum": [
+            "pipeline-output",
+            "official-person-asset",
+            "client-supplied",
+            "licensed-stock",
+            "third-party-reference",
+            "unresolved"
+          ]
+        },
+        "status": {
+          "const": "unverified"
+        }
+      }
+    },
+    "inventoryPolicy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "analysisPerformed",
+        "framesInspected",
+        "mediaProbed",
+        "providerCalls"
+      ],
+      "properties": {
+        "analysisPerformed": { "const": false },
+        "framesInspected": { "const": false },
+        "mediaProbed": { "const": false },
+        "providerCalls": { "const": 0 }
+      }
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "assetId",
+          "revision",
+          "assetContentHash",
+          "logicalPath",
+          "fileSha256",
+          "bytes",
+          "mediaType"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^kce_[a-f0-9]{32}$"
+          },
+          "assetId": {
+            "type": "string",
+            "pattern": "^kra_[a-f0-9]{32}$"
+          },
+          "revision": {
+            "const": 1
+          },
+          "assetContentHash": {
+            "$ref": "#/$defs/hash"
+          },
+          "logicalPath": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*:)(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$))[^\\u0000-\\u001f\\u007f\\u202a-\\u202e\\u2066-\\u2069]+$"
+          },
+          "fileSha256": {
+            "$ref": "#/$defs/hash"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "mediaType": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9!#$&^_.+-]{0,126}/[a-z0-9][a-z0-9!#$&^_.+-]{0,126}$"
+          }
+        }
+      }
+    },
+    "entryCount": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 4096
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "generatedBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "contentHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

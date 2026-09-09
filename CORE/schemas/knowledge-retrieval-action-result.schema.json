@@ -1,0 +1,37 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-retrieval-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "rootScopeId",
+    "planInfluence",
+    "trace",
+    "context",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-retrieval-action-result@1" },
+    "action": { "const": "retrieval-shadow" },
+    "status": { "const": "shadow" },
+    "providerFree": { "const": true },
+    "readOnly": { "const": true },
+    "changed": { "const": false },
+    "humanConfirmed": { "const": false },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "planInfluence": { "const": "none" },
+    "trace": { "$ref": "mkt-videos/retrieval-trace@1" },
+    "context": { "$ref": "mkt-videos/knowledge-context@1" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

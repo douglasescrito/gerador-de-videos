@@ -1,0 +1,107 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "doc-vidro-soprado-45s",
+  "label": "Documentário Cinematográfico (45s) · Arte do Vidro Soprada (Design & Tradição)",
+  "description": "Documentário delicado em 16:9 que explora o ofício artesanal do sopro de vidro, mostrando a chama, o fluxo de matéria e o brilho da peça final.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "artisanal-glass@1",
+  "collection": "doc-vidro-soprado-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "macro de artesanato em vidro",
+    "sound design sutil com cliques de vidro",
+    "Flow Music ambient suave",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Close-up of a furnace glow, molten glass glowing orange, slow camera pull back, 85mm cinema lens, atmospheric lighting, no speech, on-screen text: O INÍCIO.",
+      "duration": 9,
+      "onScreenText": "O INÍCIO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Artisan gathers a glass blob with metal tongs, stretches and twists, shimmering reflections, 85mm lens, no speech, on-screen text: A TRANSFORMAÇÃO.",
+      "duration": 9,
+      "onScreenText": "A TRANSFORMAÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Final piece emerges, delicate glass sculpture rotating, soft backlight, macro detail of bubbles, no speech, on-screen text: A OBRA PRIMA.",
+      "duration": 9,
+      "onScreenText": "A OBRA PRIMA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Slow motion of light passing through the glass, creating prismatic flares, 85mm lens, no speech, on-screen text: LUZ.",
+      "duration": 9,
+      "onScreenText": "LUZ",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Closing shot of the artisan's hand releasing the finished piece onto a velvet pad, gentle sigh of wind, no speech, on-screen text: LEGADO.",
+      "duration": 9,
+      "onScreenText": "LEGADO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A arte do vidro soprado transforma fogo em forma, luz em memória, e mãos em poesia. Cada curva carrega história, cada brilho, um futuro.",
+      "voice": "voz feminina brasileira madura, suave, contemplativa, estilo documental",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {"id": "cena-1", "text": "A arte do vidro soprado transforma fogo em forma."},
+        {"id": "cena-2", "text": "Cada curva carrega história, cada brilho, um futuro."}
+      ]
+    },
+    "music": true,
+    "musicPreset": "ambient",
+    "musicIntent": "Gentle ambient score with soft piano bells and a subtle glass harp texture.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {"structural": true},
+  "assembly": {"fps": 24}
+}

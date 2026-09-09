@@ -1,0 +1,160 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-import-request@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "sourceKind",
+    "rootScopeId",
+    "scopeId",
+    "sourceRef",
+    "sourceHash",
+    "governance",
+    "source"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-import-request@1"
+    },
+    "sourceKind": {
+      "enum": [
+        "style-spec",
+        "brand-kit",
+        "recipe",
+        "reference-evidence-index",
+        "receipt-metadata"
+      ]
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "scopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 640,
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{1,31}:[^\\s]{1,512}$",
+      "not": {
+        "pattern": "^[Ff][Ii][Ll][Ee]:"
+      }
+    },
+    "sourceHash": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      ]
+    },
+    "governance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "classification",
+        "owner",
+        "rights",
+        "retention",
+        "evidenceIds",
+        "observedAt"
+      ],
+      "properties": {
+        "classification": {
+          "enum": ["public", "internal", "confidential", "restricted"]
+        },
+        "owner": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["type", "id"],
+          "properties": {
+            "type": {
+              "enum": [
+                "global",
+                "domain",
+                "client",
+                "brand",
+                "person",
+                "project",
+                "production",
+                "deliverable",
+                "campaign"
+              ]
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+            }
+          }
+        },
+        "rights": {
+          "type": "object",
+          "additionalProperties": false,
+          "minProperties": 1,
+          "properties": {
+            "inventory": { "$ref": "#/$defs/right" },
+            "localAnalysis": { "$ref": "#/$defs/right" },
+            "textualIndexing": { "$ref": "#/$defs/right" },
+            "embedding": { "$ref": "#/$defs/right" },
+            "training": { "$ref": "#/$defs/right" },
+            "providerInput": { "$ref": "#/$defs/right" },
+            "publication": { "$ref": "#/$defs/right" },
+            "reuse": { "$ref": "#/$defs/right" }
+          }
+        },
+        "retention": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["policy", "expiresAt", "basis"],
+          "properties": {
+            "policy": {
+              "enum": [
+                "manual-review",
+                "until-project-close",
+                "until-rights-expire",
+                "explicit-date",
+                "contractual"
+              ]
+            },
+            "expiresAt": {
+              "oneOf": [
+                { "type": "null" },
+                { "type": "string", "format": "date-time" }
+              ]
+            },
+            "basis": {
+              "oneOf": [
+                { "type": "null" },
+                { "type": "string", "minLength": 1, "maxLength": 500 }
+              ]
+            }
+          }
+        },
+        "evidenceIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+          }
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    },
+    "source": {
+      "type": "object"
+    }
+  },
+  "$defs": {
+    "right": {
+      "enum": ["allowed", "denied", "unknown", "revoked", "expired"]
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/feedback-canonicalization-request@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "requestId",
+    "rootScopeId",
+    "decisionId",
+    "decisionHash",
+    "decisionEventId",
+    "decisionEventHash",
+    "candidateSubjectId",
+    "candidateHash",
+    "reason",
+    "requestedBy",
+    "requestedAt",
+    "humanConfirmed",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/feedback-canonicalization-request@1" },
+    "requestId": { "type": "string", "pattern": "^fcr_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "decisionId": { "type": "string", "pattern": "^fpd_[a-f0-9]{32}$" },
+    "decisionHash": { "$ref": "#/$defs/hash" },
+    "decisionEventId": { "type": "string", "pattern": "^ke_[A-Za-z0-9-]{1,100}$" },
+    "decisionEventHash": { "$ref": "#/$defs/hash" },
+    "candidateSubjectId": { "type": "string", "pattern": "^kfic_[a-f0-9]{32}$" },
+    "candidateHash": { "$ref": "#/$defs/hash" },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 16384 },
+    "requestedBy": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "requestedAt": { "type": "string", "format": "date-time" },
+    "humanConfirmed": { "const": true },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

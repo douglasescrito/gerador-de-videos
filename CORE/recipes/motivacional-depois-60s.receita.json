@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-depois-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · A Corrida Contra o Depois",
+  "description": "Filme motivacional centrado em tipografia cinética física: a palavra DEPOIS domina o espaço e é progressivamente comprimida por ações concretas até perder poder visual para o AGORA.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-depois-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 1 of 6: The word DEPOIS appears enormous, occupying nearly the entire frame like a heavy architectural object. Smaller abstract shapes are trapped behind its letterforms. The exact on-screen phrase is supplied separately as: DEPOIS. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DEPOIS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 2 of 6: A thin red-orange wedge pushes between the letters, creating physical space. The giant word shifts backward in perspective as the composition gains depth. The exact on-screen phrase is supplied separately as: É UMA DISTÂNCIA INVENTADA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "É UMA DISTÂNCIA INVENTADA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 3 of 6: One small action block lands in the foreground with a sharp tactile click. On impact, DEPOIS compresses noticeably and loses visual dominance. The exact on-screen phrase is supplied separately as: FAÇA UMA COISA AGORA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "FAÇA UMA COISA AGORA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 4 of 6: Several measured action blocks arrive one by one, never chaotic. Each concrete impact scales DEPOIS down and pushes it farther toward the horizon. The exact on-screen phrase is supplied separately as: DEPOIS FICA MENOR. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DEPOIS FICA MENOR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 5 of 6: The word AGORA emerges from the accumulated blocks, becoming the dominant structural form while DEPOIS remains tiny and distant. The exact on-screen phrase is supplied separately as: AGORA FICA MAIOR. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "AGORA FICA MAIOR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: almost black, bright ivory, saturated red-orange and a restrained sky-blue accent. Narrative beat 6 of 6: AGORA dissolves into open negative space and a single forward arrow-like shape. The final phrase appears cleanly as the shape moves before the frame feels fully prepared. The exact on-screen phrase is supplied separately as: COMECE ANTES DE ESTAR PRONTO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "COMECE ANTES DE ESTAR PRONTO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Depois é uma palavra confortável porque parece prometer ação sem exigir movimento no presente. Mas muitas vezes essa distância é inventada. Você não precisa resolver tudo agora para começar alguma coisa agora. Escolha uma ação concreta. Uma ligação. Um parágrafo. Dez minutos de prática. Algo pequeno o bastante para realmente acontecer. Quando você age, o depois perde tamanho. A distância entre intenção e realidade diminui um pouco. E o agora cresce. Ele deixa de ser apenas um instante e se transforma no único lugar onde mudança pode ser produzida. Você não precisa estar completamente pronto. Precisa começar cedo o bastante para que a experiência ajude a preparar você.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Depois é uma palavra confortável porque parece prometer ação sem exigir movimento no presente."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas muitas vezes essa distância é inventada. Você não precisa resolver tudo agora para começar alguma coisa agora."
+        },
+        {
+          "id": "cena-3",
+          "text": "Escolha uma ação concreta. Uma ligação. Um parágrafo. Dez minutos de prática. Algo pequeno o bastante para realmente acontecer."
+        },
+        {
+          "id": "cena-4",
+          "text": "Quando você age, o depois perde tamanho. A distância entre intenção e realidade diminui um pouco."
+        },
+        {
+          "id": "cena-5",
+          "text": "E o agora cresce. Ele deixa de ser apenas um instante e se transforma no único lugar onde mudança pode ser produzida."
+        },
+        {
+          "id": "cena-6",
+          "text": "Você não precisa estar completamente pronto. Precisa começar cedo o bastante para que a experiência ajude a preparar você."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Bold typographic cinematic rhythm with dry piano hits, punchy low percussion and restrained strings. Each action impact should have musical consequence, with tension shrinking as AGORA gains dominance.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

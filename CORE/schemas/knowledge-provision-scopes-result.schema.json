@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-provision-scopes-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema", "action", "status", "providerFree", "readOnly",
+    "changed", "humanConfirmed", "reason", "rootScopeId", "scopes"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-provision-scopes-result@1" },
+    "action": { "const": "provision-scopes" },
+    "status": { "const": "provisioned" },
+    "providerFree": { "const": true },
+    "readOnly": { "const": false },
+    "changed": { "type": "boolean" },
+    "humanConfirmed": { "const": true },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 1000 },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "scopes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["scopeId", "kind", "created"],
+        "properties": {
+          "scopeId": { "$ref": "#/$defs/id" },
+          "kind": { "type": "string", "minLength": 1, "maxLength": 40 },
+          "created": { "type": "boolean" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" }
+  }
+}

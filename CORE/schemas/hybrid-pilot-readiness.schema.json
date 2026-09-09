@@ -1,0 +1,36 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/hybrid-pilot-readiness@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "selectionFingerprint", "humanConfirmed", "providerCalls", "changed", "ready", "assets", "issues", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/hybrid-pilot-readiness@1" },
+    "selectionFingerprint": { "$ref": "#/$defs/hash" },
+    "humanConfirmed": { "const": true },
+    "providerCalls": { "const": 0 },
+    "changed": { "const": false },
+    "ready": { "type": "boolean" },
+    "assets": {
+      "type": "array",
+      "minItems": 2,
+      "maxItems": 2,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["role", "status"],
+        "properties": {
+          "role": { "enum": ["base", "overlay"] },
+          "status": { "enum": ["resolved", "missing", "quarantined"] },
+          "artifactId": { "type": "string" },
+          "receiptId": { "type": "string" }
+        }
+      }
+    },
+    "issues": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "fingerprint": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

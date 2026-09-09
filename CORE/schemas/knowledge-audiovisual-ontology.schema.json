@@ -1,0 +1,290 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/audiovisual-ontology@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "version",
+    "status",
+    "title",
+    "summary",
+    "authors",
+    "reviewers",
+    "reviewedAt",
+    "authority",
+    "entityTypes",
+    "relations",
+    "epistemicModalities",
+    "changelog"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/audiovisual-ontology@1"
+    },
+    "id": {
+      "const": "audiovisual-core"
+    },
+    "version": {
+      "const": 1
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "title": {
+      "$ref": "#/$defs/shortText"
+    },
+    "summary": {
+      "$ref": "#/$defs/longText"
+    },
+    "authors": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/contributor"
+      }
+    },
+    "reviewers": {
+      "type": "array",
+      "maxItems": 0,
+      "items": {
+        "$ref": "#/$defs/contributor"
+      }
+    },
+    "reviewedAt": {
+      "type": "null"
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retrieval",
+        "planning",
+        "providerInput",
+        "reason"
+      ],
+      "properties": {
+        "retrieval": {
+          "const": "blocked"
+        },
+        "planning": {
+          "const": "blocked"
+        },
+        "providerInput": {
+          "const": "blocked"
+        },
+        "reason": {
+          "$ref": "#/$defs/longText"
+        }
+      }
+    },
+    "entityTypes": {
+      "type": "array",
+      "minItems": 39,
+      "maxItems": 39,
+      "items": {
+        "$ref": "#/$defs/entityType"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "minItems": 9,
+      "maxItems": 9,
+      "items": {
+        "$ref": "#/$defs/relation"
+      }
+    },
+    "epistemicModalities": {
+      "type": "array",
+      "minItems": 8,
+      "maxItems": 8,
+      "items": {
+        "$ref": "#/$defs/epistemicModality"
+      }
+    },
+    "changelog": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/change"
+      }
+    }
+  },
+  "$defs": {
+    "shortText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "longText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 10000
+    },
+    "localId": {
+      "type": "string",
+      "pattern": "^[a-z][a-zA-Z0-9]{0,95}$"
+    },
+    "entityTypeId": {
+      "type": "string",
+      "pattern": "^[A-Z][A-Za-z0-9]{0,95}$"
+    },
+    "contributor": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9._-]{0,127}$"
+        },
+        "name": {
+          "$ref": "#/$defs/shortText"
+        }
+      }
+    },
+    "entityType": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "domain",
+        "definition",
+        "aliases",
+        "activationGate"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/entityTypeId"
+        },
+        "domain": {
+          "enum": [
+            "context",
+            "audiovisual-language",
+            "operational-knowledge"
+          ]
+        },
+        "definition": {
+          "$ref": "#/$defs/longText"
+        },
+        "aliases": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        },
+        "activationGate": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/shortText"
+            }
+          ]
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "definition",
+        "domain",
+        "range"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/localId"
+        },
+        "definition": {
+          "$ref": "#/$defs/longText"
+        },
+        "domain": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/entityTypeId"
+          }
+        },
+        "range": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/entityTypeId"
+          }
+        }
+      }
+    },
+    "epistemicModality": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "definition",
+        "obligation"
+      ],
+      "properties": {
+        "id": {
+          "enum": [
+            "fact",
+            "capability",
+            "hard-constraint",
+            "preference",
+            "heuristic",
+            "observation",
+            "hypothesis",
+            "anti-pattern"
+          ]
+        },
+        "definition": {
+          "$ref": "#/$defs/longText"
+        },
+        "obligation": {
+          "enum": [
+            "when-verifiable",
+            "while-valid",
+            "yes",
+            "no",
+            "guidance"
+          ]
+        }
+      }
+    },
+    "change": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "version",
+        "date",
+        "changes"
+      ],
+      "properties": {
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "date": {
+          "type": "string",
+          "format": "date"
+        },
+        "changes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        }
+      }
+    }
+  }
+}

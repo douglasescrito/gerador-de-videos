@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/production-manifest@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "rootScopeId",
+    "projectId",
+    "campaignId",
+    "productionId",
+    "deliverableId",
+    "linkage",
+    "requestRef",
+    "contextBindingHash",
+    "planFingerprint",
+    "executionId",
+    "recipeTemplateRef",
+    "artifacts",
+    "runs",
+    "receipts",
+    "deliverables",
+    "materializedAt",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/production-manifest@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "projectId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "campaignId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "productionId": { "$ref": "#/$defs/id" },
+    "deliverableId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "linkage": { "enum": ["verified", "legacy"] },
+    "requestRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["requestId", "requestHash"],
+          "properties": {
+            "requestId": { "type": "string", "pattern": "^preq_[a-f0-9]{32}$" },
+            "requestHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "contextBindingHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "planFingerprint": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "executionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "recipeTemplateRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["templateId", "templateRevision", "templateHash"],
+          "properties": {
+            "templateId": { "$ref": "#/$defs/id" },
+            "templateRevision": { "type": "integer", "minimum": 1 },
+            "templateHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "artifacts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relPath", "sha256", "role", "kind"],
+        "properties": {
+          "relPath": { "type": "string", "minLength": 1 },
+          "sha256": { "$ref": "#/$defs/hash" },
+          "role": { "enum": ["master", "derivative", "reference"] },
+          "kind": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "runs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["schema", "itemId", "attemptId", "state"],
+        "properties": {
+          "schema": { "const": "mkt-videos/generation-attempt@1" },
+          "itemId": { "type": "string", "minLength": 1 },
+          "attemptId": { "type": "string", "minLength": 1 },
+          "state": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "receipts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relPath", "receiptRelPath", "receiptId", "valid", "verifiedAt"],
+        "properties": {
+          "relPath": { "type": "string", "minLength": 1 },
+          "receiptRelPath": { "type": "string", "minLength": 1 },
+          "receiptId": { "type": "string", "minLength": 1 },
+          "valid": { "type": "boolean" },
+          "verifiedAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    },
+    "deliverables": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["relPath", "kind"],
+        "properties": {
+          "relPath": { "type": "string", "minLength": 1 },
+          "kind": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "materializedAt": { "type": "string", "format": "date-time" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

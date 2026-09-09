@@ -1,0 +1,303 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/feedback-interpretation-candidate@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "stage",
+    "providerFree",
+    "authority",
+    "rootScopeId",
+    "sourceScopeId",
+    "sourceFeedback",
+    "suggestedScope",
+    "interpretation",
+    "governance",
+    "review"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/feedback-interpretation-candidate@1"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "stage": {
+      "const": "interpreted"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "authority": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planning",
+        "retrieval",
+        "release",
+        "promotion",
+        "execution"
+      ],
+      "properties": {
+        "planning": {
+          "const": false
+        },
+        "retrieval": {
+          "const": false
+        },
+        "release": {
+          "const": false
+        },
+        "promotion": {
+          "const": false
+        },
+        "execution": {
+          "const": false
+        }
+      }
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "sourceScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "sourceFeedback": {
+      "$ref": "#/$defs/sourceFeedback"
+    },
+    "suggestedScope": {
+      "$ref": "#/$defs/suggestedScope"
+    },
+    "interpretation": {
+      "$ref": "#/$defs/interpretation"
+    },
+    "governance": {
+      "$ref": "mkt-videos/knowledge-record-envelope@1"
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "revision"
+      ],
+      "properties": {
+        "status": {
+          "const": "pending-human-review"
+        },
+        "revision": {
+          "const": 1
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sourceFeedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "eventId",
+        "sequence",
+        "subjectId",
+        "feedbackHash",
+        "originalTextSha256",
+        "eventHash"
+      ],
+      "properties": {
+        "eventId": {
+          "type": "string",
+          "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "subjectId": {
+          "type": "string",
+          "pattern": "^kfe_[a-f0-9]{32}$"
+        },
+        "feedbackHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "originalTextSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "eventHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "suggestedScope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mode",
+        "scopeId"
+      ],
+      "properties": {
+        "mode": {
+          "enum": [
+            "piece",
+            "project",
+            "client",
+            "personal",
+            "global-proposal"
+          ]
+        },
+        "scopeId": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "dimension": {
+      "enum": [
+        "message",
+        "storytelling",
+        "hook",
+        "clarity",
+        "brand",
+        "composition",
+        "typography",
+        "color",
+        "camera",
+        "motion",
+        "timing",
+        "rhythm",
+        "transition",
+        "continuity",
+        "performance",
+        "voice",
+        "music",
+        "sfx",
+        "mix",
+        "legibility",
+        "cta",
+        "finish",
+        "channel-fit"
+      ]
+    },
+    "text": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 16384
+    },
+    "shortText": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 4000
+    },
+    "interpretation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "method",
+        "author",
+        "target",
+        "dimensions",
+        "preference",
+        "applicability",
+        "exceptions",
+        "rationale",
+        "strength",
+        "interpretedAt"
+      ],
+      "properties": {
+        "method": {
+          "const": "manual-local"
+        },
+        "author": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 200
+        },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "key"
+          ],
+          "properties": {
+            "kind": {
+              "enum": [
+                "feature",
+                "decision"
+              ]
+            },
+            "key": {
+              "type": "string",
+              "pattern": "^[a-z0-9][a-z0-9._/-]{0,159}$"
+            }
+          }
+        },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/dimension"
+          }
+        },
+        "preference": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "operation",
+            "statement"
+          ],
+          "properties": {
+            "operation": {
+              "enum": [
+                "prefer",
+                "avoid",
+                "preserve",
+                "change"
+              ]
+            },
+            "statement": {
+              "$ref": "#/$defs/text"
+            }
+          }
+        },
+        "applicability": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        },
+        "exceptions": {
+          "type": "array",
+          "maxItems": 16,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/shortText"
+          }
+        },
+        "rationale": {
+          "$ref": "#/$defs/text"
+        },
+        "strength": {
+          "const": "tentative"
+        },
+        "interpretedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      }
+    }
+  }
+}

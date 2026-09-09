@@ -1,0 +1,118 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "doc-forest-ambient-60s",
+  "label": "Documentário Cinematográfico (60s) · Floresta Ancestral (Natureza & Som",
+  "description": "Documentário imersivo em 16:9 que captura a serenidade de uma floresta tropical ao amanhecer, destacando luz filtrada, fauna silenciosa e a vibração da vida vegetal.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "nature-ambient@1",
+  "collection": "doc-forest-ambient-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "macro de paisagem natural",
+    "sound design de folhas e água corrente",
+    "Flow Music ambient suave",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Early morning mist over the canopy, sun rays piercing, 85mm cinema lens, no speech, on-screen text: ALVORADA.",
+      "duration": 10,
+      "onScreenText": "ALVORADA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Close-up of dew on leaves, glistening, macro lens, no speech, on-screen text: GOTA.",
+      "duration": 10,
+      "onScreenText": "GOTA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "River flowing gently through the forest, drone shot, 16:9, no speech, on-screen text: CORRE.",
+      "duration": 10,
+      "onScreenText": "CORRE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Birds taking flight, slow motion, soft backlight, no speech, on-screen text: LIBERDADE.",
+      "duration": 10,
+      "onScreenText": "LIBERDADE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Sunset through the trees, golden hue, wide shot, no speech, on-screen text: ENCASTE.",
+      "duration": 10,
+      "onScreenText": "ENCASTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Nightfall, fireflies flicker, soft luminescence, no speech, on-screen text: NOITE.",
+      "duration": 10,
+      "onScreenText": "NOITE",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A floresta desperta lentamente, cada raio de luz conta uma história antiga, cada gota celebra a vida.",
+      "voice": "voz feminina brasileira madura, serena, estilo documental",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {"id": "cena-1", "text": "A floresta desperta lentamente."},
+        {"id": "cena-2", "text": "Cada raio de luz conta uma história antiga."},
+        {"id": "cena-3", "text": "A água flui como o tempo."},
+        {"id": "cena-4", "text": "Os pássaros libertam o céu."},
+        {"id": "cena-5", "text": "O crepúsculo pinta a terra de ouro."},
+        {"id": "cena-6", "text": "A noite dança com vaga-lumes."}
+      ]
+    },
+    "music": true,
+    "musicPreset": "ambient",
+    "musicIntent": "Gentle ambient score with soft piano, subtle strings and distant rainforest sounds.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {"structural": true},
+  "assembly": {"fps": 24}
+}

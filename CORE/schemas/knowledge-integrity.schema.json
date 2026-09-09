@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-integrity@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "storeSchema",
+    "rootScopeId",
+    "ok",
+    "sqlite",
+    "ledgerHead",
+    "migrations",
+    "issues"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-integrity@1" },
+    "storeSchema": { "const": "mkt-videos/knowledge-store@1" },
+    "rootScopeId": { "type": "string", "minLength": 1 },
+    "ok": { "type": "boolean" },
+    "sqlite": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "ledgerHead": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      ]
+    },
+    "migrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["version", "id", "hash"],
+        "properties": {
+          "version": { "type": "integer", "minimum": 1 },
+          "id": { "type": "string", "minLength": 1 },
+          "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+        }
+      }
+    },
+    "issues": { "type": "array" }
+  }
+}

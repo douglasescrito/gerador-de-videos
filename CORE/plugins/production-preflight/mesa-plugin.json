@@ -1,0 +1,12 @@
+{
+  "schema": "mkt-videos/plugin-manifest@1",
+  "id": "production-preflight",
+  "name": "Pré-voo de Produção",
+  "version": "1.0.0",
+  "wasm": "plugin.wasm",
+  "wasmSha256": "f840dcdbdea3684b8089863807bb81a0177a798620224610ae9b91a9c8975704",
+  "capabilities": [
+    "utility:compute",
+    "metadata:read"
+  ]
+}

@@ -1,0 +1,272 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-backup-manifest@2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "bundleSchema",
+    "createdAt",
+    "classification",
+    "providerFree",
+    "store",
+    "ledger",
+    "scopeAttestation",
+    "assets",
+    "manifestHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-backup-manifest@2" },
+    "bundleSchema": { "const": "mkt-videos/knowledge-backup-bundle@1" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "containsPrivateData", "secretMaterial"],
+      "properties": {
+        "level": {
+          "enum": ["internal", "confidential", "restricted"]
+        },
+        "containsPrivateData": { "const": true },
+        "secretMaterial": { "const": "prohibited" }
+      }
+    },
+    "providerFree": { "const": true },
+    "store": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "userVersion",
+        "applicationId",
+        "snapshotBytes",
+        "snapshotSha256",
+        "integritySha256"
+      ],
+      "properties": {
+        "schema": { "const": "mkt-videos/knowledge-store@1" },
+        "userVersion": { "type": "integer", "minimum": 1 },
+        "applicationId": { "type": "integer", "minimum": 1 },
+        "snapshotBytes": { "type": "integer", "minimum": 1 },
+        "snapshotSha256": { "$ref": "#/$defs/hash" },
+        "integritySha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rootCount", "eventCount", "headsAggregateHash"],
+      "properties": {
+        "rootCount": { "type": "integer", "minimum": 0 },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "headsAggregateHash": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/hash" }
+          ]
+        }
+      }
+    },
+    "scopeAttestation": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rootScopeHash",
+            "ledgerHead",
+            "integritySha256",
+            "activeActivationId",
+            "activeActivationHash",
+            "activeReleaseId",
+            "activeReleaseHash"
+          ],
+          "properties": {
+            "rootScopeHash": { "$ref": "#/$defs/hash" },
+            "ledgerHead": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/hash" }
+              ]
+            },
+            "integritySha256": { "$ref": "#/$defs/hash" },
+            "activeActivationId": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/id" }
+              ]
+            },
+            "activeActivationHash": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/hash" }
+              ]
+            },
+            "activeReleaseId": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/id" }
+              ]
+            },
+            "activeReleaseHash": {
+              "oneOf": [
+                { "type": "null" },
+                { "$ref": "#/$defs/hash" }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "assets": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["mode", "count", "aggregateSha256", "entries"],
+          "properties": {
+            "mode": { "const": "not-included" },
+            "count": { "const": 0 },
+            "aggregateSha256": { "type": "null" },
+            "entries": {
+              "type": "array",
+              "maxItems": 0
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "mode",
+            "sourceSchema",
+            "status",
+            "count",
+            "aggregateSha256",
+            "integrityReportHash",
+            "entries"
+          ],
+          "properties": {
+            "mode": { "const": "governed-inventory" },
+            "sourceSchema": {
+              "const": "mkt-videos/knowledge-asset-link-payload@1"
+            },
+            "status": {
+              "enum": ["match", "asymmetric"]
+            },
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "aggregateSha256": { "$ref": "#/$defs/hash" },
+            "integrityReportHash": { "$ref": "#/$defs/hash" },
+            "entries": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "linkId",
+                  "revision",
+                  "itemContentHash",
+                  "governanceHash",
+                  "itemStatus",
+                  "rootKind",
+                  "relativePath",
+                  "mediaType",
+                  "expectedSha256",
+                  "expectedBytes",
+                  "rightsStatus",
+                  "quarantineStatus",
+                  "observedStatus",
+                  "observedReason"
+                ],
+                "properties": {
+                  "linkId": { "$ref": "#/$defs/id" },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 1
+                  },
+                  "itemContentHash": { "$ref": "#/$defs/hash" },
+                  "governanceHash": { "$ref": "#/$defs/hash" },
+                  "itemStatus": {
+                    "enum": [
+                      "active",
+                      "candidate",
+                      "superseded",
+                      "revoked",
+                      "quarantined"
+                    ]
+                  },
+                  "rootKind": {
+                    "enum": ["outputs", "PESSOAS"]
+                  },
+                  "relativePath": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 1024
+                  },
+                  "mediaType": {
+                    "type": "string",
+                    "minLength": 3,
+                    "maxLength": 255
+                  },
+                  "expectedSha256": { "$ref": "#/$defs/hash" },
+                  "expectedBytes": {
+                    "type": "integer",
+                    "minimum": 0
+                  },
+                  "rightsStatus": {
+                    "enum": [
+                      "allowed",
+                      "denied",
+                      "unknown",
+                      "revoked",
+                      "expired"
+                    ]
+                  },
+                  "quarantineStatus": {
+                    "enum": ["clear", "quarantined"]
+                  },
+                  "observedStatus": {
+                    "enum": [
+                      "resolved",
+                      "missing",
+                      "revoked",
+                      "quarantined"
+                    ]
+                  },
+                  "observedReason": {
+                    "enum": [
+                      "hash-match",
+                      "asset-not-found",
+                      "hash-mismatch",
+                      "size-mismatch",
+                      "rights-denied",
+                      "rights-unknown",
+                      "rights-revoked",
+                      "rights-expired",
+                      "asset-quarantined"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "manifestHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

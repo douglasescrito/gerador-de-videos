@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-sombra-metropole-45s",
+  "label": "Trailer Cinematográfico (45s) · Sombra da Metrópole (Neo-Noir Thriller)",
+  "description": "Trailer de suspense neo-noir em 16:9: chuva torrencial, reflexos de neon em asfalto escuro, silhuetas sob postes de luz amarelados, fumaça saindo de bueiros e tensão psicológica urbana.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "neo-noir-cinema@1",
+  "collection": "trailer-sombra-metropole-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia neo-noir 35mm",
+    "sound design de chuva, passos e tensão",
+    "Flow Music suspense cinematográfico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Atmospheric neo-noir thriller trailer cinematography in 16:9. Heavy rain pouring over a gleaming dark Gotham-like city street at night. A lonely silhouette with a trench coat stands beneath a flickering tungsten streetlight. Steam rises from a cast-iron manhole cover. High contrast chiaroscuro lighting, 35mm film texture. Non-verbal sound design: heavy rain hitting wet pavement, muffled distant siren. No speech or dialogue. On-screen text: A CIDADE NUNCA DORME.",
+      "duration": 9,
+      "onScreenText": "A CIDADE NUNCA DORME",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Atmospheric neo-noir thriller trailer cinematography in 16:9. Close-up on a vintage revolver cylinder spinning smoothly in gloved hands under the amber glow of a neon hotel sign outside a rain-streaked window. 85mm prime lens, moody shadows. Non-verbal sound design: crisp metallic ratchet spin and hammer cocking sound. No speech or dialogue. On-screen text: ALGUNS SEGREDOS MATAM.",
+      "duration": 9,
+      "onScreenText": "ALGUNS SEGREDOS MATAM",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Atmospheric neo-noir thriller trailer cinematography in 16:9. Rapid kinetic sequence: vintage black sedan speeding through wet cobblestone alleys, tires skidding through puddles, flashing police cruiser lights reflecting on fractured glass. Non-verbal sound design: screeching tires, heavy engine roar and sudden high-tension riser. No speech or dialogue. On-screen text: A VERDADE TEM UM PREÇO.",
+      "duration": 9,
+      "onScreenText": "A VERDADE TEM UM PREÇO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Atmospheric neo-noir thriller trailer cinematography in 16:9. Low-angle shot inside an abandoned brutalist warehouse. Slanted shafts of moonlight cut through broken windowpanes as two armed silhouettes face each other in total standoff. Non-verbal sound design: eerie solo trumpet note echoing with immense reverb, heart-beat sub-bass. No speech or dialogue. On-screen text: NINGUÉM É INOCENTE.",
+      "duration": 9,
+      "onScreenText": "NINGUÉM É INOCENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Atmospheric neo-noir thriller trailer cinematography in 16:9. Hero title reveal: bold crimson and chrome 3D typography emerges through thick rolling rain and shadows against the silhouette of towering skyscrapers. Slow camera zoom out. Non-verbal sound design: deafening cinematic gunshot impact fading into pouring rain. No speech or dialogue. On-screen text: SOMBRA DA METRÓPOLE.",
+      "duration": 9,
+      "onScreenText": "SOMBRA DA METRÓPOLE",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Nesta cidade, a verdade não é o que você descobre. É aquilo que você escolhe esquecer para conseguir sobreviver.",
+      "voice": "voz masculina brasileira madura, áspera, rouca, grave, cínica e misteriosa, tom de detetive noir clássico",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Nesta cidade, a chuva nunca lava a culpa."
+        },
+        {
+          "id": "cena-2",
+          "text": "Alguns segredos foram enterrados para nunca mais voltar."
+        },
+        {
+          "id": "cena-3",
+          "text": "Mas quando a verdade cobra o preço, todos pagam."
+        },
+        {
+          "id": "cena-4",
+          "text": "Nas sombras da metrópole, ninguém é inocente."
+        },
+        {
+          "id": "cena-5",
+          "text": "Sombra da Metrópole. Em breve nos cinemas."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Dark neo-noir cinematic score with mournful brass, ticking suspense clocks, heavy sub-bass braams, discordant strings and sudden dramatic silences.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

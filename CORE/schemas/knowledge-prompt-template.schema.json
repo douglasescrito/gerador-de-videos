@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/prompt-template@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "templateId", "name", "activeRevision", "revisions"],
+  "properties": {
+    "schema": { "const": "mkt-videos/prompt-template@1" },
+    "templateId": { "$ref": "#/$defs/id" },
+    "name": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "activeRevision": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "integer", "minimum": 1 }
+      ]
+    },
+    "revisions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["revision", "status", "itemId", "contentHash", "createdAt"],
+        "properties": {
+          "revision": { "type": "integer", "minimum": 1 },
+          "status": { "enum": ["candidate", "active", "quarantined", "revoked"] },
+          "itemId": { "$ref": "#/$defs/id" },
+          "contentHash": { "$ref": "#/$defs/hash" },
+          "createdAt": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

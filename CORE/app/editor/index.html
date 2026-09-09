@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Editor de Vídeo & Mixer de Camadas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="editor.css">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-nav">
+    <div class="brand">
+      <div class="badge">PRO</div>
+      <h1>Mixer & Editor de Camadas</h1>
+    </div>
+
+    <div class="project-selector-wrap">
+      <label for="project-select">Vídeo / Coleção:</label>
+      <select id="project-select">
+        <option value="">Carregando vídeos...</option>
+      </select>
+    </div>
+
+    <div class="top-actions">
+      <button id="btn-open-folder" class="btn btn-secondary">📂 Abrir Pasta</button>
+      <button id="btn-render-master" class="btn btn-primary">🚀 Exportar Master MP4</button>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="main-layout">
+    
+    <!-- Left: Video Preview & Scrubber -->
+    <section class="video-section">
+      <div class="video-card">
+        <video id="video-player" playsinline preload="auto"></video>
+        <div id="whisper-badge" class="whisper-overlay">BEM-VINDO À NOVA ERA DA CRIAÇÃO AUDIOVISUAL</div>
+      </div>
+
+      <!-- Scrubber & Playback Controls -->
+      <div class="transport-card">
+        <div class="timeline-slider-row">
+          <input type="range" id="timeline-scrubber" min="0" max="60.04" step="0.05" value="0">
+        </div>
+
+        <div class="transport-controls">
+          <div class="transport-left">
+            <button id="btn-prev" class="btn-icon" title="Voltar ao início">⏮️</button>
+            <button id="btn-play" class="btn-play">▶️ Play</button>
+            <button id="btn-stop" class="btn-icon" title="Parar">⏹️</button>
+            <button id="btn-loop" class="btn-icon active" title="Repetir">🔁</button>
+          </div>
+
+          <div class="timecode-box">
+            <span id="tc-current">00:00.0</span> / <span id="tc-total">01:00.0</span>
+          </div>
+
+          <div class="transport-right">
+            <span class="active-word-info" id="current-word-label">Palavra Atual: <strong>BEM-VINDO</strong></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Presets -->
+      <div class="presets-row">
+        <span class="presets-label">Presilhas Rápidas de Mixagem:</span>
+        <button class="btn-preset" style="border-color: var(--accent-amber); color: var(--accent-amber);" onclick="autoDetectAndLevelMusicSurges()">🔍 Auto-Detectar & Nivelar Picos da Trilha</button>
+        <button class="btn-preset" onclick="applyMixPreset('natural')">✨ Equalizador Natural (Sidechain)</button>
+        <button class="btn-preset" onclick="applyMixPreset('voz-destaque')">🎙️ Voz Alta (+6dB)</button>
+        <button class="btn-preset" onclick="applyMixPreset('musica-alta')">🎵 Trilha em Destaque (+10dB)</button>
+        <button class="btn-preset" onclick="applyMixPreset('reset')">🔄 Padrão (0dB)</button>
+      </div>
+    </section>
+
+    <!-- Right: Separated Audio Layer Tracks & Keyframe Controls -->
+    <section class="mixer-section">
+
+      <!-- CAMADA 1: VOZ / LOCUÇÃO -->
+      <div class="track-box track-voice">
+        <div class="track-box-header">
+          <div class="track-title-wrap">
+            <span class="track-icon">🎙️</span>
+            <div>
+              <h3>Locução Principal (Voz)</h3>
+              <p class="track-subtitle">Áudio Studio Master (Google Vids / Jett)</p>
+            </div>
+          </div>
+          <div class="track-header-actions">
+            <button class="btn-pill" id="mute-voice" onclick="toggleMute('voice')">MUTE</button>
+            <button class="btn-pill" id="solo-voice" onclick="toggleSolo('voice')">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Volume Principal -->
+        <div class="volume-slider-box">
+          <div class="vol-label-row">
+            <span>Ganho Geral da Voz:</span>
+            <span class="vol-db-display" id="voice-db-readout">+5.0 dB</span>
+          </div>
+          <input type="range" id="slider-gain-voice" min="-20" max="15" step="0.5" value="5" oninput="setBaseGain('voice', this.value)">
+        </div>
+
+        <!-- Keyframes / Automação da Voz -->
+        <div class="keyframes-container">
+          <div class="kf-header-row">
+            <span>Pontos de Volume (Keyframes):</span>
+            <button class="btn-add-kf" onclick="addKeyframe('voice')">➕ Adicionar Ponto no Segundo Atual</button>
+          </div>
+          <div class="kf-list" id="kf-list-voice"></div>
+        </div>
+      </div>
+
+      <!-- CAMADA 2: TRILHA SONORA (FLOW MUSIC) -->
+      <div class="track-box track-music">
+        <div class="track-box-header">
+          <div class="track-title-wrap">
+            <span class="track-icon">🎵</span>
+            <div>
+              <h3>Trilha Sonora (Flow Music)</h3>
+              <p class="track-subtitle">Música Original Orgânica (WAV Master)</p>
+            </div>
+          </div>
+          <div class="track-header-actions">
+            <button class="btn-pill" id="mute-music" onclick="toggleMute('music')">MUTE</button>
+            <button class="btn-pill" id="solo-music" onclick="toggleSolo('music')">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Volume Principal -->
+        <div class="volume-slider-box">
+          <div class="vol-label-row">
+            <span>Ganho Geral da Trilha:</span>
+            <span class="vol-db-display" id="music-db-readout">+8.0 dB</span>
+          </div>
+          <input type="range" id="slider-gain-music" min="-30" max="15" step="0.5" value="8" oninput="setBaseGain('music', this.value)">
+        </div>
+
+        <!-- Keyframes / Automação da Trilha -->
+        <div class="keyframes-container">
+          <div class="kf-header-row">
+            <span>Pontos de Volume (Keyframes):</span>
+            <button class="btn-add-kf" onclick="addKeyframe('music')">➕ Adicionar Ponto no Segundo Atual</button>
+          </div>
+          <div class="kf-list" id="kf-list-music"></div>
+        </div>
+      </div>
+
+      <!-- CAMADA 3: SOUND DESIGN (OMNI SFX) -->
+      <div class="track-box track-sfx">
+        <div class="track-box-header">
+          <div class="track-title-wrap">
+            <span class="track-icon">⚡</span>
+            <div>
+              <h3>Sound Design (SFX Omni)</h3>
+              <p class="track-subtitle">Efeitos Visuais e Transições Táteis</p>
+            </div>
+          </div>
+          <div class="track-header-actions">
+            <button class="btn-pill" id="mute-sfx" onclick="toggleMute('sfx')">MUTE</button>
+            <button class="btn-pill" id="solo-sfx" onclick="toggleSolo('sfx')">SOLO</button>
+          </div>
+        </div>
+
+        <!-- Volume Principal -->
+        <div class="volume-slider-box">
+          <div class="vol-label-row">
+            <span>Ganho Geral dos SFX:</span>
+            <span class="vol-db-display" id="sfx-db-readout">-10.0 dB</span>
+          </div>
+          <input type="range" id="slider-gain-sfx" min="-30" max="5" step="0.5" value="-10" oninput="setBaseGain('sfx', this.value)">
+        </div>
+
+        <!-- Keyframes / Automação SFX -->
+        <div class="keyframes-container">
+          <div class="kf-header-row">
+            <span>Pontos de Volume (Keyframes):</span>
+            <button class="btn-add-kf" onclick="addKeyframe('sfx')">➕ Adicionar Ponto no Segundo Atual</button>
+          </div>
+          <div class="kf-list" id="kf-list-sfx"></div>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <!-- Audio Elements -->
+  <audio id="audio-voice" preload="auto"></audio>
+  <audio id="audio-music" preload="auto"></audio>
+
+  <script src="editor.js"></script>
+</body>
+</html>

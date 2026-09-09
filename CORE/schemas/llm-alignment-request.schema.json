@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/llm-alignment-request@1",
+  "type": "object",
+  "required": ["schema", "blockId", "authority", "script", "transcript", "canonicalTokens", "measuredTokens", "fingerprint"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "mkt-videos/llm-alignment-request@1" },
+    "blockId": { "type": "string", "minLength": 1 },
+    "authority": {
+      "type": "object",
+      "required": ["text", "timestamps", "llm"],
+      "additionalProperties": false,
+      "properties": {
+        "text": { "const": "approved-script-only" },
+        "timestamps": { "const": "whisper-measured-only" },
+        "llm": { "const": "proposal-only" }
+      }
+    },
+    "script": { "type": "string", "minLength": 1 },
+    "transcript": { "type": ["string", "null"] },
+    "canonicalTokens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["index", "text", "normalized"],
+        "additionalProperties": false,
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "text": { "type": "string", "minLength": 1 },
+          "normalized": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "measuredTokens": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["index", "text", "normalized", "start", "end"],
+        "additionalProperties": false,
+        "properties": {
+          "index": { "type": "integer", "minimum": 0 },
+          "text": { "type": "string", "minLength": 1 },
+          "normalized": { "type": "string", "minLength": 1 },
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number", "minimum": 0 },
+          "probability": { "type": "number", "minimum": 0, "maximum": 1 }
+        }
+      }
+    },
+    "fingerprint": { "type": "string", "minLength": 16 }
+  }
+}

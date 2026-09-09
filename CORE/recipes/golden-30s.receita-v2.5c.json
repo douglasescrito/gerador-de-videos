@@ -1,0 +1,291 @@
+{
+  "schema": "gerador-de-videos/receita@2",
+  "vertical": "2.5C",
+  "mode": "studio",
+  "kind": "peca",
+  "identity": {
+    "id": "golden-30s-pos-entrega",
+    "revision": 1,
+    "name": "Golden 30 s de pos e entrega"
+  },
+  "scope": {
+    "rootScopeId": "client:golden",
+    "projectScopeId": "recipe-v2-5c"
+  },
+  "format": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "numerator": 24,
+        "denominator": 1
+      }
+    }
+  },
+  "program": {
+    "durationPolicy": "fixed-frames",
+    "durationFrames": 708,
+    "shots": [
+      {
+        "id": "motion-abertura",
+        "durationFrames": 240
+      },
+      {
+        "id": "apresentador-centro",
+        "durationFrames": 240
+      },
+      {
+        "id": "apresentador-fechamento",
+        "durationFrames": 240
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "apresentador-oficial",
+      "mediaKind": "image",
+      "role": "person-reference",
+      "source": {
+        "kind": "workspace",
+        "locator": "PESSOAS/apresentador.png"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/png",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "html-grafico",
+      "mediaKind": "document",
+      "role": "graphics-document",
+      "source": {
+        "kind": "workspace",
+        "locator": "assets-locais/grafico.html"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "text/html",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    },
+    {
+      "id": "logo-oficial",
+      "mediaKind": "image",
+      "role": "logo",
+      "source": {
+        "kind": "workspace",
+        "locator": "assets-locais/logo.png"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/png",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "cast": {
+    "people": [
+      {
+        "id": "apresentador",
+        "assetId": "apresentador-oficial",
+        "role": "person-reference"
+      }
+    ]
+  },
+  "videoGeneration": {
+    "module": "omni-video@1",
+    "shots": [
+      {
+        "shotId": "motion-abertura",
+        "task": "text-to-video",
+        "prompt": "Grafismos abstratos em movimento, sem pessoas e sem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "apresentador-centro",
+        "task": "reference-to-video",
+        "prompt": "O apresentador apresenta a ideia olhando para a camera.",
+        "inputAssetIds": [
+          "apresentador-oficial"
+        ],
+        "castIds": [
+          "apresentador"
+        ]
+      },
+      {
+        "shotId": "apresentador-fechamento",
+        "task": "reference-to-video",
+        "prompt": "O apresentador conclui com enquadramento estavel.",
+        "inputAssetIds": [
+          "apresentador-oficial"
+        ],
+        "castIds": [
+          "apresentador"
+        ]
+      }
+    ]
+  },
+  "narration": {
+    "module": "google-vids-narration@1",
+    "speakerMode": "one-voice",
+    "voice": "Persuasiva",
+    "documentUrl": "https://docs.google.com/videos/d/SUBSTITUA-PELO-SEU-DOCUMENTO",
+    "blocks": [
+      {
+        "id": "fala-1",
+        "text": "Substitua este texto pelo roteiro aprovado da sua produção.",
+        "speakerId": "narrador"
+      }
+    ],
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "alignment": {
+    "module": "whisper-alignment@1",
+    "backend": "faster-whisper",
+    "language": "pt",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "music": {
+    "module": "flow-music@1",
+    "intent": "Trilha institucional leve, sem vocal e com pulso continuo.",
+    "fit": "clean-cut",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "sfx": {
+    "module": "local-sfx@1",
+    "cues": []
+  },
+  "captions": {
+    "module": "word-captions@1",
+    "mode": "word",
+    "source": "whisper",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "mix": {
+    "module": "ffmpeg-mix@1",
+    "voiceGainDb": 0,
+    "musicGainDb": -18,
+    "sfxGainDb": -9,
+    "ending": "clean-cut"
+  },
+  "assembly": {
+    "module": "ffmpeg-assembly@1",
+    "mode": "concat",
+    "transition": "cut@1"
+  },
+  "transitions": {
+    "module": "ffmpeg-transitions@1",
+    "edges": [
+      {
+        "fromShotId": "motion-abertura",
+        "toShotId": "apresentador-centro",
+        "transition": "dissolve@1",
+        "durationFrames": 12
+      },
+      {
+        "fromShotId": "apresentador-centro",
+        "toShotId": "apresentador-fechamento",
+        "transition": "cut@1",
+        "durationFrames": 0
+      }
+    ]
+  },
+  "graphics": {
+    "module": "scene-graphics@1",
+    "scenes": [
+      {
+        "shotId": "motion-abertura",
+        "renderer": "html-canvas@1",
+        "text": "IDEIA EM MOVIMENTO",
+        "documentAssetId": "html-grafico"
+      },
+      {
+        "shotId": "apresentador-fechamento",
+        "renderer": "local-gc@1",
+        "text": "CLAREZA",
+        "documentAssetId": null
+      }
+    ]
+  },
+  "postProduction": {
+    "module": "ffmpeg-post@1",
+    "operations": [
+      {
+        "id": "cor-master",
+        "operation": "color-normalize@1",
+        "assetId": null,
+        "durationFrames": null
+      },
+      {
+        "id": "logo-master",
+        "operation": "logo-overlay@1",
+        "assetId": "logo-oficial",
+        "durationFrames": null
+      },
+      {
+        "id": "ending-master",
+        "operation": "ending-hold@1",
+        "assetId": null,
+        "durationFrames": 24
+      }
+    ]
+  },
+  "qa": {
+    "module": "master-qa@1",
+    "policy": "strict@1",
+    "technical": true,
+    "semantic": false,
+    "assertions": [
+      "video-stream",
+      "audio-stream",
+      "duration",
+      "caption-binding",
+      "no-unplanned-frame",
+      "clean-cut"
+    ]
+  },
+  "delivery": {
+    "module": "delivery@1",
+    "target": "local-output@1",
+    "overwrite": false,
+    "externalDecision": null
+  },
+  "variants": {
+    "module": "format-variants@1",
+    "items": [
+      {
+        "format": "9:16",
+        "strategy": "fit-pad",
+        "approved": false
+      }
+    ]
+  }
+}

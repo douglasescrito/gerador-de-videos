@@ -1,0 +1,53 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "campanha-vertical-10x",
+  "label": "Campanha vertical 10×",
+  "description": "Sequência completa de vendas em 9:16 (60s cada) com trilha auto-energy, ducking e QA OCR.",
+  "kind": "lote",
+  "aspect": "9:16",
+  "style": null,
+  "collection": "campanha-vertical-10x",
+  "parts": [
+    {
+      "name": "parte-001",
+      "prompt": "Parte Gancho & Atenção: Fundo escuro gráfico (#121212), um grande título em tipografia limpa surge no centro e narração envolvente introduz o problema comum. [ENERGY: LOW] [SFX: GLITCH]"
+    },
+    {
+      "name": "parte-002",
+      "prompt": "Parte A Dor do Cliente: Visual moderno com movimento rápido e tipografia fluida mostrando a complicação de processos antigos. Narração: \"Chega de perder tempo com processos lentos.\" [ENERGY: RISING] [SFX: WHOOSH]"
+    },
+    {
+      "name": "parte-003",
+      "prompt": "Parte A Solução: Revelação do produto no centro da tela em flat 2D com luzes quentes. Narração apresentando a solução inteligente. [ENERGY: CLIMAX] [SFX: BOOM]"
+    },
+    {
+      "name": "parte-004",
+      "prompt": "Parte Alta Velocidade: Animação rápida demonstrando performance instantânea. Texto clean destacando \"Resultados em Segundos\". [ENERGY: RISING] [SFX: GLITCH]"
+    },
+    {
+      "name": "parte-005",
+      "prompt": "Parte Trilha & Voz: Animação de ondas sonoras e partículas luminosas. Narração sobre locução fluida e trilha modulada. [ENERGY: LOW] [SFX: GLASS]"
+    },
+    {
+      "name": "parte-006",
+      "prompt": "Parte Qualidade Visual: Transição suave e elegante mostrando renderização HD vertical. Narração sobre visual adaptável. [ENERGY: RISING] [SFX: WHOOSH]"
+    },
+    {
+      "name": "parte-007",
+      "prompt": "Parte Prova Social: Gráficos vibrantes e métricas de engajamento subindo. Narração sobre resultados com zero erro. [ENERGY: CLIMAX] [SFX: BOOM]"
+    },
+    {
+      "name": "parte-008",
+      "prompt": "Parte Garantia & Confiança: Selo de qualidade e estética premium com animação sutil de estabilização. Narração sobre acabamento profissional. [ENERGY: RISING] [SFX: WHOOSH]"
+    },
+    {
+      "name": "parte-009",
+      "prompt": "Parte Oferta Limitada: Elementos gráficos dinâmicos despertando urgência. Narração sobre a escala automatizada. [ENERGY: CLIMAX] [SFX: GLITCH]"
+    },
+    {
+      "name": "parte-010",
+      "prompt": "Parte Chamada para Ação: O produto se fixa no centro com a marca e um botão destacado abaixo. Narração: \"Aproveite agora.\" [ENERGY: CLIMAX] [SFX: BOOM]"
+    }
+  ],
+  "parallel": 3
+}

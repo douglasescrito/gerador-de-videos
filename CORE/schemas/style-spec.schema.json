@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/style-spec@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "id", "label", "direction", "aspect", "tags", "family", "status", "studioOnly"],
+  "properties": {
+    "schema": { "const": "mkt-videos/style-spec@1" },
+    "id": { "type": "string", "pattern": "@[0-9]+$" },
+    "label": { "type": "string", "minLength": 1 },
+    "direction": { "type": "string", "minLength": 1 },
+    "aspect": { "type": ["string", "null"] },
+    "tags": { "type": "array", "items": { "type": "string", "minLength": 1 }, "uniqueItems": true },
+    "family": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["concept", "pilot", "validated", "deprecated"] },
+    "studioOnly": { "const": true },
+    "generation": {
+      "type": "object",
+      "required": ["allowedTasks", "allowedTopologies", "defaultTopology", "continuityRequired"],
+      "properties": {
+        "allowedTasks": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "defaultTask": { "type": "string" },
+        "allowedTopologies": {
+          "type": "array",
+          "items": { "enum": ["independent", "chained"] },
+          "uniqueItems": true
+        },
+        "defaultTopology": { "enum": ["independent", "chained"] },
+        "continuityRequired": { "type": "boolean" }
+      }
+    },
+    "formats": {
+      "type": "object",
+      "required": ["allowedAspects"],
+      "properties": {
+        "allowedAspects": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "typicalClipSeconds": {
+          "type": "array",
+          "prefixItems": [{ "type": "number", "exclusiveMinimum": 0 }, { "type": "number", "exclusiveMinimum": 0 }],
+          "minItems": 2,
+          "maxItems": 2
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": { "enum": ["unsupported", "limited", "supported"] }
+    },
+    "runtimeInputs": {
+      "type": "object",
+      "required": ["requiredRoles", "maxReferences"],
+      "properties": {
+        "requiredRoles": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "maxReferences": { "type": "integer", "minimum": 0, "maximum": 4 }
+      }
+    },
+    "referenceEvidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["file", "sha256", "timeRanges", "usage", "rightsStatus"],
+        "properties": {
+          "file": { "type": "string", "minLength": 1 },
+          "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+          "timeRanges": { "type": "array", "items": { "type": "string" } },
+          "usage": { "const": "local-study-only" },
+          "rightsStatus": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "validation": { "type": "object" },
+    "risks": { "type": "array", "items": { "type": "string" } },
+    "tradeoffs": { "type": "array", "items": {
+      "type": "object", "additionalProperties": false,
+      "required": ["condition", "affectedCapability", "limitation", "evidenceLevel", "automaticFallback"],
+      "properties": {
+        "condition": { "type": "string", "minLength": 1 },
+        "affectedCapability": { "type": "string", "minLength": 1 },
+        "limitation": { "type": "string", "minLength": 1 },
+        "evidenceLevel": { "type": "string", "minLength": 1 },
+        "automaticFallback": { "const": false }
+      }
+    } },
+    "supersedes": { "type": ["string", "null"] }
+  }
+}

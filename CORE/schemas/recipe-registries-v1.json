@@ -1,0 +1,122 @@
+{
+  "schema": "gerador-de-videos/recipe-registries@1",
+  "transitions": {
+    "cut@1": {
+      "id": "cut@1",
+      "ffmpeg": "cut",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 0,
+        "maximumFrames": 0
+      }
+    },
+    "fade@1": {
+      "id": "fade@1",
+      "ffmpeg": "fade",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    },
+    "dissolve@1": {
+      "id": "dissolve@1",
+      "ffmpeg": "dissolve",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    },
+    "wipe-left@1": {
+      "id": "wipe-left@1",
+      "ffmpeg": "wipeleft",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    },
+    "wipe-right@1": {
+      "id": "wipe-right@1",
+      "ffmpeg": "wiperight",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    },
+    "slide-left@1": {
+      "id": "slide-left@1",
+      "ffmpeg": "slideleft",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    },
+    "slide-right@1": {
+      "id": "slide-right@1",
+      "ffmpeg": "slideright",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "duration": {
+        "minimumFrames": 1
+      }
+    }
+  },
+  "graphicsRenderers": {
+    "none@1": {
+      "id": "none@1",
+      "capability": null,
+      "consumer": "film-compiler:scene"
+    },
+    "local-gc@1": {
+      "id": "local-gc@1",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "consumer": "motion-graphics"
+    },
+    "html-canvas@1": {
+      "id": "html-canvas@1",
+      "capability": "playwright-html-local:html-render",
+      "consumer": "html-motion-pilot"
+    }
+  },
+  "postOperations": {
+    "color-normalize@1": {
+      "id": "color-normalize@1",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "consumer": "post-production"
+    },
+    "logo-overlay@1": {
+      "id": "logo-overlay@1",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "consumer": "post-production"
+    },
+    "ending-hold@1": {
+      "id": "ending-hold@1",
+      "capability": "ffmpeg-local:hybrid-compose",
+      "consumer": "post-production"
+    }
+  },
+  "qaPolicies": {
+    "strict@1": {
+      "id": "strict@1",
+      "semantic": false,
+      "consumer": "qa",
+      "assertion": "technical-master-gate"
+    }
+  },
+  "deliveryTargets": {
+    "local-output@1": {
+      "id": "local-output@1",
+      "external": false,
+      "consumer": "delivery"
+    },
+    "drive-daily@1": {
+      "id": "drive-daily@1",
+      "external": true,
+      "consumer": "drive-deliver",
+      "confirmation": "confirm-drive-write"
+    }
+  },
+  "variantFormats": [
+    "16:9",
+    "9:16",
+    "1:1"
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/execution-rights-decision@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "version",
+    "planFingerprint",
+    "nodeId",
+    "operation",
+    "scope",
+    "providerInputAllowed",
+    "inputs",
+    "approvals",
+    "headSequence",
+    "decisionHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/execution-rights-decision@1" },
+    "version": { "const": 1 },
+    "planFingerprint": { "$ref": "#/$defs/hash" },
+    "nodeId": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "scope": { "enum": ["no-provider-input", "same-execution"] },
+    "providerInputAllowed": { "const": true },
+    "inputs": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "artifactId",
+          "nodeId",
+          "sha256",
+          "bytes",
+          "mimeType",
+          "receiptId",
+          "receiptSha256",
+          "createdSequence"
+        ],
+        "properties": {
+          "artifactId": { "type": "string", "minLength": 1 },
+          "nodeId": { "type": "string", "minLength": 1 },
+          "sha256": { "$ref": "#/$defs/hash" },
+          "bytes": { "type": "integer", "minimum": 1 },
+          "mimeType": {
+            "type": "string",
+            "pattern": "^(image|video|audio)/"
+          },
+          "receiptId": { "type": "string", "minLength": 1 },
+          "receiptSha256": { "$ref": "#/$defs/hash" },
+          "createdSequence": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "approvals": {
+      "type": "array",
+      "maxItems": 64,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "nodeId",
+          "approvalHash",
+          "actor",
+          "actorKind",
+          "source",
+          "approvedAt",
+          "createdSequence"
+        ],
+        "properties": {
+          "nodeId": { "type": "string", "minLength": 1 },
+          "approvalHash": { "$ref": "#/$defs/hash" },
+          "actor": { "type": "string", "minLength": 1 },
+          "actorKind": { "enum": ["human", "automation", "legacy-unknown"] },
+          "source": { "type": "string", "minLength": 1 },
+          "approvedAt": { "type": "string", "format": "date-time" },
+          "createdSequence": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "headSequence": { "type": "integer", "minimum": 0 },
+    "decisionHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

@@ -1,0 +1,123 @@
+{
+  "schema": "gerador-de-videos/receita@2",
+  "vertical": "2.5B",
+  "mode": "studio",
+  "kind": "peca",
+  "identity": {
+    "id": "live-proof-google-vids-multi-voice",
+    "revision": 1,
+    "name": "Prova live Google Vids multi-voz"
+  },
+  "scope": {
+    "rootScopeId": "client:focus",
+    "projectScopeId": "phase-7-live-proof"
+  },
+  "format": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": { "numerator": 24, "denominator": 1 }
+    }
+  },
+  "program": {
+    "durationPolicy": "fixed-frames",
+    "durationFrames": 720,
+    "shots": [
+      { "id": "abertura", "durationFrames": 240 },
+      { "id": "dialogo", "durationFrames": 240 },
+      { "id": "fechamento", "durationFrames": 240 }
+    ]
+  },
+  "assets": [],
+  "cast": { "people": [] },
+  "videoGeneration": {
+    "module": "omni-video@1",
+    "shots": [
+      {
+        "shotId": "abertura",
+        "task": "text-to-video",
+        "prompt": "Formas abstratas azuis e douradas se aproximam em movimento fluido, sem pessoas, sem texto e sem imagens de referência.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "dialogo",
+        "task": "text-to-video",
+        "prompt": "Duas linhas luminosas distintas alternam pulsos como uma conversa visual, sem pessoas, sem texto e sem imagens de referência.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "fechamento",
+        "task": "text-to-video",
+        "prompt": "As duas linhas luminosas convergem em uma composição equilibrada e encerram com corte limpo, sem pessoas, sem texto e sem imagens de referência.",
+        "inputAssetIds": [],
+        "castIds": []
+      }
+    ]
+  },
+  "narration": {
+    "module": "google-vids-narration@1",
+    "speakerMode": "multi-voice",
+    "voice": "Nyla",
+    "speakers": [
+      { "id": "pergunta", "voice": "Nyla" },
+      { "id": "resposta", "voice": "Holt" }
+    ],
+    "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID/edit",
+    "blocks": [
+      {
+        "id": "segmento-01",
+        "speakerId": "pergunta",
+        "text": "Como uma ideia criativa se transforma em uma produção audiovisual confiável, rastreável e pronta para entrega segura?"
+      },
+      {
+        "id": "segmento-02",
+        "speakerId": "resposta",
+        "text": "Isso acontece quando cada escolha deixa uma evidência clara e verificável, desde o roteiro aprovado até o arquivo final entregue."
+      },
+      {
+        "id": "segmento-03",
+        "speakerId": "pergunta",
+        "text": "E o que acontece quando alguma etapa fica ambígua depois que a solicitação já pode ter alcançado o provedor?"
+      },
+      {
+        "id": "segmento-04",
+        "speakerId": "resposta",
+        "text": "O sistema reconcilia o estado antes de decidir o próximo passo, preservando os resultados e sem repetir a submissão às cegas."
+      }
+    ],
+    "timing": { "status": "planned-not-measured" }
+  },
+  "alignment": {
+    "module": "whisper-alignment@1",
+    "backend": "faster-whisper",
+    "language": "pt",
+    "timing": { "status": "planned-not-measured" }
+  },
+  "music": {
+    "module": "flow-music@1",
+    "intent": "Trilha ambiente discreta, sem vocal, que preserve espaço para quatro segmentos de voz alternada.",
+    "fit": "clean-cut",
+    "timing": { "status": "planned-not-measured" }
+  },
+  "sfx": { "module": "local-sfx@1", "cues": [] },
+  "captions": {
+    "module": "word-captions@1",
+    "mode": "word",
+    "source": "whisper",
+    "timing": { "status": "planned-not-measured" }
+  },
+  "mix": {
+    "module": "ffmpeg-mix@1",
+    "voiceGainDb": 0,
+    "musicGainDb": -18,
+    "sfxGainDb": -9,
+    "ending": "clean-cut"
+  },
+  "assembly": {
+    "module": "ffmpeg-assembly@1",
+    "mode": "concat",
+    "transition": "cut@1"
+  }
+}

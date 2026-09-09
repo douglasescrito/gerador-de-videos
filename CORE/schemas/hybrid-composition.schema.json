@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/hybrid-composition@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "mode", "fps", "durationFrames", "timelineFingerprint", "tracks", "audio", "captions", "cache", "metadata", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/hybrid-composition@1" },
+    "mode": { "const": "studio" },
+    "fps": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["numerator", "denominator"],
+      "properties": {
+        "numerator": { "type": "integer", "minimum": 1 },
+        "denominator": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "durationFrames": { "type": "integer", "minimum": 1 },
+    "timelineFingerprint": { "type": "string", "minLength": 1 },
+    "tracks": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "kind", "file", "startFrame", "endFrameExclusive", "zIndex"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:-]{0,127}$" },
+          "kind": { "enum": ["video-base", "video-alpha", "audio", "captions"] },
+          "file": { "type": "string", "minLength": 1 },
+          "startFrame": { "type": "integer", "minimum": 0 },
+          "endFrameExclusive": { "type": ["integer", "null"], "minimum": 0 },
+          "zIndex": { "type": "integer" },
+          "alpha": { "type": "boolean" },
+          "position": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["x", "y"],
+            "properties": { "x": { "type": "number", "minimum": 0 }, "y": { "type": "number", "minimum": 0 } }
+          },
+          "role": { "type": "string" }
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode"],
+      "properties": { "mode": { "enum": ["preserve-base", "replace-base", "mix"] } }
+    },
+    "captions": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "required": ["trackId"],
+      "properties": { "trackId": { "type": "string" } }
+    },
+    "cache": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "reuseApproved"],
+      "properties": { "strategy": { "const": "content-addressed" }, "reuseApproved": { "type": "boolean" } }
+    },
+    "metadata": { "type": "object" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

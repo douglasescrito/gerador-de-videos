@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/brand-kit@1",
+  "type": "object",
+  "required": ["schema", "id", "version", "palette", "typography", "logos", "requiredTerms", "forbiddenTerms", "maxOnScreenWords", "safeAreas", "captionStyle", "motion", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/brand-kit@1" },
+    "id": { "type": "string", "minLength": 1 },
+    "version": { "type": "integer", "minimum": 1 },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

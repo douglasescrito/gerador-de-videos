@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-engenharia-precisao-60s",
+  "label": "Manifesto de Marca (60s) · A Obsessão dos Microns (Engenharia de Alta Precisão)",
+  "description": "Manifesto de marca corporativo de engenharia alemã em 16:9: maquinário CNC de 5 eixos usinando titânio aeronáutico sob fluido refrigerante, medição a laser interferométrico e tolerâncias de um mícron.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "manifesto-engenharia-precisao-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia industrial de precisão",
+    "sound design de CNC, laser e titânio",
+    "Flow Music épico orquestral moderno",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Premium brand manifesto cinematography in 16:9. A pristine cleanroom manufacturing laboratory. A high-speed 5-axis CNC diamond drill cuts an intricate aerospace turbine impeller from a solid monolithic block of aerospace titanium under crystal-clear high-pressure coolant fluid jets. 85mm macro lens. Non-verbal sound design: high-pitched precision spindle hum and crisp cutting fluid spray. No speech or dialogue. On-screen text: A BUSCA DA PERFEIÇÃO.",
+      "duration": 10,
+      "onScreenText": "A BUSCA DA PERFEIÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Premium brand manifesto cinematography in 16:9. A ruby-tipped coordinate measuring machine (CMM) probe glides down and touches a mirror-polished machined bearing race with ultra-precise tactile deceleration. A laser coordinate grid reflects across the steel geometry. Non-verbal sound design: soft robotic linear actuator glide and pure electronic measurement confirmation ping. No speech or dialogue. On-screen text: TOLERÂNCIA DE UM MÍCRON.",
+      "duration": 10,
+      "onScreenText": "TOLERÂNCIA DE UM MÍCRON",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Premium brand manifesto cinematography in 16:9. An optical interferometer projects concentric rainbow interference rings onto a perfectly flat optical sapphire glass wafer, proving microscopic flatness down to nanometers. Deep contrast lighting. Non-verbal sound design: deep clean sine wave tone and harmonic glass resonance. No speech or dialogue. On-screen text: O INVISÍVEL A OLHO NU.",
+      "duration": 10,
+      "onScreenText": "O INVISÍVEL A OLHO NU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Premium brand manifesto cinematography in 16:9. Two precision-ground gauge blocks slide against each other and wring together seamlessly with zero air gap, appearing as a single solid monolithic steel bar under directional white LED rim lighting. Non-verbal sound design: smooth metallic surface sliding and solid acoustic vacuum seal snap. No speech or dialogue. On-screen text: UNIÃO SEM COSTURAS.",
+      "duration": 10,
+      "onScreenText": "UNIÃO SEM COSTURAS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Premium brand manifesto cinematography in 16:9. An engineer in a white lab coat inspects the finished propulsion assembly under focused theatrical key light. Absolute focus and unyielding pride of craftsmanship. Non-verbal sound design: building orchestral strings and deep warm sub-bass swell. No speech or dialogue. On-screen text: ENGENHARIA SEM COMPROMISSO.",
+      "duration": 10,
+      "onScreenText": "ENGENHARIA SEM COMPROMISSO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Premium brand manifesto cinematography in 16:9. Hero brand lockup: the finished aerospace mechanism rotates slowly in center frame on a dark brushed obsidian pedestal as clean, authoritative modern typography appears with precision. Non-verbal sound design: grand orchestral resolution chord and solid final impact. No speech or dialogue. On-screen text: A OBSESSÃO DOS MÍCRONS.",
+      "duration": 10,
+      "onScreenText": "A OBSESSÃO DOS MÍCRONS",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A maioria das pessoas nunca verá a diferença entre um milímetro e um mícron. Mas para nós, essa fração invisível é a fronteira exata entre o que é comum e o que é lendário.",
+      "voice": "voz masculina brasileira madura, grave, firme, imponente, autoritária e precisa, tom de manifesto corporativo premium de engenharia",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "A perfeição não aceita concessões nem aproximações."
+        },
+        {
+          "id": "cena-2",
+          "text": "Onde outros toleram o desvio, nós exigimos a precisão absoluta."
+        },
+        {
+          "id": "cena-3",
+          "text": "Cada mícron usinado carrega anos de pesquisa e rigor."
+        },
+        {
+          "id": "cena-4",
+          "text": "Componentes que se encaixam como se fossem um só corpo."
+        },
+        {
+          "id": "cena-5",
+          "text": "Não construímos apenas máquinas. Construímos confiança definitiva."
+        },
+        {
+          "id": "cena-6",
+          "text": "Engenharia de precisão. Onde o detalhe é tudo."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Epic precision industrial-orchestral score with driving string ostinatos, heavy analog bass pulses, clean brass horns and a powerful corporate crescendo.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

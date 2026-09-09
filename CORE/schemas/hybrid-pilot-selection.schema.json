@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/hybrid-pilot-selection@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "selectionId", "rootScopeId", "productionScopeId", "selectedBy", "selectedAt", "humanConfirmed", "timelineFingerprint", "base", "overlay", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/hybrid-pilot-selection@1" },
+    "selectionId": { "$ref": "#/$defs/id" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "productionScopeId": { "$ref": "#/$defs/id" },
+    "selectedBy": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "selectedAt": { "type": "string", "format": "date-time" },
+    "humanConfirmed": { "const": true },
+    "timelineFingerprint": { "type": "string", "minLength": 1, "maxLength": 512 },
+    "base": { "$ref": "#/$defs/asset" },
+    "overlay": { "$ref": "#/$defs/asset" },
+    "fingerprint": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "asset": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["file", "artifactId", "artifactContentHash", "receiptFile", "receiptId", "receiptHash", "rightsStatus", "sourceClass"],
+      "properties": {
+        "file": { "type": "string", "minLength": 1 },
+        "artifactId": { "type": "string", "minLength": 1 },
+        "artifactContentHash": { "$ref": "#/$defs/hash" },
+        "receiptFile": { "type": "string", "minLength": 1 },
+        "receiptId": { "type": "string", "minLength": 1 },
+        "receiptHash": { "$ref": "#/$defs/hash" },
+        "rightsStatus": { "const": "allowed" },
+        "sourceClass": { "enum": ["omni-approved", "local-deterministic"] }
+      }
+    }
+  }
+}

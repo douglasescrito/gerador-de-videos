@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-decision-resolution@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rootScopeId", "decisionId", "asOf", "requestFingerprint", "status", "selectedOptionId", "admissibleOptionIds", "blockedOptionIds", "rankedOptionIds", "viableAlternativeIds", "reason", "requiresHumanDecision", "requiresReplan", "changed", "providerCalls", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-decision-resolution@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "decisionId": { "$ref": "#/$defs/id" },
+    "asOf": { "type": "string", "format": "date-time" },
+    "requestFingerprint": { "$ref": "#/$defs/fingerprint" },
+    "status": { "enum": ["selected", "no-admissible-option", "blocked-viability", "unresolved-conflict"] },
+    "selectedOptionId": { "oneOf": [{ "type": "null" }, { "$ref": "#/$defs/id" }] },
+    "admissibleOptionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "blockedOptionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "rankedOptionIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "viableAlternativeIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "requiresHumanDecision": { "type": "boolean" },
+    "requiresReplan": { "type": "boolean" },
+    "changed": { "const": false },
+    "providerCalls": { "const": 0 },
+    "fingerprint": { "$ref": "#/$defs/fingerprint" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

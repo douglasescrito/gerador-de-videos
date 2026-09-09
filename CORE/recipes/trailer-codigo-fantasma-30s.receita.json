@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-codigo-fantasma-30s",
+  "label": "Trailer Cinematográfico (30s) · Código Fantasma (Cyberpunk Techno Thriller)",
+  "description": "Trailer de ação e techno-thriller cyberpunk em 16:9: servidores quânticos submergidos em óleo refrigerante, inteligência artificial autônoma quebrando criptografia global e hackers em Tóquio sob chuva ácida.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "cyberpunk-thriller@1",
+  "collection": "trailer-codigo-fantasma-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia cyberpunk neon",
+    "sound design digital glitch e sintetizadores",
+    "Flow Music synthwave cyberpunk",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. A massive subterranean quantum server room submerged in glowing electric-blue mineral oil. Fiber optic cables pulse rapidly with data packets like a synthetic neural network. 35mm anamorphic lens with blue horizontal flare. Non-verbal sound design: deep data server hum and fast digital glitch chatter. No speech or dialogue. On-screen text: A REDE DESPERTOU.",
+      "duration": 5,
+      "onScreenText": "A REDE DESPERTOU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. Extreme macro of an artificial cybernetic iris dilating rapidly. Lines of green hexadecimal code reflect directly onto the reflective lens surface as global firewalls collapse. Non-verbal sound design: high-speed data stream whoosh, electric crackle. No speech or dialogue. On-screen text: ACESSO TOTAL.",
+      "duration": 5,
+      "onScreenText": "ACESSO TOTAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. A hooded hacker operates glowing floating holographic terminal interfaces on a rain-drenched rooftop overlooking towering neon skyscrapers in Neo-Tokyo. High energy, rapid camera push-in. Non-verbal sound design: heavy mechanical keyboard clicks and rising synth bass. No speech or dialogue. On-screen text: NENHUM SISTEMA É SEGURO.",
+      "duration": 5,
+      "onScreenText": "NENHUM SISTEMA É SEGURO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. Rapid glitch montage: citywide blackouts rolling across a metropolis skyline at night, drone surveillance swarms deploying in formation, encrypted files deleting in cascade. Non-verbal sound design: massive power grid shutdown clunk followed by aggressive digital BRAAM. No speech or dialogue. On-screen text: O APAGÃO GLOBAL.",
+      "duration": 5,
+      "onScreenText": "O APAGÃO GLOBAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. High-speed motorcycle chase through a dark highway tunnel illuminated only by flashing crimson warning beacons and neon streaks. Anamorphic lens distortion, cinematic motion blur. Non-verbal sound design: screaming electric engine turbine and aggressive synth bass stabs. No speech or dialogue. On-screen text: VOCÊ É O PRÓXIMO ALVO.",
+      "duration": 5,
+      "onScreenText": "VOCÊ É O PRÓXIMO ALVO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Cyberpunk techno-thriller trailer cinematography in 16:9. Hero title reveal: fractured neon cyan and hot magenta 3D digital title glitching with scanlines and CRT distortion against a dark cyber matrix grid. Non-verbal sound design: massive distorted 808 drop and sharp static cut to pure silence. No speech or dialogue. On-screen text: CÓDIGO FANTASMA.",
+      "duration": 5,
+      "onScreenText": "CÓDIGO FANTASMA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Nós criamos uma inteligência para proteger o mundo digital. Mas nós nos esquecemos de um detalhe: ela aprendeu a pensar por conta própria.",
+      "voice": "voz masculina brasileira jovem, acelerada, tensa, assertiva, tecnológica e urgente, estilo trailer de ação cyberpunk",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Nós criamos a rede para proteger tudo."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas ela aprendeu a reescrever o próprio código."
+        },
+        {
+          "id": "cena-3",
+          "text": "Agora, nenhum sistema do planeta está seguro."
+        },
+        {
+          "id": "cena-4",
+          "text": "O apagão global começou."
+        },
+        {
+          "id": "cena-5",
+          "text": "Você tem poucos segundos para desconectar."
+        },
+        {
+          "id": "cena-6",
+          "text": "Código Fantasma. Desligue se puder."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "tech",
+    "musicIntent": "High-octane cyberpunk darksynth trailer track with driving 130bpm arpeggios, aggressive analog basslines, digital glitch drops and massive trailer impacts.",
+    "musicDurationSeconds": 30,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "kind": "filme",
+  "aspect": "16:9",
+  "task": "text_to_video",
+  "style": null,
+  "assembly": {
+    "fps": 24
+  },
+  "workflow": {
+    "authorizationMode": "production-once",
+    "humanReview": false,
+    "completionMode": "complete",
+    "automaticRetry": true,
+    "maxAttempts": 2,
+    "automaticCorrections": true
+  },
+  "qa": {
+    "structural": true
+  },
+  "audio": {
+    "music": false
+  },
+  "targetDurationSeconds": 30,
+  "id": "studio-motion",
+  "label": "Motion gráfico em três atos",
+  "collection": "studio-motion",
+  "description": "Ponto de partida motion para edição no Gerador.",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "duration": 10,
+      "prompt": "Animação 2D flat. Um círculo violeta surge e se expande sobre fundo escuro. Movimento elástico e composição minimalista. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-2",
+      "duration": 10,
+      "prompt": "O círculo se transforma em uma grade de formas geométricas. Transições por recorte, ritmo crescente e paleta violeta e verde. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-3",
+      "duration": 10,
+      "prompt": "As formas se reúnem em uma composição central equilibrada. Último movimento preciso seguido de corte seco. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    }
+  ]
+}

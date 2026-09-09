@@ -1,0 +1,724 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "sound-and-music",
+  "version": 2,
+  "status": "candidate",
+  "title": "Som, voz e música",
+  "summary": "Fundamentos para intenção vocal, inteligibilidade, ritmo, música, efeitos, sincronismo, mix, loudness, acessibilidade e restrições operacionais do Studio.",
+  "scope": {
+    "domains": [
+      "sound",
+      "music",
+      "audio-post"
+    ],
+    "appliesTo": [
+      "Direção de voz, desenho de som, trilha, mix, captions e entrega em modo Studio.",
+      "Planejamento audio-first e sincronização de eventos audiovisuais.",
+      "Perfis de loudness e true peak definidos pelo destino."
+    ],
+    "excludes": [
+      "Geração silenciosa de TTS, música ou QA sem flag explícita e recibo.",
+      "Meta universal de loudness para todos os canais.",
+      "Repetição automática de tentativa ambígua ou falha de provedor."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno. Recomendações e normas citadas mantêm copyright e termos próprios; nenhuma tabela, equação ou trecho técnico é reproduzido."
+  },
+  "sources": [
+    {
+      "id": "itu-bs1770-5",
+      "title": "Recommendation ITU-R BS.1770-5",
+      "uri": "https://www.itu.int/rec/R-REC-BS.1770-5-202311-I/en",
+      "publisher": "International Telecommunication Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "version": "BS.1770-5",
+      "publishedAt": "2023-11-22",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "ITU-Copyright",
+        "termsUri": "https://www.itu.int/en/Pages/copyright.aspx",
+        "notes": "Fonte protegida usada apenas para identificar método de medição de loudness e true peak. Equações, tabelas e implementação não são copiadas."
+      }
+    },
+    {
+      "id": "ebu-r128-v5",
+      "title": "EBU R 128: Loudness normalisation and permitted maximum level of audio signals",
+      "uri": "https://tech.ebu.ch/docs/r/r128.pdf",
+      "publisher": "European Broadcasting Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "version": "Version 5, November 2023",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "EBU-Terms-of-Use",
+        "termsUri": "https://www.ebu.ch/cms/live/live/en/sites/ebu/terms-of-use.html",
+        "notes": "Fonte protegida. Usada para distinguir uma recomendação broadcast de um alvo universal; nenhum valor é imposto fora do perfil que adota R 128."
+      }
+    },
+    {
+      "id": "ebu-r128s1",
+      "title": "EBU R 128 s1: Loudness parameters for short-form content",
+      "uri": "https://tech.ebu.ch/publications/r128s1",
+      "publisher": "European Broadcasting Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "version": "Version 3",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "EBU-Terms-of-Use",
+        "termsUri": "https://www.ebu.ch/cms/live/live/en/sites/ebu/terms-of-use.html",
+        "notes": "Fonte protegida usada somente para registrar que conteúdo curto pode exigir parâmetros adicionais dentro de fluxos EBU. Sem reprodução de valores, tabelas ou texto."
+      }
+    },
+    {
+      "id": "ebu-tech3341",
+      "title": "EBU Tech 3341: Loudness Metering",
+      "uri": "https://tech.ebu.ch/docs/tech/tech3341.pdf",
+      "publisher": "European Broadcasting Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "EBU-Terms-of-Use",
+        "termsUri": "https://www.ebu.ch/cms/live/live/en/sites/ebu/terms-of-use.html",
+        "notes": "Referência protegida para práticas de medição em contexto EBU. O pack não reproduz especificações."
+      }
+    },
+    {
+      "id": "w3c-wcag-captions",
+      "title": "WCAG 2.2 Understanding Success Criterion 1.2.2: Captions (Prerecorded)",
+      "uri": "https://www.w3.org/WAI/WCAG22/Understanding/captions-prerecorded",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "version": "WCAG 2.2 Understanding document",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Documento informativo usado para a função de captions sobre fala e sons necessários à compreensão. Aplicação ao arquivo e canal deve ser definida no perfil de entrega."
+      }
+    },
+    {
+      "id": "w3c-webvtt-2026",
+      "title": "WebVTT: The Web Video Text Tracks Format",
+      "uri": "https://www.w3.org/TR/2026/CRD-webvtt1-20260520/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-draft-specification",
+      "usageMode": "paraphrase-only",
+      "version": "Candidate Recommendation Draft 20 May 2026",
+      "publishedAt": "2026-05-20",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Especificação em evolução usada para a noção de tracks textuais sincronizadas. O status de draft é preservado e nenhuma sintaxe é copiada."
+      }
+    },
+    {
+      "id": "studio-governance-audio",
+      "title": "MKT Videos workspace audio governance",
+      "uri": "urn:mkt-videos:governance:agents-md",
+      "publisher": "MKT Videos",
+      "accessedAt": "2026-09-09T00:00:00Z",
+      "sourceKind": "internal-policy",
+      "usageMode": "normative-policy",
+      "version": "Family distribution workspace policy 2026-09-09",
+      "sourceContentHash": "ea179bfff41c24e294c8b9fdda2624c3ad5d2ac9ff09000530340f061ee13c42",
+      "sourceTerms": {
+        "status": "not-applicable",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Contrato local do projeto para narração via Google Vids, alinhamento Whisper local, trilha Flow Music cookie-only, corte limpo e fade-out apenas sob pedido explícito no modo Studio."
+      }
+    },
+    {
+      "id": "ffmpeg-filters",
+      "title": "FFmpeg Filters Documentation",
+      "uri": "https://ffmpeg.org/ffmpeg-filters.html",
+      "publisher": "FFmpeg Project",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": "https://ffmpeg.org/legal.html",
+        "notes": "Fonte oficial para capabilities de mix e sidechain. A licença do software não é presumida como licença da documentação; nenhum comando ou exemplo é copiado."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-intelligibility",
+      "term": "Inteligibilidade",
+      "definition": "Capacidade de compreender o conteúdo linguístico no contexto real de reprodução, considerando performance, ruído, espectro, dinâmica, mix, dispositivo e captions.",
+      "basis": "editorial-synthesis",
+      "sourceIds": []
+    },
+    {
+      "id": "def-ducking",
+      "term": "Ducking",
+      "definition": "Redução controlada de uma camada, normalmente música ou ambiente, em resposta à prioridade temporal de outra, como voz ou evento essencial.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "ffmpeg-filters"
+      ]
+    },
+    {
+      "id": "def-delivery-loudness",
+      "term": "Perfil de loudness",
+      "definition": "Conjunto versionado de método de medição, alvo, tolerância, limite de pico e escopo de programa adotado por um destino específico.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "itu-bs1770-5",
+        "ebu-r128-v5",
+        "ebu-r128s1"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-voice-performance",
+      "title": "Voz começa por intenção, interpretação e prosódia",
+      "definition": "Antes de parâmetros técnicos, a voz deve declarar quem fala, para quem, com qual intenção, subtexto, ritmo, ênfases, pausas e pronúncias.",
+      "intent": "Fazer performance e significado precederem correções de mix.",
+      "sourceIds": [],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Narração, diálogo, locução comercial, entrevista e voz sintética autorizada.",
+        "Planejamento audio-first e marcação de roteiro."
+      ],
+      "limits": [
+        "Prosódia apropriada depende de idioma, região, personagem e contexto.",
+        "Capacidade declarada de um TTS não garante interpretação satisfatória."
+      ],
+      "risks": [
+        "Ênfase errada altera claim ou intenção.",
+        "Ritmo uniforme reduz compreensão mesmo com áudio limpo."
+      ],
+      "successSignals": [
+        "Palavras operacionais e mudanças de intenção são audíveis.",
+        "Pronúncias e pausas essenciais estão declaradas antes da geração ou gravação."
+      ],
+      "tests": [
+        {
+          "id": "t-performance-map",
+          "scenario": "Marcar intenção, palavra focal, pausa e mudança de energia em cada unidade de fala.",
+          "expected": "A direção é específica o suficiente para gravação ou geração, mas não depende de imitar uma voz real."
+        }
+      ]
+    },
+    {
+      "id": "p-intelligibility-first",
+      "title": "Inteligibilidade da mensagem essencial tem prioridade no mix",
+      "definition": "Voz e sons informativos devem permanecer compreensíveis nos dispositivos e ambientes alvo, sem depender de volume excessivo.",
+      "intent": "Preservar conteúdo antes de textura, impacto ou densidade.",
+      "sourceIds": [],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Peças com fala, instrução, claim, diálogo ou som narrativo essencial.",
+        "Mixes destinados a mobile, web, apresentação ou broadcast."
+      ],
+      "limits": [
+        "Inteligibilidade percebida exige teste humano no contexto alvo.",
+        "Medição de loudness não mede compreensão."
+      ],
+      "risks": [
+        "Música e efeitos mascaram consoantes ou palavras críticas.",
+        "Compressão agressiva aumenta fadiga e ruído."
+      ],
+      "successSignals": [
+        "Conteúdo essencial é compreendido em reprodução representativa.",
+        "A redução de música durante a voz é suave e suficiente, não automática por hábito."
+      ],
+      "tests": [
+        {
+          "id": "t-target-playback",
+          "scenario": "Ouvir trechos de maior densidade em dispositivo e nível de reprodução representativos.",
+          "expected": "Fala e sinais essenciais permanecem compreensíveis sem consultar o roteiro."
+        }
+      ]
+    },
+    {
+      "id": "p-rhythm-sync-silence",
+      "title": "Ritmo, sincronismo, silêncio e SFX formam uma gramática temporal",
+      "definition": "Eventos sonoros podem antecipar, coincidir, prolongar ou contrastar eventos visuais; silêncio é uma decisão de densidade, não ausência de trabalho.",
+      "intent": "Usar tempo sonoro para orientação, impacto, continuidade e respiração.",
+      "sourceIds": [],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Transições, ações, motion graphics, montagem musical e narrativa.",
+        "Cues que precisam ser acessíveis por captions."
+      ],
+      "limits": [
+        "Sincronismo exato não é sempre mais expressivo.",
+        "Silêncio absoluto pode não existir no ambiente ou canal."
+      ],
+      "risks": [
+        "SFX redundante transforma toda mudança visual em pontuação.",
+        "Evento sonoro antecipado cria causalidade não desejada."
+      ],
+      "successSignals": [
+        "Cada evento relevante tem relação temporal e função declaradas.",
+        "Pausas preservam tensão ou compreensão sem parecer falha técnica."
+      ],
+      "tests": [
+        {
+          "id": "t-cue-map",
+          "scenario": "Mapear início, pico e cauda de cues relevantes contra os eventos visuais.",
+          "expected": "Alinhamentos e contrapontos são intencionais e não mascaram fala ou informação."
+        }
+      ]
+    },
+    {
+      "id": "p-music-theme-texture",
+      "title": "Música articula tema, textura e dinâmica sem narrar tudo",
+      "definition": "Tema organiza identidade ou recorrência; textura define densidade e material; dinâmica distribui energia no tempo. Música pode apoiar, tensionar ou contradizer a imagem.",
+      "intent": "Escolher função musical antes de gênero, referência ou prompt.",
+      "sourceIds": [],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Trilha original, material licenciado e geração musical explicitamente autorizada.",
+        "Leitmotiv, bed, transição, montagem e encerramento."
+      ],
+      "limits": [
+        "Tema não exige melodia; pode ser timbre, pulso ou intervalo.",
+        "Ausência de música pode ser a escolha adequada."
+      ],
+      "risks": [
+        "Referência nomeada vira pedido de imitação.",
+        "Crescimento musical promete clímax que a narrativa não entrega."
+      ],
+      "successSignals": [
+        "A função musical cabe em linguagem abstrata e não imitativa.",
+        "Mudanças de textura e dinâmica correspondem à estrutura da peça."
+      ],
+      "tests": [
+        {
+          "id": "t-music-function",
+          "scenario": "Descrever a função de cada entrada musical sem citar artista, faixa ou obra.",
+          "expected": "A descrição usa propriedades e intenção; entradas sem função são opcionais, não obrigatórias."
+        }
+      ]
+    },
+    {
+      "id": "p-mix-hierarchy-ducking",
+      "title": "Hierarquia de mix governa dinâmica e ducking",
+      "definition": "Cada trecho deve declarar camada prioritária e margens de convivência; ducking é uma das respostas possíveis quando camadas competem.",
+      "intent": "Manter voz, música, ambiente e efeitos em relação controlada sem achatar toda a dinâmica.",
+      "sourceIds": [
+        "ffmpeg-filters"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Mix multitrack, sidechain, automação de ganho e versões sem voz.",
+        "Trechos em que fala e música compartilham faixa de frequência."
+      ],
+      "limits": [
+        "Ducking não substitui arranjo, escolha de timbre ou edição.",
+        "Parâmetros dependem do material e não devem ser universais."
+      ],
+      "risks": [
+        "Bombeamento audível distrai.",
+        "Prioridade fixa elimina contrastes narrativos."
+      ],
+      "successSignals": [
+        "A camada prioritária permanece clara e a secundária conserva função.",
+        "Transições de ganho não criam artefatos nem saltos não intencionais."
+      ],
+      "tests": [
+        {
+          "id": "t-priority-segments",
+          "scenario": "Dividir a timeline por mudanças de camada prioritária e revisar automação em cada fronteira.",
+          "expected": "A hierarquia muda apenas quando a narrativa pede e o ducking não é aplicado onde edição ou arranjo resolveriam melhor."
+        }
+      ]
+    },
+    {
+      "id": "p-delivery-loudness",
+      "title": "Loudness e true peak pertencem ao perfil de entrega",
+      "definition": "Medição deve usar método declarado e metas versionadas pelo destino; recomendações broadcast, short-form e plataformas não são intercambiáveis por padrão.",
+      "intent": "Produzir entregas comparáveis e tecnicamente conformes sem transformar um número em regra universal.",
+      "sourceIds": [
+        "itu-bs1770-5",
+        "ebu-r128-v5",
+        "ebu-r128s1",
+        "ebu-tech3341"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Masters, broadcast, plataformas e versões com perfis diferentes.",
+        "QA técnico provider-free de mix final."
+      ],
+      "limits": [
+        "Meta EBU é específica de fluxos que a adotam.",
+        "Medição válida não garante estética, inteligibilidade ou ausência de clipping em toda transcodificação."
+      ],
+      "risks": [
+        "Normalizar para alvo errado altera dinâmica e compatibilidade.",
+        "Medir trecho quando o perfil exige programa completo produz conclusão inválida."
+      ],
+      "successSignals": [
+        "Recibo registra método, escopo, alvo, tolerância e limite de pico.",
+        "Valor medido é comparado somente ao perfil aplicável."
+      ],
+      "tests": [
+        {
+          "id": "t-profile-bound-measurement",
+          "scenario": "Executar medição técnica sobre o master com o perfil de entrega selecionado.",
+          "expected": "Relatório contém valores e conformidade relativa ao perfil, sem escolher outro alvo automaticamente."
+        }
+      ]
+    },
+    {
+      "id": "p-clean-cut-no-fade",
+      "title": "O padrão do projeto é corte limpo, sem fade-out",
+      "definition": "Trilha, narração e master encerram por corte limpo na duração da timeline; fade-out só entra por pedido explícito e sua duração deve constar no recibo.",
+      "intent": "Preservar o contrato operacional e impedir acabamento não solicitado.",
+      "sourceIds": [
+        "studio-governance-audio"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Toda composição e entrega Studio deste workspace.",
+        "Narração, música, efeitos e master."
+      ],
+      "limits": [
+        "O usuário pode pedir fade-out explicitamente.",
+        "Cauda natural dentro da timeline não é automaticamente um fade aplicado."
+      ],
+      "risks": [
+        "Fade implícito altera intenção e duração percebida.",
+        "Corte fora de zero crossing pode produzir clique se o asset não foi preparado."
+      ],
+      "successSignals": [
+        "Nenhuma automação de fade existe sem parâmetro explícito.",
+        "Recibo distingue corte, cauda natural e fade solicitado."
+      ],
+      "tests": [
+        {
+          "id": "t-ending-policy",
+          "scenario": "Inspecionar plano e recibo para operações de ganho no encerramento.",
+          "expected": "Sem pedido explícito, não há fade-out; o áudio termina na duração da timeline por corte limpo tecnicamente válido."
+        }
+      ]
+    },
+    {
+      "id": "p-accessible-audio",
+      "title": "Acessibilidade traduz informação sonora essencial",
+      "definition": "Fala e sons necessários à compreensão devem ter representação textual sincronizada adequada ao canal, com identificação de falante e informação sonora quando relevantes.",
+      "intent": "Permitir compreensão quando o áudio não pode ser ouvido ou distinguido.",
+      "sourceIds": [
+        "w3c-wcag-captions",
+        "w3c-webvtt-2026"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Conteúdo pré-gravado com fala ou sons narrativos.",
+        "Entregas com captions embutidas, sidecar ou track."
+      ],
+      "limits": [
+        "Formato e requisito de conformidade dependem do meio.",
+        "Transcrição literal pode exigir edição para sincronismo e identificação."
+      ],
+      "risks": [
+        "Captions omitem som que muda o sentido.",
+        "Sincronismo ruim associa fala ao evento errado."
+      ],
+      "successSignals": [
+        "Conteúdo essencial permanece compreensível com áudio indisponível.",
+        "Captions respeitam ordem, duração e safe area do perfil."
+      ],
+      "tests": [
+        {
+          "id": "t-muted-comprehension",
+          "scenario": "Revisar a peça sem áudio usando a representação textual de entrega.",
+          "expected": "Fala, identidade de falante e sons narrativos necessários continuam compreensíveis."
+        }
+      ]
+    },
+    {
+      "id": "p-provider-capability",
+      "title": "Limite de provedor é capability expirada, não convite a retry",
+      "definition": "TTS, música e outras funções externas só podem entrar quando capability cookie-only está vigente, a etapa foi explicitamente autorizada e o gate de gasto foi confirmado.",
+      "intent": "Separar conhecimento de áudio de disponibilidade operacional e impedir repetição ambígua.",
+      "sourceIds": [
+        "studio-governance-audio"
+      ],
+      "basis": "internal-policy",
+      "modality": "capability",
+      "applicability": [
+        "Google Vids, Flow Music e futuros adapters de áudio governados.",
+        "Planejamento, runtime guard e retomada de estado."
+      ],
+      "limits": [
+        "O estado vigente em 2026-07-24 pode mudar após nova prova autorizada.",
+        "Teste local não comprova acesso live."
+      ],
+      "risks": [
+        "Depender de capability não comprovada bloqueia entrega.",
+        "Retry após estado ambíguo pode duplicar consumo ou resultado."
+      ],
+      "successSignals": [
+        "Plano distingue etapa opcional, capability e fallback previamente aprovado.",
+        "Falha ou expiração bloqueia antes do POST e não repete automaticamente."
+      ],
+      "tests": [
+        {
+          "id": "t-capability-before-post",
+          "scenario": "Simular capability ausente ou expirada antes de etapa de TTS ou música.",
+          "expected": "Runtime falha fechado, não chama provedor e não seleciona fallback silencioso."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-explicit-fade",
+      "principleIds": [
+        "p-clean-cut-no-fade"
+      ],
+      "condition": "O usuário pede explicitamente fade-out e aprova sua duração.",
+      "response": "Aplicar somente no modo Studio, preservar originais e registrar duração, curva, escopo e artefato resultante no recibo.",
+      "sourceIds": [
+        "studio-governance-audio"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-one-loudness-number",
+      "title": "Um número de loudness para todos os destinos",
+      "description": "Aplicar alvo broadcast a web, short-form e apresentação sem perfil ou revalidação.",
+      "principleIds": [
+        "p-delivery-loudness"
+      ],
+      "risks": [
+        "Não conformidade e alteração desnecessária de dinâmica.",
+        "Relatórios tecnicamente corretos para o contexto errado."
+      ],
+      "mitigations": [
+        "Versionar perfil por destino.",
+        "Registrar método, escopo e tolerância junto ao resultado."
+      ],
+      "sourceIds": [
+        "itu-bs1770-5",
+        "ebu-r128-v5",
+        "ebu-r128s1"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-audio-priority-map",
+      "title": "Mix guiado por prioridade temporal",
+      "description": "A fala abre em primeiro plano, a música reduz densidade durante a informação central, um SFX marca a virada e o master encerra por corte limpo conforme a timeline.",
+      "principleIds": [
+        "p-intelligibility-first",
+        "p-rhythm-sync-silence",
+        "p-mix-hierarchy-ducking",
+        "p-clean-cut-no-fade"
+      ],
+      "analysis": "A solução descreve funções, não parâmetros universais. Valores de ganho e loudness dependem dos assets e do perfil de entrega.",
+      "sourceIds": [
+        "itu-bs1770-5",
+        "studio-governance-audio"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-music-by-reference-only",
+      "title": "Trilha definida apenas por obra ou artista",
+      "description": "O brief cita uma faixa conhecida, mas não descreve função, ritmo, textura, dinâmica, direitos ou relação com a narrativa.",
+      "principleIds": [
+        "p-music-theme-texture",
+        "p-provider-capability"
+      ],
+      "analysis": "A referência não é especificação suficiente e aumenta risco de imitação. A direção deve ser convertida em propriedades abstratas e direitos válidos antes de qualquer uso.",
+      "sourceIds": [
+        "studio-governance-audio"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "voice",
+      "principleIds": [
+        "p-voice-performance",
+        "p-intelligibility-first"
+      ]
+    },
+    {
+      "tag": "performance-intent",
+      "principleIds": [
+        "p-voice-performance"
+      ]
+    },
+    {
+      "tag": "prosody",
+      "principleIds": [
+        "p-voice-performance"
+      ]
+    },
+    {
+      "tag": "intelligibility",
+      "principleIds": [
+        "p-intelligibility-first"
+      ]
+    },
+    {
+      "tag": "rhythm",
+      "principleIds": [
+        "p-rhythm-sync-silence",
+        "p-music-theme-texture"
+      ]
+    },
+    {
+      "tag": "music",
+      "principleIds": [
+        "p-music-theme-texture"
+      ]
+    },
+    {
+      "tag": "theme",
+      "principleIds": [
+        "p-music-theme-texture"
+      ]
+    },
+    {
+      "tag": "texture",
+      "principleIds": [
+        "p-music-theme-texture"
+      ]
+    },
+    {
+      "tag": "dynamics",
+      "principleIds": [
+        "p-music-theme-texture",
+        "p-mix-hierarchy-ducking"
+      ]
+    },
+    {
+      "tag": "silence",
+      "principleIds": [
+        "p-rhythm-sync-silence"
+      ]
+    },
+    {
+      "tag": "sound-effects",
+      "principleIds": [
+        "p-rhythm-sync-silence"
+      ]
+    },
+    {
+      "tag": "synchronization",
+      "principleIds": [
+        "p-rhythm-sync-silence"
+      ]
+    },
+    {
+      "tag": "ducking",
+      "principleIds": [
+        "p-mix-hierarchy-ducking"
+      ]
+    },
+    {
+      "tag": "loudness",
+      "principleIds": [
+        "p-delivery-loudness"
+      ]
+    },
+    {
+      "tag": "clean-cut",
+      "principleIds": [
+        "p-clean-cut-no-fade"
+      ]
+    },
+    {
+      "tag": "no-default-fade",
+      "principleIds": [
+        "p-clean-cut-no-fade"
+      ]
+    },
+    {
+      "tag": "accessibility",
+      "principleIds": [
+        "p-accessible-audio"
+      ]
+    },
+    {
+      "tag": "provider-limitations",
+      "principleIds": [
+        "p-provider-capability"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "voice",
+    "performance-intent",
+    "prosody",
+    "intelligibility",
+    "rhythm",
+    "music",
+    "theme",
+    "texture",
+    "dynamics",
+    "silence",
+    "sound-effects",
+    "synchronization",
+    "ducking",
+    "loudness",
+    "clean-cut",
+    "no-default-fade",
+    "accessibility",
+    "provider-limitations"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com performance, inteligibilidade, ritmo, música, mix, loudness e acessibilidade.",
+        "Política de corte limpo e capabilities atuais do workspace foram separadas de recomendações técnicas externas."
+      ]
+    },
+    {
+      "version": 2,
+      "date": "2026-09-09",
+      "changes": [
+        "Nova versão candidata para distribuição familiar: vínculo com a política sanitizada do workspace. Conteúdo técnico e termos preservados; nenhuma ativação ou promoção."
+      ]
+    }
+  ]
+}

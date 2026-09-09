@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-arquitetura-futuro-60s",
+  "label": "Manifesto de Marca (60s) · A Cidade Viva (Arquitetura Bioclimática & Futuro)",
+  "description": "Manifesto de urbanismo e arquitetura sustentável em 16:9: arranha-céus em madeira engenheirada (mass timber), fachadas cinéticas respiráveis, praças públicas arborizadas e mobilidade elétrica fluida.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-city-future@1",
+  "collection": "manifesto-arquitetura-futuro-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia de arquitetura bioclimática",
+    "sound design urbano orgânico",
+    "Flow Music épico futurista elegante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. A soaring 40-story mass timber and glass skyscraper surrounded by lush cascading green balconies under bright morning sun. The warm natural grain of structural cross-laminated timber beams is visible through panoramic glass. 24mm tilt-shift cinema lens. Non-verbal sound design: gentle morning breeze rustling terrace trees, soft city hum. No speech or dialogue. On-screen text: A CIDADE QUE RESPIRA.",
+      "duration": 10,
+      "onScreenText": "A CIDADE QUE RESPIRA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. Close-up on a smart biomimetic kinetic facade: thousands of hexagonal natural wood louvers gently adjust their angles in synchronized fluid motion to follow the solar trajectory, optimizing shade and natural airflow. Non-verbal sound design: whisper-quiet mechanical servo glides and soft acoustic wood clicking. No speech or dialogue. On-screen text: ARQUITETURA INTELIGENTE.",
+      "duration": 10,
+      "onScreenText": "ARQUITETURA INTELIGENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. Pedestrian-level wide shot of an urban boulevard with zero cars: lush rain gardens, water fountains where children play, citizens cycling on wide permeable terracotta paths, solar electric trams gliding silently. Warm, vibrant community life. Non-verbal sound design: joyful distant laughter, water fountain splash, quiet tram chime. No speech or dialogue. On-screen text: ESPAÇO PARA AS PESSOAS.",
+      "duration": 10,
+      "onScreenText": "ESPAÇO PARA AS PESSOAS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. An interior open-air rooftop community farm at sunset. Residents harvest organic vegetables and herbs against the backdrop of an illuminated skyline of green roof gardens under a pastel indigo twilight sky. Non-verbal sound design: fresh herb snapping sound, warm acoustic cello chords. No speech or dialogue. On-screen text: RECONEXÃO COM A TERRA.",
+      "duration": 10,
+      "onScreenText": "RECONEXÃO COM A TERRA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. Sweeping cinematic aerial view at dusk: the entire bioclimatic district lights up with warm amber 2700K low-glare architectural lighting, glowing like an organic living forest canopy in the evening. Non-verbal sound design: soaring French horns and driving orchestral percussion. No speech or dialogue. On-screen text: O NOVO URBANISMO.",
+      "duration": 10,
+      "onScreenText": "O NOVO URBANISMO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Visionary architectural brand manifesto cinematography in 16:9. Hero brand lockup: clean modern architectural typography and brand signature appear centered over the harmonious horizon where city lights blend seamlessly with natural green topography under starlight. Non-verbal sound design: triumphant grand orchestral finale resolving into peaceful room tone. No speech or dialogue. On-screen text: A CIDADE DO AMANHÃ.",
+      "duration": 10,
+      "onScreenText": "A CIDADE DO AMANHÃ",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Durante um século, as cidades foram pensadas para o concreto e o tráfego. O futuro do urbanismo é devolver o espaço às pessoas, integrando a inteligência dos materiais à vitalidade da natureza.",
+      "voice": "voz masculina brasileira madura, visionária, calorosa, confiante e inspiradora, estilo manifesto global de urbanismo sustentável",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "As cidades do futuro não serão feitas de cinza e isolamento."
+        },
+        {
+          "id": "cena-2",
+          "text": "Edifícios vivos que respiram e se adaptam à luz do sol."
+        },
+        {
+          "id": "cena-3",
+          "text": "Ruas devolvidas aos passos, às árvores e aos encontros."
+        },
+        {
+          "id": "cena-4",
+          "text": "Onde cada bairro produz sua própria energia e alimento."
+        },
+        {
+          "id": "cena-5",
+          "text": "A tecnologia e a ecologia unidas pelo bem-estar comum."
+        },
+        {
+          "id": "cena-6",
+          "text": "A cidade viva. O amanhã começa onde você pisa."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Visionary and uplifting orchestral score with bright brass, warm strings, sparkling mallets, driving percussion and a triumphant modern resolution.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

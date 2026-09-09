@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-tempo-fraturado-60s",
+  "label": "Trailer Cinematográfico (60s) · Tempo Fraturado (Ficção & Multiverso)",
+  "description": "Trailer mind-bending de quebra do contínuo espaço-tempo em 16:9: cidades se dobrando sobre si mesmas em gravidade invertida, relógios derretendo em vidro quântico, ecos temporais e montagem caleidoscópica.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "mind-bending-cinema@1",
+  "collection": "trailer-tempo-fraturado-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia conceitual surreal",
+    "sound design reverso e distorção quântica",
+    "Flow Music épico híbrido complexo",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. A massive modern glass metropolis begins folding vertically upward like an impossible origami cube, with streets and skyscrapers hanging upside down in the sky above normal pedestrians. 35mm cinema lens, golden sunset light refracted across thousands of floating windows. Non-verbal sound design: deep structural gravitational groan and reverse time-whoosh. No speech or dialogue. On-screen text: A REALIDADE SE DIVIDIU.",
+      "duration": 10,
+      "onScreenText": "A REALIDADE SE DIVIDIU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. Macro shot of an ornate antique pocket watch falling in slow motion. Before touching the floor, it freezes, shatters into a thousand glowing crystal shards, and then reconstructs in reverse time, ticking backwards violently. Non-verbal sound design: crystal shattering sound played backwards, accelerating rhythmic ticking. No speech or dialogue. On-screen text: O TEMPO ESTÁ CORRENDO AO CONTRÁRIO.",
+      "duration": 10,
+      "onScreenText": "O TEMPO ESTÁ CORRENDO AO CONTRÁRIO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. A lone explorer walks through a long stone corridor where every doorway leads to a completely different era of history: ancient Roman ruins on the left, futuristic cyberpunk highways on the right, Jurassic prehistoric jungle straight ahead. Non-verbal sound design: layered historical soundscapes fading in and out, heavy sub-bass drone. No speech or dialogue. On-screen text: TODAS AS ÉPOCAS AO MESMO TEMPO.",
+      "duration": 10,
+      "onScreenText": "TODAS AS ÉPOCAS AO MESMO TEMPO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. Gravity reverses in an instant: oceans and massive tidal waves rise up into the sky toward falling clouds while meteors fall upwards into space in reverse trajectory. Overwhelming visual scale. Non-verbal sound design: massive oceanic suction sound and colossal cinematic BRAAM. No speech or dialogue. On-screen text: O COLAPSO DA CAUSALIDADE.",
+      "duration": 10,
+      "onScreenText": "O COLAPSO DA CAUSALIDADE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. Rapid kaleidoscope montage: multiple versions of the same person making different life choices meeting face to face in a room of infinite mirrors that shatter into pure starlight. Non-verbal sound design: frantic crescendo of ticking clocks, thunderous taiko drums, soaring string glissando. No speech or dialogue. On-screen text: QUAL REALIDADE É A VERDADEIRA?",
+      "duration": 10,
+      "onScreenText": "QUAL REALIDADE É A VERDADEIRA?",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Mind-bending blockbuster trailer cinematography in 16:9. Hero title reveal: fractured crystalline prism 3D typography that loops infinitely into itself, reflecting past and future timelines in its geometric facets. Slow camera push-in. Non-verbal sound design: deafening temporal shockwave impact cutting instantly into pure silence. No speech or dialogue. On-screen text: TEMPO FRATURADO.",
+      "duration": 10,
+      "onScreenText": "TEMPO FRATURADO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Nós sempre acreditamos que o passado ficou para trás e o futuro ainda não aconteceu. Mas e se todos os momentos existissem simultaneamente? E se a porta entre eles tivesse acabado de ser aberta?",
+      "voice": "voz masculina brasileira madura, filosófica, grave, misteriosa, hipnótica e imponente, estilo trailer de cinema conceitual de Christopher Nolan",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Acreditamos que o tempo era uma linha reta."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas a física acaba de provar o contrário."
+        },
+        {
+          "id": "cena-3",
+          "text": "Passado, presente e futuro colidiram em um único instante."
+        },
+        {
+          "id": "cena-4",
+          "text": "Quando as leis da gravidade perdem o sentido."
+        },
+        {
+          "id": "cena-5",
+          "text": "Apenas uma linha temporal poderá continuar existindo."
+        },
+        {
+          "id": "cena-6",
+          "text": "Tempo Fraturado. Escolha a sua realidade."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Mind-bending Nolan-style hybrid trailer score with ticking Sheppard tones, aggressive modular synth pulses, massive brass horns, reverse piano and colossal cinematic drops.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-labirinto-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · O Labirinto que Aprende com Você",
+  "description": "Filme motivacional estruturado como um labirinto adaptativo: cada tentativa deixa um rastro, elimina possibilidades e transforma erro em informação até revelar uma saída antes invisível.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-labirinto-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 1 of 6: Top-down view of a dense abstract maze. A small cyan marker enters from the lower edge while walls extend beyond the frame, making the route feel unknowable. The exact on-screen phrase is supplied separately as: VOCÊ NÃO ESTÁ PERDIDO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "VOCÊ NÃO ESTÁ PERDIDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 2 of 6: The marker chooses a corridor and reaches a dead end. Instead of resetting, the explored path remains illuminated and a subtle mark appears at the blocked branch. The exact on-screen phrase is supplied separately as: VOCÊ ESTÁ TESTANDO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "VOCÊ ESTÁ TESTANDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 3 of 6: Several rapid but readable attempts occur. Wrong branches dim, confirmed routes glow brighter, and the maze visually contains more information after every failure. The exact on-screen phrase is supplied separately as: CADA ERRO ELIMINA UM CAMINHO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CADA ERRO ELIMINA UM CAMINHO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 4 of 6: The camera rises. Previously separate illuminated traces connect into an emerging pattern, revealing a navigable route that was invisible at the beginning. The exact on-screen phrase is supplied separately as: O MAPA APARECE. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "O MAPA APARECE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 5 of 6: Maze walls gently rearrange around the accumulated knowledge. The marker moves with calm confidence through the only remaining bright corridor. The exact on-screen phrase is supplied separately as: A SAÍDA FICA CLARA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "A SAÍDA FICA CLARA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: ink black, parchment white, luminous cyan and a restrained orange accent. Narrative beat 6 of 6: The marker exits the maze, but the camera reveals a new open field with multiple future paths. The final frame celebrates exploration rather than a permanent finish line. The exact on-screen phrase is supplied separately as: CONTINUE EXPLORANDO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CONTINUE EXPLORANDO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Sentir que você não sabe o caminho não significa que esteja perdido. Significa apenas que ainda existem possibilidades para descobrir. Cada tentativa responde uma pergunta. Quando uma rota não funciona, você acaba de aprender algo que não sabia antes. O erro só é desperdício quando você ignora a informação que ele trouxe. Usado corretamente, ele reduz a incerteza. Depois de algumas tentativas, algo muda. O que parecia confusão começa a revelar padrões, limites e pistas. A saída fica mais clara porque você percorreu caminhos que não levavam até ela. O conhecimento foi construído em movimento. Continue explorando. Nem toda resposta aparece antes da caminhada, e muitas só existem para quem decide procurar.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Sentir que você não sabe o caminho não significa que esteja perdido. Significa apenas que ainda existem possibilidades para descobrir."
+        },
+        {
+          "id": "cena-2",
+          "text": "Cada tentativa responde uma pergunta. Quando uma rota não funciona, você acaba de aprender algo que não sabia antes."
+        },
+        {
+          "id": "cena-3",
+          "text": "O erro só é desperdício quando você ignora a informação que ele trouxe. Usado corretamente, ele reduz a incerteza."
+        },
+        {
+          "id": "cena-4",
+          "text": "Depois de algumas tentativas, algo muda. O que parecia confusão começa a revelar padrões, limites e pistas."
+        },
+        {
+          "id": "cena-5",
+          "text": "A saída fica mais clara porque você percorreu caminhos que não levavam até ela. O conhecimento foi construído em movimento."
+        },
+        {
+          "id": "cena-6",
+          "text": "Continue explorando. Nem toda resposta aparece antes da caminhada, e muitas só existem para quem decide procurar."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Curious cinematic score with plucked piano, soft ticking percussion and translucent string textures. Harmonic clarity should increase scene by scene as the maze becomes understood.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

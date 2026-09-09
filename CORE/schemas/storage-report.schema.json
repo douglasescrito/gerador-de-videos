@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/storage-report@1",
+  "title": "MKT Videos Storage Report",
+  "type": "object",
+  "required": ["schema", "generatedAt", "root", "readOnly", "totals", "classes", "collections", "policy", "plan"],
+  "properties": {
+    "schema": { "const": "mkt-videos/storage-report@1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "root": { "type": "string" },
+    "readOnly": { "const": true },
+    "totals": { "type": "object", "required": ["files", "bytes"] },
+    "classes": { "type": "object" },
+    "collections": { "type": "object" },
+    "volume": { "type": ["object", "null"] },
+    "policy": { "type": "object" },
+    "plan": { "type": "object", "required": ["action", "candidates", "bytesReviewable", "note"] }
+  },
+  "additionalProperties": false
+}

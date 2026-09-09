@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "turismo-resort-spa-luxo-45s",
+  "label": "Hotelaria & Resort Widescreen (45s) · Experiência de Luxo e Bem-Estar",
+  "description": "Comercial de turismo em 16:9 widescreen: café da manhã servido na piscina privativa, massagem terapêutica em spa à beira-mar e jantar à luz de velas sob as estrelas.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "luxury-resort-escape@1",
+  "collection": "turismo-resort-spa-luxo-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato widescreen 16:9",
+    "sound design sutil de água de spa e brisa morna",
+    "Flow Music lounge relaxante de luxo",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cinematic 16:9 widescreen luxury hotel cinematography. Floating breakfast tray with exotic fruits and freshly baked croissants in a private plunge pool overlooking a calm turquoise ocean. Morning sun reflecting on crystal water. Non-verbal sound design: gentle water ripples and warm sea breeze. No speech or dialogue. On-screen text: DESPERTE NO PARAÍSO.",
+      "duration": 11,
+      "onScreenText": "DESPERTE NO PARAÍSO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cinematic 16:9 widescreen luxury hotel cinematography. World-class open-air spa pavilion with aromatic essential oil diffuser, warm stones and linen-draped massage tables overlooking a tranquil bamboo garden. Non-verbal sound design: soft bamboo water fountain chime. No speech or dialogue. On-screen text: BEM-ESTAR ABSOLUTO.",
+      "duration": 11,
+      "onScreenText": "BEM-ESTAR ABSOLUTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cinematic 16:9 widescreen luxury hotel cinematography. Private beachfront candlelit dining table set upon pure white sand under a canopy of tropical stars, glowing lanterns swaying gently. Non-verbal sound design: gentle wave lapping on sand. No speech or dialogue. On-screen text: MOMENTOS INESQUECÍVEIS.",
+      "duration": 12,
+      "onScreenText": "MOMENTOS INESQUECÍVEIS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cinematic 16:9 widescreen luxury hotel cinematography. Elegant resort emblem in subtle embossed gold, typography: 'Reserve sua temporada exclusiva'. Non-verbal sound design: rich warm harmonic resolve. No speech or dialogue. On-screen text: SUA HOSPEDAGEM PERFEITA.",
+      "duration": 11,
+      "onScreenText": "SUA HOSPEDAGEM PERFEITA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "O verdadeiro luxo é o tempo para descansar com quem você ama. Bangalôs privativos sobre a água, gastronomia premiada e tratamentos de spa exclusivos. Permita-se viver essa pausa. Faça sua reserva e viva momentos inesquecíveis.",
+      "voice": "voz feminina brasileira suave, elegante, aveludada e refinada",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "O verdadeiro luxo é ter tempo para relaxar e recarregar as energias." },
+        { "id": "cena-2", "text": "Tratamentos de spa exclusivos e atendimento impecável pensado para você." },
+        { "id": "cena-3", "text": "Jantares à luz de velas e noites tranquilas sob um céu estrelado." },
+        { "id": "cena-4", "text": "Permita-se viver essa pausa inesquecível. Garanta sua reserva." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Lush sophisticated resort lounge music with velvet electric piano, soothing acoustic guitar and gentle ambient warmth",
+      "duration": 45,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

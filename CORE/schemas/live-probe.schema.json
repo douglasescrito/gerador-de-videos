@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://mkt-videos.local/schemas/live-probe.schema.json",
+  "title": "MKT Videos Live Provider Probe",
+  "type": "object",
+  "required": ["schema", "provider", "operation", "checkedAt", "classification", "ready", "authenticated", "generationTriggered", "session"],
+  "properties": {
+    "schema": { "const": "mkt-videos/live-probe@1" },
+    "provider": { "type": "string", "minLength": 1 },
+    "operation": { "type": "string", "minLength": 1 },
+    "checkedAt": { "type": "string", "format": "date-time" },
+    "classification": {
+      "enum": ["ready", "authenticated", "login_required", "permission_denied", "quota_exhausted", "ui_changed", "unavailable", "ambiguous", "blocked_by_provider", "unknown"]
+    },
+    "ready": { "type": "boolean" },
+    "authenticated": { "type": "boolean" },
+    "generationTriggered": { "type": "boolean" },
+    "finalUrl": { "type": "string" },
+    "selectors": {
+      "type": "object",
+      "additionalProperties": { "type": "integer", "minimum": 0 }
+    },
+    "error": { "type": "string" },
+    "session": {
+      "type": "object",
+      "required": ["schema", "authSource", "secretMaterialPersisted"],
+      "properties": {
+        "schema": { "const": "mkt-videos/session-evidence@1" },
+        "profile": { "type": "string" },
+        "origin": { "type": "string" },
+        "authSource": { "enum": ["credential-manager", "har-cookie-import", "cookie-file-import", "ephemeral-profile"] },
+        "secretMaterialPersisted": { "const": false },
+        "classification": { "type": "string" }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-decision-shadow-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "action", "status", "providerFree", "readOnly", "changed", "humanConfirmed", "rootScopeId", "planInfluence", "resolution", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-decision-shadow-action-result@1" },
+    "action": { "const": "decision-shadow" },
+    "status": { "const": "shadow" },
+    "providerFree": { "const": true },
+    "readOnly": { "const": true },
+    "changed": { "const": false },
+    "humanConfirmed": { "const": false },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "planInfluence": { "const": "none" },
+    "resolution": { "$ref": "mkt-videos/knowledge-decision-resolution@1" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

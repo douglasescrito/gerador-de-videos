@@ -1,0 +1,72 @@
+{
+  "schema": "mkt-videos/production-spec@1",
+  "name": "exemplo-documento-mestre",
+  "aspect": "16:9",
+  "narration": {
+    "provider": "google-vids",
+    "voice": "Jett",
+    "blocks": [
+      {
+        "id": "c1",
+        "text": "SUBSTITUA PELO TEXTO DO BLOCO 1."
+      },
+      {
+        "id": "c2",
+        "text": "SUBSTITUA PELO TEXTO DO BLOCO 2."
+      },
+      {
+        "id": "c3",
+        "text": "SUBSTITUA PELO TEXTO DO BLOCO 3."
+      }
+    ],
+    "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID"
+  },
+  "sync": {
+    "engine": "whisper-word-timestamps",
+    "scenesFollowSpeech": true,
+    "whisperModel": "small",
+    "language": "pt",
+    "leadInSeconds": 0.5,
+    "tailOutSeconds": 0.3,
+    "gapSeconds": 0.25,
+    "minConfidence": 0.6
+  },
+  "scenes": [
+    {
+      "id": "c1",
+      "block": "c1",
+      "visual": "Animação 2D flat minimalista, formas geométricas suaves se organizando, paleta clara."
+    },
+    {
+      "id": "c2",
+      "block": "c2",
+      "visual": "Cards de interface se conectando por linhas animadas, fundo limpo."
+    },
+    {
+      "id": "c3",
+      "block": "c3",
+      "visual": "Fechamento com formas geométricas convergindo para o centro, sem texto ou marca."
+    }
+  ],
+  "music": {
+    "preset": "institucional",
+    "fit": "exact",
+    "fadeOut": 0
+  },
+  "assembly": {
+    "fps": 24
+  },
+  "mix": {
+    "musicGain": 0.32,
+    "duckingRatio": 8,
+    "fadeIn": 0.15,
+    "fadeOut": 0
+  },
+  "qa": {
+    "structural": true,
+    "semantic": false
+  },
+  "delivery": {
+    "profile": "web-1080p"
+  }
+}

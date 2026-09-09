@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-corrida-clandestina-30s",
+  "label": "Trailer Cinematográfico (30s) · Velocidade Noturna (Ação & Corrida Clandestina)",
+  "description": "Trailer de alta adrenalina e corrida de rua em 16:9: muscle cars e supercarros modificados acelerando na madrugada, labaredas saindo de escapamentos duplos, pneus cantando em asfalto sob luz de túnel e câmeras de perseguição ultra-rápidas.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "high-octane-action@1",
+  "collection": "trailer-corrida-clandestina-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia de perseguição veicular",
+    "sound design de motor V8, turbo flutter e pneus",
+    "Flow Music rock eletrônico acelerado",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. A line of heavily customized matte black and raw carbon fiber hypercars revving at a deserted industrial container port at 3 AM. Red LED taillights reflect sharply on damp tarmac. 35mm anamorphic cinema lens, aggressive low camera angle. Non-verbal sound design: deafening twin-turbo V8 engine revs and aggressive turbo flutter. No speech or dialogue. On-screen text: A CIDADE É A PISTA.",
+      "duration": 5,
+      "onScreenText": "A CIDADE É A PISTA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. Extreme macro shot of a driver's gloved hand slamming a sequential manual shifter into gear as a glowing nitrous purge valve erupts with white pressurized steam from the hood. Non-verbal sound design: pneumatic nitrogen purge hiss, crisp mechanical gear clunk. No speech or dialogue. On-screen text: SEM FREIO.",
+      "duration": 5,
+      "onScreenText": "SEM FREIO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. Ultra-fast tracking shot: cars launching side-by-side with tires smoking and spinning, throwing rooster tails of sparks from titanium underbody skids. Fast kinetic camera push. Non-verbal sound design: screaming tire burnout screech and thunderous acceleration roar. No speech or dialogue. On-screen text: 300 KM/H.",
+      "duration": 5,
+      "onScreenText": "300 KM/H",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. High-speed drift through an illuminated neon highway tunnel. Yellow overhead lights create a hypnotic strobing streak across the glossy paint as two cars trade paint with flying metal sparks. Non-verbal sound design: screeching rubber grip, heavy metal scrape, massive sub-bass riser. No speech or dialogue. On-screen text: CADA SEGUNDO É TUDO.",
+      "duration": 5,
+      "onScreenText": "CADA SEGUNDO É TUDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. A police blockade explodes into chaos as a lead car weaves between cruisers, cutting through a highway toll plaza in slow motion with blue and red emergency strobes illuminating the night. Non-verbal sound design: shattering plastic barricades, police sirens cutting abruptly to heavy bass drop. No speech or dialogue. On-screen text: NENHUMA REGRA.",
+      "duration": 5,
+      "onScreenText": "NENHUMA REGRA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "High-octane action thriller trailer cinematography in 16:9. Hero title reveal: brushed chrome and scorched titanium 3D typography engulfed in roaring blue exhaust flames against burning asphalt. Non-verbal sound design: massive engine backfire explosion resolving into raw silence. No speech or dialogue. On-screen text: VELOCIDADE NOTURNA.",
+      "duration": 5,
+      "onScreenText": "VELOCIDADE NOTURNA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Alguns correm para vencer. Nós corremos porque a trezentos por hora, nada mais no mundo tem poder sobre você.",
+      "voice": "voz masculina brasileira jovem, rouca, adrenalítica, confiante e veloz, estilo filme de ação e perseguição veicular",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Quando a noite cai, a cidade muda de dono."
+        },
+        {
+          "id": "cena-2",
+          "text": "Sem limites de velocidade. Sem margem para erro."
+        },
+        {
+          "id": "cena-3",
+          "text": "Aceleração máxima desde o primeiro segundo."
+        },
+        {
+          "id": "cena-4",
+          "text": "O asfalto cobra o preço de quem hesita."
+        },
+        {
+          "id": "cena-5",
+          "text": "Ultrapasse tudo o que tentar parar você."
+        },
+        {
+          "id": "cena-6",
+          "text": "Velocidade Noturna. Pise fundo."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "rock",
+    "musicIntent": "Furious high-BPM electronic rock track with distorted basslines, aggressive breakbeats, roaring electric guitars and explosive cinematic drops.",
+    "musicDurationSeconds": 30,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

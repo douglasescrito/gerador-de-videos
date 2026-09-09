@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/llm-alignment-proposal@1",
+  "type": "object",
+  "required": ["schema", "requestFingerprint", "assignments"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "mkt-videos/llm-alignment-proposal@1" },
+    "requestFingerprint": { "type": "string", "minLength": 16 },
+    "model": { "type": "string", "minLength": 1 },
+    "assignments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["scriptTokenIndex", "measuredTokenIndexes"],
+        "additionalProperties": false,
+        "properties": {
+          "scriptTokenIndex": { "type": "integer", "minimum": 0 },
+          "measuredTokenIndexes": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "integer", "minimum": 0 }
+          },
+          "reason": { "enum": ["exact", "orthographic", "hyphen-fragment", "token-boundary"] }
+        }
+      }
+    }
+  }
+}

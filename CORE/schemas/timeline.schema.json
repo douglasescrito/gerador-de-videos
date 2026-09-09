@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/timeline@1",
+  "type": "object",
+  "required": ["schema", "timeBase", "fps", "locked", "durationFrames", "transition", "tracks", "markers", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/timeline@1" },
+    "timeBase": { "type": "object", "required": ["numerator", "denominator"] },
+    "fps": { "type": "object", "required": ["numerator", "denominator"] },
+    "locked": { "type": "boolean" },
+    "durationFrames": { "type": ["integer", "null"] },
+    "transition": { "type": "object" },
+    "tracks": { "type": "array" },
+    "markers": { "type": "array" },
+    "fingerprint": { "type": "string" }
+  }
+}

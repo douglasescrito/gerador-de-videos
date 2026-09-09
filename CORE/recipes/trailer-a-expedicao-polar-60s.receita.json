@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-a-expedicao-polar-60s",
+  "label": "Trailer Cinematográfico (60s) · A Expedição Polar (Drama & Sobrevivência Extrema)",
+  "description": "Trailer de sobrevivência e drama épico no Ártico em 16:9: nevasca branca a -50°C, quebra-gelo preso na calota polar, pegadas sumindo no gelo, aurora boreal e luta humana contra a força implacável da natureza.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "arctic-survival-cinema@1",
+  "collection": "trailer-a-expedicao-polar-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia de sobrevivência ártica",
+    "sound design de vento gelado e gelo estalando",
+    "Flow Music épico orquestral dramático",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. Extreme wide shot of a vast, desolate, frozen white arctic ice shelf stretching to the horizon under a pale indigo blizzard sky. A colossal historic icebreaker ship sits trapped and tilted in crushing pressure ridges of blue sea ice. Non-verbal sound design: bone-chilling sub-zero wind howl and deep underwater ice groans. No speech or dialogue. On-screen text: A 80 GRAUS NORTE.",
+      "duration": 10,
+      "onScreenText": "A 80 GRAUS NORTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. Macro shot of frost and ice crystals clinging to a weathered explorer's fur hood and frozen eyelashes. Warm breath condenses instantly into thick white clouds against the biting gale. 85mm prime cinema lens. Non-verbal sound design: heavy ragged breathing, snow crunching under heavy boots. No speech or dialogue. On-screen text: O FRIO NÃO PERDOA.",
+      "duration": 10,
+      "onScreenText": "O FRIO NÃO PERDOA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. High-angle drone shot: a tiny team of three explorers pulls wooden sleds across an endless labyrinth of jagged blue icebergs as a massive blizzard wall approaches in the distance. Overwhelming sense of human fragility. Non-verbal sound design: rising blizzard storm roar and low ominous cello drone. No speech or dialogue. On-screen text: CADA PASSO É UMA BATALHA.",
+      "duration": 10,
+      "onScreenText": "CADA PASSO É UMA BATALHA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. A massive sea-ice chasm suddenly splits open with catastrophic force right between the explorers' feet, revealing black freezing oceanic abyss below. Explosive fracture lines race across the ice. Non-verbal sound design: deafening thunderous crack of splitting ice shelf and massive bass impact. No speech or dialogue. On-screen text: A TERRA SE PARTE.",
+      "duration": 10,
+      "onScreenText": "A TERRA SE PARTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. Night sequence under a colossal emerald and violet aurora borealis dancing across the arctic sky. A lone red emergency flare arcs into the night, illuminating endless miles of frozen wilderness. Non-verbal sound design: emotional soaring violin solo over thunderous percussive heartbeat. No speech or dialogue. On-screen text: A ÚLTIMA ESPERANÇA.",
+      "duration": 10,
+      "onScreenText": "A ÚLTIMA ESPERANÇA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Epic survival drama trailer cinematography in 16:9. Hero title reveal: massive glacial 3D typography carved directly from translucent blue glacier ice, reflecting the cold golden glow of the arctic midnight sun. Slow camera drift back. Non-verbal sound design: grand orchestral crescendo resolving into a lone wind whistle and pure silence. No speech or dialogue. On-screen text: A EXPEDIÇÃO POLAR.",
+      "duration": 10,
+      "onScreenText": "A EXPEDIÇÃO POLAR",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Eles foram até o fim do mundo em busca de glória. Mas no gelo eterno, não existem heróis. Apenas aqueles que se recusam a congelar.",
+      "voice": "voz masculina brasileira madura, grave, rouca, emotiva, solene e dramática, estilo cinema dramático de superação e sobrevivência",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Eles navegaram além de qualquer mapa conhecido."
+        },
+        {
+          "id": "cena-2",
+          "text": "Onde o termômetro atinge cinquenta graus negativos."
+        },
+        {
+          "id": "cena-3",
+          "text": "Quando o navio foi esmagado pelo gelo, a marcha começou."
+        },
+        {
+          "id": "cena-4",
+          "text": "Sem resgate. Sem suprimentos. Apenas a vontade de viver."
+        },
+        {
+          "id": "cena-5",
+          "text": "Uma história real de coragem e sobrevivência extrema."
+        },
+        {
+          "id": "cena-6",
+          "text": "A Expedição Polar. O teste definitivo do espírito humano."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Heart-wrenching epic orchestral score with solo cello, mournful horn calls, driving survival percussion, sweeping strings and a towering emotional resolution.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/c2pa-delivery@1",
+  "type": "object",
+  "required": ["schema", "verified"],
+  "properties": {
+    "schema": { "const": "mkt-videos/c2pa-delivery@1" },
+    "verified": { "const": true }
+  }
+}

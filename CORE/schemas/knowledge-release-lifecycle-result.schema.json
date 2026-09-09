@@ -1,0 +1,95 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-release-lifecycle-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "rootScopeId",
+    "release",
+    "activation",
+    "eligible",
+    "issues"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-release-lifecycle-result@1"
+    },
+    "action": {
+      "enum": ["active-release", "activate-release", "rollback-release"]
+    },
+    "status": {
+      "enum": ["no-active-release", "active", "activated", "rolled-back"]
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "type": "boolean"
+    },
+    "changed": {
+      "type": "boolean"
+    },
+    "humanConfirmed": {
+      "type": "boolean"
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "release": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["id", "hash", "memberCount"],
+          "properties": {
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+            },
+            "hash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "memberCount": {
+              "type": "integer",
+              "minimum": 0
+            }
+          }
+        }
+      ]
+    },
+    "activation": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "mkt-videos/knowledge-release-activation@1" }
+      ]
+    },
+    "eligible": {
+      "type": "boolean"
+    },
+    "issues": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 120
+          }
+        }
+      }
+    }
+  }
+}

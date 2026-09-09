@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-replay-authorization@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "rootScopeHash",
+    "releaseHash",
+    "checkedAt",
+    "expiresAt",
+    "rightsHeadHash",
+    "members",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-replay-authorization@1"
+    },
+    "rootScopeHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "releaseHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "checkedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "expiresAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "rightsHeadHash": {
+      "$ref": "#/$defs/hash"
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ordinal",
+          "memberRefHash",
+          "currentHeadHash",
+          "localAnalysis",
+          "retention",
+          "revocation"
+        ],
+        "properties": {
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "memberRefHash": {
+            "$ref": "#/$defs/hash"
+          },
+          "currentHeadHash": {
+            "$ref": "#/$defs/hash"
+          },
+          "localAnalysis": {
+            "const": "allowed"
+          },
+          "retention": {
+            "const": "active"
+          },
+          "revocation": {
+            "const": "clear"
+          }
+        }
+      }
+    },
+    "hash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

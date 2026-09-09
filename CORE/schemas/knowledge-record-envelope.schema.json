@@ -1,0 +1,260 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-record-envelope@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "classification",
+    "owner",
+    "provenance",
+    "modality",
+    "evidenceIds",
+    "retention",
+    "rights",
+    "createdAt",
+    "createdBy",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-record-envelope@1"
+    },
+    "classification": {
+      "enum": [
+        "public",
+        "internal",
+        "confidential",
+        "restricted"
+      ]
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "id"
+      ],
+      "properties": {
+        "type": {
+          "enum": [
+            "global",
+            "domain",
+            "organization",
+            "client",
+            "brand",
+            "person",
+            "project",
+            "production",
+            "deliverable",
+            "campaign",
+            "system"
+          ]
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        }
+      }
+    },
+    "provenance": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "sourceType",
+          "sourceRef",
+          "method",
+          "observedAt",
+          "contentHash"
+        ],
+        "properties": {
+          "sourceType": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "sourceRef": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 640,
+            "anyOf": [
+              {
+                "pattern": "^(?:sha256:)?[a-f0-9]{64}$"
+              },
+              {
+                "pattern": "^[A-Za-z][A-Za-z0-9._-]{1,31}:[^\\s]{1,512}$"
+              }
+            ],
+            "not": {
+              "pattern": "^[Ff][Ii][Ll][Ee]:"
+            }
+          },
+          "method": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "observedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "contentHash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    },
+    "modality": {
+      "enum": [
+        "fact",
+        "capability",
+        "hard-constraint",
+        "preference",
+        "heuristic",
+        "observation",
+        "hypothesis",
+        "anti-pattern"
+      ]
+    },
+    "evidenceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+      }
+    },
+    "retention": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "policy",
+        "expiresAt",
+        "basis"
+      ],
+      "properties": {
+        "policy": {
+          "enum": [
+            "manual-review",
+            "until-project-close",
+            "until-rights-expire",
+            "explicit-date",
+            "contractual"
+          ]
+        },
+        "expiresAt": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "date-time"
+            }
+          ]
+        },
+        "basis": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 500
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "policy": {
+                "const": "explicit-date"
+              }
+            },
+            "required": [
+              "policy"
+            ]
+          },
+          "then": {
+            "properties": {
+              "expiresAt": {
+                "type": "string",
+                "format": "date-time"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "rights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory",
+        "localAnalysis",
+        "textualIndexing",
+        "embedding",
+        "training",
+        "providerInput",
+        "publication",
+        "reuse"
+      ],
+      "properties": {
+        "inventory": {
+          "$ref": "#/$defs/rightState"
+        },
+        "localAnalysis": {
+          "$ref": "#/$defs/rightState"
+        },
+        "textualIndexing": {
+          "$ref": "#/$defs/rightState"
+        },
+        "embedding": {
+          "$ref": "#/$defs/rightState"
+        },
+        "training": {
+          "$ref": "#/$defs/rightState"
+        },
+        "providerInput": {
+          "$ref": "#/$defs/rightState"
+        },
+        "publication": {
+          "$ref": "#/$defs/rightState"
+        },
+        "reuse": {
+          "$ref": "#/$defs/rightState"
+        }
+      }
+    },
+    "createdAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "createdBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  },
+  "$defs": {
+    "rightState": {
+      "enum": [
+        "allowed",
+        "denied",
+        "unknown",
+        "revoked",
+        "expired"
+      ]
+    }
+  }
+}

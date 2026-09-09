@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-review-decision@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "rootScopeId",
+    "scopeId",
+    "sequence",
+    "itemId",
+    "action",
+    "sourceRevision",
+    "sourceContentHash",
+    "sourceStatus",
+    "resultRevision",
+    "resultContentHash",
+    "resultStatus",
+    "reason",
+    "evidenceIds",
+    "reviewedAt",
+    "reviewedBy",
+    "policyId",
+    "policyHash",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-review-decision@1"
+    },
+    "id": { "$ref": "#/$defs/id" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "scopeId": { "$ref": "#/$defs/id" },
+    "sequence": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "itemId": { "$ref": "#/$defs/id" },
+    "action": {
+      "enum": ["promote", "quarantine"]
+    },
+    "sourceRevision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "sourceContentHash": { "$ref": "#/$defs/hash" },
+    "sourceStatus": {
+      "enum": ["candidate", "active"]
+    },
+    "resultRevision": {
+      "type": "integer",
+      "minimum": 2
+    },
+    "resultContentHash": { "$ref": "#/$defs/hash" },
+    "resultStatus": {
+      "enum": ["active", "quarantined"]
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "evidenceIds": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "reviewedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "reviewedBy": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 200
+    },
+    "policyId": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "policyHash": { "$ref": "#/$defs/hash" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

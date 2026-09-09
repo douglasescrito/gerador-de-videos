@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/domain-pack-catalog@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "directory",
+    "packCount",
+    "loadOrder",
+    "packs",
+    "manifestHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/domain-pack-catalog@1"
+    },
+    "directory": {
+      "const": "knowledge/domain-packs"
+    },
+    "packCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "loadOrder": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/packRef"
+      }
+    },
+    "packs": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/manifestEntry"
+      }
+    },
+    "manifestHash": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,95}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "packRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,95}@[1-9][0-9]*$"
+    },
+    "dependency": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "contentHash"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/packRef"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "manifestEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "id",
+        "version",
+        "status",
+        "file",
+        "fileSha256",
+        "contentHash",
+        "coverageTags",
+        "dependencies"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/packRef"
+        },
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "const": "candidate"
+        },
+        "file": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,95}@[1-9][0-9]*[.]domain-pack[.]json$"
+        },
+        "fileSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "coverageTags": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/slug"
+          }
+        },
+        "dependencies": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dependency"
+          }
+        }
+      }
+    }
+  }
+}

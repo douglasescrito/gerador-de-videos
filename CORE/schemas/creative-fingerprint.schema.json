@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gerador.local/schemas/creative-fingerprint.schema.json",
+  "title": "creative-fingerprint@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "releaseId", "releaseHash", "profileFingerprint", "decisionHash", "axes", "combinationHash", "fingerprintHash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/creative-fingerprint@1" },
+    "releaseId": { "type": "string", "minLength": 1 },
+    "releaseHash": { "$ref": "#/$defs/hash" },
+    "profileFingerprint": { "$ref": "#/$defs/hash" },
+    "decisionHash": { "$ref": "#/$defs/hash" },
+    "axes": { "$ref": "#/$defs/axes" },
+    "combinationHash": { "$ref": "#/$defs/hash" },
+    "fingerprintHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "axes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["thesis", "arc", "keyVisual", "aestheticTerritory", "motionMechanism", "composition", "soundResolution"],
+      "properties": {
+        "thesis": { "type": "string", "minLength": 1 },
+        "arc": { "type": "string", "minLength": 1 },
+        "keyVisual": { "type": "string", "minLength": 1 },
+        "aestheticTerritory": { "type": "string", "minLength": 1 },
+        "motionMechanism": { "type": "string", "minLength": 1 },
+        "composition": { "type": "string", "minLength": 1 },
+        "soundResolution": { "type": "string", "minLength": 1 }
+      }
+    }
+  }
+}

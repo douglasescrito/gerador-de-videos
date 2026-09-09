@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/hybrid-composition-plan@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "manifestFingerprint", "timelineFingerprint", "inputs", "toolchain", "cache", "execution", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/hybrid-composition-plan@1" },
+    "manifestFingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "timelineFingerprint": { "type": "string", "minLength": 1 },
+    "inputs": { "type": "array", "minItems": 1, "items": { "type": "object" } },
+    "toolchain": { "type": "object" },
+    "cache": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["strategy", "key", "reuseApproved"],
+      "properties": { "strategy": { "const": "content-addressed" }, "key": { "type": "string", "pattern": "^[a-f0-9]{64}$" }, "reuseApproved": { "type": "boolean" } }
+    },
+    "execution": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["provider", "paid", "mode", "recovery"],
+      "properties": { "provider": { "const": "ffmpeg" }, "paid": { "const": false }, "mode": { "const": "studio" }, "recovery": { "const": "atomic-temp-no-overwrite" } }
+    },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

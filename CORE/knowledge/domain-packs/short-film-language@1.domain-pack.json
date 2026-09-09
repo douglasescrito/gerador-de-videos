@@ -1,0 +1,601 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "short-film-language",
+  "version": 1,
+  "status": "candidate",
+  "title": "Linguagem de pequenos filmes",
+  "summary": "Vocabulário flexível para condensar premissa, personagem, cena, virada, ponto de vista, montagem e som em narrativas curtas sem impor fórmula dramática universal.",
+  "scope": {
+    "domains": [
+      "short-film",
+      "narrative",
+      "film-language"
+    ],
+    "appliesTo": [
+      "Curtas de ficção, microfilmes, histórias de marca e narrativas explicativas.",
+      "Desenvolvimento de brief, film-spec, cenas e montagem em modo Studio.",
+      "Discussão de economia narrativa para durações limitadas."
+    ],
+    "excludes": [
+      "Fórmula obrigatória de roteiro, gênero, estrutura ou final.",
+      "Imitação de filmes, roteiristas, diretores ou escolas reconhecíveis.",
+      "Garantia de emoção, retenção, premiação ou performance."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno. Fontes bibliográficas não são copiadas, adaptadas nem convertidas em fórmulas; seus direitos permanecem com os respectivos titulares."
+  },
+  "sources": [
+    {
+      "id": "film-art-13",
+      "title": "Film Art: An Introduction",
+      "uri": "https://www.mheducation.com/highered/product/Film-Art-An-Introduction-Bordwell.html",
+      "publisher": "McGraw Hill",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "bibliography",
+      "usageMode": "citation-only",
+      "version": "13th edition",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Referência bibliográfica para forma narrativa, mise-en-scène, cinematografia, montagem e som. Nenhum trecho, diagrama, exemplo de filme ou estrutura do livro é reutilizado."
+      }
+    },
+    {
+      "id": "otio-docs",
+      "title": "OpenTimelineIO Documentation",
+      "uri": "https://opentimelineio.readthedocs.io/en/latest/index.html",
+      "publisher": "Academy Software Foundation",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "version": "Documentation current at access date",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Apache-2.0",
+        "termsUri": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/main/LICENSE.txt",
+        "notes": "Usada somente para fatos sobre representação de timeline, clips, tracks, transitions, markers e referências externas de mídia; conceitos narrativos são síntese original."
+      }
+    },
+    {
+      "id": "otio-time-ranges",
+      "title": "OpenTimelineIO Time Ranges",
+      "uri": "https://opentimelineio.readthedocs.io/en/latest/tutorials/time-ranges.html",
+      "publisher": "Academy Software Foundation",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Apache-2.0",
+        "termsUri": "https://github.com/AcademySoftwareFoundation/OpenTimelineIO/blob/main/LICENSE.txt",
+        "notes": "Base técnica para distinguir duração, faixa disponível e faixa usada. Nenhum código ou exemplo é copiado."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-premise",
+      "term": "Premissa",
+      "definition": "Condição dramática mínima que combina sujeito, situação e mudança potencial; descreve o terreno da história sem resolver sua forma.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "film-art-13"
+      ]
+    },
+    {
+      "id": "def-beat",
+      "term": "Beat",
+      "definition": "Unidade perceptível de mudança em informação, objetivo, emoção, poder ou ação; sua duração pode ir de um gesto a uma sequência.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "film-art-13",
+        "otio-time-ranges"
+      ]
+    },
+    {
+      "id": "def-scene-function",
+      "term": "Função de cena",
+      "definition": "Contribuição específica de uma cena para a experiência total, como revelar, complicar, decidir, contrastar, preparar, transformar ou concluir.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "film-art-13"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-premise-theme-logline",
+      "title": "Premissa, tema e logline respondem perguntas diferentes",
+      "definition": "Premissa define a condição dramática; tema nomeia uma questão de sentido; logline comprime protagonista, movimento e obstáculo sem pretender substituir a história.",
+      "intent": "Dar ao projeto uma direção compartilhada antes de acumular cenas e imagens.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Desenvolvimento de conceito, pitch, brief e film-spec.",
+        "Revisão de coerência entre início, transformação e final."
+      ],
+      "limits": [
+        "Histórias atmosféricas podem não ter protagonista ou objetivo convencional.",
+        "Tema pode emergir e mudar durante o desenvolvimento."
+      ],
+      "risks": [
+        "Logline excessivamente completa elimina descoberta.",
+        "Tema enunciado como slogan pode reduzir ambiguidade produtiva."
+      ],
+      "successSignals": [
+        "Os três campos são distintos, compatíveis e revisáveis.",
+        "Cenas propostas podem ser avaliadas contra a condição e a questão central."
+      ],
+      "tests": [
+        {
+          "id": "t-three-statements",
+          "scenario": "Escrever separadamente premissa, tema e logline em uma frase cada.",
+          "expected": "As frases não são sinônimas e nenhuma exige uma fórmula estrutural específica."
+        }
+      ]
+    },
+    {
+      "id": "p-character-forces",
+      "title": "Personagem se torna legível pelas forças em conflito",
+      "definition": "Desejo orienta ação consciente; necessidade descreve transformação possível; obstáculo cria resistência; stakes tornam compreensível o custo de agir ou não agir.",
+      "intent": "Fazer caráter e conflito aparecerem por escolhas observáveis, não apenas por explicação.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Narrativas centradas em pessoa, personagem, grupo ou agente abstrato.",
+        "Cenas em que decisão e consequência sustentam atenção."
+      ],
+      "limits": [
+        "Desejo e necessidade podem coincidir, permanecer ambíguos ou não se resolver.",
+        "Stakes íntimos podem ser suficientes; escala não equivale a importância."
+      ],
+      "risks": [
+        "Obstáculo arbitrário parece mecanismo de roteiro.",
+        "Explicar a necessidade antes que a ação a revele reduz participação do público."
+      ],
+      "successSignals": [
+        "É possível identificar o que muda nas escolhas do personagem.",
+        "Consequências são proporcionais ao mundo da história."
+      ],
+      "tests": [
+        {
+          "id": "t-choice-under-pressure",
+          "scenario": "Localizar a principal escolha sob pressão e retirar a fala explicativa correspondente.",
+          "expected": "A ação ainda revela desejo, resistência ou mudança de prioridade."
+        }
+      ]
+    },
+    {
+      "id": "p-arc-and-beats",
+      "title": "Arco emerge da sequência de beats",
+      "definition": "Arco é a diferença significativa entre estados; beats são mudanças locais que constroem, contestam ou recusam essa diferença.",
+      "intent": "Planejar transformação em unidades observáveis sem exigir trajetória positiva ou completa.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-time-ranges"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Histórias com transformação, revelação, ciclo, queda ou resistência.",
+        "Animatics e timelines que precisam expor densidade de eventos."
+      ],
+      "limits": [
+        "Arco pode pertencer à percepção do público, não ao personagem.",
+        "Narrativa episódica ou poética pode operar por acumulação."
+      ],
+      "risks": [
+        "Beats redundantes ocupam duração sem mudar estado.",
+        "Forçar transformação contradiz personagem ou tema."
+      ],
+      "successSignals": [
+        "Cada beat material altera ao menos uma relação relevante.",
+        "O estado final responde ao estado inicial, mesmo sem fechamento total."
+      ],
+      "tests": [
+        {
+          "id": "t-state-diff",
+          "scenario": "Descrever o estado antes e depois de cada beat em termos verificáveis.",
+          "expected": "Beats sem mudança ou preparação identificável podem ser combinados, removidos ou justificados."
+        }
+      ]
+    },
+    {
+      "id": "p-scene-turn",
+      "title": "Cena concentra função e termina diferente de como começou",
+      "definition": "Uma cena útil possui função dominante e ao menos uma virada de informação, objetivo, relação, emoção ou ação; a virada pode ser mínima e não precisa ser surpresa.",
+      "intent": "Evitar cenas que apenas repetem contexto ou ilustram uma frase.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-docs"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Decupagem, storyboard, film-spec e montagem.",
+        "Curtas com poucos planos ou cenas muito breves."
+      ],
+      "limits": [
+        "Cena contemplativa pode ter função de duração, presença ou contraste.",
+        "Uma cena pode sustentar mais de uma função, desde que não perca foco."
+      ],
+      "risks": [
+        "Viradas artificiais tornam a história mecânica.",
+        "Exposição repetida reduz economia narrativa."
+      ],
+      "successSignals": [
+        "A função cabe em uma frase operacional.",
+        "O ponto de saída acontece depois de uma mudança perceptível."
+      ],
+      "tests": [
+        {
+          "id": "t-scene-before-after",
+          "scenario": "Registrar função, estado de entrada e estado de saída para cada cena.",
+          "expected": "A cena muda ou prepara algo necessário; repetição sem função é sinalizada para revisão humana."
+        }
+      ]
+    },
+    {
+      "id": "p-climax-resolution",
+      "title": "Clímax concentra consequência; resolução mostra o novo estado",
+      "definition": "Clímax é o ponto de maior consequência para a questão construída; resolução oferece informação suficiente sobre o estado resultante, podendo permanecer aberta.",
+      "intent": "Fechar a experiência prometida sem confundir volume ou espetáculo com consequência.",
+      "sourceIds": [
+        "film-art-13"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Narrativas com pergunta, escolha, confronto ou revelação acumulada.",
+        "Peças curtas que precisam terminar sem epílogo extenso."
+      ],
+      "limits": [
+        "Obras cíclicas, poéticas ou anticlímax deliberado podem deslocar a consequência.",
+        "Resolução não exige explicar o tema."
+      ],
+      "risks": [
+        "Clímax visual sem relação com o conflito central.",
+        "Resolução longa repete uma conclusão já percebida."
+      ],
+      "successSignals": [
+        "O ponto de maior consequência responde ao que foi preparado.",
+        "O último estado é percebido por ação, imagem ou som suficiente."
+      ],
+      "tests": [
+        {
+          "id": "t-consequence-chain",
+          "scenario": "Traçar do clímax para trás as preparações necessárias e para frente a consequência principal.",
+          "expected": "A cadeia existe sem depender de informação introduzida apenas no final."
+        }
+      ]
+    },
+    {
+      "id": "p-pov-geography-continuity",
+      "title": "Ponto de vista organiza câmera, geografia e continuidade",
+      "definition": "Posição de câmera, escala de plano, direção, eixo, duração e montagem devem controlar o que o público sabe, sente e localiza a cada momento.",
+      "intent": "Usar linguagem de câmera e edição para experiência, não como inventário de planos.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-docs"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Decupagem de ação, conversa, espaço e revelação.",
+        "Sequências geradas em partes que precisam preservar relações."
+      ],
+      "limits": [
+        "Quebra de eixo, salto e geografia incompleta podem ser escolhas expressivas.",
+        "Continuidade visual não corrige contradição narrativa."
+      ],
+      "risks": [
+        "Cobertura sem ponto de vista fragmenta a experiência.",
+        "Mudanças não motivadas de posição confundem identidade e direção."
+      ],
+      "successSignals": [
+        "O público recebe informação espacial suficiente para a ação relevante.",
+        "Mudanças de ponto de vista correspondem a mudança de conhecimento ou relação."
+      ],
+      "tests": [
+        {
+          "id": "t-spatial-knowledge",
+          "scenario": "Para cada corte, registrar o que o público sabe antes e depois sobre posição, direção e relação.",
+          "expected": "A mudança preserva orientação necessária ou a desorientação tem função declarada."
+        }
+      ]
+    },
+    {
+      "id": "p-sound-and-economy",
+      "title": "Som e economia narrativa dividem o trabalho",
+      "definition": "Diálogo, ambiente, silêncio, música e efeito podem introduzir espaço, tempo, elipse, ponto de vista e consequência, permitindo remover imagem ou exposição redundante.",
+      "intent": "Fazer a curta duração concentrar experiência, não apenas acelerar eventos.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-docs"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Roteiro audiovisual, desenho de som, montagem e animatic.",
+        "Microfilmes em que cada plano precisa cumprir mais de uma função compatível."
+      ],
+      "limits": [
+        "Densidade máxima não é objetivo; pausa pode ser o uso mais econômico do tempo.",
+        "Informação sonora essencial requer estratégia de captions e acessibilidade."
+      ],
+      "risks": [
+        "Música explica emoção já evidente.",
+        "Som fora de campo cria fato narrativo não sustentado pelo projeto."
+      ],
+      "successSignals": [
+        "Imagem e som se complementam em vez de duplicar tudo.",
+        "Elipses preservam relações necessárias e liberam duração para momentos decisivos."
+      ],
+      "tests": [
+        {
+          "id": "t-redundancy-pass",
+          "scenario": "Marcar toda informação repetida simultaneamente por fala, texto, imagem e música.",
+          "expected": "Redundância é mantida apenas quando melhora clareza, acessibilidade ou ênfase intencional."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-noncharacter-form",
+      "principleIds": [
+        "p-character-forces",
+        "p-arc-and-beats",
+        "p-climax-resolution"
+      ],
+      "condition": "A obra aprovada é poética, ensaística, processual ou abstrata e não organiza sua experiência por personagem ou clímax.",
+      "response": "Substituir as perguntas de personagem por progressão perceptiva, associação, repetição e mudança de estado, sem fingir os campos ausentes.",
+      "sourceIds": [
+        "film-art-13"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-template-before-premise",
+      "title": "Template antes da premissa",
+      "description": "Preencher beats, viradas e clímax por obrigação antes de compreender condição, ponto de vista e experiência desejada.",
+      "principleIds": [
+        "p-premise-theme-logline",
+        "p-arc-and-beats",
+        "p-scene-turn",
+        "p-climax-resolution"
+      ],
+      "risks": [
+        "Histórias diferentes assumem a mesma forma superficial.",
+        "Eventos existem para satisfazer campos, não para mudar relações."
+      ],
+      "mitigations": [
+        "Tratar princípios como perguntas e hipóteses.",
+        "Registrar exceção quando a forma pede acumulação, ciclo ou abertura."
+      ],
+      "sourceIds": [
+        "film-art-13"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-one-choice-short",
+      "title": "Curta organizado por uma escolha",
+      "description": "Uma situação apresenta desejo e obstáculo; dois beats mudam o custo; uma escolha concentra a consequência; imagem e som finais mostram o novo estado sem explicação adicional.",
+      "principleIds": [
+        "p-character-forces",
+        "p-arc-and-beats",
+        "p-climax-resolution",
+        "p-sound-and-economy"
+      ],
+      "analysis": "A estrutura é uma possibilidade abstrata, não um número obrigatório de beats. A economia vem da relação causal e da divisão de informação entre imagem e som.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-docs"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-coverage-without-viewpoint",
+      "title": "Cobertura sem ponto de vista",
+      "description": "A sequência alterna planos gerais, médios e detalhes disponíveis, mas nenhum corte muda conhecimento, relação ou geografia.",
+      "principleIds": [
+        "p-scene-turn",
+        "p-pov-geography-continuity",
+        "p-sound-and-economy"
+      ],
+      "analysis": "Variedade de enquadramento não equivale a linguagem. A montagem acumula cobertura, mas não constrói experiência ou mudança.",
+      "sourceIds": [
+        "film-art-13",
+        "otio-docs"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "premise",
+      "principleIds": [
+        "p-premise-theme-logline"
+      ]
+    },
+    {
+      "tag": "theme",
+      "principleIds": [
+        "p-premise-theme-logline"
+      ]
+    },
+    {
+      "tag": "logline",
+      "principleIds": [
+        "p-premise-theme-logline"
+      ]
+    },
+    {
+      "tag": "character",
+      "principleIds": [
+        "p-character-forces"
+      ]
+    },
+    {
+      "tag": "desire",
+      "principleIds": [
+        "p-character-forces"
+      ]
+    },
+    {
+      "tag": "need",
+      "principleIds": [
+        "p-character-forces"
+      ]
+    },
+    {
+      "tag": "obstacle",
+      "principleIds": [
+        "p-character-forces"
+      ]
+    },
+    {
+      "tag": "stakes",
+      "principleIds": [
+        "p-character-forces"
+      ]
+    },
+    {
+      "tag": "arc",
+      "principleIds": [
+        "p-arc-and-beats"
+      ]
+    },
+    {
+      "tag": "beats",
+      "principleIds": [
+        "p-arc-and-beats"
+      ]
+    },
+    {
+      "tag": "scene-function",
+      "principleIds": [
+        "p-scene-turn"
+      ]
+    },
+    {
+      "tag": "turn",
+      "principleIds": [
+        "p-scene-turn"
+      ]
+    },
+    {
+      "tag": "climax",
+      "principleIds": [
+        "p-climax-resolution"
+      ]
+    },
+    {
+      "tag": "resolution",
+      "principleIds": [
+        "p-climax-resolution"
+      ]
+    },
+    {
+      "tag": "point-of-view",
+      "principleIds": [
+        "p-pov-geography-continuity"
+      ]
+    },
+    {
+      "tag": "geography",
+      "principleIds": [
+        "p-pov-geography-continuity"
+      ]
+    },
+    {
+      "tag": "continuity",
+      "principleIds": [
+        "p-pov-geography-continuity"
+      ]
+    },
+    {
+      "tag": "camera-language",
+      "principleIds": [
+        "p-pov-geography-continuity"
+      ]
+    },
+    {
+      "tag": "editing",
+      "principleIds": [
+        "p-scene-turn",
+        "p-pov-geography-continuity"
+      ]
+    },
+    {
+      "tag": "sound-design",
+      "principleIds": [
+        "p-sound-and-economy"
+      ]
+    },
+    {
+      "tag": "narrative-economy",
+      "principleIds": [
+        "p-sound-and-economy",
+        "p-scene-turn"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "premise",
+    "theme",
+    "logline",
+    "character",
+    "desire",
+    "need",
+    "obstacle",
+    "stakes",
+    "arc",
+    "beats",
+    "scene-function",
+    "turn",
+    "climax",
+    "resolution",
+    "point-of-view",
+    "geography",
+    "continuity",
+    "camera-language",
+    "editing",
+    "sound-design",
+    "narrative-economy"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com vocabulário de narrativa curta, ponto de vista, montagem, som e economia.",
+        "Princípios são heurísticas abertas e fontes de craft permanecem apenas bibliográficas."
+      ]
+    }
+  ]
+}

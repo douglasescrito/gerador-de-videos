@@ -1,0 +1,612 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "commercial-storytelling",
+  "version": 1,
+  "status": "candidate",
+  "title": "Storytelling comercial responsável",
+  "summary": "Estrutura técnica para ligar objetivo de negócio, audiência, mensagem, prova, oferta e canal sem transformar persuasão em alegação não sustentada.",
+  "scope": {
+    "domains": [
+      "commercial",
+      "advertising",
+      "storytelling"
+    ],
+    "appliesTo": [
+      "Briefs, roteiros, film-spec e revisão de peças comerciais em modo Studio.",
+      "Anúncios, institucionais, demonstrações, lançamentos e comunicação de oferta.",
+      "Adaptação de uma mensagem para canal, duração e comportamento mobile."
+    ],
+    "excludes": [
+      "Aconselhamento jurídico ou aprovação regulatória.",
+      "Invenção de prova, depoimento, certificação, escassez ou resultado.",
+      "Otimização autônoma baseada em performance ou consumo automático de cota."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno deste projeto. Fontes legais, regulatórias e de plataforma mantêm seus próprios termos e não são relicenciadas por este pack."
+  },
+  "sources": [
+    {
+      "id": "ftc-substantiation",
+      "title": "FTC Policy Statement Regarding Advertising Substantiation",
+      "uri": "https://www.ftc.gov/legal-library/browse/ftc-policy-statement-regarding-advertising-substantiation",
+      "publisher": "United States Federal Trade Commission",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "FTC-Website-Policy",
+        "termsUri": "https://www.ftc.gov/policy-notices/website-policy",
+        "notes": "Usada para o princípio factual de possuir base razoável antes de veicular alegações objetivas. Nenhum selo, endosso institucional ou texto extenso é reutilizado."
+      }
+    },
+    {
+      "id": "ftc-native-advertising",
+      "title": "Native Advertising: A Guide for Businesses",
+      "uri": "https://www.ftc.gov/business-guidance/resources/native-advertising-guide-businesses",
+      "publisher": "United States Federal Trade Commission",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "FTC-Website-Policy",
+        "termsUri": "https://www.ftc.gov/policy-notices/website-policy",
+        "notes": "Base para identificação clara de natureza comercial e avaliação da impressão global. O pack não reproduz exemplos ou linguagem regulatória."
+      }
+    },
+    {
+      "id": "ftc-dot-com-disclosures",
+      "title": "Dot Com Disclosures",
+      "uri": "https://www.ftc.gov/business-guidance/resources/com-disclosures-how-make-effective-disclosures-digital-advertising",
+      "publisher": "United States Federal Trade Commission",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "FTC-Website-Policy",
+        "termsUri": "https://www.ftc.gov/policy-notices/website-policy",
+        "notes": "Usada para critérios de clareza e proximidade de disclosure em mídia digital; requisitos jurídicos concretos devem ser revistos para a jurisdição e campanha."
+      }
+    },
+    {
+      "id": "conar-code-2024",
+      "title": "Código Brasileiro de Autorregulamentação Publicitária",
+      "uri": "https://www.conar.org.br/pdf/Codigo-CONAR-2024.pdf",
+      "publisher": "Conselho Nacional de Autorregulamentação Publicitária",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "self-regulatory-code",
+      "usageMode": "citation-only",
+      "version": "2024",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Não foi encontrada licença aberta para o documento. Usado somente como referência normativa brasileira sobre identificação, honestidade, prova, testemunhais, direitos e responsabilidade; sem copiar texto ou estrutura."
+      }
+    },
+    {
+      "id": "brazil-consumer-code",
+      "title": "Lei nº 8.078, de 11 de setembro de 1990",
+      "uri": "https://www.planalto.gov.br/ccivil_03/leis/l8078compilado.htm",
+      "publisher": "Presidência da República do Brasil",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-law",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "public-domain",
+        "licenseId": "Lei-9610-1998-Art-8-IV",
+        "termsUri": "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm",
+        "notes": "Ato oficial usado para extração factual dos deveres relativos a identificação, suporte de dados e proibição de publicidade enganosa ou abusiva. O pack não oferece interpretação jurídica."
+      }
+    },
+    {
+      "id": "google-ads-video-specs",
+      "title": "Video ad requirements and specifications",
+      "uri": "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "publisher": "Google",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Google-Terms-of-Service",
+        "termsUri": "https://policies.google.com/terms?hl=en-US",
+        "notes": "Especificações são voláteis e proprietárias. Servem apenas para demonstrar que canal, proporção, duração e áreas de interface devem ser capacidades revalidadas; nenhum valor é incorporado como constante universal."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-claim",
+      "term": "Alegação comercial",
+      "definition": "Mensagem expressa ou implícita que o público pode entender como afirmação sobre produto, serviço, preço, benefício, resultado, comparação ou relação comercial.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "ftc-substantiation"
+      ]
+    },
+    {
+      "id": "def-reason-to-believe",
+      "term": "Razão para acreditar",
+      "definition": "Evidência ou mecanismo autorizado que liga a promessa ao benefício; pode ser demonstração verificável, dado aprovado, característica concreta ou prova social com direitos e contexto válidos.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "ftc-substantiation",
+        "conar-code-2024"
+      ]
+    },
+    {
+      "id": "def-net-impression",
+      "term": "Impressão global",
+      "definition": "Sentido provável produzido pelo conjunto de palavras, imagens, áudio, omissões, ênfases e contexto, e não apenas por uma frase isolada.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "ftc-native-advertising"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-brief-alignment",
+      "title": "Objetivo, funil, audiência e canal formam o contrato do brief",
+      "definition": "Uma peça deve declarar objetivo de negócio, estágio de funil, audiência, canal, duração e comportamento esperado antes de escolher sua estrutura narrativa.",
+      "intent": "Evitar que uma mesma peça tente simultaneamente gerar descoberta, explicar tudo, converter e reter sem prioridade.",
+      "sourceIds": [
+        "google-ads-video-specs",
+        "ftc-native-advertising"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Toda peça comercial ou institucional com ação esperada.",
+        "Variantes para feeds, stories, pre-roll, landing pages e apresentações."
+      ],
+      "limits": [
+        "Funil é modelo de planejamento, não descrição perfeita do comportamento humano.",
+        "Duração e comportamento de canal mudam e precisam ser revalidados."
+      ],
+      "risks": [
+        "Objetivos concorrentes produzem mensagem difusa.",
+        "Pressupor audiência sem evidência pode gerar linguagem inadequada."
+      ],
+      "successSignals": [
+        "Há um objetivo primário e uma ação observável associada.",
+        "A linguagem e a densidade cabem na duração e no contexto de consumo."
+      ],
+      "tests": [
+        {
+          "id": "t-one-primary-objective",
+          "scenario": "Ler o brief sem roteiro e pedir a identificação de um objetivo primário, uma audiência e uma ação.",
+          "expected": "Os três itens são explícitos e não dependem de inferência estética."
+        }
+      ]
+    },
+    {
+      "id": "p-hook-tension-promise",
+      "title": "Hook abre uma tensão que a promessa resolve",
+      "definition": "O início deve criar relevância por pergunta, contraste, situação, risco ou desejo; a promessa deve responder a essa tensão com benefício compreensível para a audiência.",
+      "intent": "Construir atenção com significado, sem clickbait desconectado da entrega.",
+      "sourceIds": [
+        "ftc-native-advertising",
+        "conar-code-2024"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Descoberta, lançamento, demonstração e resposta direta.",
+        "Peças curtas em que a relevância precisa aparecer cedo."
+      ],
+      "limits": [
+        "Nem toda comunicação precisa de conflito dramático.",
+        "Hook cedo é heurística, não garantia de retenção."
+      ],
+      "risks": [
+        "Promessa maior que a prova cria impressão enganosa.",
+        "Tensão artificial pode explorar medo ou vulnerabilidade."
+      ],
+      "successSignals": [
+        "Hook e benefício pertencem à mesma proposição.",
+        "A resolução entrega o que o início fez esperar."
+      ],
+      "tests": [
+        {
+          "id": "t-hook-payoff",
+          "scenario": "Comparar a expectativa criada nos primeiros eventos com a demonstração e o CTA finais.",
+          "expected": "A peça resolve ou qualifica a expectativa sem trocar de promessa no meio."
+        }
+      ]
+    },
+    {
+      "id": "p-proof-demonstration",
+      "title": "Benefício exige prova proporcional e demonstração honesta",
+      "definition": "A intensidade e precisão da prova devem acompanhar a alegação; demonstrações precisam representar condições relevantes e objeções devem ser respondidas com informação autorizada.",
+      "intent": "Converter razão para acreditar em evidência compreensível sem fabricar certeza.",
+      "sourceIds": [
+        "ftc-substantiation",
+        "brazil-consumer-code",
+        "conar-code-2024"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Alegações objetivas, comparações, resultados, depoimentos e demonstrações.",
+        "Peças que antecipam objeções de preço, uso, prazo ou adequação."
+      ],
+      "limits": [
+        "O pack não decide suficiência jurídica ou científica da prova.",
+        "Evidência de um contexto não pode ser generalizada sem autorização."
+      ],
+      "risks": [
+        "Animação ilustrativa pode parecer teste real.",
+        "Seleção parcial de dados pode alterar a impressão global."
+      ],
+      "successSignals": [
+        "Toda alegação verificável aponta para evidência aprovada antes da veiculação.",
+        "Demonstração, legenda e áudio não ampliam o alcance da prova."
+      ],
+      "tests": [
+        {
+          "id": "t-claim-evidence-map",
+          "scenario": "Listar alegações expressas e implícitas e mapear cada uma a evidência, condição e owner.",
+          "expected": "Nenhuma alegação objetiva fica sem base prévia ou qualificação visível."
+        }
+      ]
+    },
+    {
+      "id": "p-offer-cta-signature",
+      "title": "Oferta, CTA e assinatura encerram o mesmo argumento",
+      "definition": "A oferta define o que é disponibilizado e sob quais condições; o CTA explicita o próximo passo; a assinatura confirma a entidade responsável sem introduzir promessa nova.",
+      "intent": "Reduzir ambiguidade no momento de ação e manter coerência de marca.",
+      "sourceIds": [
+        "ftc-dot-com-disclosures",
+        "conar-code-2024",
+        "brazil-consumer-code"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Conversão, captação, lançamento e comunicação de condição comercial.",
+        "Peças com preço, prazo, disponibilidade ou elegibilidade."
+      ],
+      "limits": [
+        "CTA pode ser contemplativo ou informativo em peças sem conversão imediata.",
+        "Condições exigidas variam por jurisdição, produto e canal."
+      ],
+      "risks": [
+        "CTA genérico não informa consequência da ação.",
+        "Condição essencial distante da oferta altera seu sentido."
+      ],
+      "successSignals": [
+        "A ação e sua consequência são compreensíveis.",
+        "Marca, oferta e destino pertencem à mesma entidade autorizada."
+      ],
+      "tests": [
+        {
+          "id": "t-offer-action",
+          "scenario": "Observar apenas o trecho final e identificar anunciante, oferta, condição essencial e próximo passo.",
+          "expected": "Os elementos necessários aparecem com clareza compatível com a duração e o canal."
+        }
+      ]
+    },
+    {
+      "id": "p-disclosure-and-substantiation",
+      "title": "Persuasão não autoriza ocultar natureza comercial ou incerteza",
+      "definition": "Conteúdo publicitário deve ser identificável, disclosures devem ser claros e próximos da alegação relevante, e limitações materiais não podem ser neutralizadas por ritmo, voz ou layout.",
+      "intent": "Proteger a impressão global contra omissão, ambiguidade e falsa autoridade.",
+      "sourceIds": [
+        "ftc-native-advertising",
+        "ftc-dot-com-disclosures",
+        "brazil-consumer-code",
+        "conar-code-2024"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Publicidade nativa, influenciadores, depoimentos, comparação e conteúdo patrocinado.",
+        "Toda peça com condição ou limitação capaz de mudar a decisão."
+      ],
+      "limits": [
+        "A forma adequada do disclosure depende da jurisdição e do meio.",
+        "Este princípio não substitui revisão jurídica."
+      ],
+      "risks": [
+        "Texto pequeno ou breve existe formalmente, mas não comunica.",
+        "Imagem ou voz pode contradizer a qualificação escrita."
+      ],
+      "successSignals": [
+        "A natureza comercial é percebida antes ou junto da mensagem persuasiva.",
+        "Disclosures permanecem legíveis e audíveis no dispositivo alvo."
+      ],
+      "tests": [
+        {
+          "id": "t-net-impression",
+          "scenario": "Revisar a peça como conjunto, incluindo áudio, imagens, ritmo, omissões e texto legal.",
+          "expected": "Nenhum componente cria conclusão materialmente mais ampla que a alegação suportada."
+        }
+      ]
+    },
+    {
+      "id": "p-channel-language-variants",
+      "title": "Canal e audiência parametrizam linguagem e variantes",
+      "definition": "Aspecto, duração, densidade, captions, safe area, abertura sonora e CTA devem vir de capability atual e do contexto da audiência, preservando a mesma proposição central.",
+      "intent": "Adaptar execução sem fragmentar promessa, marca ou prova.",
+      "sourceIds": [
+        "google-ads-video-specs",
+        "ftc-dot-com-disclosures"
+      ],
+      "basis": "source-grounded",
+      "modality": "capability",
+      "applicability": [
+        "Campanhas com múltiplos canais, aspect ratios ou durações.",
+        "Audiências com repertório, idioma ou contexto de consumo diferentes."
+      ],
+      "limits": [
+        "Especificações de plataforma expiram e precisam ser revalidadas no planejamento e na entrega.",
+        "Localização não autoriza alterar alegação ou condição."
+      ],
+      "risks": [
+        "Cortar a master pode remover contexto, prova ou disclosure.",
+        "Tom juvenil, técnico ou coloquial presumido pode desrespeitar a audiência."
+      ],
+      "successSignals": [
+        "Cada variante declara capability e audiência válidas.",
+        "Promessa, evidência, condição e marca permanecem equivalentes entre variantes."
+      ],
+      "tests": [
+        {
+          "id": "t-variant-equivalence",
+          "scenario": "Comparar matriz de mensagem e restrições entre todas as variantes planejadas.",
+          "expected": "Mudanças de forma não alteram alegações, identidade, condições ou ação essencial."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-awareness-without-cta",
+      "principleIds": [
+        "p-offer-cta-signature"
+      ],
+      "condition": "O objetivo aprovado é lembrança ou posicionamento e não existe ação imediata útil.",
+      "response": "Permitir assinatura sem CTA transacional, registrando o objetivo e evitando uma ação artificial.",
+      "sourceIds": [
+        "ftc-native-advertising",
+        "conar-code-2024"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-proof-shaped-decoration",
+      "title": "Decoração com aparência de prova",
+      "description": "Usar gráficos, jalecos, selos, números, depoimentos ou cenas de demonstração que parecem evidência sem origem, direitos ou condições verificáveis.",
+      "principleIds": [
+        "p-proof-demonstration",
+        "p-disclosure-and-substantiation"
+      ],
+      "risks": [
+        "Alegação implícita não sustentada.",
+        "Falsa autoridade e impressão global enganosa."
+      ],
+      "mitigations": [
+        "Mapear cada elemento de prova a evidência e owner autorizados.",
+        "Rotular ilustração e remover símbolos que ampliem a alegação."
+      ],
+      "sourceIds": [
+        "ftc-substantiation",
+        "brazil-consumer-code",
+        "conar-code-2024"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-demonstration-with-boundary",
+      "title": "Demonstração com alcance delimitado",
+      "description": "A peça abre com um problema concreto, mostra uma função em condição declarada, apresenta benefício compatível e encerra com oferta e CTA sem prometer resultado além do demonstrado.",
+      "principleIds": [
+        "p-hook-tension-promise",
+        "p-proof-demonstration",
+        "p-offer-cta-signature"
+      ],
+      "analysis": "A narrativa reduz objeção por demonstração, mas mantém a fronteira entre caso exibido e resultado geral.",
+      "sourceIds": [
+        "ftc-substantiation",
+        "brazil-consumer-code"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-disclaimer-rescue",
+      "title": "Disclaimer tentando resgatar promessa excessiva",
+      "description": "Imagem e voz prometem resultado certo, enquanto uma linha breve e pequena introduz condições que contradizem a mensagem dominante.",
+      "principleIds": [
+        "p-proof-demonstration",
+        "p-disclosure-and-substantiation"
+      ],
+      "analysis": "A existência formal do texto não corrige a impressão global criada pelos elementos mais salientes.",
+      "sourceIds": [
+        "ftc-dot-com-disclosures",
+        "ftc-native-advertising",
+        "brazil-consumer-code"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "business-objective",
+      "principleIds": [
+        "p-brief-alignment"
+      ]
+    },
+    {
+      "tag": "funnel-stage",
+      "principleIds": [
+        "p-brief-alignment"
+      ]
+    },
+    {
+      "tag": "audience",
+      "principleIds": [
+        "p-brief-alignment",
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "tension",
+      "principleIds": [
+        "p-hook-tension-promise"
+      ]
+    },
+    {
+      "tag": "promise",
+      "principleIds": [
+        "p-hook-tension-promise",
+        "p-proof-demonstration"
+      ]
+    },
+    {
+      "tag": "benefit",
+      "principleIds": [
+        "p-hook-tension-promise"
+      ]
+    },
+    {
+      "tag": "proof",
+      "principleIds": [
+        "p-proof-demonstration"
+      ]
+    },
+    {
+      "tag": "reason-to-believe",
+      "principleIds": [
+        "p-proof-demonstration"
+      ]
+    },
+    {
+      "tag": "objection",
+      "principleIds": [
+        "p-proof-demonstration"
+      ]
+    },
+    {
+      "tag": "hook",
+      "principleIds": [
+        "p-hook-tension-promise"
+      ]
+    },
+    {
+      "tag": "demonstration",
+      "principleIds": [
+        "p-proof-demonstration"
+      ]
+    },
+    {
+      "tag": "offer",
+      "principleIds": [
+        "p-offer-cta-signature"
+      ]
+    },
+    {
+      "tag": "signature",
+      "principleIds": [
+        "p-offer-cta-signature"
+      ]
+    },
+    {
+      "tag": "call-to-action",
+      "principleIds": [
+        "p-offer-cta-signature"
+      ]
+    },
+    {
+      "tag": "brand",
+      "principleIds": [
+        "p-offer-cta-signature",
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "channel",
+      "principleIds": [
+        "p-brief-alignment",
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "duration",
+      "principleIds": [
+        "p-brief-alignment",
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "mobile-behavior",
+      "principleIds": [
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "audience-language",
+      "principleIds": [
+        "p-channel-language-variants"
+      ]
+    },
+    {
+      "tag": "substantiated-claims",
+      "principleIds": [
+        "p-proof-demonstration",
+        "p-disclosure-and-substantiation"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "business-objective",
+    "funnel-stage",
+    "audience",
+    "tension",
+    "promise",
+    "benefit",
+    "proof",
+    "reason-to-believe",
+    "objection",
+    "hook",
+    "demonstration",
+    "offer",
+    "signature",
+    "call-to-action",
+    "brand",
+    "channel",
+    "duration",
+    "mobile-behavior",
+    "audience-language",
+    "substantiated-claims"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com jornada comercial, prova, disclosures e adaptação por canal.",
+        "Regras jurídicas são tratadas como referências jurisdicionais e não como aconselhamento."
+      ]
+    }
+  ]
+}

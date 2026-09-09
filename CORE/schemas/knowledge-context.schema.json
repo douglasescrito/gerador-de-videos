@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-context@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "contextId",
+    "rootScopeId",
+    "releaseId",
+    "releaseHash",
+    "requestHash",
+    "scope",
+    "appliedItems",
+    "excludedItems",
+    "conflicts",
+    "overrides",
+    "retrievalTraceId",
+    "rankerVersion",
+    "rationale",
+    "authority",
+    "plannerInfluence",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-context@1" },
+    "contextId": { "type": "string", "pattern": "^kc_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "releaseId": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/id" }
+      ]
+    },
+    "releaseHash": {
+      "oneOf": [
+        { "type": "null" },
+        { "$ref": "#/$defs/hash" }
+      ]
+    },
+    "requestHash": { "$ref": "#/$defs/hash" },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rootScopeId", "scopeIds"],
+      "properties": {
+        "rootScopeId": { "$ref": "#/$defs/id" },
+        "scopeIds": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        }
+      }
+    },
+    "appliedItems": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/appliedItem" }
+    },
+    "excludedItems": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/exclusion" }
+    },
+    "conflicts": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    },
+    "overrides": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/conflict" }
+    },
+    "retrievalTraceId": { "type": "string", "pattern": "^rt_[a-f0-9]{32}$" },
+    "rankerVersion": { "const": "lexical-ranker@1" },
+    "rationale": { "type": "string", "minLength": 1, "maxLength": 4096 },
+    "authority": { "const": "none" },
+    "plannerInfluence": { "const": "none" },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "appliedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "revision", "contentHash", "reason"],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "revision": { "type": "integer", "minimum": 1 },
+        "contentHash": { "$ref": "#/$defs/hash" },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 2048 }
+      }
+    },
+    "exclusion": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["itemId", "revision", "reason"],
+      "properties": {
+        "itemId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        },
+        "revision": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "integer", "minimum": 1 }
+          ]
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 200 }
+      }
+    },
+    "conflict": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "comparator", "itemIds", "decisionKey", "winnerItemId", "reason"],
+      "properties": {
+        "status": { "enum": ["resolved-override", "unresolved-conflict"] },
+        "comparator": { "type": "string", "pattern": "^[a-z][a-z0-9._/-]{0,99}$" },
+        "itemIds": {
+          "type": "array",
+          "minItems": 2,
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/id" }
+        },
+        "decisionKey": { "type": "string", "minLength": 1, "maxLength": 1024 },
+        "winnerItemId": {
+          "oneOf": [
+            { "type": "null" },
+            { "$ref": "#/$defs/id" }
+          ]
+        },
+        "reason": { "type": "string", "minLength": 1, "maxLength": 2048 }
+      }
+    }
+  }
+}

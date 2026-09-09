@@ -1,0 +1,67 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "vendas-oferta-relampago-15s",
+  "label": "Vendas Diretas Vertical (15s) · Oferta Relâmpago e Escassez",
+  "description": "Comercial vertical de resposta direta focado em urgência máxima, desconto imperdível por tempo limitado e chamada imediata para o link na bio.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "direct-response-urgency@1",
+  "collection": "vendas-oferta-relampago-15s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 15,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de urgência e clique",
+    "Flow Music batida acelerada promocional",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "High-impact vertical 9:16 commercial cinematography. Red neon digital timer countdown floating above an exclusive product box bursting with energy particles. Non-verbal sound design: urgent electronic pulse and siren riser. No speech or dialogue. On-screen text: SÓ HOJE: ATÉ 50% OFF.",
+      "duration": 5,
+      "onScreenText": "SÓ HOJE: ATÉ 50% OFF",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 commercial cinematography. Close-up high-speed camera move wrapping around the premium product with glowing discount tag: 'ÚLTIMAS UNIDADES'. Non-verbal sound design: rapid whoosh and price tag slice sound. No speech or dialogue. On-screen text: RESTAM POUCAS PEÇAS.",
+      "duration": 5,
+      "onScreenText": "RESTAM POUCAS PEÇAS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 direct response call to action. Giant glowing shopping bag button with animated arrow pointing down: 'Clique no link abaixo'. Non-verbal sound design: crisp register cha-ching and solid button click. No speech or dialogue. On-screen text: GARANTA O SEU AGORA.",
+      "duration": 5,
+      "onScreenText": "GARANTA O SEU AGORA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Atenção: oferta relâmpago liberada por tempo limitado. Os estoques estão acabando rápido. Clique agora no link e garanta o seu com desconto exclusivo.",
+      "voice": "voz masculina brasileira dinâmica, convincente, estilo locução promocional de alta conversão",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Atenção: oferta relâmpago liberada por tempo limitado." },
+        { "id": "cena-2", "text": "Os estoques estão acabando em tempo recorde." },
+        { "id": "cena-3", "text": "Clique no botão abaixo e garanta o seu com desconto." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Fast-paced driving electronic percussion with high-tension synth risers and powerful modern bassline",
+      "duration": 15,
+      "volume": 0.23,
+      "fadeOut": 0
+    }
+  }
+}

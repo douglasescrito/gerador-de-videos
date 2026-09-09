@@ -1,0 +1,319 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gerador-de-videos/receita@1",
+  "title": "Receita do Gerador de Vídeos",
+  "description": "Formato durável e único de receita, lido pelo CLI e pela tela através do mesmo compilador. O campo kind decide o motor: peca e lote compilam para batch-job@4; filme compila para mkt-videos/film-spec@1. Primeiro schema do namespace gerador-de-videos; os 300 identificadores mkt-videos/*@N existentes permanecem intocados.",
+  "type": "object",
+  "required": ["schema", "id", "label", "kind", "aspect", "collection"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "gerador-de-videos/receita@1" },
+
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Slug estável da receita. Nunca muda depois de publicada."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Nome que a pessoa lê na prateleira."
+    },
+    "description": {
+      "type": "string",
+      "description": "Uma frase sobre o que essa receita produz, em linguagem simples."
+    },
+
+    "kind": {
+      "enum": ["peca", "lote", "filme"],
+      "description": "peca = um vídeo. lote = vários vídeos independentes. filme = cenas montadas num vídeo só, com aprovação humana por cena."
+    },
+
+    "aspect": { "enum": ["16:9", "9:16"] },
+    "style": {
+      "type": ["string", "null"],
+      "description": "Identificador de preset de direção (ex.: flat-2d@1). null = prompt literal, sem composição de estilo."
+    },
+    "collection": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 1,
+      "description": "Prefixo da pasta de entrega. O sufixo único é injetado por quem compila — o compilador é puro e não sorteia nada."
+    },
+    "targetDurationSeconds": {
+      "type": "integer",
+      "minimum": 4,
+      "maximum": 120,
+      "description": "Duração fechada da timeline. Em kind filme, a soma das scenes deve ser exatamente este valor."
+    },
+    "resources": {
+      "type": "array",
+      "description": "Recursos que esta receita exige e registra para auditoria editorial.",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "task": {
+      "enum": ["text_to_video", "reference_to_video", "edit"],
+      "default": "text_to_video"
+    },
+    "model": { "type": ["string", "null"], "default": null },
+
+    "variables": {
+      "type": "array",
+      "description": "Variáveis que aparecem nos textos como {{id}}. Só fazem sentido com matrix.",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-zA-Z][a-zA-Z0-9_]*$" },
+          "label": { "type": "string", "minLength": 1 },
+          "example": { "type": "string" },
+          "required": { "type": "boolean", "default": true }
+        }
+      }
+    },
+    "matrix": {
+      "type": "array",
+      "description": "Uma linha por combinação de valores. Cada linha multiplica as parts. Exclusivo de kind: lote.",
+      "items": { "type": "object", "additionalProperties": { "type": "string" } }
+    },
+
+    "parts": {
+      "type": "array",
+      "description": "Vídeos independentes. Obrigatório em peca (exatamente 1) e lote (1 ou mais). Proibido em filme.",
+      "items": {
+        "type": "object",
+        "required": ["prompt"],
+        "additionalProperties": false,
+        "properties": {
+          "name": { "type": "string" },
+          "prompt": { "type": "string", "minLength": 1 },
+          "references": { "$ref": "#/$defs/referencias" },
+          "techniques": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id"],
+              "additionalProperties": false,
+              "properties": {
+                "id": { "type": "string" },
+                "values": { "type": "object", "additionalProperties": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "scenes": {
+      "type": "array",
+      "description": "Cenas de um filme montado. Obrigatório em filme (1 ou mais). Proibido em peca e lote.",
+      "items": {
+        "type": "object",
+        "required": ["prompt", "duration"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string" },
+          "prompt": { "type": "string", "minLength": 1 },
+          "duration": { "type": "integer", "minimum": 4, "maximum": 120 },
+          "generationTask": { "enum": ["text_to_video", "reference_to_video", "edit"] },
+          "onScreenText": { "type": ["string", "null"] },
+          "textRendering": { "enum": ["none", "omni-native", "local-gc"] },
+          "references": { "$ref": "#/$defs/referencias" }
+        }
+      }
+    },
+
+    "audio": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Só tem efeito em kind: filme. Narração e trilha dependem de provedores que podem estar pendentes; o compilador registra o pedido e o motor decide se pode.",
+      "properties": {
+        "music": { "type": "boolean", "default": false },
+        "musicPreset": { "type": ["string", "null"], "default": null },
+        "musicIntent": { "type": "string" },
+        "musicDurationSeconds": { "type": "integer", "minimum": 5, "maximum": 120 },
+        "musicFit": { "const": "exact" },
+        "musicFadeOutSeconds": { "type": "number", "minimum": 0, "default": 0 },
+        "narration": {
+          "oneOf": [
+            { "type": "boolean", "default": false },
+            {
+              "type": "object",
+              "required": ["text"],
+              "additionalProperties": false,
+              "properties": {
+                "provider": { "enum": ["google-vids", "omni"], "default": "google-vids" },
+                "text": { "type": "string", "minLength": 1 },
+                "voice": { "type": "string", "default": "Nyla" },
+                "documentUrl": { "type": ["string", "null"] },
+                "newScene": { "type": "boolean", "default": true },
+                "fallbackProvider": { "enum": ["omni", null], "default": "omni" },
+                "fallbackPolicy": { "const": "manual-after-preflight-failure", "default": "manual-after-preflight-failure" },
+                "readingDirection": { "type": ["string", "null"] },
+                "model": { "type": ["string", "null"] },
+                "sync": { "const": "whisper-word-timestamps", "default": "whisper-word-timestamps" },
+                "whisperModel": { "type": "string", "default": "small" },
+                "language": { "type": "string", "default": "pt" },
+                "humanReview": { "type": "boolean", "default": true },
+                "blocks": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": ["text"],
+                    "additionalProperties": false,
+                    "properties": {
+                      "id": { "type": "string" },
+                      "text": { "type": "string", "minLength": 1 }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+
+    "workflow": {
+      "type": ["object", "null"],
+      "additionalProperties": false,
+      "properties": {
+        "narrationSync": { "const": "whisper-word-timestamps" },
+        "whisperModel": { "type": "string", "default": "small" },
+        "omniPostProcess": { "type": "boolean", "default": true },
+        "humanReview": { "type": "boolean", "default": false },
+        "completionMode": { "enum": ["complete", "pause-for-review"], "default": "complete" },
+        "wallTargetSeconds": { "type": "integer", "minimum": 60, "maximum": 1800, "default": 300 },
+        "flowSoftBudgetSeconds": { "type": "integer", "minimum": 30, "maximum": 1800, "default": 90 },
+        "streamAlignment": { "type": "boolean", "default": true },
+        "musicFit": { "const": "exact" },
+        "defaultTextRendering": { "const": "omni-native" },
+        "localGcPolicy": { "const": "explicit-only" },
+        "alignmentReview": { "const": "orthographic-logical" },
+        "correctionWhisperModel": { "const": "large-v3-turbo" },
+        "llmCorrectionContract": { "const": "proposal-only-script-bound@1" },
+        "narrationTextAuthority": { "const": "approved-script-only" },
+        "narrationTimestampAuthority": { "const": "whisper-measured-only" },
+        "graphicsTextBinding": { "const": "scene-text-at-validated-word-window@1" },
+        "authorizationMode": { "enum": ["production-once", "per-invocation"], "default": "production-once" },
+        "omniResubmit": { "enum": ["evidence-guided-automatic", "evidence-guided-human"], "default": "evidence-guided-automatic" },
+        "automaticRetry": { "type": "boolean", "default": true },
+        "retryPolicy": { "enum": ["bounded-reconciled@1", "none"], "default": "bounded-reconciled@1" },
+        "maxAttempts": { "type": "integer", "minimum": 1, "maximum": 3, "default": 3 },
+        "automaticCorrections": { "type": "boolean", "default": true },
+        "acceptedAttemptPolicy": { "enum": ["whisper-pass", "whisper-pass-and-human-review"], "default": "whisper-pass" }
+      }
+    },
+
+    "ending": {
+      "type": ["object", "null"],
+      "description": "Fechamento opt-in para filmes audio-first: usa sobras dos originais Flow/Omni, abre espaço após a locução e encerra com dip to black sincronizado. Nunca autoriza nova geração ou retry silencioso.",
+      "additionalProperties": false,
+      "required": ["sourceTailSceneId"],
+      "properties": {
+        "preset": { "const": "omni-flow-slow-dip-black@1", "default": "omni-flow-slow-dip-black@1" },
+        "durationPolicy": { "const": "narration-end-plus-tail", "default": "narration-end-plus-tail" },
+        "tailAfterNarrationSeconds": { "type": "number", "exclusiveMinimum": 0, "maximum": 15, "default": 6 },
+        "dipToBlackSeconds": { "type": "number", "exclusiveMinimum": 0, "maximum": 15, "default": 3 },
+        "audioFadeOutSeconds": { "type": "number", "exclusiveMinimum": 0, "maximum": 15, "default": 3 },
+        "omniBaseGainDb": { "type": "number", "minimum": 0, "maximum": 12, "default": 5 },
+        "omniTailGainDb": { "type": "number", "minimum": 0, "maximum": 12, "default": 3.5 },
+        "omniTailRiseSeconds": { "type": "number", "exclusiveMinimum": 0, "maximum": 15, "default": 0.52 },
+        "flowContinuation": { "const": "provider-original", "default": "provider-original" },
+        "visualContinuation": { "const": "last-omni-original", "default": "last-omni-original" },
+        "sourceTailSceneId": { "type": "string", "minLength": 1 },
+        "insufficientRemainderPolicy": { "const": "fail", "default": "fail" },
+        "fadeColor": { "const": "#000000", "default": "#000000" }
+      }
+    },
+
+    "qa": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "structural": {
+          "type": "boolean",
+          "default": false,
+          "description": "Conferência automática local, provider-free e report-only."
+        },
+        "expectedDuration": {
+          "type": "number",
+          "exclusiveMinimum": 0,
+          "description": "Duração esperada do master em segundos."
+        }
+      }
+    },
+
+    "assembly": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fps": { "type": "integer", "minimum": 1, "maximum": 60, "default": 24 }
+      }
+    },
+
+    "parallel": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 8,
+      "default": 3,
+      "description": "Tentativas em voo simultâneas. Só tem efeito em peca e lote."
+    }
+  },
+
+  "$defs": {
+    "referencias": {
+      "type": "array",
+      "maxItems": 4,
+      "description": "No máximo 4 por parte ou cena, sempre confinadas à biblioteca local.",
+      "items": {
+        "type": "object",
+        "required": ["source", "relPath"],
+        "additionalProperties": false,
+        "properties": {
+          "source": { "enum": ["pessoas", "assets"] },
+          "relPath": { "type": "string", "minLength": 1 },
+          "role": { "enum": ["reference-image", "first-frame"], "default": "reference-image" }
+        }
+      }
+    }
+  },
+
+  "allOf": [
+    {
+      "if": { "properties": { "kind": { "const": "peca" } }, "required": ["kind"] },
+      "then": {
+        "required": ["parts"],
+        "properties": {
+          "parts": { "minItems": 1, "maxItems": 1 },
+          "scenes": { "maxItems": 0 },
+          "matrix": { "maxItems": 0 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "lote" } }, "required": ["kind"] },
+      "then": {
+        "required": ["parts"],
+        "properties": {
+          "parts": { "minItems": 1 },
+          "scenes": { "maxItems": 0 }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "kind": { "const": "filme" } }, "required": ["kind"] },
+      "then": {
+        "required": ["scenes"],
+        "properties": {
+          "scenes": { "minItems": 1 },
+          "parts": { "maxItems": 0 },
+          "matrix": { "maxItems": 0 }
+        }
+      }
+    }
+  ]
+}

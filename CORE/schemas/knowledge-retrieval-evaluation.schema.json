@@ -1,0 +1,85 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/retrieval-shadow-evaluation@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "evaluationId",
+    "rootScopeId",
+    "rankerVersion",
+    "caseCount",
+    "acceptedCaseCount",
+    "mismatchedCaseCount",
+    "zeroLeakage",
+    "leakageCount",
+    "overrideCount",
+    "unresolvedConflictCount",
+    "plannerInfluenceViolations",
+    "acceptanceRate",
+    "overrideRate",
+    "cases",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/retrieval-shadow-evaluation@1" },
+    "evaluationId": { "type": "string", "pattern": "^rse_[a-f0-9]{32}$" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "rankerVersion": { "const": "lexical-ranker@1" },
+    "caseCount": { "type": "integer", "minimum": 0 },
+    "acceptedCaseCount": { "type": "integer", "minimum": 0 },
+    "mismatchedCaseCount": { "type": "integer", "minimum": 0 },
+    "zeroLeakage": { "type": "boolean" },
+    "leakageCount": { "type": "integer", "minimum": 0 },
+    "overrideCount": { "type": "integer", "minimum": 0 },
+    "unresolvedConflictCount": { "type": "integer", "minimum": 0 },
+    "plannerInfluenceViolations": { "type": "integer", "minimum": 0 },
+    "acceptanceRate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "overrideRate": { "type": "number", "minimum": 0, "maximum": 1 },
+    "cases": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/case" }
+    },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "case": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "requestHash",
+        "traceId",
+        "contextId",
+        "expectedItemIds",
+        "appliedItemIds",
+        "accepted",
+        "leakage",
+        "overrideCount",
+        "unresolvedConflictCount",
+        "plannerInfluence"
+      ],
+      "properties": {
+        "id": { "$ref": "#/$defs/id" },
+        "requestHash": { "$ref": "#/$defs/hash" },
+        "traceId": { "type": "string", "pattern": "^rt_[a-f0-9]{32}$" },
+        "contextId": { "type": "string", "pattern": "^kc_[a-f0-9]{32}$" },
+        "expectedItemIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "appliedItemIds": { "type": "array", "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+        "accepted": { "type": "boolean" },
+        "leakage": { "type": "boolean" },
+        "overrideCount": { "type": "integer", "minimum": 0 },
+        "unresolvedConflictCount": { "type": "integer", "minimum": 0 },
+        "plannerInfluence": { "const": "none" }
+      }
+    }
+  }
+}

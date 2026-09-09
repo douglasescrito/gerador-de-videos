@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-replay-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "rootScopeId",
+    "releaseId",
+    "report"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-replay-action-result@1"
+    },
+    "action": {
+      "const": "replay-release"
+    },
+    "status": {
+      "const": "replayed"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "changed": {
+      "const": false
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "releaseId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "report": {
+      "$ref": "mkt-videos/knowledge-replay-report@2"
+    }
+  }
+}

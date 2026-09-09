@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/graphics-text-plan@1",
+  "type": "object",
+  "required": ["schema", "timelineFingerprint", "bindings"],
+  "additionalProperties": false,
+  "properties": {
+    "schema": { "const": "mkt-videos/graphics-text-plan@1" },
+    "timelineFingerprint": { "type": "string", "minLength": 16 },
+    "model": { "type": "string", "minLength": 1 },
+    "bindings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["sceneId", "startWordIndex", "endWordIndex"],
+        "additionalProperties": false,
+        "properties": {
+          "sceneId": { "type": "string", "minLength": 1 },
+          "startWordIndex": { "type": "integer", "minimum": 0 },
+          "endWordIndex": { "type": "integer", "minimum": 0 },
+          "reason": { "type": "string", "minLength": 1 }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/preference-rule@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "subjectRef",
+    "predicate",
+    "value",
+    "polarity",
+    "applicability",
+    "confidence",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/preference-rule@1" },
+    "subjectRef": {
+      "$ref": "mkt-videos/knowledge-reference@1"
+    },
+    "predicate": { "const": "preference.feedback" },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidateSubjectId",
+        "candidateHash",
+        "decisionId",
+        "decisionHash",
+        "candidateEventId",
+        "candidateEventHash",
+        "target",
+        "operation",
+        "statement",
+        "dimensions",
+        "applicability",
+        "exceptions",
+        "rationale"
+      ],
+      "properties": {
+        "candidateSubjectId": { "type": "string", "pattern": "^kfic_[a-f0-9]{32}$" },
+        "candidateHash": { "$ref": "#/$defs/hash" },
+        "decisionId": { "type": "string", "pattern": "^fpd_[a-f0-9]{32}$" },
+        "decisionHash": { "$ref": "#/$defs/hash" },
+        "candidateEventId": { "type": "string", "pattern": "^ke_[A-Za-z0-9-]{1,100}$" },
+        "candidateEventHash": { "$ref": "#/$defs/hash" },
+        "target": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["kind", "key"],
+          "properties": {
+            "kind": { "enum": ["feature", "decision"] },
+            "key": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._/-]{0,159}$" }
+          }
+        },
+        "operation": { "enum": ["prefer", "avoid", "preserve", "change"] },
+        "statement": { "type": "string", "minLength": 1, "maxLength": 16384 },
+        "dimensions": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "type": "string", "minLength": 1, "maxLength": 40 }
+        },
+        "applicability": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 4096 }
+        },
+        "exceptions": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 4096 }
+        },
+        "rationale": { "type": "string", "minLength": 1, "maxLength": 16384 }
+      }
+    },
+    "polarity": { "const": "positive" },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "scopeId"],
+      "properties": {
+        "mode": { "enum": ["piece", "project", "client", "personal"] },
+        "scopeId": { "$ref": "#/$defs/id" }
+      }
+    },
+    "confidence": { "const": 1 },
+    "evidenceRefs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "mkt-videos/knowledge-reference@1" }
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

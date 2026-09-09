@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "imob-transformacao-interiores-30s",
+  "label": "Arquitetura & Interiores Vertical (30s) · Antes e Depois de Reforma",
+  "description": "Formato vertical 9:16 de transformação de interiores: espaço cinza e sem vida transformando-se com marcenaria planejada, iluminação indireta quente e decoração escandinava.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "interior-design-flow@1",
+  "collection": "imob-transformacao-interiores-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de transformação e aconchego",
+    "Flow Music acoustic chill relaxante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Vertical 9:16 interior design cinematography. An empty, cold concrete room with raw brickwork and bare lightbulb. Camera slowly dollies forward through the raw space. Non-verbal sound design: hollow ambient room echo and distant tool echo. No speech or dialogue. On-screen text: O ESPAÇO SEM VIDA.",
+      "duration": 7,
+      "onScreenText": "O ESPAÇO SEM VIDA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Vertical 9:16 interior design cinematography. Smooth optical wipe as customized oak wood panels, warm concealed LED coves and plush bouclé sofa build themselves seamlessly in fast fluid motion. Non-verbal sound design: satisfying wooden snap and warm light switch click. No speech or dialogue. On-screen text: A TRANSFORMAÇÃO.",
+      "duration": 8,
+      "onScreenText": "A TRANSFORMAÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Vertical 9:16 interior design cinematography. Gorgeous finished living room in golden afternoon light, featuring lush indoor plants, textured linen curtains gently swaying and a curated bookshelf. Non-verbal sound design: gentle breeze and soft peaceful acoustic tone. No speech or dialogue. On-screen text: CONFORTO E PERSONALIDADE.",
+      "duration": 9,
+      "onScreenText": "CONFORTO E PERSONALIDADE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 outro card. Clean architectural typography: 'Transforme o seu imóvel. Fale com nosso time de projetos'. Non-verbal sound design: soft bell ring. No speech or dialogue. On-screen text: PROJETE O SEU LAR.",
+      "duration": 6,
+      "onScreenText": "PROJETE O SEU LAR",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Todo ambiente tem o potencial de se transformar no refúgio dos seus sonhos. Com planejamento inteligente e marcenaria sob medida, qualquer espaço ganha alma e aconchego. Solicite seu projeto exclusivo.",
+      "voice": "voz feminina brasileira calma, inspiradora, delicada e envolvente",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Todo ambiente tem o potencial de se tornar o refúgio dos seus sonhos." },
+        { "id": "cena-2", "text": "Com marcenaria sob medida e iluminação certa, a mágica acontece." },
+        { "id": "cena-3", "text": "Design que acolhe, organiza e eleva a sua rotina diária." },
+        { "id": "cena-4", "text": "Toque no link e planeje a reforma da sua casa com a gente." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Warm organic acoustic guitar chords with soft shaker, deep mellow bass and peaceful sunlight ambiance",
+      "duration": 30,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

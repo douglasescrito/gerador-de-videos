@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "gerador-de-videos/receita-sincronia-imagem@1",
+  "title": "Receita de sincronia por imagem",
+  "description": "Formato da receita aprovada em 29/08/2026: a locução lidera a timeline, o Whisper mede onde cada palavra cai, e a imagem se move em cima dessa medida. Custo de provedor zero na parte visual, porque o movimento é local. Escrito a partir das oito receitas que já rodavam com este formato por convenção — o contrato existia de fato antes de existir no papel.",
+  "type": "object",
+  "required": [
+    "schema",
+    "id",
+    "label",
+    "roteiro",
+    "narracao",
+    "trilha",
+    "identidade",
+    "fecho"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "gerador-de-videos/receita-sincronia-imagem@1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 64,
+      "description": "Slug estável. Nunca muda depois de publicada."
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Nome que a pessoa lê na prateleira."
+    },
+    "description": {
+      "type": "string",
+      "description": "Uma frase sobre o que a peça é, em linguagem simples."
+    },
+    "cliente": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Nome do cliente como ele se escreve."
+    },
+    "aspect": {
+      "enum": [
+        "16:9",
+        "9:16",
+        "1:1"
+      ]
+    },
+    "duracaoAlvoSegundos": {
+      "type": "number",
+      "minimum": 5,
+      "maximum": 600,
+      "description": "Alvo, não trava: a duração real sai da locução medida."
+    },
+    "status": {
+      "enum": [
+        "rascunho",
+        "aprovada",
+        "aposentada"
+      ],
+      "description": "Sem status, a receita é tratada como rascunho."
+    },
+    "veredito": {
+      "type": "object",
+      "description": "Decisão humana registrada. Só quem assina promove uma receita — contagem de uso não promove nada.",
+      "required": [
+        "humano",
+        "data",
+        "decisao"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "humano": {
+          "type": "string",
+          "minLength": 1
+        },
+        "data": {
+          "type": "string",
+          "format": "date"
+        },
+        "decisao": {
+          "enum": [
+            "aprovada",
+            "reprovada",
+            "revisar"
+          ]
+        },
+        "citacao": {
+          "type": "string",
+          "description": "O que a pessoa disse, nas palavras dela. Vale mais que a nota."
+        }
+      }
+    },
+    "segmentacao": {
+      "type": "object",
+      "description": "Como o roteiro vira blocos de texto na tela.",
+      "required": [
+        "maxWords"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "maxWords": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "Palavras por bloco. Acima de três a leitura começa a competir com a imagem."
+        }
+      }
+    },
+    "roteiro": {
+      "type": "string",
+      "minLength": 1,
+      "description": "O texto falado, inteiro e em prosa. É dele que sai a locução, e da locução medida sai a timeline."
+    },
+    "narracao": {
+      "type": "object",
+      "required": [
+        "provider",
+        "voice",
+        "language"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "provider": {
+          "enum": [
+            "google-vids"
+          ]
+        },
+        "documentUrl": {
+          "type": "string",
+          "description": "Documento do Google Vids onde a locução foi gerada. Serve de proveniência, não de credencial."
+        },
+        "voice": {
+          "type": "string",
+          "minLength": 1
+        },
+        "language": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 12
+        }
+      }
+    },
+    "trilha": {
+      "type": "object",
+      "required": [
+        "backend",
+        "intencao"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "backend": {
+          "enum": [
+            "flow-music"
+          ]
+        },
+        "ganhoDb": {
+          "type": "string",
+          "pattern": "^[+-]?[0-9]+(\\.[0-9]+)?dB$",
+          "description": "Ganho aplicado à trilha na mixagem, com a unidade escrita."
+        },
+        "intencao": {
+          "type": "string",
+          "minLength": 1,
+          "description": "O pedido à Flow Music em prosa, incluindo a restrição de mixagem. Nunca fixar a duração da trilha aqui."
+        }
+      }
+    },
+    "identidade": {
+      "type": "object",
+      "description": "A linguagem visual da peça, escrita uma vez e obedecida em todos os quadros.",
+      "required": [
+        "nome",
+        "base",
+        "tipografia",
+        "fechamento",
+        "movimentos",
+        "gestos"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "nome": {
+          "type": "string",
+          "minLength": 1
+        },
+        "base": {
+          "type": "string",
+          "minLength": 1,
+          "description": "A direção de arte em prosa, em inglês, como vai para o provedor de imagem."
+        },
+        "tipografia": {
+          "type": "string",
+          "minLength": 1
+        },
+        "fechamento": {
+          "type": "string",
+          "minLength": 1
+        },
+        "movimentos": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "description": "Os quadros da peça, em ordem, cada um valendo até uma fração do total.",
+          "items": {
+            "type": "object",
+            "required": [
+              "nome",
+              "ate",
+              "cena"
+            ],
+            "additionalProperties": false,
+            "properties": {
+              "nome": {
+                "type": "string",
+                "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+              },
+              "ate": {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "description": "Fração da duração em que este quadro termina, crescente ao longo da lista. O último passa de 1 de propósito (1.01 nas oito receitas): a busca é (indice+1)/total <= ate, e exatamente 1 deixaria o último plano escapar por arredondamento.",
+                "maximum": 1.5
+              },
+              "cena": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "gestos": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 24,
+          "description": "Como o texto se apresenta em cada momento.",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "movimento": {
+      "type": "object",
+      "description": "O gesto lento da imagem. Bloco de conhecimento medido, não de gosto: o zoompan anda de pixel inteiro e treme se a fonte não for ampliada antes.",
+      "required": [
+        "sobreamostragem",
+        "porque",
+        "regras"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "sobreamostragem": {
+          "type": "integer",
+          "minimum": 4,
+          "maximum": 8,
+          "description": "Quantas vezes a imagem é ampliada antes do gesto, para o passo cair em subpixel. Medido em 01/09/2026: 2x deixou 19 quadros congelados em 35, 6x deixou zero. Abaixo de 4 treme; acima de 8 não melhora."
+        },
+        "porque": {
+          "type": "string",
+          "minLength": 1
+        },
+        "medido": {
+          "type": "string",
+          "description": "Data e evidência da medição que sustenta o número acima."
+        },
+        "regras": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "fecho": {
+      "type": "object",
+      "description": "O cartão final. A logo é arquivo, nunca prompt — forma de marca não se regenera.",
+      "required": [
+        "logo"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "projectUrl": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Caminho do arquivo oficial da logo, relativo ao CORE."
+        },
+        "fundoPrompt": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "marca": {
+      "type": "object",
+      "description": "As travas de marca. Existem porque já foram violadas uma vez.",
+      "required": [
+        "palavrasVetadas"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "palavrasVetadas": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Palavras que não podem aparecer na peça, faladas ou escritas."
+        },
+        "clichesEvitar": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "notas": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

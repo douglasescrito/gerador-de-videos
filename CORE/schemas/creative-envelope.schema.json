@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://gerador.local/schemas/creative-envelope.schema.json",
+  "title": "creative-envelope@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "clientId", "projectId", "rootScopeId", "projectScopeId", "activeRelease", "profileFingerprint", "contextFingerprint", "decisionId", "decisionHash", "preserved", "selectedAxes", "envelopeHash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/creative-envelope@1" },
+    "clientId": { "type": "string", "minLength": 1 },
+    "projectId": { "type": "string", "minLength": 1 },
+    "rootScopeId": { "type": "string", "minLength": 1 },
+    "projectScopeId": { "type": "string", "minLength": 1 },
+    "activeRelease": { "type": "object" },
+    "profileFingerprint": { "$ref": "#/$defs/hash" },
+    "contextFingerprint": { "$ref": "#/$defs/hash" },
+    "decisionId": { "type": "string", "minLength": 1 },
+    "decisionHash": { "$ref": "#/$defs/hash" },
+    "preserved": { "type": "object" },
+    "selectedAxes": { "$ref": "creative-fingerprint.schema.json#/$defs/axes" },
+    "envelopeHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": { "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" } }
+}

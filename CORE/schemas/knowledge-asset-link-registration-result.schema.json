@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-asset-link-registration-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "reason",
+    "item"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-asset-link-registration-result@1"
+    },
+    "action": {
+      "const": "register-asset-link"
+    },
+    "status": {
+      "const": "registered"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": false
+    },
+    "changed": {
+      "const": true
+    },
+    "humanConfirmed": {
+      "const": true
+    },
+    "reason": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1000
+    },
+    "item": {
+      "$ref": "mkt-videos/knowledge-item@1"
+    }
+  }
+}

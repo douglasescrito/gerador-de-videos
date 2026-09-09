@@ -1,0 +1,69 @@
+name: provider-free-ci
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Source package (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    defaults:
+      run:
+        working-directory: CORE
+    env:
+      NODE_ENV: test
+      MKT_VIDEOS_PROVIDER_FREE_TEST: "1"
+      OMNI_UPSTREAM_URL: ""
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: CORE/package-lock.json
+      - name: Install FFmpeg on Linux
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - name: Install FFmpeg on Windows
+        if: runner.os == 'Windows'
+        shell: pwsh
+        run: |
+          choco install ffmpeg --yes --no-progress
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          [Environment]::GetEnvironmentVariable('Path', 'Machine').Split(';') |
+            Where-Object { $_ } | Out-File -FilePath $env:GITHUB_PATH -Encoding utf8 -Append
+      - name: Verify media tools
+        shell: bash
+        run: |
+          ffmpeg -version
+          ffprobe -version
+      - name: Install locked Core dependencies
+        run: npm ci --ignore-scripts
+      - name: Install Chrome for local headless rendering
+        run: npx --no-install playwright-core install chrome
+      - name: Locate Chrome on Linux
+        if: runner.os == 'Linux'
+        shell: bash
+        run: |
+          chrome_path="$(command -v google-chrome)"
+          test -x "$chrome_path"
+          echo "CHROME_PATH=$chrome_path" >> "$GITHUB_ENV"
+      - name: Rebuild technical sound resources
+        run: node scripts/prepare-local-sfx.mjs
+      - name: Check generated documentation
+        run: npm run docs:check
+      - name: Validate recipe templates
+        run: npm run recipes:check
+      - name: Test the distributed source tree
+        run: npm test

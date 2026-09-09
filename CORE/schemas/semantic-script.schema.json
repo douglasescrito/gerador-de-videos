@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/semantic-script@1",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/semantic-script@1"
+    },
+    "theme": {
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 200
+    },
+    "script_raw": {
+      "type": "string",
+      "minLength": 50
+    },
+    "metadata": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "targetDurationS": {
+          "type": "number",
+          "default": 60
+        },
+        "targetWordCount": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "min": {
+              "type": "integer"
+            },
+            "max": {
+              "type": "integer"
+            }
+          }
+        }
+      }
+    }
+  },
+  "required": [
+    "schema",
+    "theme",
+    "script_raw"
+  ]
+}

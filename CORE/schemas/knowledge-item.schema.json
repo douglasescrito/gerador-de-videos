@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-item@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "revision",
+    "rootScopeId",
+    "scopeId",
+    "recordType",
+    "schemaId",
+    "schemaVersion",
+    "status",
+    "governance",
+    "supersedesRevision",
+    "payload",
+    "createdAt",
+    "createdBy",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-item@1" },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "revision": { "type": "integer", "minimum": 1 },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "scopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "recordType": {
+      "enum": [
+        "entity",
+        "relation",
+        "assertion",
+        "evidence",
+        "rights",
+        "decision"
+      ]
+    },
+    "schemaId": {
+      "type": "string",
+      "pattern": "^mkt-videos/[A-Za-z0-9._/-]+@[1-9][0-9]*$"
+    },
+    "schemaVersion": { "type": "integer", "minimum": 1 },
+    "status": {
+      "enum": [
+        "active",
+        "candidate",
+        "superseded",
+        "revoked",
+        "quarantined"
+      ]
+    },
+    "governance": {
+      "$ref": "mkt-videos/knowledge-record-envelope@1"
+    },
+    "supersedesRevision": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "integer", "minimum": 1 }
+      ]
+    },
+    "payload": {
+      "type": ["object", "array", "string", "number", "boolean", "null"]
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "contentHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

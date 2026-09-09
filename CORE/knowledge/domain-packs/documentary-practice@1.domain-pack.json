@@ -1,0 +1,697 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "documentary-practice",
+  "version": 1,
+  "status": "candidate",
+  "title": "Prática documental responsável",
+  "summary": "Fundamentos para estruturar ponto de vista, fontes, evidência, consentimento, arquivo, reconstrução e material gerado sem apresentar interpretação ou dramatização como fato.",
+  "scope": {
+    "domains": [
+      "documentary",
+      "nonfiction",
+      "editorial-ethics"
+    ],
+    "appliesTo": [
+      "Documentários, perfis, entrevistas, relatos, vídeos institucionais factuais e reconstruções.",
+      "Planejamento e revisão de claims, fontes, arquivo, B-roll e disclosure em modo Studio.",
+      "Uso responsável de material gerado em contexto de não ficção."
+    ],
+    "excludes": [
+      "Verificação automática da verdade ou substituição de apuração humana.",
+      "Aconselhamento jurídico sobre privacidade, difamação, direitos autorais ou proteção de fonte.",
+      "Uso de referência, imagem ou depoimento sem direito, consentimento e finalidade válidos."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno. Termos, direitos e licenças das fontes permanecem independentes; fontes não comerciais não são incorporadas como material reutilizável."
+  },
+  "sources": [
+    {
+      "id": "nichols-documentary-2024",
+      "title": "Introduction to Documentary, Fourth Edition",
+      "uri": "https://iupress.org/9780253070159/introduction-to-documentary-fourth-edition/",
+      "publisher": "Indiana University Press",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "bibliography",
+      "usageMode": "citation-only",
+      "version": "Fourth edition",
+      "publishedAt": "2024-08-06",
+      "sourceTerms": {
+        "status": "unknown",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Referência bibliográfica para modos e voz documental. Nenhum trecho, estrutura, imagem ou exemplo do livro é copiado; os modos são tratados como estratégias analíticas, não fórmulas."
+      }
+    },
+    {
+      "id": "ofcom-section-five",
+      "title": "Broadcasting Code: Section Five, Due Impartiality and Due Accuracy",
+      "uri": "https://www.ofcom.org.uk/tv-radio-and-on-demand/broadcast-standards/section-five-due-impartiality-accuracy",
+      "publisher": "Office of Communications",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-regulation",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Ofcom-Terms-of-Use",
+        "termsUri": "https://www.ofcom.org.uk/about-ofcom/our-website/terms-of-use",
+        "notes": "Fonte regulatória do Reino Unido, usada com atribuição para princípios de exatidão e contexto. Não é universalizada para outras jurisdições."
+      }
+    },
+    {
+      "id": "ofcom-section-seven",
+      "title": "Broadcasting Code: Section Seven, Fairness",
+      "uri": "https://www.ofcom.org.uk/tv-radio-and-on-demand/broadcast-standards/section-seven-fairness",
+      "publisher": "Office of Communications",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-regulation",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Ofcom-Terms-of-Use",
+        "termsUri": "https://www.ofcom.org.uk/about-ofcom/our-website/terms-of-use",
+        "notes": "Usada para informed consent, tratamento justo de contribuições, anonimato e reutilização contextual. Aplicação concreta depende de jurisdição e revisão editorial."
+      }
+    },
+    {
+      "id": "ofcom-section-eight",
+      "title": "Broadcasting Code: Section Eight, Privacy",
+      "uri": "https://www.ofcom.org.uk/tv-radio-and-on-demand/broadcast-standards/section-eight-privacy",
+      "publisher": "Office of Communications",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-regulation",
+      "usageMode": "paraphrase-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Ofcom-Terms-of-Use",
+        "termsUri": "https://www.ofcom.org.uk/about-ofcom/our-website/terms-of-use",
+        "notes": "Referência jurisdicional para expectativa de privacidade, vulnerabilidade e proporcionalidade; não substitui análise jurídica local."
+      }
+    },
+    {
+      "id": "witness-ethical-guidelines",
+      "title": "Video as Evidence: Ethical Guidelines",
+      "uri": "https://library.witness.org/product/video-as-evidence-ethical-guidelines/",
+      "publisher": "WITNESS",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "CC-BY-NC-4.0",
+        "termsUri": "https://library.witness.org/faq/",
+        "notes": "A biblioteca declara licença não comercial. Como este projeto pode servir a trabalho comercial, a fonte é somente bibliográfica: nenhum texto, estrutura, caso ou recurso é adaptado ou incorporado."
+      }
+    },
+    {
+      "id": "c2pa-spec-24",
+      "title": "C2PA Technical Specification 2.4",
+      "uri": "https://spec.c2pa.org/specifications/specifications/2.4/specs/C2PA_Specification.html",
+      "publisher": "Coalition for Content Provenance and Authenticity",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "paraphrase-only",
+      "version": "2.4",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "CC-BY-4.0",
+        "termsUri": "https://creativecommons.org/licenses/by/4.0/",
+        "notes": "Base para conceitos de provenance, ingredientes, ações e material derivado. A síntese atribui a fonte e não reproduz exemplos ou especificação."
+      }
+    },
+    {
+      "id": "nist-ai-600-1",
+      "title": "Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile",
+      "uri": "https://nvlpubs.nist.gov/nistpubs/ai/NIST.AI.600-1.pdf",
+      "publisher": "National Institute of Standards and Technology",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "factual-extraction-only",
+      "version": "NIST AI 600-1",
+      "publishedAt": "2024-07-26",
+      "sourceTerms": {
+        "status": "public-domain",
+        "licenseId": "US-Public-Domain",
+        "termsUri": "https://www.nist.gov/copyrights-disclaimers",
+        "notes": "Publicação governamental usada para riscos de conteúdo sintético e provenance. Atribuição é mantida; material de terceiros eventualmente marcado no documento não é reutilizado."
+      }
+    },
+    {
+      "id": "brazil-lgpd",
+      "title": "Lei nº 13.709, de 14 de agosto de 2018",
+      "uri": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709compilado.htm",
+      "publisher": "Presidência da República do Brasil",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-law",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "public-domain",
+        "licenseId": "Lei-9610-1998-Art-8-IV",
+        "termsUri": "https://www.planalto.gov.br/ccivil_03/leis/l9610.htm",
+        "notes": "Ato oficial usado para conceitos jurídicos brasileiros de consentimento, finalidade, revogação e anonimização. Não é apresentado como regra universal nem aconselhamento."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-documentary-mode",
+      "term": "Modo documental",
+      "definition": "Estratégia dominante de relação entre realizador, sujeito, evidência e audiência; modos podem coexistir e não determinam por si só veracidade, ética ou qualidade.",
+      "basis": "source-grounded",
+      "sourceIds": [
+        "nichols-documentary-2024"
+      ]
+    },
+    {
+      "id": "def-reconstruction",
+      "term": "Reconstrução",
+      "definition": "Representação criada depois do evento para ilustrar uma hipótese, memória ou sequência que não foi registrada diretamente, devendo ser distinguida de evidência contemporânea ao fato.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "c2pa-spec-24",
+        "nist-ai-600-1",
+        "ofcom-section-five"
+      ]
+    },
+    {
+      "id": "def-factual-continuity",
+      "term": "Continuidade factual",
+      "definition": "Consistência entre afirmações, datas, lugares, identidades, relações causais e nível de certeza ao longo da obra e de suas versões.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "ofcom-section-five",
+        "c2pa-spec-24"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-declared-mode",
+      "title": "Modo é estratégia declarada, não selo de verdade",
+      "definition": "Abordagens observacional, expositiva, participativa, poética, reflexiva e performativa organizam presença, voz, experiência situada e forma; uma obra pode combiná-las desde que a relação com o público não seja mascarada.",
+      "intent": "Tornar explícito como a obra seleciona, argumenta, participa ou expõe seu próprio processo.",
+      "sourceIds": [
+        "nichols-documentary-2024",
+        "ofcom-section-five"
+      ],
+      "basis": "editorial-synthesis",
+      "modality": "heuristic",
+      "applicability": [
+        "Concepção de documentário, perfil, ensaio factual ou entrevista editada.",
+        "Revisão de voz, presença do realizador e relação entre forma e evidência.",
+        "Análise de obras em que experiência corporificada ou subjetividade assumida organiza o argumento."
+      ],
+      "limits": [
+        "Categorias se sobrepõem e não esgotam práticas documentais.",
+        "Modo não prova exatidão, imparcialidade ou consentimento."
+      ],
+      "risks": [
+        "Chamar encenação de observação pode ocultar intervenção.",
+        "Forma poética pode reduzir a percepção de incerteza factual.",
+        "Experiência situada pode ser apresentada como evidência geral sem qualificação."
+      ],
+      "successSignals": [
+        "A equipe consegue descrever a relação entre câmera, sujeito e argumento.",
+        "Misturas de modo são reconhecíveis e não criam falsa espontaneidade."
+      ],
+      "tests": [
+        {
+          "id": "t-mode-accountability",
+          "scenario": "Selecionar três sequências e descrever quem observa, quem fala, quem intervém e como a construção aparece.",
+          "expected": "A descrição é compatível com o material e não atribui neutralidade automática ao método."
+        }
+      ]
+    },
+    {
+      "id": "p-claim-source-evidence",
+      "title": "Claim, fonte, evidência e certeza permanecem ligados",
+      "definition": "Toda afirmação factual relevante deve apontar para fonte identificada, evidência disponível, método de obtenção e grau de certeza; divergência ou ausência não pode ser escondida por narração assertiva.",
+      "intent": "Preservar a diferença entre o que é conhecido, inferido, contestado e desconhecido.",
+      "sourceIds": [
+        "ofcom-section-five",
+        "witness-ethical-guidelines",
+        "nist-ai-600-1"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Roteiro, cartelas, narração, gráficos, legendas e entrevista.",
+        "Claims históricos, científicos, biográficos e institucionais."
+      ],
+      "limits": [
+        "O sistema registra suporte, mas não decide verdade sozinho.",
+        "Fontes podem compartilhar o mesmo erro ou conflito de interesse."
+      ],
+      "risks": [
+        "Certeza verbal maior que a evidência.",
+        "Fonte secundária apresentada como testemunho direto."
+      ],
+      "successSignals": [
+        "Cada claim relevante possui sourceIds e nível de certeza revisáveis.",
+        "Conflitos e lacunas aparecem na pauta ou na obra quando materiais."
+      ],
+      "tests": [
+        {
+          "id": "t-claim-ledger",
+          "scenario": "Extrair claims do corte e reconciliá-los com o ledger de fontes e evidências.",
+          "expected": "Todo claim material está suportado, qualificado, contestado ou removido por decisão humana registrada."
+        }
+      ]
+    },
+    {
+      "id": "p-interview-consent-sensitivity",
+      "title": "Entrevista exige consentimento informado e avaliação contínua de risco",
+      "definition": "Participantes devem compreender natureza, finalidade, uso provável, mudanças materiais e riscos; vulnerabilidade, anonimização e revogação aplicável devem ser tratadas antes da captura e novamente antes da publicação.",
+      "intent": "Evitar que uma autorização formal substitua compreensão, proporcionalidade e cuidado.",
+      "sourceIds": [
+        "ofcom-section-seven",
+        "ofcom-section-eight",
+        "witness-ethical-guidelines",
+        "brazil-lgpd"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Entrevistas, testemunhos, imagens de pessoas identificáveis e dados pessoais.",
+        "Sujeitos vulneráveis, temas sensíveis, anonimato ou risco de retaliação."
+      ],
+      "limits": [
+        "Bases legais e possibilidade de revogação variam por jurisdição e contexto.",
+        "Anonimização visual isolada pode falhar por voz, local, metadados ou narrativa."
+      ],
+      "risks": [
+        "Recontextualização pode criar dano não previsto na captura.",
+        "Promessa de anonimato pode ser tecnicamente insuficiente."
+      ],
+      "successSignals": [
+        "Consentimento, finalidade, limites e owner estão documentados.",
+        "Revisão pré-publicação considera novamente exposição e contexto."
+      ],
+      "tests": [
+        {
+          "id": "t-reidentification-review",
+          "scenario": "Revisar todos os sinais visuais, sonoros, textuais e contextuais de um participante anonimizado.",
+          "expected": "Nenhum sinal material de reidentificação permanece sem decisão explícita de risco e autorização adequada."
+        }
+      ]
+    },
+    {
+      "id": "p-contextual-footage",
+      "title": "B-roll e arquivo devem manter origem, data, direito e função",
+      "definition": "Material de cobertura ou arquivo não é preenchimento neutro: sua seleção pode afirmar presença, causalidade, frequência ou identidade e deve ser governada como evidência ou ilustração.",
+      "intent": "Impedir que imagens plausíveis alterem o sentido factual da narração.",
+      "sourceIds": [
+        "ofcom-section-five",
+        "ofcom-section-seven",
+        "c2pa-spec-24"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "B-roll, fotografias, gravações históricas, stock e material de terceiros.",
+        "Reutilização de contribuição em contexto diferente."
+      ],
+      "limits": [
+        "Metadados de origem podem estar incompletos e exigem qualificação.",
+        "Direito de uso não prova pertinência factual."
+      ],
+      "risks": [
+        "Imagem genérica apresentada como local ou evento específico.",
+        "Arquivo recortado remove condição ou contraditório relevante."
+      ],
+      "successSignals": [
+        "Cada asset possui proveniência, direito, data e função editorial declarados.",
+        "O corte não sugere relação factual além da evidência disponível."
+      ],
+      "tests": [
+        {
+          "id": "t-footage-context",
+          "scenario": "Assistir à sequência sem conhecer a origem dos assets e registrar as inferências prováveis.",
+          "expected": "Inferências materiais coincidem com origem e contexto ou são corrigidas por disclosure claro."
+        }
+      ]
+    },
+    {
+      "id": "p-reconstruction-disclosure",
+      "title": "Reconstrução e imagem gerada são identificadas no ponto de interpretação",
+      "definition": "Quando material criado representa pessoa, lugar ou evento factual sem registro direto, sua natureza ilustrativa, reconstruída ou gerada deve ser percebida antes que seja tomada como evidência.",
+      "intent": "Permitir recurso visual sem converter plausibilidade em documento histórico.",
+      "sourceIds": [
+        "c2pa-spec-24",
+        "nist-ai-600-1",
+        "ofcom-section-five"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Imagem ou vídeo gerado, reenactment, simulação, composição e voz sintética.",
+        "Representação de fato não capturado ou de cenário hipotético."
+      ],
+      "limits": [
+        "Provenance técnica não prova veracidade nem substitui disclosure perceptível.",
+        "Rótulo genérico pode ser insuficiente se o trecho mistura arquivo e geração."
+      ],
+      "risks": [
+        "Realismo visual produz falsa memória do evento.",
+        "Disclosure apenas no crédito final chega tarde demais."
+      ],
+      "successSignals": [
+        "A audiência consegue distinguir registro, reconstrução e hipótese no momento relevante.",
+        "Recibo e provenance identificam ingredientes e ações sem expor segredos."
+      ],
+      "tests": [
+        {
+          "id": "t-generated-material-boundary",
+          "scenario": "Revisar todos os trechos sintéticos junto ao contexto que os apresenta.",
+          "expected": "Cada trecho possui rótulo perceptível, provenance governada e linguagem que não amplia o grau de certeza."
+        }
+      ]
+    },
+    {
+      "id": "p-point-of-view-separation",
+      "title": "Fato, interpretação e dramatização ocupam camadas distintas",
+      "definition": "Ponto de vista é inevitável, mas deve ser distinguido de afirmação factual; interpretação explicita raciocínio e dramatização explicita construção.",
+      "intent": "Assumir voz e escolha editorial sem fingir neutralidade nem apagar evidência.",
+      "sourceIds": [
+        "nichols-documentary-2024",
+        "ofcom-section-five",
+        "witness-ethical-guidelines"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Narração, ensaio, montagem associativa, entrevistas e reconstruções.",
+        "Obras autorais ou de advocacy que apresentam tese explícita."
+      ],
+      "limits": [
+        "Separação pode ser construída por contexto, não apenas por cartela.",
+        "Declarar opinião não autoriza erro factual evitável."
+      ],
+      "risks": [
+        "Montagem sugere causalidade que as fontes não sustentam.",
+        "Tom de autoridade oculta interpretação contestável."
+      ],
+      "successSignals": [
+        "Claims podem ser classificados como fato, interpretação ou dramatização.",
+        "O ponto de vista está presente sem alterar materialmente falas ou contexto."
+      ],
+      "tests": [
+        {
+          "id": "t-layer-classification",
+          "scenario": "Classificar frases e sequências-chave em fato, interpretação, dramatização ou combinação.",
+          "expected": "Combinações são qualificadas e nenhuma dramatização aparece como registro direto."
+        }
+      ]
+    },
+    {
+      "id": "p-factual-continuity",
+      "title": "Continuidade factual atravessa roteiro, corte e variantes",
+      "definition": "Datas, lugares, identidades, sequências, relações causais e qualificadores devem permanecer consistentes quando a obra é montada, encurtada, legendada ou adaptada.",
+      "intent": "Impedir que economia narrativa ou variante de canal mude o que a obra afirma.",
+      "sourceIds": [
+        "ofcom-section-five",
+        "ofcom-section-seven",
+        "c2pa-spec-24"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Montagem, atualização, tradução, trailer, teaser e versões curtas.",
+        "Narrativas com cronologia, causalidade ou identidades complexas."
+      ],
+      "limits": [
+        "Ordem dramática pode diferir da cronológica se isso for claro.",
+        "Novas evidências podem exigir versão e correção, não reescrita silenciosa."
+      ],
+      "risks": [
+        "Corte de qualificador transforma hipótese em fato.",
+        "Reordenação de fala altera causa, intenção ou resposta."
+      ],
+      "successSignals": [
+        "Ledger de claims permanece reconciliado com cada versão.",
+        "Mudanças factuais têm changelog e fonte."
+      ],
+      "tests": [
+        {
+          "id": "t-version-claim-diff",
+          "scenario": "Comparar claims, qualificadores e contexto entre master e variante curta.",
+          "expected": "A variante preserva sentido factual ou registra explicitamente o que não pode representar."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-public-interest-limited-disclosure",
+      "principleIds": [
+        "p-interview-consent-sensitivity",
+        "p-point-of-view-separation"
+      ],
+      "condition": "Existe interesse público documentado e obtenção de consentimento ou disclosure integral poderia criar risco material ou inviabilizar apuração legítima.",
+      "response": "Interromper automação, exigir decisão editorial e jurídica humana, aplicar minimização e registrar fundamento, alternativas e riscos sem publicar automaticamente.",
+      "sourceIds": [
+        "ofcom-section-seven",
+        "ofcom-section-eight"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-plausibility-as-evidence",
+      "title": "Plausibilidade tratada como evidência",
+      "description": "Usar stock, geração, reenactment ou montagem emocionalmente coerente para preencher lacuna factual sem disclosure e qualificação.",
+      "principleIds": [
+        "p-claim-source-evidence",
+        "p-contextual-footage",
+        "p-reconstruction-disclosure",
+        "p-point-of-view-separation"
+      ],
+      "risks": [
+        "Falsa memória e causalidade aparente.",
+        "Dano a participantes e perda de confiança."
+      ],
+      "mitigations": [
+        "Manter lacuna visível e registrar grau de certeza.",
+        "Rotular ilustração ou reconstrução no ponto de interpretação."
+      ],
+      "sourceIds": [
+        "c2pa-spec-24",
+        "nist-ai-600-1",
+        "ofcom-section-five"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-qualified-reconstruction",
+      "title": "Reconstrução qualificada",
+      "description": "A narração informa o que é comprovado e o que é hipótese; a imagem reconstruída recebe rótulo durante o trecho e o ledger preserva fonte, direitos, ingredientes e decisão editorial.",
+      "principleIds": [
+        "p-claim-source-evidence",
+        "p-reconstruction-disclosure",
+        "p-point-of-view-separation"
+      ],
+      "analysis": "A reconstrução oferece contexto visual sem adquirir o estatuto do registro ausente. Provenance ajuda a auditar origem, mas o disclosure comunica a diferença ao público.",
+      "sourceIds": [
+        "c2pa-spec-24",
+        "nist-ai-600-1",
+        "ofcom-section-five"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-anonymous-face-only",
+      "title": "Anonimização apenas do rosto",
+      "description": "O rosto é ocultado, mas voz, uniforme, local, horário e detalhes da história permitem reconhecer a pessoa.",
+      "principleIds": [
+        "p-interview-consent-sensitivity"
+      ],
+      "analysis": "Anonimização é resultado contextual, não um efeito visual isolado. O conjunto ainda carrega identificadores e risco previsível.",
+      "sourceIds": [
+        "brazil-lgpd",
+        "ofcom-section-eight",
+        "witness-ethical-guidelines"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "observational-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "expository-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "participatory-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "poetic-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "reflexive-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "performative-mode",
+      "principleIds": [
+        "p-declared-mode"
+      ]
+    },
+    {
+      "tag": "claims",
+      "principleIds": [
+        "p-claim-source-evidence",
+        "p-point-of-view-separation"
+      ]
+    },
+    {
+      "tag": "sources",
+      "principleIds": [
+        "p-claim-source-evidence",
+        "p-contextual-footage"
+      ]
+    },
+    {
+      "tag": "evidence",
+      "principleIds": [
+        "p-claim-source-evidence",
+        "p-contextual-footage"
+      ]
+    },
+    {
+      "tag": "certainty",
+      "principleIds": [
+        "p-claim-source-evidence"
+      ]
+    },
+    {
+      "tag": "interview",
+      "principleIds": [
+        "p-interview-consent-sensitivity"
+      ]
+    },
+    {
+      "tag": "b-roll",
+      "principleIds": [
+        "p-contextual-footage"
+      ]
+    },
+    {
+      "tag": "archive",
+      "principleIds": [
+        "p-contextual-footage"
+      ]
+    },
+    {
+      "tag": "reconstruction",
+      "principleIds": [
+        "p-reconstruction-disclosure"
+      ]
+    },
+    {
+      "tag": "point-of-view",
+      "principleIds": [
+        "p-declared-mode",
+        "p-point-of-view-separation"
+      ]
+    },
+    {
+      "tag": "factual-continuity",
+      "principleIds": [
+        "p-factual-continuity"
+      ]
+    },
+    {
+      "tag": "consent",
+      "principleIds": [
+        "p-interview-consent-sensitivity"
+      ]
+    },
+    {
+      "tag": "anonymization",
+      "principleIds": [
+        "p-interview-consent-sensitivity"
+      ]
+    },
+    {
+      "tag": "sensitivity",
+      "principleIds": [
+        "p-interview-consent-sensitivity"
+      ]
+    },
+    {
+      "tag": "generated-image-disclosure",
+      "principleIds": [
+        "p-reconstruction-disclosure"
+      ]
+    },
+    {
+      "tag": "fact-interpretation-dramatization",
+      "principleIds": [
+        "p-point-of-view-separation",
+        "p-reconstruction-disclosure"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "observational-mode",
+    "expository-mode",
+    "participatory-mode",
+    "poetic-mode",
+    "reflexive-mode",
+    "performative-mode",
+    "claims",
+    "sources",
+    "evidence",
+    "certainty",
+    "interview",
+    "b-roll",
+    "archive",
+    "reconstruction",
+    "point-of-view",
+    "factual-continuity",
+    "consent",
+    "anonymization",
+    "sensitivity",
+    "generated-image-disclosure",
+    "fact-interpretation-dramatization"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com modos documentais, ledger de claims, consentimento, arquivo, reconstrução e disclosure de material gerado.",
+        "Fontes jurisdicionais e bibliográficas foram delimitadas; provenance não é tratada como prova de verdade."
+      ]
+    }
+  ]
+}

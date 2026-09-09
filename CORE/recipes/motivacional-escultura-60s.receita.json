@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-escultura-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · A Escultura Invisível",
+  "description": "Filme motivacional sobre progresso não percebido: cada ação deposita uma camada translúcida aparentemente discreta, e apenas uma mudança de perspectiva revela a construção monumental acumulada.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-escultura-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 1 of 6: A small ivory shape makes one precise movement. A nearly transparent layer is left behind, so subtle that the frame still appears almost empty. The exact on-screen phrase is supplied separately as: NEM TODO PROGRESSO APARECE. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "NEM TODO PROGRESSO APARECE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 2 of 6: The movement repeats in a new position. More translucent planes accumulate, catching faint gold edges while remaining difficult to read as a whole. The exact on-screen phrase is supplied separately as: MAS ELE FICA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "MAS ELE FICA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 3 of 6: Dozens of layers now overlap. Parallax reveals depth, but the final form is still ambiguous because the camera remains too close. The exact on-screen phrase is supplied separately as: CAMADA SOBRE CAMADA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CAMADA SOBRE CAMADA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 4 of 6: Rhythmic repetitions accelerate slightly. Each action adds another thin plane, and the accumulated volume begins casting a coherent shadow. The exact on-screen phrase is supplied separately as: DIA SOBRE DIA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DIA SOBRE DIA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 5 of 6: Camera performs a long pull-back and gentle rotation. The previously invisible layers align into a large elegant sculptural structure occupying the full frame. The exact on-screen phrase is supplied separately as: ATÉ QUE SE TORNA INEGÁVEL. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "ATÉ QUE SE TORNA INEGÁVEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep forest green, translucent pearl, antique gold and a restrained coral accent. Narrative beat 6 of 6: The sculpture holds in monumental clarity while one final translucent layer slides into place, proving that the process continues even after the reveal. The exact on-screen phrase is supplied separately as: CONTINUE CONSTRUINDO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CONTINUE CONSTRUINDO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Nem todo progresso oferece uma recompensa visível no mesmo dia. Muitas mudanças começam em uma escala difícil de perceber. Isso não significa que nada aconteceu. Cada repetição deixa alguma coisa: experiência, resistência, clareza ou estrutura. Camada sobre camada, o que parecia insignificante começa a ganhar profundidade. O acúmulo acontece antes de ficar óbvio. Dia sobre dia, você constrói uma forma que ainda não consegue enxergar inteira porque está perto demais do processo. Então chega um momento em que a perspectiva muda. O resultado aparece, e aquilo que parecia vazio revela tudo o que estava sendo construído. Continue construindo mesmo quando a obra ainda não estiver visível. Algumas transformações precisam de distância para serem reconhecidas.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Nem todo progresso oferece uma recompensa visível no mesmo dia. Muitas mudanças começam em uma escala difícil de perceber."
+        },
+        {
+          "id": "cena-2",
+          "text": "Isso não significa que nada aconteceu. Cada repetição deixa alguma coisa: experiência, resistência, clareza ou estrutura."
+        },
+        {
+          "id": "cena-3",
+          "text": "Camada sobre camada, o que parecia insignificante começa a ganhar profundidade. O acúmulo acontece antes de ficar óbvio."
+        },
+        {
+          "id": "cena-4",
+          "text": "Dia sobre dia, você constrói uma forma que ainda não consegue enxergar inteira porque está perto demais do processo."
+        },
+        {
+          "id": "cena-5",
+          "text": "Então chega um momento em que a perspectiva muda. O resultado aparece, e aquilo que parecia vazio revela tudo o que estava sendo construído."
+        },
+        {
+          "id": "cena-6",
+          "text": "Continue construindo mesmo quando a obra ainda não estiver visível. Algumas transformações precisam de distância para serem reconhecidas."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Elegant atmospheric score with intimate piano, airy strings and soft resonant impacts. Build depth gradually rather than volume, saving the broadest harmonic reveal for the camera pull-back.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

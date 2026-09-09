@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "store"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-action-result@1" },
+    "action": { "enum": ["status", "init"] },
+    "status": { "enum": ["ready", "invalid", "not_initialized"] },
+    "providerFree": { "const": true },
+    "readOnly": { "type": "boolean" },
+    "changed": { "type": "boolean" },
+    "store": { "$ref": "mkt-videos/knowledge-status@1" }
+  }
+}

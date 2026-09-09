@@ -1,0 +1,100 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-replay-report@2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "sourceExportSchema",
+    "sourceExportHash",
+    "releaseHash",
+    "registryHash",
+    "authorizationHash",
+    "rightsHeadHash",
+    "memberCount",
+    "members",
+    "hash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-replay-report@2"
+    },
+    "sourceExportSchema": {
+      "enum": [
+        "mkt-videos/knowledge-export@1",
+        "mkt-videos/knowledge-export@2"
+      ]
+    },
+    "sourceExportHash": { "$ref": "#/$defs/hash" },
+    "releaseHash": { "$ref": "#/$defs/hash" },
+    "registryHash": { "$ref": "#/$defs/hash" },
+    "authorizationHash": { "$ref": "#/$defs/hash" },
+    "rightsHeadHash": { "$ref": "#/$defs/hash" },
+    "memberCount": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "members": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "ordinal",
+          "memberRefHash",
+          "itemContentHash",
+          "sourceSchemaId",
+          "sourceSchemaVersion",
+          "targetSchemaId",
+          "targetSchemaVersion",
+          "originalHash",
+          "projectedHash",
+          "readerHashes",
+          "upcasterHashes"
+        ],
+        "properties": {
+          "ordinal": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "memberRefHash": { "$ref": "#/$defs/hash" },
+          "itemContentHash": { "$ref": "#/$defs/hash" },
+          "sourceSchemaId": { "$ref": "#/$defs/schemaId" },
+          "sourceSchemaVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "targetSchemaId": { "$ref": "#/$defs/schemaId" },
+          "targetSchemaVersion": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "originalHash": { "$ref": "#/$defs/hash" },
+          "projectedHash": { "$ref": "#/$defs/hash" },
+          "readerHashes": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/hash" }
+          },
+          "upcasterHashes": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "$ref": "#/$defs/hash" }
+          }
+        }
+      }
+    },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "schemaId": {
+      "type": "string",
+      "pattern": "^mkt-videos/[A-Za-z0-9._/-]+@[1-9][0-9]*$"
+    }
+  }
+}

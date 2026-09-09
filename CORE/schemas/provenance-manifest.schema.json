@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/provenance-manifest@1",
+  "type": "object",
+  "required": ["schema", "claim", "c2paSigned", "master", "receiptIds", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/provenance-manifest@1" },
+    "c2paSigned": { "const": false },
+    "receiptIds": { "type": "array", "items": { "type": "string" } },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

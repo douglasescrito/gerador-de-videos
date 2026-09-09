@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-reino-cinzas-60s",
+  "label": "Trailer Cinematográfico (60s) · Reino de Cinzas (Dark Fantasy Épico)",
+  "description": "Trailer de fantasia sombria medieval em 16:9: castelos em ruínas sob céu tempestuoso, exércitos com armaduras de ferro forjado e tochas, dragões ancestrais e coroas quebradas sob a neve.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "dark-fantasy@1",
+  "collection": "trailer-reino-cinzas-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia dark fantasy épica",
+    "sound design de ferro, fogo e percussão",
+    "Flow Music orquestral épico nórdico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Extreme wide shot of a colossal ruined gothic fortress perched on a jagged obsidian mountain ridge under a stormy crimson sky. Lightning illuminates ancient stone spires. 35mm film texture, heavy atmospheric fog. Non-verbal sound design: distant thunder rumble and deep resonant war horn echo. No speech or dialogue. On-screen text: OS REINOS CAÍRAM.",
+      "duration": 10,
+      "onScreenText": "OS REINOS CAÍRAM",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Macro shot of an ancient damaged steel broadsword planted in frozen snow-covered mud. Embers and ashes drift slowly past the blade as blood-red firelight flickers on the cold iron. Non-verbal sound design: wind howling through mountain passes, metallic ring of cold steel. No speech or dialogue. On-screen text: UMA COROA FORJADA NO FOGO.",
+      "duration": 10,
+      "onScreenText": "UMA COROA FORJADA NO FOGO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Low-angle tracking shot through a vast army of thousands of armored warriors holding flaming torches in the pitch-black night. Helmets and shields glisten under rain and torchlight. Non-verbal sound design: heavy synchronized shield-banging rhythm and guttural war chants. No speech or dialogue. On-screen text: A GUERRA FINAL.",
+      "duration": 10,
+      "onScreenText": "A GUERRA FINAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Massive shadow sweeps over the battlefield as a gargantuan winged ancestral dragon descends through boiling storm clouds, breathing a catastrophic stream of golden fire that illuminates the valley. Non-verbal sound design: deafening draconic roar and massive low-end fire explosion. No speech or dialogue. On-screen text: O DESPERTAR DAS CINZAS.",
+      "duration": 10,
+      "onScreenText": "O DESPERTAR DAS CINZAS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Fast-paced battle montage: clash of heavy broadswords with flying sparks, cavalry charge through snowy forests, magical glyphs igniting in stone circles. Non-verbal sound design: relentless war drums, clashing armor, cinematic braams. No speech or dialogue. On-screen text: QUEM HERDARÁ O TRONO?",
+      "duration": 10,
+      "onScreenText": "QUEM HERDARÁ O TRONO?",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Epic dark fantasy blockbuster trailer cinematography in 16:9. Hero title reveal: heavy weathered stone and forged iron 3D typography carved with ancient glowing runes, surrounded by falling snow and rising embers. Grand slow zoom. Non-verbal sound design: massive orchestral crescendo resolving into a lone chilling choir chord. No speech or dialogue. On-screen text: REINO DE CINZAS.",
+      "duration": 10,
+      "onScreenText": "REINO DE CINZAS",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Quando os antigos reis caíram, o mundo acreditou que a paz havia chegado. Mas a escuridão não morre. Ela apenas espera que você esqueça o valor do fogo.",
+      "voice": "voz masculina brasileira madura, grave, profunda, épica, rouca e majestosa, tom de lorde medieval guerreiro",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Quando os antigos tronos ruíram, o mundo celebrou."
+        },
+        {
+          "id": "cena-2",
+          "text": "Mas a escuridão nunca foi derrotada."
+        },
+        {
+          "id": "cena-3",
+          "text": "Ela apenas aguardava o momento certo para retornar."
+        },
+        {
+          "id": "cena-4",
+          "text": "Agora, o fogo ancestral despertou novamente."
+        },
+        {
+          "id": "cena-5",
+          "text": "Apenas um herdeiro sobreviverá ao inverno."
+        },
+        {
+          "id": "cena-6",
+          "text": "Reino de Cinzas. Uma nova era se inicia."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Epic dark Nordic fantasy orchestral score with massive war drums, cellos, chanting male choir, heavy brass horns and a thunderous cinematic climax.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

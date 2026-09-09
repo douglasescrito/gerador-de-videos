@@ -1,0 +1,126 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-restore-report@2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "sourceManifestSchema",
+    "restoredAt",
+    "status",
+    "providerFree",
+    "changed",
+    "database",
+    "scopeAttestationVerified",
+    "assets",
+    "reportOnlyAssets",
+    "repairPerformed",
+    "manifestHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-restore-report@2" },
+    "sourceManifestSchema": {
+      "const": "mkt-videos/knowledge-backup-manifest@2"
+    },
+    "restoredAt": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["restored", "restored-asymmetric"] },
+    "providerFree": { "const": true },
+    "changed": { "const": true },
+    "database": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "userVersion",
+        "applicationId",
+        "bytes",
+        "sha256",
+        "integritySha256"
+      ],
+      "properties": {
+        "schema": { "const": "mkt-videos/knowledge-store@1" },
+        "userVersion": { "type": "integer", "minimum": 1 },
+        "applicationId": { "type": "integer", "minimum": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "$ref": "#/$defs/hash" },
+        "integritySha256": { "$ref": "#/$defs/hash" }
+      }
+    },
+    "scopeAttestationVerified": { "type": "boolean" },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "status", "counts", "results"],
+      "properties": {
+        "mode": {
+          "enum": ["not-included", "governed-inventory"]
+        },
+        "status": {
+          "enum": ["not-declared", "match", "asymmetric"]
+        },
+        "counts": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "total",
+            "resolved",
+            "missing",
+            "revoked",
+            "quarantined",
+            "extra"
+          ],
+          "properties": {
+            "total": { "type": "integer", "minimum": 0 },
+            "resolved": { "type": "integer", "minimum": 0 },
+            "missing": { "type": "integer", "minimum": 0 },
+            "revoked": { "type": "integer", "minimum": 0 },
+            "quarantined": { "type": "integer", "minimum": 0 },
+            "extra": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "results": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["linkId", "rootKind", "status", "reason"],
+            "properties": {
+              "linkId": {
+                "type": "string",
+                "pattern": "^kal_[a-f0-9]{16,64}$"
+              },
+              "rootKind": {
+                "enum": ["outputs", "PESSOAS"]
+              },
+              "status": {
+                "enum": ["resolved", "missing", "revoked", "quarantined"]
+              },
+              "reason": {
+                "enum": [
+                  "hash-match",
+                  "asset-not-found",
+                  "hash-mismatch",
+                  "size-mismatch",
+                  "rights-denied",
+                  "rights-unknown",
+                  "rights-revoked",
+                  "rights-expired",
+                  "asset-quarantined"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "reportOnlyAssets": { "const": true },
+    "repairPerformed": { "const": false },
+    "manifestHash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

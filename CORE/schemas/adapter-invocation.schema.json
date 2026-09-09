@@ -1,0 +1,25 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/adapter-invocation@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "adapterId", "providerId", "operation", "paid", "request", "estimate", "preflight", "authorizationRequired", "createdAt", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/adapter-invocation@1" },
+    "adapterId": { "type": "string" },
+    "providerId": { "type": "string" },
+    "operation": { "type": "string" },
+    "paid": { "type": "boolean" },
+    "request": { "type": "object" },
+    "estimate": { "type": ["object", "null"] },
+    "preflight": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "blockers", "capability"],
+      "properties": { "status": { "enum": ["ready", "blocked"] }, "blockers": { "type": "array", "items": { "type": "string" } }, "capability": { "type": ["object", "null"] } }
+    },
+    "authorizationRequired": { "type": "boolean" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

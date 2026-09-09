@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/cue-timeline@1",
+  "type": "object",
+  "required": ["schema", "script", "duration", "status", "words", "phrases", "blocks", "findings", "corrections", "policy", "fingerprint"],
+  "properties": { "schema": { "const": "mkt-videos/cue-timeline@1" }, "status": { "enum": ["pass", "blocked"] }, "words": { "type": "array" }, "fingerprint": { "type": "string" } }
+}

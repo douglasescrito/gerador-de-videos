@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "doc-tipografia-movel-45s",
+  "label": "Documentário Cinematográfico (45s) · A Tinta e o Chumbo (Tipografia Letterpress)",
+  "description": "Documentário tátil e histórico em 16:9 sobre a imprensa tradicional de tipos móveis de chumbo: gavetas tipográficas de madeira, composição manual caractere por caractere, rolos de tinta preta aveludada e impressão em papel de algodão.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "documentario@1",
+  "collection": "doc-tipografia-movel-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia documental tipográfica",
+    "sound design mecânico de tipos de chumbo e prensa",
+    "Flow Music clássico acústico",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Authentic printmaking craft documentary cinematography in 16:9. A master compositor pulls open a weathered wooden type-drawer containing hundreds of mirror-reversed lead movable type blocks organized in compartments. Warm directional lamplight grazing across lead patina. 50mm vintage lens. Non-verbal sound design: heavy wooden drawer sliding and subtle metallic clinking of lead pieces. No speech or dialogue. On-screen text: TIPOS MÓVEIS DE CHUMBO.",
+      "duration": 9,
+      "onScreenText": "TIPOS MÓVEIS DE CHUMBO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Authentic printmaking craft documentary cinematography in 16:9. Macro shot of the compositor's ink-stained fingertips assembling individual lead letters upside-down on a brass composing stick, letter by letter, with lead spacing quads. Shallow focus. Non-verbal sound design: crisp rhythmic metallic clicks as each lead type locks in place. No speech or dialogue. On-screen text: A COMPOSIÇÃO MANUAL.",
+      "duration": 9,
+      "onScreenText": "A COMPOSIÇÃO MANUAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Authentic printmaking craft documentary cinematography in 16:9. A heavy rubber brayer roller smoothly rolls rich, glossy, tar-black oil ink over a flat marble stone slab, then evenly coats the raised relief faces of the locked lead type form. Non-verbal sound design: distinct sticky tactile hiss of fresh printing ink rolling over glass/metal. No speech or dialogue. On-screen text: A TINTA E O ROLO.",
+      "duration": 9,
+      "onScreenText": "A TINTA E O ROLO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Authentic printmaking craft documentary cinematography in 16:9. A sheet of heavy, textured 100% cotton deckle-edged paper is placed onto the press bed. The massive cast-iron cylinder rolls over the inked form with solid mechanical force, pressing the letters deeply into the cotton fibers. Non-verbal sound design: heavy mechanical iron gear ratchet sound and solid pressure press thud. No speech or dialogue. On-screen text: A PRESSÃO DO PAPEL.",
+      "duration": 9,
+      "onScreenText": "A PRESSÃO DO PAPEL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Authentic printmaking craft documentary cinematography in 16:9. Hero closing frame: the printed sheet is lifted gently from the press. Extreme macro reveals the deep physical indentation (debossing) of the crisp, sharp black letters in the soft white cotton paper texture. Timeless editorial beauty. Non-verbal sound design: gentle paper peel whisper and warm acoustic piano note decaying into workshop silence. No speech or dialogue. On-screen text: A TINTA E O CHUMBO.",
+      "duration": 9,
+      "onScreenText": "A TINTA E O CHUMBO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Antes dos pixels, as palavras tinham peso, cheiro e relevo físico. A tipografia móvel não era apenas uma técnica de impressão; era a materialização tátil do pensamento humano.",
+      "voice": "voz masculina brasileira madura, aveludada, culta, calma, elegante e nostálgica, estilo ensaio documental literário",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Antes dos pixels, cada letra tinha peso físico e espessura."
+        },
+        {
+          "id": "cena-2",
+          "text": "Compor um texto exigia paciência, atenção e silêncio."
+        },
+        {
+          "id": "cena-3",
+          "text": "O rolo distribui a tinta preta como um manto aveludado."
+        },
+        {
+          "id": "cena-4",
+          "text": "O chumbo morde o papel de algodão com força controlada."
+        },
+        {
+          "id": "cena-5",
+          "text": "A palavra impressa ganha corpo e desafia o esquecimento."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Contemplative chamber music with solo piano, soft cello arpeggios, gentle acoustic guitar and a quiet historical resonance.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

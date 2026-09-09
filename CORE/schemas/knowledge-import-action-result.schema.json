@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-import-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "rootScopeId",
+    "candidate"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-import-action-result@1"
+    },
+    "action": {
+      "const": "import-candidate"
+    },
+    "status": {
+      "const": "candidate-created"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "changed": {
+      "const": false
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "candidate": {
+      "$ref": "mkt-videos/knowledge-import-candidate@1"
+    }
+  }
+}

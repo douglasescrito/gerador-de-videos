@@ -1,0 +1,106 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "entretenimento-vertical-social-minh-1",
+  "label": "entretenimento · vertical-social@1 · filme",
+  "description": "Receita completa de 50s: brief \"Corporate team collaboration in modern glass building, diverse professionals…\" com vertical-social@1, narração em blocos e trilha institucional.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "vertical-social@1",
+  "collection": "filme-entretenimento-vertical-social-minh-1",
+  "targetDurationSeconds": 50,
+  "scenes": [
+    {
+      "id": "c01-gancho",
+      "prompt": "[Style: editorial] Cinematic wide shot of Corporate team collaboration in modern glass building, diverse professionals. Smooth slow-motion push-in tracking shot, soft volumetric golden hour light, highly detailed textures, 8k resolution, professional color grading. | hook: Tudo que importa começa com um instante de atenção.",
+      "duration": 10,
+      "onScreenText": "O COMEÇO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "c02-problema",
+      "prompt": "[Style: editorial] Dynamic medium shot showing Corporate team collaboration in modern glass building, diverse professionals. Steady camera panning smoothly from left to right, dramatic cinematic lighting, rich contrast and vivid details. | context: O que parece distante fica perto quando alguém mostra o caminho.",
+      "duration": 10,
+      "onScreenText": "O DESAFIO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "c03-solucao",
+      "prompt": "[Style: editorial] Atmospheric close-up shot focused on Corporate team collaboration in modern glass building, diverse professionals. Shallow depth of field, subtle natural motion, elegant warm illumination, sharp focal clarity. | solution: Cada passo construído com cuidado aproxima o futuro.",
+      "duration": 10,
+      "onScreenText": "O CAMINHO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "c04-prova",
+      "prompt": "[Style: editorial] High-angle orbital shot highlighting Corporate team collaboration in modern glass building, diverse professionals. Fluid camera movement circling the subject, crisp atmospheric depth, filmic color palette. | proof: Os detalhes que ninguém vê são os que sustentam o resultado.",
+      "duration": 10,
+      "onScreenText": "A PROVA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "c05-fecho",
+      "prompt": "[Style: editorial] Cinematic wide shot of Corporate team collaboration in modern glass building, diverse professionals. Smooth slow-motion push-in tracking shot, soft volumetric golden hour light, highly detailed textures, 8k resolution, professional color grading. | cta: O futuro pertence a quem começa hoje, com propósito.",
+      "duration": 10,
+      "onScreenText": "COMECE AGORA",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "music": true,
+    "musicPreset": "institucional",
+    "musicDurationSeconds": 50,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0,
+    "narration": {
+      "provider": "omni",
+      "text": "Tudo que importa começa com um instante de atenção. O que parece distante fica perto quando alguém mostra o caminho. Cada passo construído com cuidado aproxima o futuro. Os detalhes que ninguém vê são os que sustentam o resultado. O futuro pertence a quem começa hoje, com propósito.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiável, de locutor institucional experiente",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "blocks": [
+        {
+          "id": "bloco-1",
+          "text": "Tudo que importa começa com um instante de atenção."
+        },
+        {
+          "id": "bloco-2",
+          "text": "O que parece distante fica perto quando alguém mostra o caminho."
+        },
+        {
+          "id": "bloco-3",
+          "text": "Cada passo construído com cuidado aproxima o futuro."
+        },
+        {
+          "id": "bloco-4",
+          "text": "Os detalhes que ninguém vê são os que sustentam o resultado."
+        },
+        {
+          "id": "bloco-5",
+          "text": "O futuro pertence a quem começa hoje, com propósito."
+        }
+      ]
+    }
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "omniResubmit": "evidence-guided-human",
+    "automaticRetry": false,
+    "acceptedAttemptPolicy": "whisper-pass-and-human-review"
+  },
+  "qa": {
+    "structural": true,
+    "expectedDuration": 50
+  },
+  "assembly": {
+    "fps": 24
+  },
+  "parallel": 3,
+  "resources": []
+}

@@ -1,0 +1,132 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/evidence-link@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "source",
+    "relation",
+    "targetRefs",
+    "observation",
+    "confidence",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/evidence-link@1"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sourceType",
+        "sourceRef",
+        "contentHash",
+        "method",
+        "observedAt",
+        "fragment"
+      ],
+      "properties": {
+        "sourceType": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,63}$"
+        },
+        "sourceRef": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 640,
+          "anyOf": [
+            {
+              "pattern": "^(?:sha256:)?[a-f0-9]{64}$"
+            },
+            {
+              "pattern": "^[A-Za-z][A-Za-z0-9._-]{1,31}:[^\\s]{1,512}$"
+            }
+          ],
+          "not": {
+            "pattern": "^[Ff][Ii][Ll][Ee]:"
+          }
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "method": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9-]{0,63}$"
+        },
+        "observedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "fragment": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "minProperties": 1,
+              "properties": {
+                "text": {
+                  "type": "string",
+                  "minLength": 1,
+                  "maxLength": 10000
+                },
+                "startMs": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "endMs": {
+                  "type": "integer",
+                  "minimum": 1
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "relation": {
+      "enum": [
+        "supports",
+        "contradicts",
+        "example",
+        "documents"
+      ]
+    },
+    "targetRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    },
+    "observation": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 10000
+        }
+      ]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    }
+  }
+}

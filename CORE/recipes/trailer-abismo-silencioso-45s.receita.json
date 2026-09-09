@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-abismo-silencioso-45s",
+  "label": "Trailer Cinematográfico (45s) · Abismo Silencioso (Mistério Submarino)",
+  "description": "Trailer de ficção submarina e mistério em 16:9: submarino de exploração descendo a 11.000 metros de profundidade na Fossa das Marianas, luzes de halogênio na escuridão aquática total, bioluminescência alienígena e pressão colossal.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "deep-ocean-cinema@1",
+  "collection": "trailer-abismo-silencioso-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia submarina abissal",
+    "sound design hidrodinâmico e sonar",
+    "Flow Music suspense abissal",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Deep ocean sci-fi thriller trailer cinematography in 16:9. A lone high-tech research submersible descends into pitch-black oceanic darkness. Two powerful halogen floodlights cut through murky deep waters filled with drifting marine snow. 35mm cinema lens, cold cyan and deep sapphire blue color grading. Non-verbal sound design: deep muffled water pressure drone, periodic metallic sonar ping. No speech or dialogue. On-screen text: 11.000 METROS ABAIXO.",
+      "duration": 9,
+      "onScreenText": "11.000 METROS ABAIXO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Deep ocean sci-fi thriller trailer cinematography in 16:9. Close-up inside the submersible cockpit on a mechanical pressure gauge needle trembling as it crosses red critical zone limits. Condensation drips from heavy reinforced titanium viewport bolts. Non-verbal sound design: creaking titanium hull under extreme hydrostatic pressure, rapid heart-rate monitor. No speech or dialogue. On-screen text: A PRESSÃO É TOTAL.",
+      "duration": 9,
+      "onScreenText": "A PRESSÃO É TOTAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Deep ocean sci-fi thriller trailer cinematography in 16:9. Submersible floodlights suddenly reveal a colossal submerged monolithic structure half-buried in the abyssal trench seabed, glowing with organic bioluminescent emerald patterns. Massive sense of scale. Non-verbal sound design: deep echoing whale-like frequency roar from the abyss and massive sub-bass impact. No speech or dialogue. On-screen text: NÃO ESTAMOS SOZINHOS.",
+      "duration": 9,
+      "onScreenText": "NÃO ESTAMOS SOZINHOS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Deep ocean sci-fi thriller trailer cinematography in 16:9. Rapid kinetic underwater cuts: electrical sparks bursting inside the cockpit, submersible rolling into a dark oceanic trench, a colossal tentacled shadow gliding past the main glass viewport. Non-verbal sound design: rushing bubbles, underwater hull alarms, massive low-end whoosh. No speech or dialogue. On-screen text: A ESCURIDÃO RESPONDEU.",
+      "duration": 9,
+      "onScreenText": "A ESCURIDÃO RESPONDEU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Deep ocean sci-fi thriller trailer cinematography in 16:9. Hero title reveal: fractured, frosted deep-sea 3D typography illuminated by flickering submarine headlights against the infinite black ocean floor. Non-verbal sound design: profound oceanic silence ending in one single sharp sonar ping with infinite reverb. No speech or dialogue. On-screen text: ABISMO SILENCIOSO.",
+      "duration": 9,
+      "onScreenText": "ABISMO SILENCIOSO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Conhecemos a superfície da lua melhor do que as profundezas do nosso próprio planeta. Mas existem lugares onde a luz do sol nunca chegou. E o que vive lá... não quer ser perturbado.",
+      "voice": "voz feminina brasileira madura, grave, tensa, pausada, sussurrada e científica, estilo thriller de suspense e ficção",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Conhecemos as estrelas melhor do que nossos oceanos."
+        },
+        {
+          "id": "cena-2",
+          "text": "Onde a luz do sol nunca alcançou, a pressão é absoluta."
+        },
+        {
+          "id": "cena-3",
+          "text": "O que encontramos no fundo do abismo não é humano."
+        },
+        {
+          "id": "cena-4",
+          "text": "E agora, não há como voltar à superfície."
+        },
+        {
+          "id": "cena-5",
+          "text": "Abismo Silencioso. O segredo mais profundo da Terra."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Suspenseful abyssal orchestral score with underwater hydrophone textures, bowed metallic waterphones, deep sub-bass drones and sudden terrifying percussion hits.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

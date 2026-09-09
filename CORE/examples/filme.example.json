@@ -1,0 +1,55 @@
+{
+  "name": "piloto-studio",
+  "aspect": "16:9",
+  "style": "aquarela-2d@1",
+  "imageModel": "gemini-3-pro-image",
+  "imageSize": "2K",
+  "scenes": [
+    {
+      "id": "abertura",
+      "prompt": "O sol nasce sobre uma cidade tranquila.",
+      "motionPrompt": "A câmera avança lentamente enquanto a luz da manhã se espalha."
+    },
+    {
+      "id": "encontro",
+      "prompt": "Pessoas se encontram em uma praça arborizada.",
+      "motionPrompt": "Movimento lateral suave, gestos naturais e folhas balançando ao vento."
+    }
+  ],
+  "narration": {
+    "provider": "google-vids",
+    "documentUrl": "https://docs.google.com/videos/d/SEU_DOCUMENTO/edit",
+    "text": "Hoje é um bom dia para começar algo novo.",
+    "voice": "Nyla",
+    "readingDirection": "Brazilian Portuguese, warm, calm and confident. Read only the transcript."
+  },
+  "music": {
+    "backend": "flow-music",
+    "preset": "caloroso",
+    "durationSeconds": 30
+  },
+  "assembly": {
+    "transition": "dissolve",
+    "transitionDuration": 0.5,
+    "fps": 24
+  },
+  "audio": {
+    "loudness": "platform",
+    "musicGain": 0.45,
+    "duckingRatio": 8
+  },
+  "delivery": {
+    "profile": "web-1080p"
+  },
+  "qa": {
+    "semantic": false,
+    "expectedText": null
+  },
+  "budget": {
+    "image": 2,
+    "tts": 1,
+    "music": 1,
+    "omni": 2,
+    "semanticQa": 0
+  }
+}

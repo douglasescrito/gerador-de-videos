@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/video-review-event@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "rootScopeId", "scopeId", "actor", "at", "targetHash", "relPath", "status", "reason", "receiptId"],
+  "properties": {
+    "schema": { "const": "mkt-videos/video-review-event@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "scopeId": { "$ref": "#/$defs/id" },
+    "actor": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "at": { "type": "string", "format": "date-time" },
+    "targetHash": { "$ref": "#/$defs/hash" },
+    "relPath": { "type": "string", "minLength": 1 },
+    "status": { "enum": ["approved", "rejected", "needs-review"] },
+    "reason": { "type": "string", "minLength": 1, "maxLength": 2000 },
+    "receiptId": { "anyOf": [{ "type": "string", "minLength": 1 }, { "type": "null" }] }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

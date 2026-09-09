@@ -1,0 +1,227 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-domain-pack-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "deterministic",
+    "approvalVerified",
+    "manifest"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-domain-pack-action-result@1"
+    },
+    "action": {
+      "const": "packs"
+    },
+    "status": {
+      "const": "catalog-loaded"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "changed": {
+      "const": false
+    },
+    "deterministic": {
+      "const": true
+    },
+    "approvalVerified": {
+      "const": false
+    },
+    "manifest": {
+      "$ref": "#/$defs/manifest"
+    }
+  },
+  "$defs": {
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,95}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "packRef": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,95}@[1-9][0-9]*$"
+    },
+    "contentCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "sources",
+        "definitions",
+        "principles",
+        "exceptions",
+        "antiPatterns",
+        "abstractExamples",
+        "counterExamples",
+        "coverageTags",
+        "dependencies"
+      ],
+      "properties": {
+        "sources": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "definitions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "principles": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "exceptions": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "antiPatterns": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "abstractExamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "counterExamples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "coverageTags": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "dependencies": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "catalogCounts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "candidates",
+        "content"
+      ],
+      "properties": {
+        "candidates": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "content": {
+          "$ref": "#/$defs/contentCounts"
+        }
+      }
+    },
+    "hashes": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fileSha256",
+        "contentHash"
+      ],
+      "properties": {
+        "fileSha256": {
+          "$ref": "#/$defs/hash"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "pack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ref",
+        "id",
+        "version",
+        "status",
+        "approvalVerified",
+        "hashes",
+        "counts"
+      ],
+      "properties": {
+        "ref": {
+          "$ref": "#/$defs/packRef"
+        },
+        "id": {
+          "$ref": "#/$defs/slug"
+        },
+        "version": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "status": {
+          "const": "candidate"
+        },
+        "approvalVerified": {
+          "const": false
+        },
+        "hashes": {
+          "$ref": "#/$defs/hashes"
+        },
+        "counts": {
+          "$ref": "#/$defs/contentCounts"
+        }
+      }
+    },
+    "manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "directory",
+        "manifestHash",
+        "packCount",
+        "loadOrder",
+        "counts",
+        "packs"
+      ],
+      "properties": {
+        "schema": {
+          "const": "mkt-videos/domain-pack-catalog@1"
+        },
+        "directory": {
+          "const": "knowledge/domain-packs"
+        },
+        "manifestHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "packCount": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "loadOrder": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "$ref": "#/$defs/packRef"
+          }
+        },
+        "counts": {
+          "$ref": "#/$defs/catalogCounts"
+        },
+        "packs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/pack"
+          }
+        }
+      }
+    }
+  }
+}

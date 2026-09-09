@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/creative-console-snapshot@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "mode", "knowledge", "plan", "capabilities", "feedback", "evaluation", "releaseGovernance", "preferenceRanker", "actions", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/creative-console-snapshot@1" },
+    "mode": { "const": "read-only" },
+    "knowledge": { "type": "object" },
+    "plan": { "type": "object" },
+    "capabilities": { "type": "object" },
+    "feedback": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present", "queueSchema", "pendingCount", "pendingIds", "summary"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "queueSchema": { "type": ["string", "null"] },
+        "pendingCount": { "type": "integer", "minimum": 0 },
+        "pendingIds": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+        "summary": {
+          "type": ["object", "null"],
+          "additionalProperties": false,
+          "required": ["captured", "promoted", "pending"],
+          "properties": {
+            "captured": { "type": ["integer", "null"], "minimum": 0 },
+            "promoted": { "type": ["integer", "null"], "minimum": 0 },
+            "pending": { "type": ["integer", "null"], "minimum": 0 }
+          }
+        }
+      }
+    },
+    "evaluation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "schema": { "const": "mkt-videos/retrieval-shadow-evaluation@1" },
+        "evaluationId": { "type": "string", "pattern": "^rse_[a-f0-9]{32}$" },
+        "rankerVersion": { "const": "lexical-ranker@1" },
+        "caseCount": { "type": "integer", "minimum": 0 },
+        "acceptedCaseCount": { "type": "integer", "minimum": 0 },
+        "mismatchedCaseCount": { "type": "integer", "minimum": 0 },
+        "zeroLeakage": { "type": "boolean" },
+        "leakageCount": { "type": "integer", "minimum": 0 },
+        "overrideCount": { "type": "integer", "minimum": 0 },
+        "unresolvedConflictCount": { "type": "integer", "minimum": 0 },
+        "plannerInfluenceViolations": { "type": "integer", "minimum": 0 },
+        "acceptanceRate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "overrideRate": { "type": "number", "minimum": 0, "maximum": 1 },
+        "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "present": { "const": true } } },
+          "then": {
+            "required": [
+              "schema", "evaluationId", "rankerVersion", "caseCount",
+              "acceptedCaseCount", "mismatchedCaseCount", "zeroLeakage",
+              "leakageCount", "overrideCount", "unresolvedConflictCount",
+              "plannerInfluenceViolations", "acceptanceRate", "overrideRate",
+              "hash"
+            ]
+          }
+        }
+      ]
+    },
+    "releaseGovernance": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "action": { "const": "active-release" },
+        "status": { "enum": ["no-active-release", "active"] },
+        "eligible": { "type": "boolean" },
+        "release": {
+          "oneOf": [
+            { "type": "null" },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["id", "hash", "memberCount"],
+              "properties": {
+                "id": { "type": "string" },
+                "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+                "memberCount": { "type": "integer", "minimum": 0 }
+              }
+            }
+          ]
+        },
+        "issueTypes": { "type": "array", "uniqueItems": true, "items": { "type": "string" } }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "present": { "const": true } } },
+          "then": { "required": ["action", "status", "eligible", "release", "issueTypes"] }
+        }
+      ]
+    },
+    "preferenceRanker": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["present"],
+      "properties": {
+        "present": { "type": "boolean" },
+        "rankerVersion": { "const": "precedence-ranker@1" },
+        "status": { "enum": ["selected", "no-admissible-option", "blocked-viability", "unresolved-conflict"] },
+        "rankedOptionIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "selectedOptionId": { "oneOf": [{ "type": "null" }, { "type": "string" }] },
+        "viableAlternativeIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "admissibleOptionIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "blockedOptionIds": { "type": "array", "uniqueItems": true, "items": { "type": "string" } },
+        "requiresHumanDecision": { "type": "boolean" },
+        "requiresReplan": { "type": "boolean" },
+        "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      },
+      "allOf": [
+        {
+          "if": { "properties": { "present": { "const": true } } },
+          "then": { "required": ["rankerVersion", "status", "rankedOptionIds", "selectedOptionId", "viableAlternativeIds", "admissibleOptionIds", "blockedOptionIds", "requiresHumanDecision", "requiresReplan", "fingerprint"] }
+        }
+      ]
+    },
+    "actions": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["changed", "providerCalls", "canExecute", "canPromoteKnowledge", "canApproveDraft", "requiresHumanDecision"],
+      "properties": {
+        "changed": { "const": false },
+        "providerCalls": { "const": 0 },
+        "canExecute": { "const": false },
+        "canPromoteKnowledge": { "const": false },
+        "canApproveDraft": { "const": false },
+        "requiresHumanDecision": { "const": true }
+      }
+    },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

@@ -1,0 +1,30 @@
+.grupos-receitas { padding:14px 16px; border-bottom:1px solid var(--linha); background:var(--painel); }
+.grupos-cabecalho { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.grupos-receitas h2 { font-size:15px; margin:0 0 4px; }
+.grupos-receitas h3 { margin:12px 0 7px; font-size:12px; color:var(--tinta-fraca); }
+.grupos-receitas p { font-size:12px; color:var(--tinta-fraca); margin:0 0 10px; line-height:1.5; }
+.grupos-lista { display:flex; flex-wrap:wrap; gap:7px; }
+.grupo-controle { display:inline-flex; border:1px solid var(--linha-forte); border-radius:7px; overflow:hidden; min-width:0; }
+.grupo-controle button { border:0; border-radius:0; min-height:32px; background:transparent; }
+.grupo-filtro { display:flex; align-items:center; gap:8px; padding:5px 9px; }
+.grupo-filtro small { font-size:10px; opacity:.7; }
+.grupo-filtro.ativo { background:var(--destaque-fundo); color:var(--destaque); }
+.grupo-controle .grupo-explicacao { border-left:1px solid var(--linha-forte); width:30px; padding:4px; color:var(--destaque); font-size:15px; font-weight:700; }
+.grupo-controle button:hover { background:var(--destaque-fundo); }
+.grupo-controle button:focus-visible { outline:2px solid var(--destaque); outline-offset:-3px; }
+.grupos-receitas .grupos-nota { margin:10px 0 0; font-size:11px; }
+.etiquetas-video { height:19px; display:flex; gap:4px; overflow:hidden; font-size:9px; line-height:15px; }
+.etiquetas-video span { overflow:hidden; text-overflow:ellipsis; white-space:nowrap; padding:1px 5px; border-radius:4px; background:var(--destaque-fundo); color:var(--destaque); }
+#grupo-modal { box-sizing:border-box; width:min(820px,calc(100vw - 28px)); max-height:88vh; margin:auto; padding:28px; border:1px solid var(--linha-forte); border-radius:16px; background:var(--painel); color:var(--tinta); overflow:auto; box-shadow:0 24px 100px #0009; }
+#grupo-modal::backdrop { background:#000b; }
+.grupo-modal-topo { display:flex; align-items:center; justify-content:space-between; color:var(--destaque); font-size:14px; }
+#fechar-grupo-modal { font-size:25px; width:40px; height:40px; }
+#grupo-modal h2 { font-size:clamp(26px,4vw,38px); line-height:1.2; margin:20px 0; }
+#grupo-modal h3 { font-size:22px; margin:26px 0 10px; }
+#grupo-modal p,#grupo-modal li { font-size:20px; line-height:1.65; }
+#grupo-modal ol,#grupo-modal ul { padding-left:28px; }
+#grupo-modal li { margin:10px 0; }
+#grupo-modal small { display:block; font-size:13px; color:var(--tinta-fraca); overflow-wrap:anywhere; }
+#grupo-modal .grupo-criterio { font-size:15px; color:var(--tinta-fraca); border-top:1px solid var(--linha-forte); padding-top:18px; }
+#grupo-modal #ver-grupo { font-size:16px; padding:10px 18px; }
+@media(max-width:600px) { .grupos-receitas { padding:10px; } #grupo-modal { padding:18px; } #grupo-modal p,#grupo-modal li { font-size:18px; } .grupo-filtro { font-size:11px; } }

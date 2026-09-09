@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Acervo — Gerador de Vídeos</title>
+<style>
+  /* Ferramenta local que abre vinte vezes por dia: nada de fonte remota, que
+     atrasaria a abertura e quebraria sem rede. O caráter vem de hierarquia,
+     espaçamento e cor, não de tipografia importada. */
+  :root {
+    --fundo: #0c0f0e;
+    --painel: #121716;
+    --carta: #161d1c;
+    --carta-alta: #1d2725;
+    --linha: #222b29;
+    --linha-forte: #2f3b38;
+    --tinta: #e9efed;
+    --tinta-fraca: #94a39f;
+    --tinta-tenue: #64726e;
+    --destaque: #4fd1bd;
+    --destaque-fundo: #0e302b;
+    --alerta: #e3a850;
+    --sombra: 0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.55);
+    --fonte: -apple-system, "Segoe UI Variable Display", "Segoe UI", system-ui, sans-serif;
+    --mono: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    background: var(--fundo);
+    color: var(--tinta);
+    font: 14px/1.5 var(--fonte);
+    -webkit-font-smoothing: antialiased;
+    display: flex; flex-direction: column;
+    overflow: hidden;
+  }
+  ::selection { background: var(--destaque-fundo); color: var(--destaque); }
+  :focus-visible { outline: 2px solid var(--destaque); outline-offset: 2px; }
+
+  /* ---------- cabeçalho ---------- */
+
+  header {
+    flex: none;
+    border-bottom: 1px solid var(--linha);
+    background: var(--painel);
+    padding: .6rem .9rem;
+    display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  }
+  .marca { display: flex; flex-direction: column; line-height: 1.2; margin-right: .4rem; }
+  .marca b { font-size: .95rem; font-weight: 650; letter-spacing: -.01em; }
+  .marca span { font-size: .7rem; color: var(--tinta-tenue); font-variant-numeric: tabular-nums; }
+
+  .campo-busca { position: relative; flex: 1; min-width: 14rem; }
+  .campo-busca svg { position: absolute; left: .6rem; top: 50%; transform: translateY(-50%); width: .9rem; height: .9rem; color: var(--tinta-tenue); pointer-events: none; }
+  input[type="search"], select {
+    background: var(--fundo);
+    border: 1px solid var(--linha-forte);
+    color: var(--tinta);
+    border-radius: 7px;
+    padding: .42rem .6rem;
+    font: inherit;
+    outline: none;
+    transition: border-color .12s;
+  }
+  input[type="search"] { width: 100%; padding-left: 1.9rem; }
+  input::placeholder { color: var(--tinta-tenue); }
+  input:focus, select:focus { border-color: var(--destaque); }
+  select { cursor: pointer; }
+
+  button {
+    background: transparent;
+    border: 1px solid var(--linha-forte);
+    color: var(--tinta-fraca);
+    border-radius: 7px;
+    padding: .42rem .7rem;
+    font: inherit;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: color .12s, border-color .12s, background .12s;
+  }
+  button:hover { color: var(--tinta); border-color: var(--tinta-tenue); background: var(--carta); }
+  button.ativo { background: var(--destaque-fundo); border-color: var(--destaque); color: var(--destaque); }
+  button.discreto { border-color: transparent; color: var(--tinta-tenue); }
+  button.discreto:hover { border-color: var(--linha-forte); }
+
+  /* ---------- corpo ---------- */
+
+  .corpo { flex: 1; display: flex; min-height: 0; }
+
+  aside {
+    flex: none; width: 17.5rem;
+    border-right: 1px solid var(--linha);
+    background: var(--painel);
+    display: flex; flex-direction: column; min-height: 0;
+  }
+  .lateral-busca { padding: .6rem; border-bottom: 1px solid var(--linha); }
+  .lateral-busca input { width: 100%; padding-left: .6rem; font-size: .82rem; }
+  .lateral-lista { flex: 1; overflow-y: auto; padding: .4rem; }
+
+  .grupo-fonte {
+    font-size: .64rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--tinta-tenue); padding: .9rem .55rem .3rem;
+  }
+  .item-col {
+    display: flex; justify-content: space-between; gap: .5rem;
+    padding: .34rem .55rem; border-radius: 6px; cursor: pointer;
+    font-size: .81rem; color: var(--tinta-fraca);
+    transition: background .1s, color .1s;
+  }
+  .item-col:hover { background: var(--carta); color: var(--tinta); }
+  .item-col.ativo { background: var(--destaque-fundo); color: var(--destaque); }
+  .item-col .rotulo { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .item-col .n { font-variant-numeric: tabular-nums; color: var(--tinta-tenue); flex: none; font-size: .74rem; }
+  .item-col.ativo .n { color: var(--destaque); }
+
+  main { flex: 1; overflow-y: auto; position: relative; }
+  .barra-status {
+    position: sticky; top: 0; z-index: 3;
+    background: color-mix(in srgb, var(--fundo) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
+    padding: .5rem 1rem;
+    font-size: .95rem; color: var(--tinta-fraca);
+    display: flex; gap: .9rem; align-items: center; flex-wrap: wrap;
+  }
+  .barra-status b { color: var(--tinta); font-variant-numeric: tabular-nums; font-weight: 600; }
+  .barra-status .tenue { color: var(--tinta-tenue); }
+  .barra-status .destaque { color: var(--destaque); }
+
+  /* ---------- grade ---------- */
+
+  #palco { position: relative; padding: 1rem; }
+  .carta {
+    position: absolute;
+    background: var(--carta);
+    border: 1px solid var(--linha);
+    border-radius: 9px;
+    overflow: hidden;
+    cursor: pointer;
+    display: flex; flex-direction: column;
+    transition: border-color .12s, transform .12s, box-shadow .12s;
+  }
+  .carta:hover {
+    border-color: var(--linha-forte);
+    transform: translateY(-2px);
+    box-shadow: var(--sombra);
+  }
+  .carta.previa { border-color: var(--destaque); }
+  .carta .quadro {
+    position: relative;
+    background: #000;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+  .carta img, .carta video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+  .carta img { object-fit: cover; }
+  .carta video { object-fit: contain; background: #000; }
+  .carta .vazio { color: var(--tinta-tenue); font-size: .68rem; }
+  .carta .tempo {
+    position: absolute; right: .35rem; bottom: .35rem;
+    background: rgba(0,0,0,.72); color: #fff;
+    border: 1px solid rgba(255,255,255,.3);
+    font: 700 .85rem/1 var(--mono);
+    padding: .24rem .42rem; border-radius: 5px;
+    font-variant-numeric: tabular-nums;
+  }
+  .carta .info { padding: .5rem .6rem .55rem; display: flex; flex-direction: column; gap: .22rem; }
+  .carta .colecao {
+    font-size: .72rem; text-transform: uppercase; letter-spacing: .07em;
+    color: var(--tinta-tenue);
+    overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+  }
+  .carta .tit {
+    font-size: .93rem; line-height: 1.25; font-weight: 600;
+    display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;
+  }
+  .carta .meta {
+    font-size: .72rem; color: var(--tinta-tenue);
+    font-variant-numeric: tabular-nums;
+    display: flex; gap: .45rem; flex-wrap: wrap; align-items: center;
+  }
+  .carta .meta .duracao-clar { color: var(--tinta); font-size: .82rem; font-weight: 700; flex: 1 1 100%; }
+  .selo { border-radius: 4px; padding: 0 .32rem; font-size: .68rem; letter-spacing: .04em; }
+  .selo-master { color: var(--destaque); background: var(--destaque-fundo); }
+  .selo-fonte { color: var(--alerta); background: color-mix(in srgb, var(--alerta) 14%, transparent); }
+  .selo-vertical { color: var(--tinta-fraca); background: var(--carta-alta); }
+
+  .aviso-som {
+    display: none;
+    font-size: .7rem; color: var(--destaque);
+    background: var(--destaque-fundo);
+    border: 1px solid color-mix(in srgb, var(--destaque) 35%, transparent);
+    border-radius: 6px; padding: .28rem .5rem;
+  }
+  .aviso-som.visivel { display: inline-block; }
+
+  /* ---------- leitor ---------- */
+
+  /* Assistir é assistir. Quem clicou num vídeo quer o vídeo: ele fica sozinho
+     no escuro, ocupando 80% da tela, e a ficha técnica espera atrás de um botão
+     no canto — fora do retângulo da imagem, onde não atrapalha ninguém. */
+
+  #leitor {
+    --larg-ficha: 27rem;
+    position: fixed; inset: 0; z-index: 20;
+    background: rgba(5,7,7,.96);
+    backdrop-filter: blur(6px);
+    display: none; overflow: hidden;
+  }
+  #leitor.aberto { display: block; }
+
+  .leitor-tela {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    padding: 1rem;
+    container-type: size;
+    transition: right .22s ease;
+  }
+  #leitor.com-ficha .leitor-tela { right: var(--larg-ficha); }
+
+  /* 80% da tela em cada eixo, na proporção real do arquivo (lida no
+     loadedmetadata; até lá vale o formato que o catálogo já mediu). Os dois
+     termos em unidade de contêiner só pesam quando a ficha abre e a tela
+     encolhe: aí o vídeo cede tamanho em vez de ficar debaixo do painel. */
+  .leitor-video {
+    --prop: var(--proporcao, 1.7778);
+    width: min(80vw, calc(80vh * var(--prop)), 100cqw, calc(100cqh * var(--prop)));
+    aspect-ratio: var(--prop);
+    transition: width .22s ease;
+  }
+  .leitor-video video {
+    width: 100%; height: 100%; display: block;
+    border-radius: 10px; background: #000; box-shadow: var(--sombra);
+  }
+
+  .leitor-comandos {
+    position: absolute; top: .85rem; right: 1rem; z-index: 22;
+    display: flex; gap: .4rem;
+    transition: right .22s ease;
+  }
+  #leitor.com-ficha .leitor-comandos { right: calc(var(--larg-ficha) + 1rem); }
+  .botao-leitor {
+    width: 2.25rem; height: 2.25rem; padding: 0;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--painel) 85%, transparent);
+  }
+  .botao-leitor svg { width: 1.05rem; height: 1.05rem; }
+  .botao-leitor.ativo { background: var(--destaque-fundo); border-color: var(--destaque); color: var(--destaque); }
+
+  /* Dica escrita à mão em vez do title do navegador: o title demora um segundo
+     para aparecer e some sozinho, e aqui o botão é só um ícone — quem passa o
+     mouse precisa saber na hora o que ele faz. */
+  .dica { position: relative; }
+  .dica::after {
+    content: attr(data-dica);
+    position: absolute; top: calc(100% + .4rem); right: 0;
+    background: var(--painel); color: var(--tinta);
+    border: 1px solid var(--linha-forte); border-radius: 6px;
+    padding: .3rem .5rem; font-size: .72rem; white-space: nowrap;
+    box-shadow: var(--sombra); pointer-events: none;
+    opacity: 0; transform: translateY(-.2rem);
+    transition: opacity .12s ease, transform .12s ease;
+  }
+  .dica:hover::after, .dica:focus-visible::after { opacity: 1; transform: none; }
+
+
+  /* ---------- dossiê ---------- */
+
+  /* A ficha entra deslizando por cima do escuro, nunca por cima do vídeo: a
+     tela do filme encolhe na mesma transição para abrir espaço a ela. */
+  .leitor-lado {
+    position: absolute; top: 0; right: 0; bottom: 0; z-index: 21;
+    width: var(--larg-ficha); padding: 0;
+    background: var(--painel); border-left: 1px solid var(--linha);
+    overflow-y: auto; overscroll-behavior: contain;
+    transform: translateX(100%); visibility: hidden;
+    transition: transform .22s ease, visibility 0s linear .22s;
+  }
+  #leitor.com-ficha .leitor-lado {
+    transform: none; visibility: visible;
+    transition: transform .22s ease, visibility 0s;
+  }
+  .dossie-topo {
+    padding: 1.1rem 1.1rem .9rem;
+    border-bottom: 1px solid var(--linha);
+    position: sticky; top: 0; background: var(--painel); z-index: 2;
+  }
+  .dossie-topo .colecao {
+    font-size: .62rem; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--tinta-tenue); margin-bottom: .25rem;
+  }
+  .dossie-topo h2 { font-size: 1rem; margin: 0 0 .5rem; line-height: 1.3; font-weight: 600; }
+  .dossie-corpo { padding: 0 1.1rem 1.4rem; }
+
+  .secao { padding: 1rem 0 .2rem; border-top: 1px solid var(--linha); }
+  .secao:first-child { border-top: 0; padding-top: .9rem; }
+  .secao > h3 {
+    font-size: .63rem; text-transform: uppercase; letter-spacing: .12em;
+    color: var(--tinta-tenue); margin: 0 0 .6rem; font-weight: 600;
+    display: flex; align-items: center; gap: .45rem;
+  }
+  .secao > h3 .conta {
+    color: var(--tinta-fraca); background: var(--carta);
+    border-radius: 20px; padding: .05rem .38rem; font-size: .6rem; letter-spacing: 0;
+  }
+  .secao.vazia > h3 { color: var(--linha-forte); }
+  .nada {
+    font-size: .74rem; color: var(--tinta-tenue); font-style: italic;
+    padding: .1rem 0 .3rem;
+  }
+
+  .par { display: grid; grid-template-columns: 7.2rem 1fr; gap: .3rem .6rem; font-size: .76rem; margin-bottom: .3rem; }
+  .par dt { color: var(--tinta-tenue); }
+  .par dd { margin: 0; word-break: break-word; }
+  .par dd.mono { font-family: var(--mono); font-size: .7rem; color: var(--tinta-fraca); }
+
+  .prosa {
+    font-size: .78rem; line-height: 1.65; color: var(--tinta-fraca);
+    background: var(--fundo); border: 1px solid var(--linha);
+    border-left: 2px solid var(--destaque);
+    border-radius: 0 7px 7px 0; padding: .65rem .75rem;
+    max-height: 15rem; overflow-y: auto; white-space: pre-wrap;
+  }
+  .prosa.tecnica { font-family: var(--mono); font-size: .69rem; border-left-color: var(--linha-forte); color: var(--tinta-tenue); }
+
+  .tira { display: flex; gap: .3rem; overflow-x: auto; padding-bottom: .3rem; }
+  .tira img {
+    height: 3.4rem; border-radius: 5px; border: 1px solid var(--linha);
+    flex: none; cursor: pointer; background: #000; object-fit: cover; aspect-ratio: 16/9;
+  }
+  .tira img:hover { border-color: var(--destaque); }
+
+  .faixa-audio { display: flex; flex-direction: column; gap: .4rem; }
+  .faixa-audio .nome { font-size: .68rem; color: var(--tinta-tenue); font-family: var(--mono); }
+  .faixa-audio audio { width: 100%; height: 1.9rem; }
+
+  .irmaos { display: flex; flex-direction: column; gap: .18rem; max-height: 13rem; overflow-y: auto; }
+  .irmao {
+    display: flex; justify-content: space-between; gap: .5rem;
+    font-size: .72rem; color: var(--tinta-fraca);
+    padding: .22rem .4rem; border-radius: 5px; cursor: pointer;
+  }
+  .irmao:hover { background: var(--carta); color: var(--tinta); }
+  .irmao .t { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .irmao .d { color: var(--tinta-tenue); flex: none; font-variant-numeric: tabular-nums; font-size: .66rem; }
+  .irmao .marca-m { color: var(--destaque); }
+
+  .lista-seca { margin: 0; padding-left: 1rem; font-size: .75rem; color: var(--tinta-fraca); line-height: 1.6; }
+  .lista-seca li { margin-bottom: .15rem; }
+
+  details.cru { margin-top: .5rem; }
+  details.cru summary { font-size: .68rem; color: var(--tinta-tenue); cursor: pointer; }
+  details.cru summary:hover { color: var(--tinta-fraca); }
+  details.cru pre { margin-top: .4rem; }
+
+  .fita {
+    display: inline-flex; align-items: center; gap: .3rem;
+    font-size: .62rem; letter-spacing: .04em;
+    border-radius: 4px; padding: .12rem .35rem;
+  }
+  .fita-ok { color: var(--destaque); background: var(--destaque-fundo); }
+  .fita-falta { color: var(--tinta-tenue); background: var(--carta); }
+
+  .estado { padding: 4rem 2rem; text-align: center; color: var(--tinta-tenue); }
+  .estado b { display: block; color: var(--tinta-fraca); font-size: .9rem; margin-bottom: .3rem; font-weight: 500; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .carta, button, input, select { transition: none; }
+    .carta:hover { transform: none; }
+    .leitor-tela, .leitor-video, .leitor-comandos, .leitor-lado, .dica::after { transition: none; }
+  }
+</style>
+<link rel="stylesheet" href="/acervo-view.css">
+<link rel="stylesheet" href="/acervo-groups.css">
+<link rel="stylesheet" href="/studio-production.css"></head>
+<body>
+
+<header>
+<a href="/home" class="acervo-home" aria-label="Home" title="Voltar à Home"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-8H9v8H4a1 1 0 0 1-1-1z"/></svg></a>
+<button id="btn-colecoes" aria-label="Mostrar ou ocultar coleções" title="Coleções">☰</button>
+  <div class="marca"><b>Acervo<span class="marca-ponto"> / </span>Studio</b><span id="marca-total">carregando…</span></div>
+  <div class="campo-busca">
+    <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5 14 14"/></svg>
+    <input type="search" id="busca" placeholder="Buscar por nome, coleção ou prompt…" autocomplete="off">
+  </div>
+
+  <div class="segmentos">
+    <button data-modo="galeria" aria-pressed="true">▦ Galeria</button>
+    <button data-modo="dupla" aria-pressed="false">◫ Visão dupla</button>
+    <button data-modo="apresentacao" aria-pressed="false">▷ Apresentação</button>
+  </div>
+</header>
+
+<nav class="modos" aria-label="Filtros e visualização">
+  <select id="ordem" title="Ordenar">
+    <option value="recentes">Mais recentes</option>
+    <option value="antigos">Mais antigos</option>
+    <option value="longos">Mais longos</option>
+    <option value="pesados">Maiores arquivos</option>
+    <option value="nome">Nome</option>
+  </select>
+  <select id="formato" title="Formato">
+    <option value="">Todo formato</option>
+    <option value="landscape">Horizontal 16:9</option>
+    <option value="portrait">Vertical 9:16</option>
+    <option value="square">Quadrado</option>
+  </select>
+  <select id="origem" aria-label="Origem dos vídeos"><option value="">Todas as origens</option><option value="entregas">Entregas</option><option value="producoes">Produções</option><option value="soltos">Vídeos soltos</option><option value="core-videos">Vídeos do CORE</option><option value="diagnosticos">Diagnósticos</option></select>
+  <button id="btn-master" title="Mostra finais registrados e casos a confirmar. Exclui cenas e intermediários identificados." aria-pressed="false">Vídeos finais</button>
+  <button id="abrir-favoritos" aria-pressed="false" onclick="abrirFavoritos()">★ Favoritos</button>
+  <span id="favorito-status" class="sr-only" role="status" aria-live="polite"></span>
+
+  <label>Tamanho <input id="densidade" type="range" min="150" max="360" step="10" value="220" aria-label="Tamanho das miniaturas"></label>
+  <span class="atalhos" title="← → navegar · Espaço pausar · F maximizar · Esc voltar">Atalhos ⌨</span>
+</nav>
+<div class="corpo">
+  <aside>
+    <div class="lateral-busca">
+      <input type="search" id="busca-colecao" placeholder="Filtrar coleções…" autocomplete="off">
+    </div>
+    <div class="lateral-lista" id="lateral"></div>
+  </aside>
+  <main id="area">
+    <section class="grupos-receitas" aria-label="Grupos de receitas">
+      <div class="grupos-cabecalho"><div><h2>Receitas por estrutura</h2><p>Clique para filtrar. Abra o ! para conhecer o padrão e experimentar novas ideias.</p></div><button id="limpar-grupos" hidden>Limpar grupos</button></div>
+      <div id="grupos-existentes" class="grupos-lista" aria-label="Formatos do acervo"></div>
+      <h3>Explorar novas coleções</h3><div id="grupos-propostas" class="grupos-lista" aria-label="Propostas de receitas"></div>
+      <p id="etiquetas-cobertura" class="grupos-nota" role="status"></p>
+    </section>
+    <section class="acervo-resumo"><div class="resumo-titulo"><div><h1 id="titulo-colecao">Todos os vídeos</h1></div><span id="resumo-nota"></span></div><div class="barra-status" id="status">Carregando o acervo…</div></section>
+    <div id="palco"><div class="estado"><b>Varrendo o disco</b>Isso leva um instante na primeira abertura.</div></div>
+  </main>
+</div>
+
+<div id="leitor" role="region" aria-label="Apresentação">
+  <div id="divisor" role="separator" aria-label="Largura da apresentação" aria-orientation="vertical" aria-valuemin="35" aria-valuemax="70" aria-valuenow="54" tabindex="0"></div>
+  <div class="apresentacao-barra">
+    <button id="anterior" aria-label="Vídeo anterior">‹</button>
+    <button id="proximo" aria-label="Próximo vídeo">›</button>
+    <button id="automatico" aria-pressed="false" title="Avançar ao terminar cada vídeo">▶ Sequência</button>
+    <span id="contador" role="status" aria-live="polite">0 / 0</span>
+    <select id="velocidade" aria-label="Velocidade do vídeo"><option value="0.5">0,5×</option><option value="1" selected>1×</option><option value="1.5">1,5×</option><option value="2">2×</option></select>
+    <button id="repetir" aria-pressed="false" title="Repetir a sequência">↻</button>
+    <button id="maximizar" aria-label="Maximizar apresentação" title="Maximizar (F)">⛶</button>
+  </div>
+  <div class="apresentacao-contexto"><b id="titulo-atual">Selecione um vídeo na galeria</b><span id="contexto-atual"></span><div id="detalhes-atuais" class="detalhes-atuais"></div><a id="arquivo-atual" download>↓ Baixar vídeo</a><span id="player-aviso" role="status"></span></div>
+  <div class="leitor-tela">
+    <div class="leitor-video"><video id="player" controls playsinline preload="metadata"></video></div>
+  </div>
+  <div class="leitor-comandos">
+    <button id="btn-ficha" class="botao-leitor dica" data-dica="Características desta peça" aria-label="Características desta peça" onclick="alternarFicha()">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="8" cy="8" r="6.3"/><path d="M8 7.3v4"/><path d="M8 4.8h.01"/></svg>
+    </button>
+    <button class="botao-leitor dica" data-dica="Fechar (Esc)" aria-label="Fechar" onclick="fecharLeitor()">
+      <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4.6 4.6 11.4 11.4M11.4 4.6 4.6 11.4"/></svg>
+    </button>
+  </div>
+  <div class="leitor-lado" id="dossie" aria-hidden="true"></div>
+</div>
+
+<dialog id="grupo-modal" aria-labelledby="grupo-modal-titulo"><div class="grupo-modal-topo"><span>Estrutura da receita</span><button id="fechar-grupo-modal" aria-label="Fechar explicação">×</button></div><div id="grupo-modal-conteudo"></div></dialog>
+<script src="/acervo-groups.js"></script>
+<script src="/acervo-card.js"></script>
+<script src="/acervo-tooltip.js"></script>
+<script src="/acervo-view.js"></script>
+<script src="/acervo-info.js"></script>
+<script src="/acervo-favorites.js"></script>
+<script src="/acervo-layout.js"></script>
+<script src="/acervo-playback.js"></script>
+<script src="/acervo-preview.js"></script>
+<script src="/acervo-ui.js"></script>
+
+<script type="module" src="/studio-activity.js"></script></body>
+</html>

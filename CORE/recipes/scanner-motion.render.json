@@ -1,0 +1,12 @@
+{
+  "id": "scanner-motion",
+  "title": "SCANNER / DEMO",
+  "subtitle": "Telemetria ilustrativa",
+  "cta": "LEITURA VISUAL",
+  "width": 1080,
+  "height": 1080,
+  "fps": 24,
+  "durationSeconds": 6,
+  "aspect": "1:1",
+  "motionStyle": "nano-banana-motion@1"
+}

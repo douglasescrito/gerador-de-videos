@@ -1,0 +1,52 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "kind": "filme",
+  "aspect": "16:9",
+  "task": "text_to_video",
+  "style": null,
+  "assembly": {
+    "fps": 24
+  },
+  "workflow": {
+    "authorizationMode": "production-once",
+    "humanReview": false,
+    "completionMode": "complete",
+    "automaticRetry": true,
+    "maxAttempts": 2,
+    "automaticCorrections": true
+  },
+  "qa": {
+    "structural": true
+  },
+  "audio": {
+    "music": false
+  },
+  "targetDurationSeconds": 30,
+  "id": "studio-produto",
+  "label": "Produto em três planos",
+  "collection": "studio-produto",
+  "description": "Ponto de partida produto para edição no Gerador.",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "duration": 10,
+      "prompt": "Um objeto de cerâmica sem marca sobre fundo neutro. A câmera se aproxima e revela sua silhueta. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-2",
+      "duration": 10,
+      "prompt": "Plano macro da superfície do mesmo objeto de cerâmica, luz lateral e textura em foco. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    },
+    {
+      "id": "cena-3",
+      "duration": 10,
+      "prompt": "Plano aberto do objeto de cerâmica em uma composição limpa, encerramento em corte seco. Sem pessoas, sem narração, sem música, sem texto na tela. Apenas efeitos sonoros discretos.",
+      "generationTask": "text_to_video",
+      "textRendering": "none"
+    }
+  ]
+}

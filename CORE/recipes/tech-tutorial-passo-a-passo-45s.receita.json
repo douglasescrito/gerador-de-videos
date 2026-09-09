@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "tech-tutorial-passo-a-passo-45s",
+  "label": "Tecnologia & Tutorial Widescreen (45s) · Passo a Passo Visual Simples",
+  "description": "Vídeo tutorial em 16:9 widescreen: guia didático dividido em 3 etapas simples para configurar uma ferramenta ou resolver uma dúvida com facilidade.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "tech-explainer-clean@1",
+  "collection": "tech-tutorial-passo-a-passo-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato widescreen 16:9",
+    "sound design tátil de passos concluídos e interface",
+    "Flow Music batida digital limpa e amigável",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Cinematic 16:9 widescreen tutorial motion. Bright clean minimalist interface. Giant floating numeral '01' glowing in electric indigo, pointing to the settings tab with an animated highlight circle. Non-verbal sound design: gentle bubble click. No speech or dialogue. On-screen text: PASSO 1: ACESSE AS CONFIGURAÇÕES.",
+      "duration": 11,
+      "onScreenText": "PASSO 1: ACESSE AS CONFIGURAÇÕES",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Cinematic 16:9 widescreen tutorial motion. Floating numeral '02' in vibrant cyan. An API key is pasted into the input field and verified with an instant emerald green checkmark and radiating ripple. Non-verbal sound design: swift keyboard tap and positive verification bell. No speech or dialogue. On-screen text: PASSO 2: CONECTE SUA CHAVE.",
+      "duration": 11,
+      "onScreenText": "PASSO 2: CONECTE SUA CHAVE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Cinematic 16:9 widescreen tutorial motion. Floating numeral '03' in emerald green. The system activates immediately, with data streaming smoothly across the screen into organized folders. Non-verbal sound design: whoosh of data flowing and completion chime. No speech or dialogue. On-screen text: PASSO 3: PRONTO PARA USAR.",
+      "duration": 12,
+      "onScreenText": "PASSO 3: PRONTO PARA USAR",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Cinematic 16:9 widescreen tutorial outro. Help center card: 'Ficou com alguma dúvida? Acesse nosso suporte 24 horas'. Non-verbal sound design: warm melodic chime. No speech or dialogue. On-screen text: SUPORTE DISPONÍVEL 24/7.",
+      "duration": 11,
+      "onScreenText": "SUPORTE DISPONÍVEL 24/7",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Configurar sua nova ferramenta é muito mais fácil do que parece. Primeiro, abra a aba de configurações da sua conta. Depois, insira sua chave de acesso para sincronizar os dados. E pronto: sua plataforma já está funcionando perfeitamente. Se precisar de ajuda, nosso time está sempre online.",
+      "voice": "voz feminina brasileira didática, amigável, clara e paciente",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Primeiro passo: acesse o painel de configurações na sua conta." },
+        { "id": "cena-2", "text": "Segundo passo: conecte sua chave de acesso para ativar a sincronização." },
+        { "id": "cena-3", "text": "Terceiro passo: tudo pronto! Sua ferramenta já está operando 100%." },
+        { "id": "cena-4", "text": "Viu como é simples? Acesse nossa central de ajuda se tiver dúvidas." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Friendly upbeat minimalist electronic background music with soft marimba, light percussion and optimistic vibe",
+      "duration": 45,
+      "volume": 0.2,
+      "fadeOut": 0
+    }
+  }
+}

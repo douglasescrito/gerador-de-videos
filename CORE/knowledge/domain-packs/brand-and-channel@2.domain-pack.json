@@ -1,0 +1,573 @@
+{
+  "schema": "mkt-videos/domain-pack@1",
+  "id": "brand-and-channel",
+  "version": 2,
+  "status": "candidate",
+  "title": "Marca e canal",
+  "summary": "Contrato técnico para preservar identidade e mensagem enquanto formato, duração, safe area, captions e comportamento de consumo variam por canal.",
+  "scope": {
+    "domains": [
+      "brand",
+      "channel",
+      "delivery"
+    ],
+    "appliesTo": [
+      "BrandKit, film-spec, delivery profiles e variantes em modo Studio.",
+      "Uso de logo, tipografia, cor, tom e linguagem governada.",
+      "Adaptação para proporções, durações, interfaces e captions de canais distintos."
+    ],
+    "excludes": [
+      "Criação autônoma de regra de marca ou alteração de logo.",
+      "Cópia de templates, diagramas ou identidade de plataforma.",
+      "Hardcode de especificação volátil como verdade universal."
+    ]
+  },
+  "authors": [
+    {
+      "id": "codex-assisted-draft",
+      "name": "Codex assisted draft"
+    }
+  ],
+  "reviewers": [],
+  "packLicense": {
+    "type": "custom",
+    "identifier": "MKT-Videos-Proprietary-Knowledge@1",
+    "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
+    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "notice": "Síntese abstrata original para uso interno. Ativos de marca, documentação de plataforma e padrões citados conservam seus termos; o pack não concede direito de uso sobre logos, fontes ou conteúdo."
+  },
+  "sources": [
+    {
+      "id": "brand-kit-contract",
+      "title": "MKT Videos BrandKit contract",
+      "uri": "urn:mkt-videos:governance:brand-kit-contract",
+      "publisher": "MKT Videos",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "internal-policy",
+      "usageMode": "normative-policy",
+      "version": "mkt-videos/brand-kit@1",
+      "sourceContentHash": "d0d4f9bd4329a6da411526300c40b080adf0724e00a25f037c877282178c10dd",
+      "sourceTerms": {
+        "status": "not-applicable",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Contrato interno versionado para palette, typography, logos, requiredTerms, forbiddenTerms, safeAreas, captionStyle e motion. Não autoriza ativos nem promove dados privados."
+      }
+    },
+    {
+      "id": "studio-governance-brand",
+      "title": "MKT Videos workspace brand governance",
+      "uri": "urn:mkt-videos:governance:agents-md",
+      "publisher": "MKT Videos",
+      "accessedAt": "2026-09-09T00:00:00Z",
+      "sourceKind": "internal-policy",
+      "usageMode": "normative-policy",
+      "version": "Family distribution workspace policy 2026-09-09",
+      "sourceContentHash": "ea179bfff41c24e294c8b9fdda2624c3ad5d2ac9ff09000530340f061ee13c42",
+      "sourceTerms": {
+        "status": "not-applicable",
+        "licenseId": null,
+        "termsUri": null,
+        "notes": "Contrato local que proíbe alteração silenciosa de logo, cor, resolução e acabamento e exige entidades governadas, direitos e recibos."
+      }
+    },
+    {
+      "id": "w3c-wcag-22",
+      "title": "Web Content Accessibility Guidelines 2.2",
+      "uri": "https://www.w3.org/TR/WCAG22/",
+      "publisher": "World Wide Web Consortium",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "paraphrase-only",
+      "version": "W3C Recommendation",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "W3C-Document-License-2023",
+        "termsUri": "https://www.w3.org/copyright/document-license-2023/",
+        "notes": "Referência para contraste, captions e conteúdo perceptível. Aplicação a MP4 ou canal específico exige perfil próprio e não gera alegação automática de conformidade."
+      }
+    },
+    {
+      "id": "ebu-r95",
+      "title": "EBU R 95: Safe areas for 16:9 television production",
+      "uri": "https://tech.ebu.ch/docs/r/r095.pdf",
+      "publisher": "European Broadcasting Union",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-standard",
+      "usageMode": "factual-extraction-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "EBU-Terms-of-Use",
+        "termsUri": "https://www.ebu.ch/cms/live/live/en/sites/ebu/terms-of-use.html",
+        "notes": "Fonte protegida usada apenas para demonstrar que safe area pode ser requisito específico de um perfil broadcast. Valores e diagramas não são reutilizados."
+      }
+    },
+    {
+      "id": "youtube-upload-guidance",
+      "title": "Recommended upload encoding settings",
+      "uri": "https://support.google.com/youtube/answer/1722171?hl=en",
+      "publisher": "Google YouTube",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Google-Terms-of-Service",
+        "termsUri": "https://policies.google.com/terms?hl=en-US",
+        "notes": "Especificação proprietária e volátil. Serve somente para capability revalidada no momento de planejamento e entrega; nenhum valor é universalizado."
+      }
+    },
+    {
+      "id": "google-ads-video-specs",
+      "title": "Video ad requirements and specifications",
+      "uri": "https://support.google.com/google-ads/answer/13547298?hl=en",
+      "publisher": "Google",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "Google-Terms-of-Service",
+        "termsUri": "https://policies.google.com/terms?hl=en-US",
+        "notes": "Fonte proprietária e mutável para formatos de anúncio e interferência de interface. Usada apenas como exemplo de capability datada."
+      }
+    },
+    {
+      "id": "tiktok-ad-specs",
+      "title": "Global App Bundle video ad specifications",
+      "uri": "https://ads.tiktok.com/help/article/global-app-bundle-video-ad-specifications",
+      "publisher": "TikTok for Business",
+      "accessedAt": "2026-07-24T14:32:31Z",
+      "sourceKind": "external-guidance",
+      "usageMode": "citation-only",
+      "sourceTerms": {
+        "status": "known",
+        "licenseId": "TikTok-Terms-of-Service",
+        "termsUri": "https://www.tiktok.com/legal/page/us/terms-of-service/en",
+        "notes": "Documentação proprietária e volátil. Nenhum template, diagrama ou valor é copiado; restrições precisam ser confirmadas para região, placement e data."
+      }
+    }
+  ],
+  "definitions": [
+    {
+      "id": "def-brand-kit",
+      "term": "BrandKit",
+      "definition": "Contrato versionado que referencia ativos autorizados e regras verificáveis de identidade, linguagem, safe area, captions e movimento dentro de um escopo governado.",
+      "basis": "internal-policy",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ]
+    },
+    {
+      "id": "def-channel-capability",
+      "term": "Capability de canal",
+      "definition": "Restrição ou possibilidade datada de plataforma, placement, região, dispositivo ou formato que deve ser revalidada antes de compilar e entregar.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "youtube-upload-guidance",
+        "google-ads-video-specs",
+        "tiktok-ad-specs"
+      ]
+    },
+    {
+      "id": "def-delivery-variant",
+      "term": "Variante de entrega",
+      "definition": "Derivação rastreável de uma master que adapta forma ou duração para um perfil sem ampliar direitos, alterar alegações ou substituir o original.",
+      "basis": "editorial-synthesis",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ]
+    }
+  ],
+  "principles": [
+    {
+      "id": "p-identity-contract",
+      "title": "Identidade nasce do BrandKit governado",
+      "definition": "Logo, tipografia, cor, tom, termos obrigatórios e termos proibidos devem ser resolvidos por versão e escopo de BrandKit, não inferidos de uma referência ou peça anterior.",
+      "intent": "Separar conhecimento global de regras privadas e mutáveis de cada marca.",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Toda peça que representa cliente, marca, produto, projeto ou campanha.",
+        "Prompt composto, render HTML, montagem e variantes."
+      ],
+      "limits": [
+        "BrandKit não concede por si só consentimento ou direito sobre asset.",
+        "Regra ausente deve falhar ou pedir decisão, não ser inventada."
+      ],
+      "risks": [
+        "Copiar regra de outro escopo cruza clientes.",
+        "Inferir tom ou proibição a partir de referência transforma observação em política."
+      ],
+      "successSignals": [
+        "Plano congela id, versão e hash do BrandKit.",
+        "Todo ativo e termo essencial possui origem e owner autorizados."
+      ],
+      "tests": [
+        {
+          "id": "t-brand-resolution",
+          "scenario": "Compilar uma peça com BrandKit ausente, expirado ou de outro root scope.",
+          "expected": "Compilação falha fechado ou pede decisão explícita; nenhuma regra é herdada silenciosamente."
+        }
+      ]
+    },
+    {
+      "id": "p-logo-fidelity",
+      "title": "Logo é asset fiel, não matéria-prima generativa",
+      "definition": "Forma, proporção, construção e variante do logo devem permanecer conforme asset oficial e regras autorizadas; composição pode posicionar ou dimensionar sem deformar.",
+      "intent": "Preservar reconhecimento, integridade e direito de marca.",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Assinatura, end card, watermark, produto e transição com marca.",
+        "Composição local ou referência enviada a provedor quando autorizada."
+      ],
+      "limits": [
+        "Animação do logo depende de regra explícita do BrandKit.",
+        "Redução excessiva pode tornar o asset ilegível mesmo sem deformação."
+      ],
+      "risks": [
+        "Geração altera geometria, letras ou relação de cores.",
+        "Uso da variante errada falha em contraste ou fundo."
+      ],
+      "successSignals": [
+        "Arquivo oficial e hash aparecem no plano e recibo.",
+        "Aspect ratio e geometria do asset permanecem intactos."
+      ],
+      "tests": [
+        {
+          "id": "t-logo-asset",
+          "scenario": "Comparar a origem do logo no plano com o asset oficial e suas transformações autorizadas.",
+          "expected": "Existe correspondência exata de asset; transformações preservam proporção e não alteram forma."
+        }
+      ]
+    },
+    {
+      "id": "p-channel-profile",
+      "title": "Plataforma, aspect ratio, duração e safe area são parâmetros versionados",
+      "definition": "Cada entrega deve declarar canal, placement, proporção, duração, interface prevista e safe area com data de validade e fonte, evitando constantes globais.",
+      "intent": "Fazer o layout responder ao destino real e permitir atualização sem reescrever fundamentos.",
+      "sourceIds": [
+        "ebu-r95",
+        "youtube-upload-guidance",
+        "google-ads-video-specs",
+        "tiktok-ad-specs"
+      ],
+      "basis": "source-grounded",
+      "modality": "capability",
+      "applicability": [
+        "Broadcast, feed, stories, shorts, anúncios, landing pages e apresentação.",
+        "Planejamento de master e variantes."
+      ],
+      "limits": [
+        "Especificações mudam por região, placement, conta e produto.",
+        "Safe area técnica não garante boa composição."
+      ],
+      "risks": [
+        "Valor desatualizado causa recorte ou rejeição.",
+        "Uma safe area copiada de outro canal desloca elementos sem necessidade."
+      ],
+      "successSignals": [
+        "Capability possui source, accessedAt e escopo.",
+        "Runtime revalida requisitos críticos antes da entrega."
+      ],
+      "tests": [
+        {
+          "id": "t-channel-expiry",
+          "scenario": "Planejar uma variante com capability expirada ou sem placement.",
+          "expected": "O sistema bloqueia ou exige atualização humana, sem aplicar valores presumidos."
+        }
+      ]
+    },
+    {
+      "id": "p-mobile-captions-access",
+      "title": "Mobile-first preserva legibilidade, captions e acesso",
+      "definition": "Informação essencial deve sobreviver a tela pequena, orientação, interface, reprodução sem som e condições de contraste do destino.",
+      "intent": "Projetar para o contexto de consumo em vez de apenas reduzir a master.",
+      "sourceIds": [
+        "w3c-wcag-22",
+        "google-ads-video-specs",
+        "tiktok-ad-specs"
+      ],
+      "basis": "source-grounded",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Feeds, stories, shorts e qualquer visualização em tela pequena.",
+        "Texto, logo, CTA, disclaimers, captions e gráficos."
+      ],
+      "limits": [
+        "Mobile-first não significa vertical obrigatório.",
+        "WCAG é referência web; conformidade depende do meio e implementação."
+      ],
+      "risks": [
+        "Texto reduzido ou interface sobreposta elimina informação.",
+        "Mensagem que depende de áudio falha em reprodução silenciosa."
+      ],
+      "successSignals": [
+        "Texto essencial é legível na escala alvo.",
+        "Captions e sinais visuais preservam o conteúdo necessário sem áudio."
+      ],
+      "tests": [
+        {
+          "id": "t-mobile-preview",
+          "scenario": "Revisar a variante no tamanho e com as sobreposições aproximadas do dispositivo alvo, com áudio desligado.",
+          "expected": "Marca, mensagem, CTA e captions permanecem identificáveis e dentro da área segura declarada."
+        }
+      ]
+    },
+    {
+      "id": "p-variant-equivalence",
+      "title": "Variantes mudam forma, não autoridade",
+      "definition": "Recorte, reflow, duração e captions podem variar, mas identidade, termos, claims, condições, direitos e provenance devem permanecer equivalentes ou ser explicitamente reavaliados.",
+      "intent": "Evitar que uma adaptação se torne uma peça não governada.",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ],
+      "basis": "internal-policy",
+      "modality": "hard-constraint",
+      "applicability": [
+        "Aspect ratios alternativos, cutdowns, localização e versões com ou sem captions.",
+        "Entregas derivadas de uma mesma master."
+      ],
+      "limits": [
+        "Uma duração muito menor pode exigir novo argumento, não mero corte.",
+        "Localização pode exigir revisão de linguagem e legal."
+      ],
+      "risks": [
+        "Cutdown remove qualificador ou contexto.",
+        "Reflow muda hierarquia de marca e oferta."
+      ],
+      "successSignals": [
+        "Cada variante deriva de plano e recibo rastreáveis.",
+        "Matriz de invariantes é verificada antes da publicação."
+      ],
+      "tests": [
+        {
+          "id": "t-variant-invariants",
+          "scenario": "Comparar master e variantes quanto a logo, termos, claims, condições, direitos e CTA.",
+          "expected": "Invariantes permanecem ou a diferença possui aprovação e novo escopo explícitos."
+        }
+      ]
+    }
+  ],
+  "exceptions": [
+    {
+      "id": "x-brandless-editorial",
+      "principleIds": [
+        "p-identity-contract",
+        "p-logo-fidelity"
+      ],
+      "condition": "A produção aprovada é deliberadamente sem marca e não representa entidade que exija assinatura.",
+      "response": "Registrar a ausência como decisão do brief; não criar logo, paleta ou assinatura substituta.",
+      "sourceIds": [
+        "brand-kit-contract",
+        "studio-governance-brand"
+      ]
+    }
+  ],
+  "antiPatterns": [
+    {
+      "id": "a-crop-is-variant",
+      "title": "Tratar crop como variante completa",
+      "description": "Recortar a master para outra proporção sem reflow, safe area, captions, duração, interface ou revisão de invariantes.",
+      "principleIds": [
+        "p-channel-profile",
+        "p-mobile-captions-access",
+        "p-variant-equivalence"
+      ],
+      "risks": [
+        "Logo, texto ou sujeito são cortados.",
+        "Qualificadores e CTA perdem contexto."
+      ],
+      "mitigations": [
+        "Compilar variante por delivery profile.",
+        "Revisar layout e invariantes no dispositivo alvo."
+      ],
+      "sourceIds": [
+        "google-ads-video-specs",
+        "tiktok-ad-specs",
+        "brand-kit-contract"
+      ]
+    }
+  ],
+  "abstractExamples": [
+    {
+      "id": "e-governed-reflow",
+      "title": "Reflow governado para tela vertical",
+      "description": "A variante reposiciona texto e CTA dentro da safe area vigente, mantém o mesmo asset de logo, preserva termos e oferece captions, sem esticar ou recortar a master.",
+      "principleIds": [
+        "p-logo-fidelity",
+        "p-channel-profile",
+        "p-mobile-captions-access",
+        "p-variant-equivalence"
+      ],
+      "analysis": "A adaptação responde ao canal, mas identidade e autoridade permanecem ligadas ao BrandKit e à master.",
+      "sourceIds": [
+        "brand-kit-contract",
+        "tiktok-ad-specs",
+        "w3c-wcag-22"
+      ]
+    }
+  ],
+  "counterExamples": [
+    {
+      "id": "c-platform-constant",
+      "title": "Especificação de plataforma congelada como verdade",
+      "description": "Um valor lido em página de ajuda é copiado para código sem data, placement, região ou revalidação.",
+      "principleIds": [
+        "p-channel-profile"
+      ],
+      "analysis": "A fonte pode estar correta no acesso e ainda ser inadequada para outro escopo ou expirar. O dado pertence ao capability registry, não ao fundamento atemporal.",
+      "sourceIds": [
+        "youtube-upload-guidance",
+        "google-ads-video-specs",
+        "tiktok-ad-specs"
+      ]
+    }
+  ],
+  "coverageTags": [
+    {
+      "tag": "identity",
+      "principleIds": [
+        "p-identity-contract"
+      ]
+    },
+    {
+      "tag": "logo",
+      "principleIds": [
+        "p-identity-contract",
+        "p-logo-fidelity"
+      ]
+    },
+    {
+      "tag": "typography",
+      "principleIds": [
+        "p-identity-contract"
+      ]
+    },
+    {
+      "tag": "color",
+      "principleIds": [
+        "p-identity-contract"
+      ]
+    },
+    {
+      "tag": "tone",
+      "principleIds": [
+        "p-identity-contract"
+      ]
+    },
+    {
+      "tag": "required-terms",
+      "principleIds": [
+        "p-identity-contract",
+        "p-variant-equivalence"
+      ]
+    },
+    {
+      "tag": "prohibited-terms",
+      "principleIds": [
+        "p-identity-contract",
+        "p-variant-equivalence"
+      ]
+    },
+    {
+      "tag": "platform",
+      "principleIds": [
+        "p-channel-profile"
+      ]
+    },
+    {
+      "tag": "aspect-ratio",
+      "principleIds": [
+        "p-channel-profile",
+        "p-variant-equivalence"
+      ]
+    },
+    {
+      "tag": "safe-area",
+      "principleIds": [
+        "p-channel-profile",
+        "p-mobile-captions-access"
+      ]
+    },
+    {
+      "tag": "duration",
+      "principleIds": [
+        "p-channel-profile",
+        "p-variant-equivalence"
+      ]
+    },
+    {
+      "tag": "captions",
+      "principleIds": [
+        "p-mobile-captions-access"
+      ]
+    },
+    {
+      "tag": "mobile-first",
+      "principleIds": [
+        "p-mobile-captions-access"
+      ]
+    },
+    {
+      "tag": "accessibility",
+      "principleIds": [
+        "p-mobile-captions-access"
+      ]
+    },
+    {
+      "tag": "delivery-variants",
+      "principleIds": [
+        "p-variant-equivalence"
+      ]
+    }
+  ],
+  "requiredCoverage": [
+    "identity",
+    "logo",
+    "typography",
+    "color",
+    "tone",
+    "required-terms",
+    "prohibited-terms",
+    "platform",
+    "aspect-ratio",
+    "safe-area",
+    "duration",
+    "captions",
+    "mobile-first",
+    "accessibility",
+    "delivery-variants"
+  ],
+  "dependencies": [],
+  "reviewedAt": null,
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Candidato inicial com BrandKit, fidelidade de logo, capability de canal, mobile, captions e variantes.",
+        "Especificações de plataforma foram isoladas como dados voláteis e não como constantes globais."
+      ]
+    },
+    {
+      "version": 2,
+      "date": "2026-09-09",
+      "changes": [
+        "Nova versão candidata para distribuição familiar: vínculo com a política sanitizada do workspace. Conteúdo técnico e termos preservados; nenhuma ativação ou promoção."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "schema": "mkt-videos/shot-chain@1",
+  "title": "Exemplo técnico — continuidade em três planos",
+  "aspect": "16:9",
+  "bible": "Abstract flat vector animation. Off-white background, graphite lines and one teal circle. Keep the same circle, baseline and camera scale across all shots. Continuous horizontal camera movement to the right, with soft easing and clear settled states. No people, brand, logo, readable text, speech or music.",
+  "shots": [
+    { "id": "inicio", "role": "open", "beat": "estabelecer", "action": "BEGINS with a teal circle resting on a thin graphite baseline. The camera begins moving slowly right as the circle rolls toward a short ascending arc. ENDS with the circle at the foot of the arc and the camera still moving right." },
+    { "id": "percurso", "role": "chain", "beat": "transformar", "action": "BEGINS exactly at the incoming frame. The circle rolls over the arc with a slight stretch and settle, keeping its identity and scale. The arc returns smoothly to the baseline. ENDS with the circle resting on the flat baseline after the arc." },
+    { "id": "fim", "role": "chain", "beat": "concluir", "action": "BEGINS exactly at the incoming frame. The camera and circle slow together. A thin open ring closes around the circle without covering it. ENDS on a stable composition with the circle centered inside the ring, with no text or logo." }
+  ]
+}

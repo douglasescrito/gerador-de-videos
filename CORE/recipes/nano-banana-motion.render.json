@@ -1,0 +1,15 @@
+{
+  "id": "estudo-microscopico",
+  "title": "ESTUDO MICROSCOPICO",
+  "subtitle": "Formas, luz e profundidade",
+  "cta": "FIM DO ESTUDO",
+  "width": 1080,
+  "height": 1080,
+  "fps": 60,
+  "durationSeconds": 6,
+  "aspect": "1:1",
+  "fontFamily": "Arial",
+  "background": "#030712",
+  "accent": "#00f0ff",
+  "motionStyle": "nano-banana-motion@1"
+}

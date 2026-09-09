@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-futuro-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · O Futuro Puxa Você",
+  "description": "Filme motivacional em perspectiva profunda no qual uma forma luminosa futura exerce atração sobre o presente; cada decisão aumenta a força de conexão entre quem você é e quem pretende se tornar.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-futuro-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 1 of 6: A tiny radiant amber structure glows far on the horizon of a deep indigo space. In the foreground, a simpler ivory form faces it across a large distance. The exact on-screen phrase is supplied separately as: EXISTE UMA VERSÃO À FRENTE. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "EXISTE UMA VERSÃO À FRENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 2 of 6: The distant structure emits soft geometric waves that reach the foreground but cannot move the ivory form. Space visibly stretches between both states. The exact on-screen phrase is supplied separately as: ELA NÃO PODE VOLTAR ATÉ VOCÊ. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "ELA NÃO PODE VOLTAR ATÉ VOCÊ",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 3 of 6: The foreground form takes one deliberate step. A thin luminous connection snaps into place, shortening perspective and increasing the strength of the pull. The exact on-screen phrase is supplied separately as: VOCÊ PRECISA SE MOVER. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "VOCÊ PRECISA SE MOVER",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 4 of 6: With each new action, more connection lines appear. The camera accelerates forward through layered planes as the gap between present and future compresses. The exact on-screen phrase is supplied separately as: DIMINUA A DISTÂNCIA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DIMINUA A DISTÂNCIA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 5 of 6: The foreground form changes incrementally with every transition, acquiring geometric traits from the distant structure rather than simply approaching it. The exact on-screen phrase is supplied separately as: TORNE-SE QUEM ESTÁ BUSCANDO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "TORNE-SE QUEM ESTÁ BUSCANDO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep indigo, soft ivory, radiant amber and a restrained cyan accent. Narrative beat 6 of 6: Present and future structures meet, but instead of merging into a static endpoint, they align into one moving form that continues beyond the original horizon. The exact on-screen phrase is supplied separately as: ENCONTRE-SE NO CAMINHO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "ENCONTRE-SE NO CAMINHO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Existe uma versão de você construída pelas escolhas que ainda não foram repetidas o bastante para se tornarem realidade. Essa versão não consegue voltar no tempo e buscar você. A distância precisa ser vencida a partir do lugar onde você está. Cada movimento cria conexão. Quando você age de acordo com o que deseja construir, futuro e presente deixam de ser mundos separados. Diminua a distância com decisões pequenas, mas coerentes. Não tente saltar até o destino quando você pode atravessar o espaço todos os dias. No processo, você percebe algo importante: não está apenas chegando a um lugar. Está adquirindo as capacidades de quem consegue permanecer lá. Talvez o futuro não seja um ponto onde você chega. Talvez seja alguém que você encontra enquanto continua caminhando.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Existe uma versão de você construída pelas escolhas que ainda não foram repetidas o bastante para se tornarem realidade."
+        },
+        {
+          "id": "cena-2",
+          "text": "Essa versão não consegue voltar no tempo e buscar você. A distância precisa ser vencida a partir do lugar onde você está."
+        },
+        {
+          "id": "cena-3",
+          "text": "Cada movimento cria conexão. Quando você age de acordo com o que deseja construir, futuro e presente deixam de ser mundos separados."
+        },
+        {
+          "id": "cena-4",
+          "text": "Diminua a distância com decisões pequenas, mas coerentes. Não tente saltar até o destino quando você pode atravessar o espaço todos os dias."
+        },
+        {
+          "id": "cena-5",
+          "text": "No processo, você percebe algo importante: não está apenas chegando a um lugar. Está adquirindo as capacidades de quem consegue permanecer lá."
+        },
+        {
+          "id": "cena-6",
+          "text": "Talvez o futuro não seja um ponto onde você chega. Talvez seja alguém que você encontra enquanto continua caminhando."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Expansive cinematic score with distant piano, soft pulse, widening strings and subtle low percussion. The sense of attraction should intensify continuously, resolving into forward motion rather than arrival.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

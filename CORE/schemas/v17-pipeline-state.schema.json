@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/v17-pipeline-state@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema", "collection", "createdAt", "updatedAt", "phases"],
+  "properties": {
+    "schema": { "const": "mkt-videos/v17-pipeline-state@1" },
+    "collection": { "type": "string", "minLength": 1 },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "updatedAt": { "type": "string", "format": "date-time" },
+    "spec": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "theme": { "type": "string" },
+        "scriptRaw": { "type": "string" },
+        "scriptHash": { "type": "string" },
+        "targetDurationMs": { "type": "integer", "minimum": 1000 },
+        "expectedAspect": { "type": "string" }
+      }
+    },
+    "phases": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["parse", "voice", "align", "music", "visual", "compose", "deliver"],
+      "properties": {
+        "parse": { "$ref": "#/$defs/phaseEntry" },
+        "voice": { "$ref": "#/$defs/phaseEntry" },
+        "align": { "$ref": "#/$defs/phaseEntry" },
+        "music": { "$ref": "#/$defs/phaseEntry" },
+        "visual": { "$ref": "#/$defs/phaseEntry" },
+        "compose": { "$ref": "#/$defs/phaseEntry" },
+        "deliver": { "$ref": "#/$defs/phaseEntry" }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["phase", "message"],
+        "properties": {
+          "phase": { "type": "string" },
+          "message": { "type": "string" },
+          "timestamp": { "type": "string", "format": "date-time" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "phaseEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["pending", "running", "done", "failed", "skipped"] },
+        "artifact": { "type": "string" },
+        "hash": { "type": "string" },
+        "startedAt": { "type": "string", "format": "date-time" },
+        "completedAt": { "type": "string", "format": "date-time" },
+        "error": { "type": "string" },
+        "receiptFile": { "type": "string" }
+      }
+    }
+  }
+}

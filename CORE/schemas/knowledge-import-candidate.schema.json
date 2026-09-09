@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-import-candidate@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "status",
+    "providerFree",
+    "readOnly",
+    "sourceKind",
+    "sourceSchema",
+    "sourceHash",
+    "sourceRef",
+    "rootScopeId",
+    "scopeId",
+    "recordType",
+    "payload",
+    "envelope",
+    "contentHash"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-import-candidate@1"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^kic_[a-f0-9]{32}$"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "sourceKind": {
+      "enum": [
+        "style-spec",
+        "brand-kit",
+        "recipe",
+        "reference-evidence-index",
+        "receipt-metadata"
+      ]
+    },
+    "sourceSchema": {
+      "enum": [
+        "mkt-videos/style-spec@1",
+        "mkt-videos/brand-kit@1",
+        "mkt-videos/recipe@2",
+        "mkt-videos/reference-evidence-index@1",
+        "mkt-videos/receipt@1"
+      ]
+    },
+    "sourceHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "sourceRef": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 640,
+      "pattern": "^[A-Za-z][A-Za-z0-9._-]{1,31}:[^\\s]{1,512}$",
+      "not": {
+        "pattern": "^[Ff][Ii][Ll][Ee]:"
+      }
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "scopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "recordType": {
+      "enum": [
+        "assertion",
+        "evidence"
+      ]
+    },
+    "payload": {
+      "type": "object"
+    },
+    "envelope": {
+      "$ref": "mkt-videos/knowledge-record-envelope@1"
+    },
+    "contentHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

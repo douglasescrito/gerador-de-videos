@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/entity-profile@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "entityType",
+    "name",
+    "aliases",
+    "attributes",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/entity-profile@1"
+    },
+    "entityType": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,63}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500
+    },
+    "aliases": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 500
+      }
+    },
+    "attributes": {
+      "type": "object"
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    }
+  }
+}

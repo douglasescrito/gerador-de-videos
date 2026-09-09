@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-assertion@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "subjectRef",
+    "predicate",
+    "value",
+    "polarity",
+    "applicability",
+    "confidence",
+    "evidenceRefs"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-assertion@1"
+    },
+    "subjectRef": {
+      "$ref": "mkt-videos/knowledge-reference@1"
+    },
+    "predicate": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9._/-]{0,199}$"
+    },
+    "value": {},
+    "polarity": {
+      "enum": [
+        "positive",
+        "negative"
+      ]
+    },
+    "applicability": {
+      "type": "object"
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    },
+    "evidenceRefs": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "$ref": "mkt-videos/knowledge-reference@1"
+      }
+    }
+  }
+}

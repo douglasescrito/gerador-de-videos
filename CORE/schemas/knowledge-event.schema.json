@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-event@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "sequence",
+    "id",
+    "rootScopeId",
+    "scopeId",
+    "type",
+    "subjectType",
+    "subjectId",
+    "subjectRevision",
+    "at",
+    "grantId",
+    "grantHash",
+    "policyId",
+    "policyHash",
+    "actor",
+    "grantPermission",
+    "grantIssuedAt",
+    "grantExpiresAt",
+    "payload",
+    "payloadHash",
+    "previousEventHash",
+    "eventHash"
+  ],
+  "properties": {
+    "sequence": { "type": "integer", "minimum": 1 },
+    "id": {
+      "type": "string",
+      "pattern": "^ke_[A-Za-z0-9-]{1,100}$"
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "scopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "type": { "type": "string", "minLength": 1, "maxLength": 120 },
+    "subjectType": { "type": "string", "minLength": 1, "maxLength": 80 },
+    "subjectId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "subjectRevision": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "integer", "minimum": 1 }
+      ]
+    },
+    "at": { "type": "string", "format": "date-time" },
+    "grantId": {
+      "type": "string",
+      "pattern": "^sg_[a-f0-9]{32}$"
+    },
+    "grantHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "policyId": { "const": "knowledge-governance-policy@1" },
+    "policyHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "actor": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "grantPermission": { "enum": ["write", "release"] },
+    "grantIssuedAt": { "type": "string", "format": "date-time" },
+    "grantExpiresAt": { "type": "string", "format": "date-time" },
+    "payload": {
+      "type": ["object", "array", "string", "number", "boolean", "null"]
+    },
+    "payloadHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "previousEventHash": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+      ]
+    },
+    "eventHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

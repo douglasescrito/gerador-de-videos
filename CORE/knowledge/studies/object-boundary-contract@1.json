@@ -1,0 +1,101 @@
+{
+  "schema": "mkt-videos/prompt-study-design@1",
+  "id": "object-boundary-contract@1",
+  "status": "designed",
+  "validationLevel": "unvalidated",
+  "hypothesis": "Declarar o estado do objeto na fronteira melhora a continuidade e pode ser uma alternativa ao encadeamento por frame.",
+  "executor": "batch",
+  "replicatesPerCondition": 3,
+  "material": {
+    "subject": "one unmarked blue ceramic disk on a matte neutral surface; no person, text or logo",
+    "predecessorPrompt": "One continuous locked-camera shot of a single unmarked blue ceramic disk gliding horizontally from left to right across a matte neutral surface. Constant speed, stable lighting, fixed scale, no cut, no new object and no fade. The disk is still moving right when the clip ends.",
+    "basePrompt": "One continuous locked-camera shot of a single unmarked blue ceramic disk gliding horizontally from left to right across a matte neutral surface. Constant speed, stable lighting, fixed scale, no cut, no new object and no fade. Begin directly with the disk in motion and continue its rightward movement.",
+    "boundaryParameters": {
+      "object": "the single unmarked blue ceramic disk",
+      "direction": "rightward",
+      "x": "measured center x / frame width",
+      "y": "measured center y / frame height",
+      "diameter": "measured disk diameter / frame width"
+    },
+    "freezeBeforeBatch": [
+      "one accepted predecessor MP4 and receipt",
+      "its actual final frame and extraction timestamp",
+      "measured boundary parameters",
+      "materialized prompt text of all nine jobs",
+      "input hashes, model and aspect"
+    ],
+    "execution": "Materialize the nine jobs in the existing batch format. Each replicate contains base, geometry and frame, with order rotated. Every successor is judged joined directly to the same predecessor; no intervening art scene. Preserve originals and every receipt. Generate only when this study is requested for execution."
+  },
+  "conditions": [
+    {
+      "id": "base",
+      "task": "text_to_video",
+      "input": "base-prompt"
+    },
+    {
+      "id": "geometry",
+      "task": "text_to_video",
+      "input": "base-prompt+boundary-block"
+    },
+    {
+      "id": "frame",
+      "task": "image_to_video",
+      "input": "base-prompt+predecessor-last-frame",
+      "referenceRequiresExplicitRecipe": true
+    }
+  ],
+  "comparisons": [
+    {
+      "conditions": [
+        "base",
+        "geometry"
+      ],
+      "interpretation": "isolates-added-boundary-instruction"
+    },
+    {
+      "conditions": [
+        "geometry",
+        "frame"
+      ],
+      "interpretation": "compares-strategies-not-a-single-factor"
+    }
+  ],
+  "controls": [
+    "same-predecessor",
+    "same-base-prompt",
+    "same-model-and-settings",
+    "same-batch",
+    "interleaved-order"
+  ],
+  "evaluation": {
+    "blindLabels": true,
+    "primary": "blind-judgment-of-seam-continuity",
+    "requirements": [
+      "object-identity",
+      "no-duplicate-object",
+      "no-unrequested-freeze"
+    ],
+    "geometricMeasurement": "optional-local-measurement",
+    "outcomes": [
+      "pilot-support",
+      "no-benefit",
+      "inconclusive"
+    ],
+    "reportAllAttempts": true,
+    "separateDeliveryFromEditorialJudgment": true,
+    "automaticPromotion": false,
+    "confirmation": "replicate-with-another-object-and-context",
+    "judgmentProtocol": "Hide condition names and prompts; rotate left/right presentation. For each matched pair, record left, right or indistinguishable for continuity of the direct seam, and separately record each objective requirement violation. Reveal condition labels only after all verdicts are frozen.",
+    "decisionRule": "For each comparison, three wins out of three with no objective requirement violation supports only that local pilot; two wins or any tie is inconclusive; zero or one win is no demonstrated advantage. Report geometry-versus-base and geometry-versus-frame separately. Do not claim equivalence from a tie or superiority from generation success."
+  },
+  "authority": {
+    "providerCalls": 0,
+    "generationTriggered": false
+  },
+  "limits": [
+    "No overlay",
+    "No protagonist reference other than the official photograph",
+    "No blind retry of ambiguous submissions",
+    "The frame condition is an explicit exception in the study recipe, never a default for visual scenes"
+  ]
+}

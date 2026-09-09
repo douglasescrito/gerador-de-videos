@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "manifesto-foco-humano-60s",
+  "label": "Manifesto de Marca (60s) · O Toque Humano (Tecnologia & Empatia)",
+  "description": "Manifesto de marca sobre humanização da tecnologia em 16:9: interfaces inteligentes auxiliando médicos cirurgiões, cientistas e professores, sem jamais substituir o calor de um olhar, um aperto de mão e a empatia humana.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "manifesto-human@1",
+  "collection": "manifesto-foco-humano-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia emocional humanista",
+    "sound design tátil e caloroso",
+    "Flow Music orquestral emocionante",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. A pediatric surgeon gently holds the trembling small hand of a young child in a warm hospital room before surgery. Direct eye contact filled with reassuring warmth and deep compassion. 50mm prime cinema lens. Non-verbal sound design: soft gentle heartbeat, quiet peaceful hospital room tone. No speech or dialogue. On-screen text: A TECNOLOGIA NÃO É O DESTINO.",
+      "duration": 10,
+      "onScreenText": "A TECNOLOGIA NÃO É O DESTINO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. A state-of-the-art robotic surgical arm assists with sub-millimeter precision in the operating room, guided seamlessly by the surgeon's focused eyes and tactile gestures. Clean, advanced, empathetic lighting. Non-verbal sound design: quiet high-precision servo glide, soft medical telemetry chimes. No speech or dialogue. On-screen text: ELA É UMA PONTE.",
+      "duration": 10,
+      "onScreenText": "ELA É UMA PONTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. An elderly grandfather in a sunlit wooden workshop teaches his granddaughter how to sketch architectural blueprints on a luminous digital tablet while sawdust floats in golden sunbeams. Intergenerational warmth. Non-verbal sound design: stylus gliding smoothly over glass, soft wooden workbench creak. No speech or dialogue. On-screen text: AMPLIAR O TALENTO.",
+      "duration": 10,
+      "onScreenText": "AMPLIAR O TALENTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. A diverse team of scientists in an open collaborative laboratory embrace each other in celebration as clean energy data on their screens confirms a historic environmental breakthrough. Authentic tears of joy. Non-verbal sound design: rising emotional piano chords, warm cheering. No speech or dialogue. On-screen text: CELEBRAR A CONEXÃO.",
+      "duration": 10,
+      "onScreenText": "CELEBRAR A CONEXÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. Two friends sharing a sincere embrace at a bustling train station as golden evening light reflects on glass arches. The focus shifts from the surrounding digital screens to the pure emotional warmth of human presence. Non-verbal sound design: soaring emotional string section, soft station announcements. No speech or dialogue. On-screen text: O QUE NOS TORNA ÚNICOS.",
+      "duration": 10,
+      "onScreenText": "O QUE NOS TORNA ÚNICOS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Warm humanist brand manifesto cinematography in 16:9. Hero brand lockup: a glowing, elegant humanistic symbol and clean brand typography appear over a wide panoramic shot of a modern city illuminated by warm golden sunset light. Pure emotional elevation. Non-verbal sound design: triumphant orchestral resolution resolving into peaceful acoustic guitar. No speech or dialogue. On-screen text: O TOQUE HUMANO.",
+      "duration": 10,
+      "onScreenText": "O TOQUE HUMANO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Algoritmos podem processar dados e prever padrões. Mas eles não sentem compaixão, não sonham e não conhecem a coragem de amar. Criamos tecnologia para amplificar aquilo que nos faz humanos.",
+      "voice": "voz masculina brasileira madura, calorosa, profunda, emotiva, sincera e inspiradora, estilo manifesto humanista corporativo",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "A tecnologia mais avançada do mundo não substitui o calor de um olhar."
+        },
+        {
+          "id": "cena-2",
+          "text": "As ferramentas existem para servir à vida, nunca o contrário."
+        },
+        {
+          "id": "cena-3",
+          "text": "Para passar adiante o conhecimento que transforma gerações."
+        },
+        {
+          "id": "cena-4",
+          "text": "Para conectar pessoas e resolver os maiores desafios do nosso tempo."
+        },
+        {
+          "id": "cena-5",
+          "text": "Porque a verdadeira inteligência nasce do coração e da empatia."
+        },
+        {
+          "id": "cena-6",
+          "text": "O toque humano. A tecnologia a serviço da alma."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Deeply moving humanistic orchestral score with emotional solo cello, warm acoustic piano, gentle acoustic guitars and an inspiring, triumphant climax.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

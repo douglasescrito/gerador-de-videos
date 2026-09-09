@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/production-context-binding@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "rootScopeId",
+    "projectId",
+    "campaignId",
+    "productionId",
+    "deliverableId",
+    "productionRequestRef",
+    "briefHash",
+    "recipeTemplateRef",
+    "directorRef",
+    "directorValidationRef",
+    "decisionArtifactsHash",
+    "motionBankRef",
+    "rightsEvidenceRefs",
+    "knowledgeContextBindingHash",
+    "capabilitySnapshot",
+    "executionPolicy",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/production-context-binding@1" },
+    "rootScopeId": { "$ref": "#/$defs/id" },
+    "projectId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "campaignId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "productionId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "deliverableId": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "productionRequestRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["requestId", "requestHash"],
+          "properties": {
+            "requestId": { "type": "string", "pattern": "^preq_[a-f0-9]{32}$" },
+            "requestHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "briefHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "recipeTemplateRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["templateId", "templateRevision", "templateHash"],
+          "properties": {
+            "templateId": { "$ref": "#/$defs/id" },
+            "templateRevision": { "type": "integer", "minimum": 1 },
+            "templateHash": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "directorRef": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["directorId", "releaseId", "releaseHash", "fingerprint"],
+          "properties": {
+            "directorId": { "$ref": "#/$defs/id" },
+            "releaseId": { "$ref": "#/$defs/id" },
+            "releaseHash": { "$ref": "#/$defs/hash" },
+            "fingerprint": { "$ref": "#/$defs/hash" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "directorValidationRef": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "decisionArtifactsHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "motionBankRef": { "anyOf": [{ "$ref": "#/$defs/id" }, { "type": "null" }] },
+    "rightsEvidenceRefs": {
+      "type": "array",
+      "maxItems": 128,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/id" }
+    },
+    "knowledgeContextBindingHash": { "anyOf": [{ "$ref": "#/$defs/hash" }, { "type": "null" }] },
+    "capabilitySnapshot": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["capabilities", "capturedAt"],
+          "properties": {
+            "capabilities": { "type": "array", "maxItems": 128, "uniqueItems": true, "items": { "$ref": "#/$defs/id" } },
+            "capturedAt": { "type": "string", "format": "date-time" }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "executionPolicy": {
+      "anyOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["maxAttempts", "retryPolicy"],
+          "properties": {
+            "maxAttempts": { "type": "integer", "minimum": 1 },
+            "retryPolicy": { "enum": ["fixed", "exponential"] }
+          }
+        },
+        { "type": "null" }
+      ]
+    },
+    "hash": { "$ref": "#/$defs/hash" }
+  },
+  "$defs": {
+    "id": { "type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

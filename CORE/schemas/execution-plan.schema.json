@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/execution-plan@1",
+  "type": "object",
+  "required": ["schema", "spec", "timeline", "nodes", "budget", "concurrency", "compatibility", "governance", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/execution-plan@1" },
+    "compilerVersion": { "type": "string", "minLength": 1 },
+    "capabilitySnapshotHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "spec": { "type": "object" },
+    "timeline": { "type": "object" },
+    "brief": { "anyOf": [{ "$ref": "mkt-videos/studio-brief@1" }, { "type": "null" }] },
+    "knowledgeContextBinding": { "anyOf": [{ "$ref": "mkt-videos/knowledge-context-binding@1" }, { "type": "null" }] },
+    "decisionArtifacts": { "anyOf": [{ "$ref": "mkt-videos/studio-decision-artifacts@1" }, { "type": "null" }] },
+    "nodes": { "type": "array", "items": { "type": "object", "required": ["id", "kind", "dependencies", "costClass", "lane", "fingerprint"] } },
+    "budget": { "type": "object" },
+    "concurrency": { "type": "object" },
+    "compatibility": { "type": "object" },
+    "governance": { "type": "object" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

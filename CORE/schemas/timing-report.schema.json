@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/timing-report@1",
+  "type": "object",
+  "required": ["schema", "mediaFile", "status", "expected", "streams", "findings"],
+  "properties": { "schema": { "const": "mkt-videos/timing-report@1" }, "status": { "enum": ["pass", "blocked"] }, "streams": { "type": "array" }, "findings": { "type": "array" } }
+}

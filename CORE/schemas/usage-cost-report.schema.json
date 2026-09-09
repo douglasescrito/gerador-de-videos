@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/usage-cost-report@1",
+  "title": "MKT Videos Usage and Cost Report",
+  "type": "object",
+  "required": ["schema", "generatedAt", "root", "calls", "quota", "money", "records"],
+  "properties": {
+    "schema": { "const": "mkt-videos/usage-cost-report@1" },
+    "generatedAt": { "type": "string", "format": "date-time" },
+    "root": { "type": "string" },
+    "period": { "type": "object" },
+    "priceBook": { "type": ["object", "null"] },
+    "scanned": { "type": "integer", "minimum": 0 },
+    "deduplicatedReceipts": { "type": "integer", "minimum": 0 },
+    "duplicates": { "type": "integer", "minimum": 0 },
+    "unreadable": { "type": "integer", "minimum": 0 },
+    "calls": { "type": "object" },
+    "quota": { "type": "object", "required": ["reported", "unknown", "monetaryEquivalent"] },
+    "money": { "type": "object", "required": ["reported", "estimated", "unknown", "status"] },
+    "records": { "type": "array" }
+  },
+  "additionalProperties": false
+}

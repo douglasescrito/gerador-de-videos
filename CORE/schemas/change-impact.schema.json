@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/change-impact@1",
+  "type": "object",
+  "required": ["schema", "previousPlanFingerprint", "nextPlanFingerprint", "changed", "counts", "paidPostsRequired", "changes"],
+  "properties": {
+    "schema": { "const": "mkt-videos/change-impact@1" },
+    "changed": { "type": "boolean" },
+    "paidPostsRequired": { "type": "integer", "minimum": 0 },
+    "changes": { "type": "array" }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/renderer-sandbox@1",
+  "type": "object",
+  "required": ["schema", "network", "cookies", "implicitDownloads", "filesystem", "browser", "node", "ffmpeg", "fonts", "viewport", "dpr", "locale", "timezone", "clock", "seed", "limits", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/renderer-sandbox@1" },
+    "network": { "const": false },
+    "cookies": { "const": false },
+    "implicitDownloads": { "const": false },
+    "filesystem": { "type": "object" },
+    "browser": { "type": "object" },
+    "node": { "type": "object" },
+    "ffmpeg": { "type": "object" },
+    "fonts": { "type": "array" },
+    "viewport": { "type": "object" },
+    "dpr": { "type": "number", "exclusiveMinimum": 0 },
+    "locale": { "type": "string" },
+    "timezone": { "type": "string" },
+    "clock": { "type": "object" },
+    "seed": { "type": "string" },
+    "limits": { "type": "object" },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false
+}

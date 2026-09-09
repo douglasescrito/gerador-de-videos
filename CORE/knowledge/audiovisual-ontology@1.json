@@ -1,0 +1,594 @@
+{
+  "schema": "mkt-videos/audiovisual-ontology@1",
+  "id": "audiovisual-core",
+  "version": 1,
+  "status": "candidate",
+  "title": "Vocabulário audiovisual inicial",
+  "summary": "Vocabulário global versionado para nomear contexto, linguagem audiovisual, conhecimento operacional, relações e modalidades epistêmicas sem conceder autoridade de recuperação ou planejamento.",
+  "authors": [
+    {
+      "id": "mkt-videos-editorial",
+      "name": "MKT Videos Editorial"
+    }
+  ],
+  "reviewers": [],
+  "reviewedAt": null,
+  "authority": {
+    "retrieval": "blocked",
+    "planning": "blocked",
+    "providerInput": "blocked",
+    "reason": "Esta versão é somente candidata. Validade estrutural não constitui revisão humana, aprovação editorial nem permissão para influenciar retrieval, planejamento ou entrada de provedor."
+  },
+  "entityTypes": [
+    {
+      "id": "Client",
+      "domain": "context",
+      "definition": "Organização ou pessoa para a qual o trabalho audiovisual é governado e entregue.",
+      "aliases": [
+        "cliente"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Brand",
+      "domain": "context",
+      "definition": "Identidade representada por regras, sinais e restrições de comunicação próprias.",
+      "aliases": [
+        "marca"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Person",
+      "domain": "context",
+      "definition": "Pessoa identificada no contexto da produção, da aprovação ou da representação audiovisual.",
+      "aliases": [
+        "pessoa"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Project",
+      "domain": "context",
+      "definition": "Escopo organizado de trabalho que reúne objetivos, participantes e produções relacionadas.",
+      "aliases": [
+        "projeto"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Production",
+      "domain": "context",
+      "definition": "Unidade de realização audiovisual que transforma um brief em um ou mais entregáveis.",
+      "aliases": [
+        "produção"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Deliverable",
+      "domain": "context",
+      "definition": "Resultado audiovisual contratualmente ou editorialmente definido para entrega.",
+      "aliases": [
+        "entregável"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Brief",
+      "domain": "context",
+      "definition": "Declaração estruturada de objetivo, contexto, restrições, público e resultado esperado.",
+      "aliases": [
+        "briefing"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Audience",
+      "domain": "context",
+      "definition": "Grupo de pessoas para o qual uma comunicação audiovisual é destinada.",
+      "aliases": [
+        "público"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Channel",
+      "domain": "context",
+      "definition": "Meio de distribuição com capacidades, limites e convenções próprios.",
+      "aliases": [
+        "canal"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Format",
+      "domain": "context",
+      "definition": "Configuração editorial e técnica de uma peça, como proporção, duração e organização.",
+      "aliases": [
+        "formato"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Campaign",
+      "domain": "context",
+      "definition": "Conjunto coordenado de comunicações com objetivo comum, reservado a uso governado por política futura explícita.",
+      "aliases": [
+        "campanha"
+      ],
+      "activationGate": "future-explicit-policy"
+    },
+    {
+      "id": "Sequence",
+      "domain": "audiovisual-language",
+      "definition": "Conjunto ordenado de cenas que cumpre uma unidade narrativa ou funcional.",
+      "aliases": [
+        "sequência"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Scene",
+      "domain": "audiovisual-language",
+      "definition": "Unidade dramática ou informacional situada em um contexto contínuo reconhecível.",
+      "aliases": [
+        "cena"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Shot",
+      "domain": "audiovisual-language",
+      "definition": "Trecho audiovisual contínuo entre dois cortes ou limites equivalentes.",
+      "aliases": [
+        "plano"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Beat",
+      "domain": "audiovisual-language",
+      "definition": "Mudança mínima perceptível de intenção, informação, emoção ou ação.",
+      "aliases": [
+        "batida narrativa"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Transition",
+      "domain": "audiovisual-language",
+      "definition": "Operação temporal ou visual que conecta unidades audiovisuais.",
+      "aliases": [
+        "transição"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Track",
+      "domain": "audiovisual-language",
+      "definition": "Faixa temporal que organiza eventos de uma modalidade de mídia.",
+      "aliases": [
+        "faixa"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Layer",
+      "domain": "audiovisual-language",
+      "definition": "Elemento composicional ordenado em profundidade ou precedência visual.",
+      "aliases": [
+        "camada"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "MotionPrimitive",
+      "domain": "audiovisual-language",
+      "definition": "Operação elementar de movimento ou transformação que pode compor padrões maiores.",
+      "aliases": [
+        "primitiva de movimento"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "MotionPattern",
+      "domain": "audiovisual-language",
+      "definition": "Combinação recorrente de primitivas de movimento com função reconhecível.",
+      "aliases": [
+        "padrão de movimento"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "MotionPrinciple",
+      "domain": "audiovisual-language",
+      "definition": "Princípio que relaciona comportamento do movimento, percepção e intenção.",
+      "aliases": [
+        "princípio de movimento"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "VisualGrammar",
+      "domain": "audiovisual-language",
+      "definition": "Sistema de relações visuais usado para produzir continuidade e sentido.",
+      "aliases": [
+        "gramática visual"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "SoundGrammar",
+      "domain": "audiovisual-language",
+      "definition": "Sistema de relações sonoras usado para estruturar ritmo, espaço, ênfase e continuidade.",
+      "aliases": [
+        "gramática sonora"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "NarrativeFunction",
+      "domain": "audiovisual-language",
+      "definition": "Papel narrativo ou comunicacional exercido por uma unidade audiovisual.",
+      "aliases": [
+        "função narrativa"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "StyleSpec",
+      "domain": "operational-knowledge",
+      "definition": "Especificação versionada de direção estética e comportamento audiovisual.",
+      "aliases": [
+        "especificação de estilo"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Recipe",
+      "domain": "operational-knowledge",
+      "definition": "Descrição reutilizável de decisões e etapas que compilam para a espinha Studio existente.",
+      "aliases": [
+        "receita"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Provider",
+      "domain": "operational-knowledge",
+      "definition": "Sistema externo ou local que oferece uma capacidade operacional declarada.",
+      "aliases": [
+        "provedor"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Capability",
+      "domain": "operational-knowledge",
+      "definition": "Operação suportada sob condições, validade e limites explicitamente declarados.",
+      "aliases": [
+        "capacidade"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "ToolAdapter",
+      "domain": "operational-knowledge",
+      "definition": "Integração governada que traduz uma etapa do plano para uma ferramenta específica.",
+      "aliases": [
+        "adaptador"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "RenderNode",
+      "domain": "operational-knowledge",
+      "definition": "Unidade declarativa de renderização ou composição dentro da timeline canônica.",
+      "aliases": [
+        "nó de render"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "DeliveryProfile",
+      "domain": "operational-knowledge",
+      "definition": "Contrato técnico de uma variante de entrega, incluindo formato e restrições.",
+      "aliases": [
+        "perfil de entrega"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "BrandKit",
+      "domain": "operational-knowledge",
+      "definition": "Conjunto governado de regras, assets e restrições oficiais de uma marca.",
+      "aliases": [
+        "kit de marca"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Reference",
+      "domain": "operational-knowledge",
+      "definition": "Evidência ou material contextual cuja proveniência, direitos e uso são explicitamente delimitados.",
+      "aliases": [
+        "referência"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Artifact",
+      "domain": "operational-knowledge",
+      "definition": "Arquivo ou resultado material produzido, usado ou entregue por uma operação.",
+      "aliases": [
+        "artefato"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Receipt",
+      "domain": "operational-knowledge",
+      "definition": "Registro auditável de uma operação, de suas entradas sanitizadas e de seus resultados.",
+      "aliases": [
+        "recibo"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Decision",
+      "domain": "operational-knowledge",
+      "definition": "Escolha explícita entre alternativas, com autor, contexto e justificativa rastreáveis.",
+      "aliases": [
+        "decisão"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Feedback",
+      "domain": "operational-knowledge",
+      "definition": "Observação append-only sobre um resultado, sem autoridade automática para alterar ou regenerar.",
+      "aliases": [
+        "retorno"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "Evaluation",
+      "domain": "operational-knowledge",
+      "definition": "Análise rastreável de critérios e evidências, sem promoção automática de conhecimento.",
+      "aliases": [
+        "avaliação"
+      ],
+      "activationGate": null
+    },
+    {
+      "id": "KnowledgeRelease",
+      "domain": "operational-knowledge",
+      "definition": "Conjunto imutável e identificado de conhecimento governado elegível sob uma decisão externa.",
+      "aliases": [
+        "release de conhecimento"
+      ],
+      "activationGate": null
+    }
+  ],
+  "relations": [
+    {
+      "id": "belongsTo",
+      "definition": "Indica que uma entidade é governada como parte do escopo de outra.",
+      "domain": [
+        "Brand",
+        "Project",
+        "Production",
+        "Deliverable",
+        "Brief",
+        "Audience",
+        "Channel",
+        "Format"
+      ],
+      "range": [
+        "Client",
+        "Brand",
+        "Project",
+        "Production"
+      ]
+    },
+    {
+      "id": "commissionedBy",
+      "definition": "Indica quem encomendou ou autorizou a realização de um trabalho.",
+      "domain": [
+        "Project",
+        "Production",
+        "Deliverable"
+      ],
+      "range": [
+        "Client",
+        "Brand",
+        "Person"
+      ]
+    },
+    {
+      "id": "represents",
+      "definition": "Indica a entidade em nome da qual outra entidade se apresenta ou comunica.",
+      "domain": [
+        "Person",
+        "Production",
+        "Deliverable",
+        "Artifact"
+      ],
+      "range": [
+        "Client",
+        "Brand",
+        "Person",
+        "Project"
+      ]
+    },
+    {
+      "id": "targets",
+      "definition": "Indica o público, canal ou formato ao qual uma intenção comunicacional se dirige.",
+      "domain": [
+        "Brief",
+        "Project",
+        "Production",
+        "Deliverable",
+        "Campaign"
+      ],
+      "range": [
+        "Audience",
+        "Channel",
+        "Format"
+      ]
+    },
+    {
+      "id": "usesBrandKit",
+      "definition": "Indica o BrandKit governado que deve ser aplicado por uma entidade.",
+      "domain": [
+        "Project",
+        "Production",
+        "Deliverable",
+        "StyleSpec",
+        "Recipe"
+      ],
+      "range": [
+        "BrandKit"
+      ]
+    },
+    {
+      "id": "deliveredAs",
+      "definition": "Indica a forma técnica ou editorial em que uma produção ou artefato é entregue.",
+      "domain": [
+        "Production",
+        "Deliverable",
+        "Artifact"
+      ],
+      "range": [
+        "Deliverable",
+        "Format",
+        "DeliveryProfile",
+        "Artifact"
+      ]
+    },
+    {
+      "id": "approvedBy",
+      "definition": "Indica a pessoa responsável por uma aprovação humana explícita.",
+      "domain": [
+        "Brief",
+        "Project",
+        "Production",
+        "Deliverable",
+        "Decision",
+        "KnowledgeRelease"
+      ],
+      "range": [
+        "Person"
+      ]
+    },
+    {
+      "id": "supersedes",
+      "definition": "Indica que uma versão ou decisão substitui outra sem reescrever o histórico.",
+      "domain": [
+        "Brief",
+        "Deliverable",
+        "StyleSpec",
+        "Recipe",
+        "BrandKit",
+        "Reference",
+        "Decision",
+        "Evaluation",
+        "KnowledgeRelease"
+      ],
+      "range": [
+        "Brief",
+        "Deliverable",
+        "StyleSpec",
+        "Recipe",
+        "BrandKit",
+        "Reference",
+        "Decision",
+        "Evaluation",
+        "KnowledgeRelease"
+      ]
+    },
+    {
+      "id": "derivedFrom",
+      "definition": "Indica a origem rastreável da qual uma entidade foi derivada, sem inferir permissão de reutilização.",
+      "domain": [
+        "Production",
+        "Deliverable",
+        "Sequence",
+        "Scene",
+        "Shot",
+        "StyleSpec",
+        "Recipe",
+        "Artifact",
+        "Decision",
+        "Evaluation"
+      ],
+      "range": [
+        "Brief",
+        "Reference",
+        "Recipe",
+        "StyleSpec",
+        "Artifact",
+        "Receipt",
+        "Decision",
+        "Feedback",
+        "Evaluation"
+      ]
+    }
+  ],
+  "epistemicModalities": [
+    {
+      "id": "fact",
+      "definition": "Afirmação verificável sobre um estado ou evento.",
+      "obligation": "when-verifiable"
+    },
+    {
+      "id": "capability",
+      "definition": "Afirmação sobre suporte operacional válida apenas enquanto suas condições permanecerem atuais.",
+      "obligation": "while-valid"
+    },
+    {
+      "id": "hard-constraint",
+      "definition": "Restrição mandatória cuja violação torna a alternativa inadmissível.",
+      "obligation": "yes"
+    },
+    {
+      "id": "preference",
+      "definition": "Escolha desejada por uma pessoa ou escopo, sem força obrigatória por si só.",
+      "obligation": "no"
+    },
+    {
+      "id": "heuristic",
+      "definition": "Regra prática que pode orientar uma decisão, mas exige contexto e não garante resultado.",
+      "obligation": "no"
+    },
+    {
+      "id": "observation",
+      "definition": "Descrição rastreável do que foi percebido em uma evidência ou resultado.",
+      "obligation": "no"
+    },
+    {
+      "id": "hypothesis",
+      "definition": "Proposição ainda não confirmada que deve permanecer explicitamente incerta.",
+      "obligation": "no"
+    },
+    {
+      "id": "anti-pattern",
+      "definition": "Configuração recorrente associada a risco ou degradação e oferecida como orientação.",
+      "obligation": "guidance"
+    }
+  ],
+  "changelog": [
+    {
+      "version": 1,
+      "date": "2026-07-24",
+      "changes": [
+        "Criação candidata dos três domínios de entidades da seção 9 do plano.",
+        "Inclusão das nove relações iniciais e de seus domínios e ranges declarados.",
+        "Alinhamento estrito das oito modalidades epistêmicas com domain-pack@1.",
+        "Bloqueio explícito de retrieval, planejamento e entrada de provedor."
+      ]
+    }
+  ]
+}

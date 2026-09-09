@@ -1,0 +1,75 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "social-mitos-vs-verdades-30s",
+  "label": "Redes Sociais Vertical (30s) · Mitos vs. Verdades",
+  "description": "Formato vertical 9:16 altamente dinâmico com cortes rápidos, carimbos visuais 'MITO' e 'VERDADE' em tela e narração direta para máxima retenção.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": "motion-pop-digital@1",
+  "collection": "social-mitos-vs-verdades-30s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 30,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "formato vertical 9:16",
+    "sound design tátil de transição e impacto",
+    "Flow Music batida moderna lo-fi enérgica",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Fast-paced TikTok / Reels vertical 9:16 cinematography. High energy visual hook with bold red and white graphic overlay. Dynamic camera snap zoom into a confused person reacting to a floating misconception icon. Non-verbal sound design: energetic vinyl scratch and sub-bass thud. No speech or dialogue. On-screen text: MITO OU VERDADE?",
+      "duration": 6,
+      "onScreenText": "MITO OU VERDADE?",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Fast-paced vertical 9:16 cinematography. A bold neon red stamp appears with explosive motion graphics: 'MITO'. Fast kinetic transition revealing animated 3D icons breaking apart into dust. Non-verbal sound design: heavy metallic slam and glitch sound. No speech or dialogue. On-screen text: MITO ABSOLUTO.",
+      "duration": 8,
+      "onScreenText": "MITO ABSOLUTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Fast-paced vertical 9:16 cinematography. A bright neon emerald green stamp slams onto the screen: 'VERDADE'. Clean modern 3D visualization explaining the real fact with glowing data nodes and smooth fluid lines. Non-verbal sound design: crisp high-tech chime and positive chime. No speech or dialogue. On-screen text: A VERDADE REAL.",
+      "duration": 10,
+      "onScreenText": "A VERDADE REAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Vertical 9:16 call to action screen. Sleek social media interface elements, glowing like button icon and follow indicator with modern typography. Non-verbal sound design: quick satisfying double-click pop. No speech or dialogue. On-screen text: SALVE E COMPARTILHE.",
+      "duration": 6,
+      "onScreenText": "SALVE E COMPARTILHE",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Você com certeza já ouviu isso por aí. Mas será que é verdade? Vamos desmistificar agora. O que te disseram é mito. A ciência e a prática provam o contrário. Salve este vídeo para não esquecer.",
+      "voice": "voz jovem brasileira, comunicativa, ágil, tom de criador de conteúdo moderno e confiante",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        { "id": "cena-1", "text": "Você com certeza já ouviu isso por aí. Será que é verdade?" },
+        { "id": "cena-2", "text": "Primeiro: isso é um mito absoluto." },
+        { "id": "cena-3", "text": "A verdade é que pequenos hábitos consistentes mudam tudo." },
+        { "id": "cena-4", "text": "Curtiu? Salve este vídeo e envie para quem precisa saber." }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "Upbeat energetic modern electronic beat with crisp lo-fi drums, buoyant bassline and subtle melodic synth accents, perfect for engaging social media retention",
+      "duration": 30,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

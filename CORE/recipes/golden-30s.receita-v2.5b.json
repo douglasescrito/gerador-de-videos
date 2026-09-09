@@ -1,0 +1,164 @@
+{
+  "schema": "gerador-de-videos/receita@2",
+  "vertical": "2.5B",
+  "mode": "studio",
+  "kind": "peca",
+  "identity": {
+    "id": "golden-30s-referencias-audio",
+    "revision": 1,
+    "name": "Golden 30 s com referencias e audio"
+  },
+  "scope": {
+    "rootScopeId": "client:golden",
+    "projectScopeId": "recipe-v2-5b"
+  },
+  "format": {
+    "master": {
+      "width": 1920,
+      "height": 1080,
+      "fps": {
+        "numerator": 24,
+        "denominator": 1
+      }
+    }
+  },
+  "program": {
+    "durationPolicy": "fixed-frames",
+    "durationFrames": 720,
+    "shots": [
+      {
+        "id": "motion-abertura",
+        "durationFrames": 240
+      },
+      {
+        "id": "apresentador-centro",
+        "durationFrames": 240
+      },
+      {
+        "id": "apresentador-fechamento",
+        "durationFrames": 240
+      }
+    ]
+  },
+  "assets": [
+    {
+      "id": "apresentador-oficial",
+      "mediaKind": "image",
+      "role": "person-reference",
+      "source": {
+        "kind": "workspace",
+        "locator": "PESSOAS/apresentador.png"
+      },
+      "bytes": 1,
+      "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "mimeType": "image/png",
+      "rights": {
+        "providerInput": "unknown",
+        "reuse": "unknown"
+      },
+      "authorization": {
+        "mode": "scope-grant",
+        "bindingHash": "0000000000000000000000000000000000000000000000000000000000000000"
+      }
+    }
+  ],
+  "cast": {
+    "people": [
+      {
+        "id": "apresentador",
+        "assetId": "apresentador-oficial",
+        "role": "person-reference"
+      }
+    ]
+  },
+  "videoGeneration": {
+    "module": "omni-video@1",
+    "shots": [
+      {
+        "shotId": "motion-abertura",
+        "task": "text-to-video",
+        "prompt": "Grafismos abstratos em movimento, sem pessoas e sem referencias.",
+        "inputAssetIds": [],
+        "castIds": []
+      },
+      {
+        "shotId": "apresentador-centro",
+        "task": "reference-to-video",
+        "prompt": "O apresentador apresenta a ideia olhando para a camera.",
+        "inputAssetIds": [
+          "apresentador-oficial"
+        ],
+        "castIds": [
+          "apresentador"
+        ]
+      },
+      {
+        "shotId": "apresentador-fechamento",
+        "task": "reference-to-video",
+        "prompt": "O apresentador conclui com enquadramento estavel.",
+        "inputAssetIds": [
+          "apresentador-oficial"
+        ],
+        "castIds": [
+          "apresentador"
+        ]
+      }
+    ]
+  },
+  "narration": {
+    "module": "google-vids-narration@1",
+    "speakerMode": "one-voice",
+    "voice": "Persuasiva",
+    "documentUrl": "https://docs.google.com/videos/d/SUBSTITUA-PELO-SEU-DOCUMENTO",
+    "blocks": [
+      {
+        "id": "fala-1",
+        "text": "Substitua este texto pelo roteiro aprovado da sua produção.",
+        "speakerId": "narrador"
+      }
+    ],
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "alignment": {
+    "module": "whisper-alignment@1",
+    "backend": "faster-whisper",
+    "language": "pt",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "music": {
+    "module": "flow-music@1",
+    "intent": "Trilha institucional leve, sem vocal e com pulso continuo.",
+    "fit": "clean-cut",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "sfx": {
+    "module": "local-sfx@1",
+    "cues": []
+  },
+  "captions": {
+    "module": "word-captions@1",
+    "mode": "word",
+    "source": "whisper",
+    "timing": {
+      "status": "planned-not-measured"
+    }
+  },
+  "mix": {
+    "module": "ffmpeg-mix@1",
+    "voiceGainDb": 0,
+    "musicGainDb": -18,
+    "sfxGainDb": -9,
+    "ending": "clean-cut"
+  },
+  "assembly": {
+    "module": "ffmpeg-assembly@1",
+    "mode": "concat",
+    "transition": "cut@1"
+  }
+}

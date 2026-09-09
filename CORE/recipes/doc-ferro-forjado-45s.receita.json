@@ -1,0 +1,129 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "doc-ferro-forjado-45s",
+  "label": "Documentário Cinematográfico (45s) · O Martelo e a Brasa (Ferro Forjado)",
+  "description": "Documentário rústico e tátil em 16:9: bigorna de aço centenária, carvão incandescente ativado por fole manual, martelo forjando aço em brasa com fagulhas e têmpera em óleo.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "documentario@1",
+  "collection": "doc-ferro-forjado-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "cinematografia documental de forja",
+    "sound design de bigorna, martelo e brasa",
+    "Flow Music épico acústico de percussão",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Authentic blacksmith craft documentary cinematography in 16:9. Interior of a dark stone forge workshop lit by glowing red-hot charcoal embers. A giant leather bellows pushes air into the hearth, sending bursts of golden sparks swirling toward blackened timber rafters. 50mm vintage cinema lens, deep tactile shadows. Non-verbal sound design: deep rhythmic breath of leather bellows and crackling hot coal. No speech or dialogue. On-screen text: O FOGO PRIMORDIAL.",
+      "duration": 9,
+      "onScreenText": "O FOGO PRIMORDIAL",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Authentic blacksmith craft documentary cinematography in 16:9. Heavy iron tongs withdraw a blinding yellow-hot steel billet from the forge and place it onto a polished steel anvil. Heat waves visibly ripple above the metal. High contrast natural firelight. Non-verbal sound design: heavy metallic placement clunk on solid anvil. No speech or dialogue. On-screen text: A MATÉRIA INCANDESCENTE.",
+      "duration": 9,
+      "onScreenText": "A MATÉRIA INCANDESCENTE",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Authentic blacksmith craft documentary cinematography in 16:9. Extreme slow motion 120fps macro shot: a heavy cross-peen hammer strikes the glowing red steel with thunderous impact. A burst of brilliant orange scale and sparks explodes radially across the dark anvil. Non-verbal sound design: thunderous, crisp, ringing metallic hammer strike on hot steel. No speech or dialogue. On-screen text: A FORÇA DO IMPACTO.",
+      "duration": 9,
+      "onScreenText": "A FORÇA DO IMPACTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Authentic blacksmith craft documentary cinematography in 16:9. The sculpted red-hot blade is plunged into a dark steel tank of quenching oil in slow motion. Violent boiling bubbles erupt, and an instant plume of thick white steam and momentary amber flame roars upward. Non-verbal sound design: explosive sizzling oil hiss and bubbling liquid turbulence. No speech or dialogue. On-screen text: A TÊMPERA DA ALMA.",
+      "duration": 9,
+      "onScreenText": "A TÊMPERA DA ALMA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Authentic blacksmith craft documentary cinematography in 16:9. Hero closing frame: the finished hand-forged Damascus steel blade, etched with undulating water-like organic wave patterns, rests on an anvil horn under soft morning window light. Unyielding, timeless craftsmanship. Non-verbal sound design: pure metallic ringing chime decaying into quiet workshop room tone. No speech or dialogue. On-screen text: O FERRO FORJADO.",
+      "duration": 9,
+      "onScreenText": "O FERRO FORJADO",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "O ferro resiste ao tempo porque nasce do confronto direto entre a força humana e o calor extremo. Não existe atalho na bigorna. Cada golpe precisa ter intenção.",
+      "voice": "voz masculina brasileira madura, rústica, grave, firme, respeitosa e solene, tom de documentário de tradições ancestrais",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "No coração da forja, o fogo transforma o metal em maleabilidade."
+        },
+        {
+          "id": "cena-2",
+          "text": "O aço em brasa exige precisão e timing perfeito."
+        },
+        {
+          "id": "cena-3",
+          "text": "Cada golpe de martelo molda a estrutura molecular da lâmina."
+        },
+        {
+          "id": "cena-4",
+          "text": "O choque térmico da têmpera sela a dureza para os séculos."
+        },
+        {
+          "id": "cena-5",
+          "text": "O ferro forjado à mão carrega a alma de quem o moldou."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "institucional",
+    "musicIntent": "Earthy acoustic folk-orchestral score with wooden percussion, acoustic bass, warm cello melodies and a stoic, grounded resolution.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

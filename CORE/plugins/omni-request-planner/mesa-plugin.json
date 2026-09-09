@@ -1,0 +1,12 @@
+{
+  "schema": "mkt-videos/plugin-manifest@1",
+  "id": "omni-request-planner",
+  "name": "Planejador de Request Omni",
+  "version": "1.0.0",
+  "wasm": "plugin.wasm",
+  "wasmSha256": "7004f476540f043483eb702251ba0072b6efe45a90010bffd93a857431532284",
+  "capabilities": [
+    "metadata:read",
+    "studio:prompt-transform"
+  ]
+}

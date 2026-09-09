@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-gravidade-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · Gravidade Invertida",
+  "description": "Filme motivacional baseado em mudança de orientação: um universo inicialmente dominado pela queda altera suas próprias regras à medida que decisões conscientes transformam queda em ascensão.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-gravidade-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 1 of 6: Multiple abstract shapes fall vertically through a deep burgundy field. One gold shape falls with them while typography also drifts downward under the same visual gravity. The exact on-screen phrase is supplied separately as: CAIR É AUTOMÁTICO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CAIR É AUTOMÁTICO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 2 of 6: The gold shape catches a horizontal ledge, compresses, then pushes away from it. For the first time, one object moves against the dominant direction. The exact on-screen phrase is supplied separately as: LEVANTAR É UMA ESCOLHA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "LEVANTAR É UMA ESCOLHA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 3 of 6: Every deliberate upward movement bends nearby trajectories. Falling particles curve sideways as if a new force field is gradually entering the scene. The exact on-screen phrase is supplied separately as: MUDE A FORÇA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "MUDE A FORÇA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 4 of 6: The entire camera rotates ninety degrees while the gold shape continues its chosen path. What looked like upward struggle becomes stable forward motion. The exact on-screen phrase is supplied separately as: MUDE A DIREÇÃO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "MUDE A DIREÇÃO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 5 of 6: The camera rotates again, and the old falling field now reads as an ascending stream. The protagonist form moves through it with controlled momentum. The exact on-screen phrase is supplied separately as: SUBA UM POUCO MAIS. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "SUBA UM POUCO MAIS",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: deep burgundy, pale stone, bright gold and a restrained violet accent. Narrative beat 6 of 6: The world settles in a new orientation where all major lines rise diagonally. The gold shape becomes the anchor of a bold ascending final composition. The exact on-screen phrase is supplied separately as: DESAFIE A GRAVIDADE. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DESAFIE A GRAVIDADE",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Descer exige pouca escolha. É fácil seguir a força que já está puxando tudo para o mesmo lugar. Levantar começa quando você decide produzir uma força diferente, mesmo que ela pareça pequena diante do movimento ao redor. Cada escolha repetida muda o campo. Aquilo que antes empurrava você para baixo começa a perder domínio sobre a direção. Às vezes, não é preciso mudar quem você é. É preciso mudar a orientação pela qual você está enxergando e executando o caminho. Suba um pouco mais. Ganhe distância suficiente para perceber que a força contrária não é permanente nem absoluta. Você talvez não controle a gravidade do mundo. Mas pode construir uma direção forte o bastante para não obedecer a ela.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Descer exige pouca escolha. É fácil seguir a força que já está puxando tudo para o mesmo lugar."
+        },
+        {
+          "id": "cena-2",
+          "text": "Levantar começa quando você decide produzir uma força diferente, mesmo que ela pareça pequena diante do movimento ao redor."
+        },
+        {
+          "id": "cena-3",
+          "text": "Cada escolha repetida muda o campo. Aquilo que antes empurrava você para baixo começa a perder domínio sobre a direção."
+        },
+        {
+          "id": "cena-4",
+          "text": "Às vezes, não é preciso mudar quem você é. É preciso mudar a orientação pela qual você está enxergando e executando o caminho."
+        },
+        {
+          "id": "cena-5",
+          "text": "Suba um pouco mais. Ganhe distância suficiente para perceber que a força contrária não é permanente nem absoluta."
+        },
+        {
+          "id": "cena-6",
+          "text": "Você talvez não controle a gravidade do mundo. Mas pode construir uma direção forte o bastante para não obedecer a ela."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Dark cinematic opening with descending low strings and sparse piano, gradually introducing upward brass-like synth swells, strong percussion and harmonic lift as the visual gravity reverses.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

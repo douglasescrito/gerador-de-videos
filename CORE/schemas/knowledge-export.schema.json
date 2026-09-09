@@ -1,0 +1,47 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-export@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "storeSchema",
+    "kind",
+    "rootScopeId",
+    "releaseId",
+    "scopes",
+    "items",
+    "releases",
+    "events",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-export@1" },
+    "storeSchema": { "const": "mkt-videos/knowledge-store@1" },
+    "kind": { "enum": ["scope", "release"] },
+    "rootScopeId": { "type": "string", "minLength": 1 },
+    "releaseId": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1 }
+      ]
+    },
+    "scopes": {
+      "type": "array",
+      "items": { "$ref": "mkt-videos/knowledge-scope@1" }
+    },
+    "items": {
+      "type": "array",
+      "items": { "$ref": "mkt-videos/knowledge-item@1" }
+    },
+    "releases": {
+      "type": "array",
+      "items": { "$ref": "mkt-videos/knowledge-release@1" }
+    },
+    "events": {
+      "type": "array",
+      "items": { "$ref": "mkt-videos/knowledge-event@1" }
+    },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

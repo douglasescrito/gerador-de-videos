@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/scope-grant@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "id",
+    "policyId",
+    "policyHash",
+    "rootScopeIds",
+    "permissions",
+    "actor",
+    "purpose",
+    "issuedAt",
+    "expiresAt",
+    "hash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/scope-grant@1" },
+    "id": { "type": "string", "pattern": "^sg_[a-f0-9]{32}$" },
+    "policyId": { "const": "knowledge-governance-policy@1" },
+    "policyHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "rootScopeIds": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+      }
+    },
+    "permissions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "read",
+          "write",
+          "release",
+          "export",
+          "integrity",
+          "backup",
+          "restore"
+        ]
+      }
+    },
+    "actor": { "type": "string", "minLength": 1, "maxLength": 200 },
+    "purpose": { "type": "string", "minLength": 1, "maxLength": 500 },
+    "issuedAt": { "type": "string", "format": "date-time" },
+    "expiresAt": { "type": "string", "format": "date-time" },
+    "hash": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  }
+}

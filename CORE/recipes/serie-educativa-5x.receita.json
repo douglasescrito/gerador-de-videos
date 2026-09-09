@@ -1,0 +1,33 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "serie-educativa-5x",
+  "label": "Série educativa 5×",
+  "description": "Trilha didática em 5 episódios (16:9) com estrutura gancho → conteúdo → CTA.",
+  "kind": "lote",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "serie-educativa",
+  "parts": [
+    {
+      "name": "parte-001",
+      "prompt": "Episódio Abertura & Gancho: Fundo editorial com cantos suaves, título grande e narração de abertura que promete ensinar algo novo. [ENERGY: LOW] [SFX: WHOOSH]"
+    },
+    {
+      "name": "parte-002",
+      "prompt": "Episódio Fundamentos: Diagramas e ícones surgindo para explicar o básico. Narração didática e pausada. [ENERGY: LOW] [SFX: GLASS]"
+    },
+    {
+      "name": "parte-003",
+      "prompt": "Episódio Aprofundamento: Exemplo prático em tela cheia com destaque nos passos. Narração aprofundando os conceitos. [ENERGY: RISING] [SFX: BOOM]"
+    },
+    {
+      "name": "parte-004",
+      "prompt": "Episódio Casos & Erros comuns: Comparação lado a lado do certo e do errado. Narração esclarecendo armadilhas. [ENERGY: RISING] [SFX: WHOOSH]"
+    },
+    {
+      "name": "parte-005",
+      "prompt": "Episódio Resumo & CTA: Recapitulação em tópicos e chamada final para o próximo episódio. Narração de encerramento. [ENERGY: CLIMAX] [SFX: GLITCH]"
+    }
+  ],
+  "parallel": 3
+}

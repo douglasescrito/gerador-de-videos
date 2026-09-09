@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-restore-report@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "restoredAt",
+    "status",
+    "providerFree",
+    "changed",
+    "database",
+    "scopeAttestationVerified",
+    "assets",
+    "reportOnlyAssets",
+    "repairPerformed",
+    "manifestHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-restore-report@1" },
+    "restoredAt": { "type": "string", "format": "date-time" },
+    "status": { "enum": ["restored", "restored-asymmetric"] },
+    "providerFree": { "const": true },
+    "changed": { "const": true },
+    "database": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "userVersion",
+        "applicationId",
+        "bytes",
+        "sha256",
+        "integritySha256"
+      ],
+      "properties": {
+        "schema": { "const": "mkt-videos/knowledge-store@1" },
+        "userVersion": { "type": "integer", "minimum": 1 },
+        "applicationId": { "type": "integer", "minimum": 1 },
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "integritySha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "scopeAttestationVerified": { "type": "boolean" },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "missing", "divergent", "unsafe"],
+      "properties": {
+        "status": { "enum": ["not-declared", "match", "asymmetric"] },
+        "missing": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 }
+        },
+        "divergent": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "path",
+              "expectedSha256",
+              "actualSha256",
+              "expectedSize",
+              "actualSize"
+            ],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "expectedSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "actualSha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "expectedSize": { "type": "integer", "minimum": 0 },
+              "actualSize": { "type": "integer", "minimum": 0 }
+            }
+          }
+        },
+        "unsafe": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "reason"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "reason": {
+                "enum": [
+                  "asset-root-unavailable",
+                  "unsafe-path",
+                  "unreadable"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "reportOnlyAssets": { "const": true },
+    "repairPerformed": { "const": false },
+    "manifestHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "filme-2min",
+  "label": "Filme 2 minutos",
+  "description": "Composição completa de 120s em 8 atos. Narrativa mais longa para storytelling e trilha Flow no master.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": null,
+  "collection": "filme-2min",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Ato Prólogo (15s): Ambiente cinematográfico, tom da história, título sutil. [ENERGY: LOW] [SFX: GLASS]",
+      "duration": 15
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Ato Conflito (15s): O problema ganha forma visual. Ritmo sobe. [ENERGY: RISING] [SFX: WHOOSH]",
+      "duration": 15
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Ato Virada (15s): A solução entra em cena com impacto. [ENERGY: CLIMAX] [SFX: BOOM]",
+      "duration": 15
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Ato Demonstração (15s): Produto/serviço em ação, detalhes claros. [ENERGY: RISING] [SFX: GLITCH]",
+      "duration": 15
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Ato Profundidade (15s): Casos, benefícios e prova social visual. [ENERGY: RISING] [SFX: WHOOSH]",
+      "duration": 15
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Ato Emoção (15s): Momento humano, luz quente, respiração visual. [ENERGY: LOW] [SFX: GLASS]",
+      "duration": 15
+    },
+    {
+      "id": "cena-7",
+      "prompt": "Ato Urgência (15s): Elementos dinâmicos, oferta e ritmo final. [ENERGY: CLIMAX] [SFX: GLITCH]",
+      "duration": 15
+    },
+    {
+      "id": "cena-8",
+      "prompt": "Ato Encerramento (15s): Marca, mensagem final e CTA. Corte limpo. [ENERGY: CLIMAX] [SFX: BOOM]",
+      "duration": 15
+    }
+  ],
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

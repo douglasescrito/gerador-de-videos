@@ -1,0 +1,79 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-reference@1",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "kind",
+        "rootScopeId",
+        "id"
+      ],
+      "properties": {
+        "schema": {
+          "const": "mkt-videos/knowledge-reference@1"
+        },
+        "kind": {
+          "const": "scope"
+        },
+        "rootScopeId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "kind",
+        "rootScopeId",
+        "id",
+        "revision",
+        "recordType",
+        "contentHash"
+      ],
+      "properties": {
+        "schema": {
+          "const": "mkt-videos/knowledge-reference@1"
+        },
+        "kind": {
+          "const": "item"
+        },
+        "rootScopeId": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        },
+        "id": {
+          "type": "string",
+          "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+        },
+        "revision": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "recordType": {
+          "enum": [
+            "entity",
+            "relation",
+            "assertion",
+            "evidence",
+            "rights",
+            "decision"
+          ]
+        },
+        "contentHash": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    }
+  ]
+}

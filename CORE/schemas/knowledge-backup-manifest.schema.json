@@ -1,0 +1,146 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-backup-manifest@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "bundleSchema",
+    "createdAt",
+    "classification",
+    "providerFree",
+    "store",
+    "ledger",
+    "scopeAttestation",
+    "assets",
+    "manifestHash"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-backup-manifest@1" },
+    "bundleSchema": { "const": "mkt-videos/knowledge-backup-bundle@1" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "classification": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "containsPrivateData", "secretMaterial"],
+      "properties": {
+        "level": {
+          "enum": [
+            "internal",
+            "confidential",
+            "restricted"
+          ]
+        },
+        "containsPrivateData": { "const": true },
+        "secretMaterial": { "const": "prohibited" }
+      }
+    },
+    "providerFree": { "const": true },
+    "store": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema",
+        "userVersion",
+        "applicationId",
+        "snapshotBytes",
+        "snapshotSha256",
+        "integritySha256"
+      ],
+      "properties": {
+        "schema": { "const": "mkt-videos/knowledge-store@1" },
+        "userVersion": { "type": "integer", "minimum": 1 },
+        "applicationId": { "type": "integer", "minimum": 1 },
+        "snapshotBytes": { "type": "integer", "minimum": 1 },
+        "snapshotSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        },
+        "integritySha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "ledger": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["rootCount", "eventCount", "headsAggregateHash"],
+      "properties": {
+        "rootCount": { "type": "integer", "minimum": 0 },
+        "eventCount": { "type": "integer", "minimum": 0 },
+        "headsAggregateHash": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          ]
+        }
+      }
+    },
+    "scopeAttestation": {
+      "oneOf": [
+        { "type": "null" },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "rootScopeHash",
+            "ledgerHead",
+            "integritySha256"
+          ],
+          "properties": {
+            "rootScopeHash": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            },
+            "ledgerHead": {
+              "oneOf": [
+                { "type": "null" },
+                { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+              ]
+            },
+            "integritySha256": {
+              "type": "string",
+              "pattern": "^[a-f0-9]{64}$"
+            }
+          }
+        }
+      ]
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "count", "aggregateSha256", "entries"],
+      "properties": {
+        "mode": { "enum": ["not-included", "inventory-only"] },
+        "count": { "type": "integer", "minimum": 0 },
+        "aggregateSha256": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": ["path", "sha256", "size"],
+            "properties": {
+              "path": { "type": "string", "minLength": 1 },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "size": { "type": "integer", "minimum": 0 }
+            }
+          }
+        }
+      }
+    },
+    "manifestHash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

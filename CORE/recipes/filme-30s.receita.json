@@ -1,0 +1,33 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "filme-30s",
+  "label": "Filme 30s",
+  "description": "Composição completa de 30s em 3 atos (gancho → solução → CTA). Monte o master ao final.",
+  "kind": "filme",
+  "aspect": "9:16",
+  "style": null,
+  "collection": "filme-30s",
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Ato Gancho (10s): Abertura com impacto visual e tipografia grande. Narração de 1 frase que prende. Corte limpo. [ENERGY: LOW] [SFX: GLITCH]",
+      "duration": 10
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Ato Solução (10s): Revelação do produto/serviço em ação, ritmo crescente, tipografia fluida. [ENERGY: RISING] [SFX: WHOOSH]",
+      "duration": 10
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Ato CTA (10s): Marca fixa no centro, botão destacado, chamada para ação clara. Corte limpo. [ENERGY: CLIMAX] [SFX: BOOM]",
+      "duration": 10
+    }
+  ],
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

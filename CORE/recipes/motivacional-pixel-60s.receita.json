@@ -1,0 +1,140 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "motivacional-pixel-60s",
+  "label": "Filme Motivacional Flat 2D (60s) · Um Pixel Contra o Vazio",
+  "description": "Filme motivacional que parte de um único pixel e cresce por repetição e organização até formar sistemas, paisagens e uma composição monumental, traduzindo escala acumulativa.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "motivacional-pixel-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "tipografia cinética nativa",
+    "efeitos sonoros não verbais",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 1 of 6: A single cobalt square pixel appears at the exact center of a near-black frame. It pulses once, tiny but unmistakably present. The exact on-screen phrase is supplied separately as: COMECE COM UM PONTO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "COMECE COM UM PONTO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 2 of 6: A second pixel appears beside the first, then a third. Small groups begin forming measured patterns with crisp tactile clicks and precise spacing. The exact on-screen phrase is supplied separately as: DEPOIS OUTRO. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "DEPOIS OUTRO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 3 of 6: Clusters replicate and reorganize into grids, waves and modular symbols. The visual language evolves from isolated pixels into coherent structures. The exact on-screen phrase is supplied separately as: PADRÕES APARECEM. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "PADRÕES APARECEM",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 4 of 6: The camera pushes through the grid as pixel groups become roads, towers, channels and flowing abstract infrastructure, all still visibly built from the same unit. The exact on-screen phrase is supplied separately as: SISTEMAS NASCEM. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "SISTEMAS NASCEM",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 5 of 6: A dramatic pull-back reveals a vast geometric landscape composed of millions of repeated modules. The original cobalt unit remains highlighted within the whole. The exact on-screen phrase is supplied separately as: O PEQUENO GANHA ESCALA. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "O PEQUENO GANHA ESCALA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-6",
+      "prompt": "Original 2D flat motion design in 16:9, graphic and cinematic, with crisp vector shapes, deliberate editorial composition, tactile easing and strong visual continuity. Use only fictional abstract forms; no brands, logos, products, watermarks, signatures, recognizable people, photorealism or imitation of an existing artist. The Omni soundtrack must contain only synchronized non-verbal sound design: soft impacts, paper movement, geometric whooshes, tactile clicks and environmental accents. No speech, dialogue, narration, chanting or singing. Render only the exact supplied on-screen phrase, once, with excellent Portuguese spelling and high legibility. Do not invent incidental text, numbers or interface labels. Film-specific palette: near black, warm white, vivid cobalt and a restrained neon lime accent. Narrative beat 6 of 6: Most of the landscape fades into elegant negative space, leaving one empty grid position beside the original pixel. The final phrase locks as a new pixel appears. The exact on-screen phrase is supplied separately as: CONSTRUA O PRIMEIRO PIXEL. Time its entrance to the measured narration window and let the motion support the meaning of that phrase.",
+      "duration": 10,
+      "onScreenText": "CONSTRUA O PRIMEIRO PIXEL",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "Todo projeto enorme pode ser reduzido a uma primeira unidade. Uma ação. Um bloco. Um ponto colocado no lugar certo. Depois vem outro. O avanço parece quase invisível quando você observa apenas cada movimento separado. Mas repetição cria padrão. O que antes eram decisões isoladas começa a adquirir forma, ritmo e coerência. Com consistência, padrões viram sistemas. Sistemas reduzem esforço, aumentam clareza e permitem que resultados cresçam. O pequeno não permanece pequeno quando é repetido com direção. A escala nasce da soma disciplinada do que parecia mínimo. Não espere enxergar a obra inteira. Construa o primeiro pixel e permita que o próximo tenha onde se conectar.",
+      "voice": "voz masculina brasileira madura, grave, calorosa, encorpada e confiante, com dicção natural e energia motivacional sem exagero",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "Todo projeto enorme pode ser reduzido a uma primeira unidade. Uma ação. Um bloco. Um ponto colocado no lugar certo."
+        },
+        {
+          "id": "cena-2",
+          "text": "Depois vem outro. O avanço parece quase invisível quando você observa apenas cada movimento separado."
+        },
+        {
+          "id": "cena-3",
+          "text": "Mas repetição cria padrão. O que antes eram decisões isoladas começa a adquirir forma, ritmo e coerência."
+        },
+        {
+          "id": "cena-4",
+          "text": "Com consistência, padrões viram sistemas. Sistemas reduzem esforço, aumentam clareza e permitem que resultados cresçam."
+        },
+        {
+          "id": "cena-5",
+          "text": "O pequeno não permanece pequeno quando é repetido com direção. A escala nasce da soma disciplinada do que parecia mínimo."
+        },
+        {
+          "id": "cena-6",
+          "text": "Não espere enxergar a obra inteira. Construa o primeiro pixel e permita que o próximo tenha onde se conectar."
+        }
+      ]
+    },
+    "music": true,
+    "musicPreset": "epico",
+    "musicIntent": "Minimal electronic-cinematic score beginning with isolated piano and tactile digital percussion, adding layers in modular steps until a wide orchestral-electronic climax, with no vocals.",
+    "musicDurationSeconds": 60,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {
+    "structural": true
+  },
+  "assembly": {
+    "fps": 24
+  }
+}

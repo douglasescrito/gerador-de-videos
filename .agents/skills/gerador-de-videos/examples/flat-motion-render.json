@@ -1,0 +1,9 @@
+{
+  "id": "exemplo-motion-geometrico",
+  "preset": "gallery",
+  "quality": "preview",
+  "durationSeconds": 6,
+  "accent": "#79a6db",
+  "bloom": 0.15,
+  "particles": false
+}

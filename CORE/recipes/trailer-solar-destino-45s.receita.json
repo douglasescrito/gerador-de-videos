@@ -1,0 +1,107 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "trailer-solar-destino-45s",
+  "label": "Trailer Cinematográfico (45s) · Destino Solar (Sci‑Fi Adventure)",
+  "description": "Trailer de ficção científica de 45 s, mostrando uma nave espacial rumo a uma estrela distante, com luzes de hiperespaço e planetas exóticos.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "sci‑fi‑adventure@1",
+  "collection": "trailer-solar-destino-45s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 45,
+  "resources": [
+    "Omni narration blocks cookie-only",
+    "Whisper por palavra",
+    "Omni text-to-video sem voz",
+    "macro de nave espacial",
+    "sound design de motores de foguete",
+    "Flow Music epic synth",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "Wide shot of a sleek starship departing a neon-lit spaceport, 85mm cinema lens, no speech, on-screen text: PARTIDA.",
+      "duration": 9,
+      "onScreenText": "PARTIDA",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-2",
+      "prompt": "Close‑up of the ship’s engine igniting, plasma trails, slow motion, no speech, on-screen text: IMPULSO.",
+      "duration": 9,
+      "onScreenText": "IMPULSO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-3",
+      "prompt": "Ship cruising through a field of shimmering asteroids, golden dust, no speech, on-screen text: O CÉU.",
+      "duration": 9,
+      "onScreenText": "O CÉU",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-4",
+      "prompt": "Approach to a massive bright sun, heat distortion, ship’s hull reflecting, no speech, on-screen text: DESTINO.",
+      "duration": 9,
+      "onScreenText": "DESTINO",
+      "textRendering": "omni-native"
+    },
+    {
+      "id": "cena-5",
+      "prompt": "Final silhouette of the ship against the solar flare, title reveal, no speech, on-screen text: NOVO HORIZONTE.",
+      "duration": 9,
+      "onScreenText": "NOVO HORIZONTE",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "omni",
+      "text": "A jornada rumo ao sol desafia o impossível, cada luz reflete nossa ousadia.",
+      "voice": "voz masculina brasileira inspiradora, estilo épico",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": false,
+      "blocks": [
+        {"id": "cena-1", "text": "A jornada rumo ao sol começa."},
+        {"id": "cena-3", "text": "Desafiamos o impossível a cada luz."}
+      ]
+    },
+    "music": true,
+    "musicPreset": "epic",
+    "musicIntent": "Grand orchestral‑synth hybrid, powerful brass and rising strings.",
+    "musicDurationSeconds": 45,
+    "musicFit": "exact",
+    "musicFadeOutSeconds": 0
+  },
+  "workflow": {
+    "narrationSync": "whisper-word-timestamps",
+    "whisperModel": "small",
+    "omniPostProcess": true,
+    "humanReview": false,
+    "completionMode": "complete",
+    "wallTargetSeconds": 300,
+    "flowSoftBudgetSeconds": 90,
+    "streamAlignment": true,
+    "musicFit": "exact",
+    "defaultTextRendering": "omni-native",
+    "localGcPolicy": "explicit-only",
+    "alignmentReview": "orthographic-logical",
+    "correctionWhisperModel": "large-v3-turbo",
+    "llmCorrectionContract": "proposal-only-script-bound@1",
+    "narrationTextAuthority": "approved-script-only",
+    "narrationTimestampAuthority": "whisper-measured-only",
+    "graphicsTextBinding": "scene-text-at-validated-word-window@1",
+    "authorizationMode": "production-once",
+    "omniResubmit": "evidence-guided-automatic",
+    "automaticRetry": true,
+    "retryPolicy": "bounded-reconciled@1",
+    "maxAttempts": 3,
+    "automaticCorrections": true,
+    "acceptedAttemptPolicy": "whisper-pass"
+  },
+  "qa": {"structural": true},
+  "assembly": {"fps": 24}
+}

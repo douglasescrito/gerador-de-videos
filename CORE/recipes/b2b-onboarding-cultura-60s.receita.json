@@ -1,0 +1,79 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "b2b-onboarding-cultura-60s",
+  "label": "Modelo B2B: integração de equipe",
+  "description": "Estrutura de quatro cenas e 60 segundos para preencher com roteiro, evidências e direção visual próprios. Não contém produção pronta. Consulte o modelo narrado de seis cenas para configurar e validar o fluxo.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "corporate-inspire@1",
+  "collection": "b2b-onboarding-cultura-60s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 60,
+  "resources": [
+    "Google Vids na conta do usuário",
+    "Whisper local por palavra",
+    "Omni text-to-video sem voz",
+    "Flow Music",
+    "montagem e mix Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "COLE AQUI a direção visual de acolhimento. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 12
+    },
+    {
+      "id": "cena-2",
+      "prompt": "COLE AQUI a direção visual de forma de trabalhar. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 15
+    },
+    {
+      "id": "cena-3",
+      "prompt": "COLE AQUI a direção visual de propósito. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 18
+    },
+    {
+      "id": "cena-4",
+      "prompt": "COLE AQUI a direção visual de próximos passos. Sem fala, sem texto em tela e sem logotipo. Use somente elementos autorizados da sua produção.",
+      "duration": 15
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "google-vids",
+      "text": "COLE AQUI a narração de acolhimento. COLE AQUI a narração de forma de trabalhar. COLE AQUI a narração de propósito. COLE AQUI a narração de próximos passos.",
+      "voice": "Jett",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": true,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "COLE AQUI a narração de acolhimento."
+        },
+        {
+          "id": "cena-2",
+          "text": "COLE AQUI a narração de forma de trabalhar."
+        },
+        {
+          "id": "cena-3",
+          "text": "COLE AQUI a narração de propósito."
+        },
+        {
+          "id": "cena-4",
+          "text": "COLE AQUI a narração de próximos passos."
+        }
+      ],
+      "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID",
+      "fallbackPolicy": "manual-after-preflight-failure"
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "COLE AQUI a direção musical instrumental da sua produção, sem vozes.",
+      "duration": 60,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

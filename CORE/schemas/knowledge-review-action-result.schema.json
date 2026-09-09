@@ -1,0 +1,55 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-review-action-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "operation",
+    "status",
+    "providerFree",
+    "readOnly",
+    "changed",
+    "humanConfirmed",
+    "rootScopeId",
+    "decision",
+    "item"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/knowledge-review-action-result@1"
+    },
+    "action": {
+      "const": "review-item"
+    },
+    "operation": {
+      "enum": ["promote", "quarantine"]
+    },
+    "status": {
+      "enum": ["promoted", "quarantined"]
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": false
+    },
+    "changed": {
+      "const": true
+    },
+    "humanConfirmed": {
+      "const": true
+    },
+    "rootScopeId": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "decision": {
+      "$ref": "mkt-videos/knowledge-review-decision@1"
+    },
+    "item": {
+      "$ref": "mkt-videos/knowledge-item@1"
+    }
+  }
+}

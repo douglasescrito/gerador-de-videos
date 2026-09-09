@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/reference-inventory@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "status",
+    "providerFree",
+    "readOnly",
+    "rootScopeId",
+    "scopeId",
+    "owner",
+    "rootAlias",
+    "generatedAt",
+    "assetCount",
+    "rightsDefault",
+    "analysis",
+    "assets",
+    "fingerprint"
+  ],
+  "properties": {
+    "schema": {
+      "const": "mkt-videos/reference-inventory@1"
+    },
+    "status": {
+      "const": "candidate"
+    },
+    "providerFree": {
+      "const": true
+    },
+    "readOnly": {
+      "const": true
+    },
+    "rootScopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "scopeId": {
+      "$ref": "#/$defs/id"
+    },
+    "owner": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "id"],
+      "properties": {
+        "type": {
+          "enum": [
+            "global",
+            "domain",
+            "organization",
+            "client",
+            "brand",
+            "person",
+            "project",
+            "production",
+            "deliverable",
+            "campaign",
+            "system"
+          ]
+        },
+        "id": {
+          "$ref": "#/$defs/id"
+        }
+      }
+    },
+    "rootAlias": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{0,63}$"
+    },
+    "generatedAt": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "assetCount": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 4096
+    },
+    "rightsDefault": {
+      "const": "unknown"
+    },
+    "analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "contentInspected",
+        "probe",
+        "decode",
+        "frames",
+        "audio",
+        "ocr",
+        "providerCalls"
+      ],
+      "properties": {
+        "contentInspected": { "const": false },
+        "probe": { "const": false },
+        "decode": { "const": false },
+        "frames": { "const": false },
+        "audio": { "const": false },
+        "ocr": { "const": false },
+        "providerCalls": { "const": 0 }
+      }
+    },
+    "assets": {
+      "type": "array",
+      "maxItems": 4096,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "revision",
+          "logicalPath",
+          "fileSha256",
+          "bytes",
+          "mediaType",
+          "provenanceCandidate",
+          "rights",
+          "contentHash"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^kra_[a-f0-9]{32}$"
+          },
+          "revision": {
+            "const": 1
+          },
+          "logicalPath": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 1024,
+            "pattern": "^(?![A-Za-z]:)(?!/)(?!.*\\\\)(?!.*:)(?!.*//)(?!.*(?:^|/)\\.\\.?(?:/|$))[^\\u0000-\\u001f\\u007f\\u202a-\\u202e\\u2066-\\u2069]+$"
+          },
+          "fileSha256": {
+            "$ref": "#/$defs/hash"
+          },
+          "bytes": {
+            "type": "integer",
+            "minimum": 0
+          },
+          "mediaType": {
+            "enum": [
+              "video/mp4",
+              "video/quicktime",
+              "video/webm",
+              "image/png",
+              "image/jpeg",
+              "image/webp",
+              "audio/wav",
+              "audio/mpeg"
+            ]
+          },
+          "provenanceCandidate": {
+            "enum": [
+              "pipeline-output",
+              "official-person-asset",
+              "client-supplied",
+              "licensed-stock",
+              "third-party-reference",
+              "unresolved"
+            ]
+          },
+          "rights": {
+            "$ref": "#/$defs/unknownRights"
+          },
+          "contentHash": {
+            "$ref": "#/$defs/hash"
+          }
+        }
+      }
+    },
+    "fingerprint": {
+      "$ref": "#/$defs/hash"
+    }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    },
+    "unknownRights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "inventory",
+        "localAnalysis",
+        "textualIndexing",
+        "embedding",
+        "training",
+        "providerInput",
+        "publication",
+        "reuse"
+      ],
+      "properties": {
+        "inventory": { "const": "unknown" },
+        "localAnalysis": { "const": "unknown" },
+        "textualIndexing": { "const": "unknown" },
+        "embedding": { "const": "unknown" },
+        "training": { "const": "unknown" },
+        "providerInput": { "const": "unknown" },
+        "publication": { "const": "unknown" },
+        "reuse": { "const": "unknown" }
+      }
+    }
+  }
+}

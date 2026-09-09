@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/knowledge-backup-result@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "action",
+    "status",
+    "providerFree",
+    "changed",
+    "storeReadOnly",
+    "file",
+    "archiveBytes",
+    "archiveSha256",
+    "manifestHash",
+    "createdAt",
+    "classification",
+    "snapshot",
+    "assets",
+    "scopedAttestation"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/knowledge-backup-result@1" },
+    "action": { "const": "backup" },
+    "status": { "const": "backed-up" },
+    "providerFree": { "const": true },
+    "changed": { "const": true },
+    "storeReadOnly": { "const": true },
+    "file": { "type": "string", "minLength": 1 },
+    "archiveBytes": { "type": "integer", "minimum": 1 },
+    "archiveSha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "manifestHash": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "classification": {
+      "enum": ["internal", "confidential", "restricted"]
+    },
+    "snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["bytes", "sha256", "userVersion"],
+      "properties": {
+        "bytes": { "type": "integer", "minimum": 1 },
+        "sha256": { "type": "string", "pattern": "^[a-f0-9]{64}$" },
+        "userVersion": { "type": "integer", "minimum": 1 }
+      }
+    },
+    "assets": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "count", "aggregateSha256"],
+      "properties": {
+        "mode": {
+          "enum": [
+            "not-included",
+            "inventory-only",
+            "governed-inventory"
+          ]
+        },
+        "count": { "type": "integer", "minimum": 0 },
+        "aggregateSha256": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+          ]
+        }
+      }
+    },
+    "scopedAttestation": { "type": "boolean" }
+  }
+}

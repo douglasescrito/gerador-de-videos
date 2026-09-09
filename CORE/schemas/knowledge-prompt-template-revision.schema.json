@@ -1,0 +1,96 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/prompt-template-revision@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "templateId",
+    "revision",
+    "name",
+    "body",
+    "variables",
+    "config",
+    "source",
+    "createdAt",
+    "createdBy"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/prompt-template-revision@1" },
+    "templateId": { "$ref": "#/$defs/id" },
+    "revision": { "type": "integer", "minimum": 1 },
+    "name": { "type": "string", "minLength": 1, "maxLength": 160 },
+    "body": { "type": "string", "minLength": 1, "maxLength": 65536 },
+    "variables": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "type", "required", "defaultValue", "options"],
+        "properties": {
+          "name": { "type": "string", "pattern": "^[a-z][a-z0-9_]{0,63}$" },
+          "type": { "enum": ["text", "number", "boolean", "enum"] },
+          "required": { "type": "boolean" },
+          "defaultValue": {
+            "type": ["string", "number", "boolean", "null"]
+          },
+          "options": {
+            "type": "array",
+            "uniqueItems": true,
+            "items": { "type": "string", "minLength": 1, "maxLength": 500 }
+          }
+        },
+        "allOf": [
+          {
+            "if": {
+              "properties": { "type": { "const": "enum" } },
+              "required": ["type"]
+            },
+            "then": {
+              "properties": { "options": { "type": "array", "minItems": 1 } }
+            }
+          }
+        ]
+      }
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["mode", "directionPreset", "aspectRatio", "task"],
+      "properties": {
+        "mode": { "enum": ["raw", "studio"] },
+        "directionPreset": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1, "maxLength": 160 }
+          ]
+        },
+        "aspectRatio": { "enum": ["16:9", "9:16"] },
+        "task": { "enum": ["text_to_video", "reference_to_video", "image_to_video", "edit"] }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "receiptId"],
+      "properties": {
+        "kind": { "enum": ["manual", "receipt", "legacy-import"] },
+        "receiptId": {
+          "oneOf": [
+            { "type": "null" },
+            { "type": "string", "minLength": 1, "maxLength": 300 }
+          ]
+        }
+      }
+    },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "createdBy": { "type": "string", "minLength": 1, "maxLength": 200 }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    }
+  }
+}

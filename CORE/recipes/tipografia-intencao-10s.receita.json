@@ -1,0 +1,54 @@
+{
+  "schema": "gerador-de-videos/receita@1",
+  "id": "tipografia-intencao-10s",
+  "label": "Modelo de tipografia narrada — janela de 10 segundos",
+  "description": "Modelo a preencher. Use roteiro próprio e tempos medidos da nova voz; não contém timestamps de produção anterior. Consulte tipografia-intencao-10s.md. Compilar não significa que os campos foram preenchidos nem que a voz cabe em dez segundos.",
+  "kind": "filme",
+  "aspect": "16:9",
+  "style": "flat-2d@1",
+  "collection": "tipografia-intencao-10s",
+  "task": "text_to_video",
+  "targetDurationSeconds": 10,
+  "resources": [
+    "Google Vids na conta do usuário",
+    "Whisper local por palavra",
+    "Omni text-to-video com texto gráfico nativo",
+    "Flow Music instrumental",
+    "mixagem e mux Studio"
+  ],
+  "scenes": [
+    {
+      "id": "cena-1",
+      "prompt": "COLE AQUI a intenção visual, direção de movimento, cores e texto próprio. Insira janelas temporais obtidas do alinhamento da voz desta produção. Trate palavras como objetos gráficos silenciosos, não como roteiro falado. Não acrescente palavras, logos ou marcas não autorizados. Preserve grafia e acentos do texto aprovado. Formas decorativas devem ser claramente abstratas. Sem narração, fala, canto ou voz no clipe visual. A instrução não substitui a inspeção do resultado.",
+      "duration": 10,
+      "onScreenText": "COLE AQUI o texto gráfico próprio.",
+      "textRendering": "omni-native"
+    }
+  ],
+  "audio": {
+    "narration": {
+      "provider": "google-vids",
+      "text": "COLE AQUI o roteiro próprio da narração.",
+      "voice": "Jett",
+      "documentUrl": "https://docs.google.com/videos/d/USER_DOCUMENT_ID",
+      "fallbackPolicy": "manual-after-preflight-failure",
+      "sync": "whisper-word-timestamps",
+      "whisperModel": "small",
+      "language": "pt",
+      "humanReview": true,
+      "blocks": [
+        {
+          "id": "cena-1",
+          "text": "COLE AQUI o roteiro próprio da narração."
+        }
+      ]
+    },
+    "soundtrack": {
+      "provider": "flow-music",
+      "prompt": "COLE AQUI a direção musical instrumental própria, sem vozes.",
+      "duration": 10,
+      "volume": 0.22,
+      "fadeOut": 0
+    }
+  }
+}

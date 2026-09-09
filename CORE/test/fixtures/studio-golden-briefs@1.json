@@ -1,0 +1,635 @@
+{
+  "schema": "mkt-videos/studio-golden-briefs@1",
+  "version": 1,
+  "providerFree": true,
+  "cases": [
+    {
+      "id": "commercial-product",
+      "category": "commercial",
+      "brief": {
+        "briefId": "gold-commercial-product",
+        "userBrief": "Filme curto de produto artesanal em mesa de pedra, luz quente e movimento suave.",
+        "objective": "apresentar o produto",
+        "audience": "consumidores",
+        "genre": "commercial",
+        "channel": "social",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-product-example",
+        "brandId": "brand-product-example",
+        "projectId": "project-commercial",
+        "requiredText": [
+          "PRODUTO EXEMPLO"
+        ],
+        "restrictions": [
+          "sem marca inventada"
+        ],
+        "references": [],
+        "preferences": [
+          "premium"
+        ]
+      },
+      "expected": {
+        "scope": "client-product-example",
+        "capability": "omni"
+      }
+    },
+    {
+      "id": "documentary-memory",
+      "category": "documentary",
+      "brief": {
+        "briefId": "gold-documentary-memory",
+        "userBrief": "Documentário observacional sobre memória de bairro, fachadas antigas e sons cotidianos.",
+        "objective": "preservar testemunho",
+        "audience": "público geral",
+        "genre": "documentary",
+        "channel": "festival",
+        "format": "16:9",
+        "durationSeconds": 12,
+        "clientId": "client-museu",
+        "brandId": "brand-museu",
+        "projectId": "project-memory",
+        "requiredText": [],
+        "restrictions": [
+          "não dramatizar depoimento"
+        ],
+        "references": [],
+        "preferences": [
+          "observacional"
+        ]
+      },
+      "expected": {
+        "scope": "client-museu",
+        "capability": "omni"
+      }
+    },
+    {
+      "id": "documentary-science",
+      "category": "documentary",
+      "brief": {
+        "briefId": "gold-documentary-science",
+        "userBrief": "Explicação documental sobre recuperação de um rio, com dados visuais e ritmo contemplativo.",
+        "objective": "explicar impacto",
+        "audience": "estudantes",
+        "genre": "documentary",
+        "channel": "educação",
+        "format": "16:9",
+        "durationSeconds": 12,
+        "clientId": "client-museu",
+        "brandId": "brand-museu",
+        "projectId": "project-river",
+        "requiredText": [
+          "DADOS ABERTOS"
+        ],
+        "restrictions": [
+          "não inventar números"
+        ],
+        "references": [],
+        "preferences": [
+          "evidência"
+        ]
+      },
+      "expected": {
+        "scope": "client-museu",
+        "capability": "omni"
+      }
+    },
+    {
+      "id": "short-film-encounter",
+      "category": "short-film",
+      "brief": {
+        "briefId": "gold-short-encounter",
+        "userBrief": "Pequeno filme sobre dois desconhecidos que se reconhecem numa estação ao amanhecer.",
+        "objective": "criar emoção",
+        "audience": "cinéfilos",
+        "genre": "short-film",
+        "channel": "festival",
+        "format": "16:9",
+        "durationSeconds": 15,
+        "clientId": "client-cinema",
+        "brandId": "brand-cinema",
+        "projectId": "project-encounter",
+        "requiredText": [],
+        "restrictions": [
+          "sem diálogo na tela"
+        ],
+        "references": [],
+        "preferences": [
+          "silêncio"
+        ]
+      },
+      "expected": {
+        "scope": "client-cinema",
+        "capability": "omni"
+      }
+    },
+    {
+      "id": "short-film-object",
+      "category": "short-film",
+      "brief": {
+        "briefId": "gold-short-object",
+        "userBrief": "Curta minimalista em que uma chave atravessa três mãos e muda de significado.",
+        "objective": "contar transformação",
+        "audience": "público geral",
+        "genre": "short-film",
+        "channel": "festival",
+        "format": "16:9",
+        "durationSeconds": 15,
+        "clientId": "client-cinema",
+        "brandId": "brand-cinema",
+        "projectId": "project-object",
+        "requiredText": [],
+        "restrictions": [
+          "continuidade explícita"
+        ],
+        "references": [],
+        "preferences": [
+          "montagem seca"
+        ]
+      },
+      "expected": {
+        "scope": "client-cinema",
+        "capability": "omni"
+      }
+    },
+    {
+      "id": "motion-grid",
+      "category": "motion",
+      "brief": {
+        "briefId": "gold-motion-grid",
+        "userBrief": "Motion gráfico com grid modular, tipografia grande, easing suave e chamada final.",
+        "objective": "demonstrar sistema visual",
+        "audience": "designers",
+        "genre": "motion",
+        "channel": "social",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-lab",
+        "brandId": "brand-lab",
+        "projectId": "project-grid",
+        "requiredText": [
+          "SISTEMA VISUAL"
+        ],
+        "restrictions": [
+          "safe area",
+          "sem fonte remota"
+        ],
+        "references": [],
+        "preferences": [
+          "grid"
+        ]
+      },
+      "expected": {
+        "scope": "client-lab",
+        "capability": "local-html"
+      }
+    },
+    {
+      "id": "motion-cta",
+      "category": "motion",
+      "brief": {
+        "briefId": "gold-motion-cta",
+        "userBrief": "Composição de formas geométricas que convergem para um CTA vertical legível.",
+        "objective": "orientar ação",
+        "audience": "usuários móveis",
+        "genre": "motion",
+        "channel": "social",
+        "format": "9:16",
+        "durationSeconds": 8,
+        "clientId": "client-lab",
+        "brandId": "brand-lab",
+        "projectId": "project-cta",
+        "requiredText": [
+          "COMEÇAR"
+        ],
+        "restrictions": [
+          "safe area",
+          "corte limpo"
+        ],
+        "references": [],
+        "preferences": [
+          "alto contraste"
+        ]
+      },
+      "expected": {
+        "scope": "client-lab",
+        "capability": "local-html"
+      }
+    },
+    {
+      "id": "official-person",
+      "category": "official-person",
+      "brief": {
+        "briefId": "gold-official-person",
+        "userBrief": "Retrato documental respeitoso de uma pessoa oficial, com luz natural e enquadramento estável.",
+        "objective": "apresentar pessoa oficial",
+        "audience": "comunidade",
+        "genre": "documentary",
+        "channel": "web",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-example",
+        "brandId": "brand-example",
+        "projectId": "project-person",
+        "requiredText": [
+          "MARCA EXEMPLO"
+        ],
+        "restrictions": [
+          "usar somente referência oficial",
+          "preservar identidade"
+        ],
+        "references": [
+          "person:official-example-person"
+        ],
+        "preferences": [
+          "realismo"
+        ]
+      },
+      "expected": {
+        "scope": "client-example",
+        "reference": "official-only"
+      }
+    },
+    {
+      "id": "brand-conflict",
+      "category": "brand-conflict",
+      "brief": {
+        "briefId": "gold-brand-conflict",
+        "userBrief": "Peça institucional com linguagem neutra quando a preferência recebida conflita com a regra de marca.",
+        "objective": "testar conflito governado",
+        "audience": "equipe interna",
+        "genre": "commercial",
+        "channel": "web",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-example",
+        "brandId": "brand-example",
+        "projectId": "project-conflict",
+        "requiredText": [
+          "MARCA EXEMPLO"
+        ],
+        "restrictions": [
+          "bloquear vocabulário proibido"
+        ],
+        "references": [],
+        "preferences": [
+          "preferência conflitante"
+        ]
+      },
+      "expected": {
+        "scope": "client-example",
+        "decision": "human-review"
+      }
+    },
+    {
+      "id": "client-a-commercial",
+      "category": "multi-client",
+      "brief": {
+        "briefId": "gold-client-a-commercial",
+        "userBrief": "Anúncio do cliente A com paleta azul, produto isolado e ritmo objetivo.",
+        "objective": "vender produto A",
+        "audience": "clientes A",
+        "genre": "commercial",
+        "channel": "social",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-a",
+        "brandId": "brand-a",
+        "projectId": "project-a-1",
+        "requiredText": [
+          "CLIENTE A"
+        ],
+        "restrictions": [
+          "não cruzar escopo"
+        ],
+        "references": [],
+        "preferences": [
+          "azul"
+        ]
+      },
+      "expected": {
+        "scope": "client-a",
+        "isolatedFrom": "client-b"
+      }
+    },
+    {
+      "id": "client-b-commercial",
+      "category": "multi-client",
+      "brief": {
+        "briefId": "gold-client-b-commercial",
+        "userBrief": "Anúncio do cliente B com paleta âmbar, produto isolado e ritmo contemplativo.",
+        "objective": "vender produto B",
+        "audience": "clientes B",
+        "genre": "commercial",
+        "channel": "social",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-b",
+        "brandId": "brand-b",
+        "projectId": "project-b-1",
+        "requiredText": [
+          "CLIENTE B"
+        ],
+        "restrictions": [
+          "não cruzar escopo"
+        ],
+        "references": [],
+        "preferences": [
+          "âmbar"
+        ]
+      },
+      "expected": {
+        "scope": "client-b",
+        "isolatedFrom": "client-a"
+      }
+    },
+    {
+      "id": "rights-unknown-reference",
+      "category": "rights-unknown",
+      "brief": {
+        "briefId": "gold-rights-unknown",
+        "userBrief": "Estudo de linguagem visual com referência externa ainda sem direitos classificados.",
+        "objective": "observar técnica sem reutilizar asset",
+        "audience": "equipe criativa",
+        "genre": "motion",
+        "channel": "interno",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-lab",
+        "brandId": "brand-lab",
+        "projectId": "project-rights",
+        "requiredText": [],
+        "restrictions": [
+          "provider input denied",
+          "local study only"
+        ],
+        "references": [
+          "reference:external-unclassified"
+        ],
+        "preferences": [
+          "abstrair técnica"
+        ]
+      },
+      "expected": {
+        "rights": "unknown",
+        "providerInput": "denied"
+      }
+    },
+    {
+      "id": "rights-no-path",
+      "category": "rights-unknown",
+      "brief": {
+        "briefId": "gold-rights-no-path",
+        "userBrief": "Brief que menciona uma referência por identificador lógico sem autorizar envio ao provedor.",
+        "objective": "testar bloqueio de path",
+        "audience": "equipe criativa",
+        "genre": "documentary",
+        "channel": "interno",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-lab",
+        "brandId": "brand-lab",
+        "projectId": "project-rights-2",
+        "requiredText": [],
+        "restrictions": [
+          "sem path local",
+          "sem creator handle"
+        ],
+        "references": [
+          "reference:unresolved"
+        ],
+        "preferences": [
+          "report-only"
+        ]
+      },
+      "expected": {
+        "rights": "unknown",
+        "providerInput": "denied"
+      }
+    },
+    {
+      "id": "capability-tts-pending",
+      "category": "capability-unavailable",
+      "brief": {
+        "briefId": "gold-capability-tts",
+        "userBrief": "Comercial que pede narração, mas deve permanecer em planejamento enquanto TTS não tem prova operacional.",
+        "objective": "planejar narração",
+        "audience": "clientes",
+        "genre": "commercial",
+        "channel": "web",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-a",
+        "brandId": "brand-a",
+        "projectId": "project-tts",
+        "requiredText": [
+          "OUÇA"
+        ],
+        "restrictions": [
+          "tts pendente",
+          "sem fallback"
+        ],
+        "references": [],
+        "preferences": [
+          "voz única"
+        ]
+      },
+      "expected": {
+        "capability": "tts",
+        "status": "pending",
+        "execution": "blocked-before-provider"
+      }
+    },
+    {
+      "id": "capability-semantic-qa-blocked",
+      "category": "capability-unavailable",
+      "brief": {
+        "briefId": "gold-capability-semantic-qa",
+        "userBrief": "Filme curto que solicita QA semântico, mantendo a etapa bloqueada até existir adapter verificável.",
+        "objective": "planejar validação",
+        "audience": "clientes",
+        "genre": "short-film",
+        "channel": "festival",
+        "format": "16:9",
+        "durationSeconds": 12,
+        "clientId": "client-b",
+        "brandId": "brand-b",
+        "projectId": "project-semantic-qa",
+        "requiredText": [],
+        "restrictions": [
+          "qa semântico bloqueado",
+          "sem retry"
+        ],
+        "references": [],
+        "preferences": [
+          "qa técnico local"
+        ]
+      },
+      "expected": {
+        "capability": "semantic-qa",
+        "status": "blocked",
+        "execution": "blocked-before-provider"
+      }
+    },
+    {
+      "id": "preference-local",
+      "category": "preference-scope",
+      "brief": {
+        "briefId": "gold-preference-local",
+        "userBrief": "Cliente A prefere cortes secos para esta campanha, sem transformar a preferência em regra global.",
+        "objective": "aplicar preferência local",
+        "audience": "clientes A",
+        "genre": "commercial",
+        "channel": "social",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-a",
+        "brandId": "brand-a",
+        "projectId": "project-preference-a",
+        "requiredText": [
+          "CLIENTE A"
+        ],
+        "restrictions": [
+          "scope local"
+        ],
+        "references": [],
+        "preferences": [
+          "corte seco"
+        ]
+      },
+      "expected": {
+        "preferenceScope": "project-a",
+        "promotion": "human-only"
+      }
+    },
+    {
+      "id": "preference-global",
+      "category": "preference-scope",
+      "brief": {
+        "briefId": "gold-preference-global",
+        "userBrief": "Proposta abstrata para avaliar se uma preferência pode ser promovida a regra global após revisão.",
+        "objective": "avaliar promoção",
+        "audience": "equipe de direção",
+        "genre": "motion",
+        "channel": "interno",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-lab",
+        "brandId": "brand-lab",
+        "projectId": "project-preference-global",
+        "requiredText": [],
+        "restrictions": [
+          "candidate only",
+          "sem auto-promoção"
+        ],
+        "references": [],
+        "preferences": [
+          "ritmo respirado"
+        ]
+      },
+      "expected": {
+        "preferenceScope": "global-proposal",
+        "promotion": "human-only"
+      }
+    },
+    {
+      "id": "explicit-chain",
+      "category": "preference-scope",
+      "brief": {
+        "briefId": "gold-explicit-chain",
+        "userBrief": "Duas cenas planejadas como encadeamento explícito, com continuidade registrada e sem herança automática.",
+        "objective": "testar topologia explícita",
+        "audience": "direção",
+        "genre": "short-film",
+        "channel": "festival",
+        "format": "16:9",
+        "durationSeconds": 12,
+        "clientId": "client-cinema",
+        "brandId": "brand-cinema",
+        "projectId": "project-chain",
+        "requiredText": [],
+        "restrictions": [
+          "encadeamento explícito"
+        ],
+        "references": [],
+        "preferences": [
+          "continuidade"
+        ]
+      },
+      "expected": {
+        "topology": "explicit-only",
+        "promotion": "none"
+      }
+    },
+    {
+      "id": "accessibility-card",
+      "category": "commercial",
+      "brief": {
+        "briefId": "gold-accessibility",
+        "userBrief": "Peça vertical com texto curto, contraste alto e composição acessível para leitura sem áudio.",
+        "objective": "comunicar com acessibilidade",
+        "audience": "público amplo",
+        "genre": "commercial",
+        "channel": "social",
+        "format": "9:16",
+        "durationSeconds": 8,
+        "clientId": "client-product-example",
+        "brandId": "brand-product-example",
+        "projectId": "project-accessibility",
+        "requiredText": [
+          "ACESSÍVEL"
+        ],
+        "restrictions": [
+          "contraste alto",
+          "legenda legível"
+        ],
+        "accessibility": [
+          "high-contrast",
+          "captions-ready"
+        ],
+        "references": [],
+        "preferences": [
+          "legibilidade"
+        ]
+      },
+      "expected": {
+        "accessibility": "declared",
+        "scope": "client-product-example"
+      }
+    },
+    {
+      "id": "logo-fidelity",
+      "category": "brand-conflict",
+      "brief": {
+        "briefId": "gold-logo-fidelity",
+        "userBrief": "Fechamento institucional com a marca real completa, sem redesenhar forma nem proporção.",
+        "objective": "preservar identidade",
+        "audience": "alunos",
+        "genre": "commercial",
+        "channel": "web",
+        "format": "16:9",
+        "durationSeconds": 8,
+        "clientId": "client-example",
+        "brandId": "brand-example",
+        "projectId": "project-logo",
+        "requiredText": [
+          "MARCA EXEMPLO"
+        ],
+        "restrictions": [
+          "logo fiel",
+          "não redesenhar logo"
+        ],
+        "references": [
+          "brand:official-example-brand"
+        ],
+        "preferences": [
+          "premium"
+        ]
+      },
+      "expected": {
+        "logoPolicy": "fidelity-required",
+        "scope": "client-example"
+      }
+    }
+  ]
+}

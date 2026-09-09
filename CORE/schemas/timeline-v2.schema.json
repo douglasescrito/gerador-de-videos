@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/timeline@2",
+  "type": "object",
+  "required": ["schema", "timeBase", "fps", "frameRange", "locked", "transition", "assets", "tracks", "markers", "metadata", "sourceProvenance", "fingerprint"],
+  "properties": {
+    "schema": { "const": "mkt-videos/timeline@2" },
+    "timeBase": { "$ref": "#/$defs/rational" },
+    "fps": { "$ref": "#/$defs/rational" },
+    "frameRange": { "type": "object", "required": ["startFrame", "endFrameExclusive"], "properties": { "startFrame": { "type": "integer", "minimum": 0 }, "endFrameExclusive": { "type": ["integer", "null"], "minimum": 0 } }, "additionalProperties": false },
+    "locked": { "type": "boolean" },
+    "transition": { "type": "object" },
+    "assets": { "type": "array" },
+    "tracks": { "type": "array" },
+    "markers": { "type": "array" },
+    "metadata": { "type": "object" },
+    "sourceProvenance": { "type": ["object", "null"] },
+    "fingerprint": { "type": "string", "pattern": "^[a-f0-9]{64}$" }
+  },
+  "additionalProperties": false,
+  "$defs": { "rational": { "type": "object", "required": ["numerator", "denominator"], "properties": { "numerator": { "type": "integer", "minimum": 1 }, "denominator": { "type": "integer", "minimum": 1 } }, "additionalProperties": false } }
+}

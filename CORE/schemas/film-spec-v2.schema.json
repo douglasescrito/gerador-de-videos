@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/film-spec@2",
+  "type": "object",
+  "required": ["schema", "name", "source", "narration", "music", "timeline", "scenes", "formats", "captions", "qa", "reuse", "execution"],
+  "properties": {
+    "schema": { "const": "mkt-videos/film-spec@2" },
+    "name": { "type": "string", "minLength": 1 },
+    "source": { "type": "object" },
+    "narration": { "type": "object" },
+    "music": { "type": "object" },
+    "timeline": { "type": "object" },
+    "scenes": { "type": "array", "minItems": 1 },
+    "formats": { "type": "object" },
+    "brief": { "anyOf": [{ "$ref": "mkt-videos/studio-brief@1" }, { "type": "null" }] },
+    "knowledgeContext": { "anyOf": [{ "$ref": "mkt-videos/knowledge-context@1" }, { "type": "null" }] },
+    "knowledgeContextBinding": { "anyOf": [{ "$ref": "mkt-videos/knowledge-context-binding@1" }, { "type": "null" }] },
+    "decisionArtifacts": { "anyOf": [{ "$ref": "mkt-videos/studio-decision-artifacts@1" }, { "type": "null" }] },
+    "productionContextBinding": { "anyOf": [{ "$ref": "mkt-videos/production-context-binding@1" }, { "type": "null" }] },
+    "brandKit": { "type": ["object", "null"] },
+    "captions": { "type": "object" },
+    "qa": { "type": "object" },
+    "reuse": { "type": "object" },
+    "execution": { "type": "object" },
+    "finishing": { "type": "object" },
+    "compatibility": { "type": "object" }
+  }
+}

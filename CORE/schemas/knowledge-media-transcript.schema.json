@@ -1,0 +1,65 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/media-transcript@1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "assetId",
+    "receiptId",
+    "artifactHash",
+    "language",
+    "text",
+    "segments",
+    "engine",
+    "authority",
+    "generatedAt"
+  ],
+  "properties": {
+    "schema": { "const": "mkt-videos/media-transcript@1" },
+    "assetId": { "$ref": "#/$defs/id" },
+    "receiptId": {
+      "oneOf": [
+        { "type": "null" },
+        { "type": "string", "minLength": 1, "maxLength": 300 }
+      ]
+    },
+    "artifactHash": { "$ref": "#/$defs/hash" },
+    "language": { "type": "string", "pattern": "^[a-z]{2,3}(?:-[A-Z]{2})?$" },
+    "text": { "type": "string", "maxLength": 1048576 },
+    "segments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["start", "end", "text"],
+        "properties": {
+          "start": { "type": "number", "minimum": 0 },
+          "end": { "type": "number", "minimum": 0 },
+          "text": { "type": "string", "maxLength": 16384 }
+        }
+      }
+    },
+    "engine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "model"],
+      "properties": {
+        "id": { "const": "whisper-local" },
+        "model": { "type": "string", "minLength": 1, "maxLength": 100 }
+      }
+    },
+    "authority": { "const": "none" },
+    "generatedAt": { "type": "string", "format": "date-time" }
+  },
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9][A-Za-z0-9._:@/-]{0,199}$"
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^[a-f0-9]{64}$"
+    }
+  }
+}

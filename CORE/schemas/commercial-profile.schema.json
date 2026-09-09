@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "mkt-videos/commercial-profile@1",
+  "type": "object",
+  "required": ["schema", "version", "commercial", "brandKit", "hash"],
+  "properties": {
+    "schema": { "const": "mkt-videos/commercial-profile@1" },
+    "version": { "const": 1 },
+    "commercial": { "type": "object" },
+    "logoImage": { "type": ["string", "null"] },
+    "brandKit": { "type": "object" },
+    "hash": { "type": "string" }
+  }
+}
