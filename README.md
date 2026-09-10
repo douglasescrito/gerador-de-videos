@@ -56,4 +56,4 @@ Cada pessoa usa a própria conta e o próprio cofre de credenciais do Windows.
 `ATIVAR-CONTAS.cmd` abre as janelas de login. Não copie cookies, perfis ou
 credenciais de outra pessoa.
 
-Repositório privado. Veja [COMPARTILHAMENTO-PRIVADO.md](COMPARTILHAMENTO-PRIVADO.md).
+Direitos, licenças e o que não vem junto: [DIREITOS-E-COMPARTILHAMENTO.md](DIREITOS-E-COMPARTILHAMENTO.md).

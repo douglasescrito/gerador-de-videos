@@ -15,9 +15,22 @@ retrieval, planejamento ou geração.
 
 Depois de aprovação humana independente e atestada, o conteúdo original dos
 packs pode apoiar planejamento e revisão internos das produções do workspace.
-Essa permissão não autoriza copiar conteúdo das fontes citadas, enviar fontes
-ou referências a provedores, treinar modelos, publicar o pack, redistribuí-lo
-ou sublicenciá-lo.
+Essa permissão, por si só, não autoriza copiar conteúdo das fontes citadas,
+enviar fontes ou referências a provedores, treinar modelos, publicar o pack,
+redistribuí-lo ou sublicenciá-lo. Publicação e redistribuição dependem de
+decisão expressa do titular, na seção seguinte.
+
+## Distribuição autorizada pelo titular
+
+O titular dos direitos sobre a síntese autoral pode autorizar, por decisão
+expressa, que os packs acompanhem uma edição publicada deste projeto. Essa
+autorização foi dada para a edição distribuída do Gerador de Vídeos e cobre
+somente o conteúdo original dos packs.
+
+Ela não afrouxa nada quanto às fontes. Continua proibido copiar conteúdo das
+fontes citadas, enviar fontes ou referências a provedores e treinar modelos.
+Cada fonte conserva seus próprios termos, e receber uma cópia publicada não
+concede licença sobre nenhuma delas.
 
 ## Separação de direitos
 

@@ -8,7 +8,7 @@ para recompilar os [plugins Wasm](PLUGIN-RUNTIME.md).
 
 ## Instalar uma cópia própria
 
-1. Obtenha acesso ao repositório privado pela sua própria conta GitHub.
+1. Clone o repositório para a sua máquina, com a sua própria conta.
 2. Clone para uma pasta sua, como GERADOR DE VIDEOS na Área de Trabalho. Um ZIP
    também permite instalar, mas o atualizador exige um clone Git com upstream.
 3. Prepare os requisitos da [instalação Windows](INSTALACAO-WINDOWS.md): Node,
@@ -89,7 +89,8 @@ permanecem fora do Git; não copie um banco aberto como se fosse backup validado
 Para distribuir uma nova versão, monte uma cópia limpa com arquivos revisados,
 lockfile, fontes e licenças. Confira segredos, mídia pessoal e recibos antes de
 versionar. Uma lista ignore não remove arquivos já rastreados nem limpa histórico.
-O primeiro compartilhamento deve usar histórico Git novo e repositório privado.
+O primeiro compartilhamento deve usar histórico Git novo. Publicar é decisão
+separada e irreversível: quem clonar durante a janela pública fica com a cópia.
 Acervo de terceiros não entra na distribuição. Se um dia entrar, precisa de
 escopo escolhido arquivo a arquivo e de limites de uso declarados por escrito.
 

@@ -4,7 +4,7 @@
 
 Schema da projeção: `mkt-videos/domain-pack-catalog-markdown@1`.
 Schema dos packs: `mkt-videos/domain-pack@1`.
-Manifest: `8a9c5df5cd2f6b9f9e5451ab4b53cc513c1f38945a5814f9305e2bab83693cd8`.
+Manifest: `e8a41b3bae40bb5d2094fec87dd60dcd396d73398e47e2023ef4adcfa2bc639f`.
 
 Total: 7; aprovados: 0; candidatos: 7.
 
@@ -13,28 +13,28 @@ Total: 7; aprovados: 0; candidatos: 7.
 
 | Pack | Lifecycle | Princípios | Fontes | Cobertura | Hash |
 |---|---|---:|---:|---:|---|
-| `brand-and-channel@2` | `candidate` | 5 | 7 | 15/15 | `adad2b18b5b0b338a88db1ec22da52b60c665670d248d89162c5e41247a51b00` |
-| `commercial-storytelling@1` | `candidate` | 6 | 6 | 20/20 | `b0f568f220147f852349a3079b88b84566cb230327647290e0c5f9ac28289d2f` |
-| `documentary-practice@1` | `candidate` | 7 | 8 | 21/21 | `f5585d440294b852ee4a377490b70f22274558145da34405ea0a4611740aa30b` |
-| `hybrid-rendering@2` | `candidate` | 7 | 9 | 16/16 | `91fe71b3cc68bc3f76de98905d9a77d82b923199bebf82c31b55b3d25d00d4a8` |
-| `motion-foundations@1` | `candidate` | 8 | 6 | 29/29 | `d799db74ec600f671a3521d4971f57de0caaf21e3eb0748d57449bd09b4beb35` |
-| `short-film-language@1` | `candidate` | 7 | 3 | 21/21 | `9f1485dd2973a0b2bbc64a9bf239eea394b47cdcda9a5288feebfa19f1b56756` |
-| `sound-and-music@2` | `candidate` | 9 | 8 | 18/18 | `ac634c8eca5deeb9b04cbdce3a3d07baeac258083b98a40130f9c78b6b64e10c` |
+| `brand-and-channel@2` | `candidate` | 5 | 7 | 15/15 | `d24dc47fb92682b59721ef394222be97c556f28d879e3b6c0a431ab80eb20d3b` |
+| `commercial-storytelling@1` | `candidate` | 6 | 6 | 20/20 | `01777061d8cbeb33040f91c5d60f1cb14c711c185181e3e15becda9446f3bb3f` |
+| `documentary-practice@1` | `candidate` | 7 | 8 | 21/21 | `03c52cb0e16954372c98691c173ac59cfd54e125b037daff128a146dab7b0401` |
+| `hybrid-rendering@2` | `candidate` | 7 | 9 | 16/16 | `53668eb82a77f95f822ad85dda03e44a1856d9633d0d32cd57ecb82ce8d27fa9` |
+| `motion-foundations@1` | `candidate` | 8 | 6 | 29/29 | `aa4a68930191bb7b243ce98c80c64f64ecd9e19d0f9cb38cf06169e707c0c73e` |
+| `short-film-language@1` | `candidate` | 7 | 3 | 21/21 | `3de5147cfdc8efa1a46bb3315e173b7d6d2e5b80cce48b2fae4f061baefafe77` |
+| `sound-and-music@2` | `candidate` | 9 | 8 | 18/18 | `ac7b3d4cde44b6490c12522d7268bf0f788a0e7299e4da46a7558e954ecfbc9d` |
 
 Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary-practice@1`, `hybrid-rendering@2`, `motion-foundations@1`, `short-film-language@1`, `sound-and-music@2`.
 
 ## `brand-and-channel@2` — Marca e canal
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `adad2b18b5b0b338a88db1ec22da52b60c665670d248d89162c5e41247a51b00`.
-- Arquivo: `brand-and-channel@2.domain-pack.json`; SHA-256 `01e29b44b096a1a36d41dc61efef13882cd180215a5c1523a3f61a5b0a6bb890`.
+- Hash canônico: `d24dc47fb92682b59721ef394222be97c556f28d879e3b6c0a431ab80eb20d3b`.
+- Arquivo: `brand-and-channel@2.domain-pack.json`; SHA-256 `cd198af314f904ea4e7c28fceb7fa8d013b307f6c6e25ab2dd4c5ffd5f495389`.
 - Resumo: Contrato técnico para preservar identidade e mensagem enquanto formato, duração, safe area, captions e comportamento de consumo variam por canal.
 - Domínios: `brand`, `channel`, `delivery`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 15/15 tags declaradas/requeridas.
 
@@ -235,15 +235,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `commercial-storytelling@1` — Storytelling comercial responsável
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `b0f568f220147f852349a3079b88b84566cb230327647290e0c5f9ac28289d2f`.
-- Arquivo: `commercial-storytelling@1.domain-pack.json`; SHA-256 `61d81259a0a8fb7b795a9bf154d012b933c0e274371d38b76228c72d91976ef9`.
+- Hash canônico: `01777061d8cbeb33040f91c5d60f1cb14c711c185181e3e15becda9446f3bb3f`.
+- Arquivo: `commercial-storytelling@1.domain-pack.json`; SHA-256 `92516b70cc352c903e83fa760b8562368734e3150f788ebfe7350ca3e7917fce`.
 - Resumo: Estrutura técnica para ligar objetivo de negócio, audiência, mensagem, prova, oferta e canal sem transformar persuasão em alegação não sustentada.
 - Domínios: `commercial`, `advertising`, `storytelling`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 20/20 tags declaradas/requeridas.
 
@@ -469,15 +469,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `documentary-practice@1` — Prática documental responsável
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `f5585d440294b852ee4a377490b70f22274558145da34405ea0a4611740aa30b`.
-- Arquivo: `documentary-practice@1.domain-pack.json`; SHA-256 `1ef72d32ada8d80a37c32cc919027228f5882044003aa0b49c72220ffc558df5`.
+- Hash canônico: `03c52cb0e16954372c98691c173ac59cfd54e125b037daff128a146dab7b0401`.
+- Arquivo: `documentary-practice@1.domain-pack.json`; SHA-256 `a6a53492b4f86b5bb93e097732646b430aa8bdac8224e8313d978cca2183300e`.
 - Resumo: Fundamentos para estruturar ponto de vista, fontes, evidência, consentimento, arquivo, reconstrução e material gerado sem apresentar interpretação ou dramatização como fato.
 - Domínios: `documentary`, `nonfiction`, `editorial-ethics`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 21/21 tags declaradas/requeridas.
 
@@ -730,15 +730,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `hybrid-rendering@2` — Renderização híbrida
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `91fe71b3cc68bc3f76de98905d9a77d82b923199bebf82c31b55b3d25d00d4a8`.
-- Arquivo: `hybrid-rendering@2.domain-pack.json`; SHA-256 `02fb61c47d5db136eca922abacd9b0df1f8079673e0eb8d1a68a777b28b0402b`.
+- Hash canônico: `53668eb82a77f95f822ad85dda03e44a1856d9633d0d32cd57ecb82ce8d27fa9`.
+- Arquivo: `hybrid-rendering@2.domain-pack.json`; SHA-256 `70a0c369e78cace40be33389f6759ed181694973a05d8c0c6843de4e316cdaf2`.
 - Resumo: Fundamentos para escolher geração, render determinístico ou combinação, preservando alpha, tipografia exata, timeline, cor, assets, ambiente, licenças e provenance.
 - Domínios: `hybrid-rendering`, `html-motion`, `compositing`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 16/16 tags declaradas/requeridas.
 
@@ -986,15 +986,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `motion-foundations@1` — Fundamentos de motion design
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `d799db74ec600f671a3521d4971f57de0caaf21e3eb0748d57449bd09b4beb35`.
-- Arquivo: `motion-foundations@1.domain-pack.json`; SHA-256 `d5a21357fc89cf5dbfdd2a1c02109451e7462eb893c52c0520b98a60bce67fae`.
+- Hash canônico: `aa4a68930191bb7b243ce98c80c64f64ecd9e19d0f9cb38cf06169e707c0c73e`.
+- Arquivo: `motion-foundations@1.domain-pack.json`; SHA-256 `7546559ea774db25ee5bbabe1927f682fcc36075623116787b665c959e3c5b92`.
 - Resumo: Vocabulário técnico neutro para organizar espaço, tempo, movimento e percepção sem prescrever uma estética, um criador ou uma ferramenta.
 - Domínios: `motion-design`, `visual-language`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 29/29 tags declaradas/requeridas.
 
@@ -1273,15 +1273,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `short-film-language@1` — Linguagem de pequenos filmes
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `9f1485dd2973a0b2bbc64a9bf239eea394b47cdcda9a5288feebfa19f1b56756`.
-- Arquivo: `short-film-language@1.domain-pack.json`; SHA-256 `4607a01c68cf550fcb97268d59b1179138b8535c8fa7b132a14e6b9a6a7f31b9`.
+- Hash canônico: `3de5147cfdc8efa1a46bb3315e173b7d6d2e5b80cce48b2fae4f061baefafe77`.
+- Arquivo: `short-film-language@1.domain-pack.json`; SHA-256 `c7b6b27ab5e0f819505d832e43a49bdb66137488f946728d48a2e7b51a7d8bbb`.
 - Resumo: Vocabulário flexível para condensar premissa, personagem, cena, virada, ponto de vista, montagem e som em narrativas curtas sem impor fórmula dramática universal.
 - Domínios: `short-film`, `narrative`, `film-language`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 21/21 tags declaradas/requeridas.
 
@@ -1527,15 +1527,15 @@ Ordem de carga: `brand-and-channel@2`, `commercial-storytelling@1`, `documentary
 ## `sound-and-music@2` — Som, voz e música
 
 - Lifecycle editorial: `candidate`.
-- Hash canônico: `ac634c8eca5deeb9b04cbdce3a3d07baeac258083b98a40130f9c78b6b64e10c`.
-- Arquivo: `sound-and-music@2.domain-pack.json`; SHA-256 `1128154f4db368f335ee0f4dcab81e62359bd13b7db0e79bf874c318fcd57801`.
+- Hash canônico: `ac7b3d4cde44b6490c12522d7268bf0f788a0e7299e4da46a7558e954ecfbc9d`.
+- Arquivo: `sound-and-music@2.domain-pack.json`; SHA-256 `77a3c5919ea7a294ebcff7acb91bb6f6ae939adaf33f773ca7c04f7f591b1dae`.
 - Resumo: Fundamentos para intenção vocal, inteligibilidade, ritmo, música, efeitos, sincronismo, mix, loudness, acessibilidade e restrições operacionais do Studio.
 - Domínios: `sound`, `music`, `audio-post`.
 - Autores: Codex assisted draft (`codex-assisted-draft`).
 - Revisores: nenhum; candidato ainda não aprovado.
 - Revisado em: não revisado.
 - Licença do pack: `MKT-Videos-Proprietary-Knowledge@1` (`custom`).
-- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546`.
+- Termos do pack: contrato governado (`urn:mkt-videos:governance:domain-pack-terms`); hash `31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f`.
 - Dependências: nenhuma.
 - Cobertura: 18/18 tags declaradas/requeridas.
 

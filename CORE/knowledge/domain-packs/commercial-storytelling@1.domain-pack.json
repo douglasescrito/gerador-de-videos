@@ -33,7 +33,7 @@
     "type": "custom",
     "identifier": "MKT-Videos-Proprietary-Knowledge@1",
     "termsUri": "urn:mkt-videos:governance:domain-pack-terms",
-    "termsContentHash": "3a8607d649f919720cd2de322dd299e2916a556168a890b64892c5236dea8546",
+    "termsContentHash": "31e675b5cfc5718e34427a63953b29317b2d535ef77650b35ba9537d9457d31f",
     "notice": "Síntese abstrata original para uso interno deste projeto. Fontes legais, regulatórias e de plataforma mantêm seus próprios termos e não são relicenciadas por este pack."
   },
   "sources": [
